@@ -2,6 +2,8 @@
 
 const express = require('express'),
       sassMiddleware = require('node-sass-middleware'),
+      webpack = require('webpack'),
+      webpackMiddleware = require('webpack-dev-middleware'),
       path = require('path'),
       app = express(),
       default_port = (process.env.PORT || 3000);
@@ -11,6 +13,16 @@ app.use(sassMiddleware({
     dest: path.join(__dirname, 'dist'),
     debug: true,
     outputStyle: 'nested'
+}));
+
+app.use(webpackMiddleware(webpack(require('./webpack.config')), {
+    noInfo: false,
+    quiet: false,
+    lazy: true,
+    publicPath: "/",
+    stats: {
+        colors: true
+    }
 }));
 
 app.use(express.static(path.join(__dirname, 'dist')));

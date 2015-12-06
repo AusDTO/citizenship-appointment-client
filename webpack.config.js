@@ -8,10 +8,10 @@ module.exports = {
   context: path.join(__dirname, 'lib'),
   entry: './index.js',
   output: {
-      path: path.join(__dirname, 'dist'),
-      filename: 'bundle.js'
+    path: path.join(__dirname, 'dist'),
+    filename: 'bundle.js'
   },
-  devtool: 'source-map', // or false
+  devtool: 'source-map',
   target: 'web',
   module: {
     loaders: [
