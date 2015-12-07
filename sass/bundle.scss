@@ -15,5 +15,8 @@
 @import "node_modules/skeleton-scss/scss/modules/media-queries";
 
 @import "base/variables";
+@import "modules/forms";
 @import "layout/header";
+@import "layout/main";
 @import "layout/footer";
+@import "pages/index";

@@ -5,7 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>citizenship-appointment-client</title>
+  <title>login</title>
 
   <link rel="stylesheet" type="text/css" href="bundle.css">
 </head>
@@ -13,9 +13,25 @@
 
   {{> header }}
 
-  <div class="container">
-    <div class="index-heading"></div>
-  </div>
+  <main>
+    <div class="container">
+      <!-- <div class="index-heading"></div> -->
+
+      <div class="steps-level">Step 1 of 3</div>
+      <h1>Book your citizenship appointment</h1>
+      <form method="get" action="">
+
+        <label for="clientId">Client ID</label>
+        <input id="clientId" type="text" ></input>
+
+        <label for="familyName">Family Name</label>
+        <input id="familyName" type="text" ></input>
+
+        <input type="submit" value="Next"></input>
+
+      </form>
+    </div>
+  </main>
 
   {{> footer }}
 
