@@ -6,6 +6,7 @@ const express = require('express'),
       webpack = require('webpack'),
       webpackMiddleware = require('webpack-dev-middleware'),
       path = require('path'),
+      fs = require('fs'),
       app = express(),
       default_port = (process.env.PORT || 3000);
 
@@ -36,7 +37,11 @@ app.use(require('connect-livereload')());  // runs livereload server and serves 
 require('express-livereload')(app, { watchDir: path.join(__dirname) });  // inserts <script> reference to livereload.js
 
 app.get('/', (req, res) => {
-  res.render('index');
+  res.render('index', {
+    partials: {
+      header: 'partials/header'
+    }
+  });
 });
 
 let server = app.listen(default_port, function () {
