@@ -9,6 +9,9 @@ mkdirp.sync(path.join(__dirname, 'dist'));
 
 let result = sass.renderSync({
   file: path.join(__dirname, 'sass', 'bundle.scss'),
-  includePaths: [path.join(__dirname, 'node_modules', 'skeleton-scss')]
+  includePaths: [path.join(__dirname, 'node_modules', 'skeleton-scss')],
+  outFile: 'bundle.css',
+  sourceMap: true
 });
 fs.writeFileSync(path.join(__dirname, 'dist', 'bundle.css'), result.css);
+fs.writeFileSync(path.join(__dirname, 'dist', 'bundle.css.map'), result.map);
