@@ -13,7 +13,9 @@
   "devDependencies": {
     "babel-core": "^6.2.1",
     "babel-loader": "^6.2.0",
+    "connect-livereload": "^0.5.4",
     "express": "^4.13.3",
+    "express-livereload": "0.0.24",
     "mkdirp": "^0.5.1",
     "mustache-loader": "^0.3.0",
     "node-sass": "^3.4.2",
