@@ -12,7 +12,8 @@ app.use(sassMiddleware({
     src: path.join(__dirname, 'sass'),
     dest: path.join(__dirname, 'dist'),
     debug: true,
-    outputStyle: 'nested'
+    outputStyle: 'nested',
+    sourceMap: path.join(__dirname, 'dist', 'bundle.css.map')
 }));
 
 app.use(webpackMiddleware(webpack(require('./webpack.config')), {
