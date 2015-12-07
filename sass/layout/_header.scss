@@ -1,0 +1,39 @@
+.header {
+  background-color: $light-grey;
+  padding: 0.75rem 0;
+
+  div {
+    height: 6rem;
+
+    img {
+      height: 100%;
+      vertical-align: middle;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    span {
+      font-family: 'Times New Roman', Times, serif;
+      font-weight: bold;
+      color: black;
+      font-size: 1.2em;
+      letter-spacing: -0.75px;
+    }
+  }
+}
+
+@media (max-width: 550px) {
+  .header {
+    padding: 0.5rem 0;
+
+    div {
+      height: 4rem;
+
+      span {
+        font-size: 1em;
+      }
+    }
+  }
+}

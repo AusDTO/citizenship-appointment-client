@@ -1,6 +1,19 @@
-@import "node_modules/skeleton-scss/scss/skeleton";
-@import "calendar";
+@import "node_modules/skeleton-scss/scss/base/normalize";
+@import "node_modules/skeleton-scss/scss/base/variables";
+@import "node_modules/skeleton-scss/scss/base/functions";
+@import "node_modules/skeleton-scss/scss/base/base-styles";
+@import "node_modules/skeleton-scss/scss/base/utils";
+@import "node_modules/skeleton-scss/scss/base/typography";
 
-body {
-  font-size: 3em;
-}
+@import "node_modules/skeleton-scss/scss/modules/grid";
+@import "node_modules/skeleton-scss/scss/modules/buttons";
+@import "node_modules/skeleton-scss/scss/modules/forms";
+@import "node_modules/skeleton-scss/scss/modules/lists";
+@import "node_modules/skeleton-scss/scss/modules/code";
+@import "node_modules/skeleton-scss/scss/modules/tables";
+@import "node_modules/skeleton-scss/scss/modules/spacing";
+@import "node_modules/skeleton-scss/scss/modules/media-queries";
+
+@import "base/variables";
+@import "layout/header";
+@import "layout/footer";

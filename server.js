@@ -36,10 +36,13 @@ app.use(express.static(path.join(__dirname, 'dist')));
 app.use(require('connect-livereload')());  // runs livereload server and serves livereload.js
 require('express-livereload')(app, { watchDir: path.join(__dirname), exts: ['mustache'] });  // inserts <script> reference to livereload.js
 
+app.use('/images', express.static(path.join(__dirname, 'images')));
+
 app.get('/', (req, res) => {
   res.render('index', {
     partials: {
-      header: 'partials/header'
+      header: 'partials/header',
+      footer: 'partials/footer'
     }
   });
 });

@@ -1,0 +1,15 @@
+.footer {
+  background-color: $govau-slate;
+  padding: 1rem 0;
+  position: absolute;
+  bottom: 0;
+
+  div {
+    height: 7rem;
+
+    img {
+      height: 100%;
+      vertical-align: middle;
+    }
+  }
+}
