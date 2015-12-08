@@ -47,6 +47,16 @@ app.get('/', (req, res) => {
   });
 });
 
+app.get('/booking', (req, res) => {
+  res.render('booking', {
+    partials: {
+      header: 'partials/header',
+      footer: 'partials/footer'
+    }
+  });
+});
+
+
 let server = app.listen(default_port, function () {
   let port = server.address().port;
   console.log('Listening on port ' + port);
