@@ -50,28 +50,30 @@ table.BookingCalendar-dates th {
 table.BookingCalendar-dates tbody td {
   font-size: 1.9em;
   padding: 0;
-  border: 1px solid $slotpicker-border;
+  border: 0;
 }
 
 table.BookingCalendar-dates .BookingCalendar-date--unavailable {
   pointer-events: none;
   cursor: default;
-  border: 0;
   background: url('../images/unavailable_tile.png');
+
+  p.BookingCalendar-day {
+    font-weight: lighter;
+  }
+}
+
+p.BookingCalendar-day {
+  padding: 1rem 0 0 0;
+  font-weight: bold;
 }
 
 table.BookingCalendar-dates .BookingCalendar-date--hide {
-  border: 0;
   background: transparent;
 }
 
 .BookingCalendar-date--hide * {
   display: none;
-}
-
-table.BookingCalendar-dates .BookingCalendar-date--bookable {
-  border: 1px solid rgba(123,158,186,1);
-  box-shadow: 0px 1px 1px 0px rgba(0,0,0,0.25);
 }
 
 table.BookingCalendar-dates .BookingCalendar-date--bookable.is-active {
@@ -93,11 +95,6 @@ a.BookingCalendar-dateLink p {
   margin: 0;
 }
 
-p.BookingCalendar-day {
-  padding-top: 2rem;
-  font-weight: 700;
-}
-
 p.BookingCalendar-available {
   font-size: 0.5em;
 }
@@ -108,7 +105,7 @@ p.BookingCalendar-available {
 
 .BookingCalendar-date--bookable a.BookingCalendar-dateLink:hover {
   text-decoration: none;
-  background: $bookable-color;
+  background: $hover-color;
 }
 
 .BookingCalendar-date--bookable.is-active a.BookingCalendar-dateLink {
@@ -121,7 +118,7 @@ p.BookingCalendar-available {
 }
 
 .BookingCalendar-date--bookable {
-  background: white;
+  background: $available-color;
 }
 
 .BookingCalendar-date--bookable.is-active {
@@ -130,7 +127,7 @@ p.BookingCalendar-available {
 
 .BookingCalendar-content {
   position: relative;
-  height: 10rem;
+  height: 9rem;
 }
 
 tr.CalRow-slots {
@@ -150,12 +147,10 @@ ul.CalRow-slots {
 
 .BookingCalendar-currentMonth {
   display: block;
-  font-family: "nta", Arial, sans-serif;
   font-size: 1.6em;
   line-height: normal;
-  font-weight: 400;
   text-transform: none;
-  font-weight: 700;
+  font-weight: bold;
   margin: 0;
   padding: 0.5em 0;
   text-align: center;
@@ -166,25 +161,6 @@ ul.CalRow-slots {
     font-size: 20px;
     line-height: 1.2;
   }
-}
-
-
-.SlotPicker-timeSlots {
-  display: none;
-}
-
-.SlotPicker-timeSlots.is-active {
-  display: block;
-}
-
-.SlotPicker-days {
-  overflow: hidden;
-  margin-bottom: 0;
-  padding: 0 1rem 0 1rem; }
-
-  @media (max-width: 768px) {
-    .SlotPicker-days {
-      margin-bottom: 0; }
 }
 
 th.abbr {
@@ -233,6 +209,6 @@ th.abbr {
   }
 
   .BookingCalendar-content {
-    max-height: 5rem;
+    max-height: 4.5rem;
   }
 }
