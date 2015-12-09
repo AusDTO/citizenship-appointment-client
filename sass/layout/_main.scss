@@ -1,4 +1,4 @@
-.steps-level {
+.steps-info {
   padding: 2rem 0;
   font-size: 1.5em;
   font-weight: lighter;
@@ -6,4 +6,11 @@
 
 h1 {
   font-weight: bold;
+}
+
+@media (max-width: 640px) {
+  .container {
+    width: 100%;
+    padding: 0 1rem;
+  }
 }

@@ -26,8 +26,9 @@
     "webpack-dev-middleware": "^1.4.0"
   },
   "dependencies": {
-    "jquery": "^2.1.4",
     "hogan.js": "^3.0.2",
+    "jquery": "^2.1.4",
+    "moment": "^2.10.6",
     "skeleton-scss": "^2.0.4"
   }
 }

@@ -51,13 +51,15 @@ app.get('/booking', (req, res) => {
   res.render('booking', {
     partials: {
       header: 'partials/header',
-      footer: 'partials/footer'
-    }
+      footer: 'partials/footer',
+      slotpicker: 'partials/slotpicker'
+    },
+    location: "2 Lonsdale Street, Melbourne VIC 3000",
+    todayDate: "2015-12-09"
   });
 });
 
-
-let server = app.listen(default_port, function () {
+let server = app.listen(default_port, () => {
   let port = server.address().port;
   console.log('Listening on port ' + port);
 });

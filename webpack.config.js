@@ -6,10 +6,13 @@ const webpack = require('webpack');
 module.exports = {
   debug: true,
   context: path.join(__dirname, 'lib'),
-  entry: './index.js',
+  entry: {
+    index: "./index",
+    booking: "./booking"
+  },
   output: {
-    path: path.join(__dirname, 'dist'),
-    filename: 'bundle.js'
+    path: path.join(__dirname, "dist"),
+    filename: "[name].bundle.js"
   },
   devtool: 'source-map',
   target: 'web',
@@ -23,7 +26,7 @@ module.exports = {
       {
         test: /\.mustache$/,
         exclude: /(node_modules|lib)/,
-        loader: 'mustache'
+        loader: 'mustache?noShortcut'
       }
     ]
   },
