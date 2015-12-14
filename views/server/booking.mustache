@@ -31,6 +31,13 @@
       </span>
 
       <div class="calendar" data-today="{{todayDate}}">
+        <div class="BookingCalendar-legend">
+          <span class="BookingCalendar-legendBox"></span>
+          &nbsp;Available
+          <span class="BookingCalendar-legendBox BookingCalendar-legendBox--unavailable"></span>
+          &nbsp;Unavailable
+        </div>
+
         {{> slotpicker }}
       </div>
 

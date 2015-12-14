@@ -7,6 +7,22 @@
 @-o-viewport {
   width: device-width; }
 
+.BookingCalendar-legend {
+  display: table;
+}
+
+.BookingCalendar-legendBox {
+  display: table-cell;
+  width: 2.5rem;
+  height: 2.5rem;
+  margin: 0 0.5em 0 0;
+  background: $available-color;
+}
+
+.BookingCalendar-legendBox--unavailable {
+  background: url('../images/unavailable_tile.png');
+}
+
 .BookingCalendar {
   font-size: 16px;
 }
@@ -82,7 +98,7 @@ table.BookingCalendar-dates .BookingCalendar-date--hide {
 
 table.BookingCalendar-dates .BookingCalendar-date--bookable.is-active {
   border-color: $selected-color;
-  background-color: $selected-color;
+  background: $selected-color;
 }
 
 a.BookingCalendar-dateLink {
