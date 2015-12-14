@@ -11,6 +11,10 @@
   font-size: 16px;
 }
 
+.BookingCalendar-header {
+  position: relative;
+}
+
 .BookingCalendar-tag {
   position: absolute;
   top: 0;
@@ -156,11 +160,40 @@ ul.CalRow-slots {
   text-align: center;
 }
 
-@media (max-width: 640px) {
-  .BookingCalendar-currentMonth {
-    font-size: 20px;
-    line-height: 1.2;
+.BookingCalendar-nav {
+  display: none;
+}
+
+.BookingCalendar-nav.is-active {
+  display: block;
+}
+
+button.BookingCalendar-nav--next,
+button.BookingCalendar-nav--prev {
+  position: absolute;
+  top: 0;
+  margin-top: 1rem;
+  text-decoration: none;
+  background-color: transparent;
+  border: 0;
+
+  span {
+    text-transform: capitalize;
+    color: $font-color;
+    font-weight: bold;
+    font-size: 2em;
   }
+  span:hover {
+    color: $hover-color;
+  }
+}
+
+button.BookingCalendar-nav--prev {
+  left: 0;
+}
+
+button.BookingCalendar-nav--next {
+  right: 0;
 }
 
 th.abbr {
