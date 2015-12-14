@@ -82,6 +82,7 @@ table.BookingCalendar-dates .BookingCalendar-date--hide {
 
 table.BookingCalendar-dates .BookingCalendar-date--bookable.is-active {
   border-color: $selected-color;
+  background-color: $selected-color;
 }
 
 a.BookingCalendar-dateLink {
