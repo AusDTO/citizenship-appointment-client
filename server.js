@@ -45,8 +45,8 @@ app.get('/', (req, res) => {
 app.get('/login', (req, res) => {
   res.render('login', {
     partials: {
-      header: 'header_partial',
-      footer: 'footer_partial'
+      header: 'partials/header',
+      footer: 'partials/footer'
     }
   });
 });
@@ -58,9 +58,9 @@ app.post('/login', (req, res) => {
 app.get('/booking', (req, res) => {
   res.render('booking', {
     partials: {
-      header: 'header_partial',
-      footer: 'footer_partial',
-      slotpicker: 'slotpicker_partial'
+      header: 'partials/header',
+      footer: 'partials/footer',
+      slotpicker: 'partials/slotpicker'
     },
     location: "2 Lonsdale Street, Melbourne VIC 3000",
     todayDate: "2015-12-09"
