@@ -7,12 +7,12 @@ module.exports = {
   debug: true,
   context: path.join(__dirname, 'lib'),
   entry: {
-    index: "./index",
+    login: "./login",
     booking: "./booking"
   },
   output: {
     path: path.join(__dirname, "dist"),
-    filename: "[name].bundle.js"
+    filename: "[name].js"
   },
   devtool: 'source-map',
   target: 'web',

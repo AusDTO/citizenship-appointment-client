@@ -21303,4 +21303,4 @@
 
 /***/ }
 /******/ ]);
-//# sourceMappingURL=booking.bundle.js.map
+//# sourceMappingURL=booking.js.map
