@@ -32,7 +32,7 @@ app.use(webpackMiddleware(webpack(require('./webpack.config')), {
     }
 }));
 
-app.use(express.static(path.join(__dirname, 'dist')));
+app.use('/static', express.static(path.join(__dirname, 'dist')));
 app.use(require('connect-livereload')());  // runs livereload server and serves livereload.js
 require('express-livereload')(app, { watchDir: path.join(__dirname), exts: ['mustache'] });  // inserts <script> reference to livereload.js
 
