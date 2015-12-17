@@ -5,7 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>login</title>
+  <title>Citizenship Appointment Booking</title>
 
   <link rel="icon" type="image/png" href="images/coat-of-arms-black-on-white-32x32.png" sizes="32x32">
   <link rel="stylesheet" type="text/css" href="bundle.css">
@@ -16,17 +16,24 @@
 
   <main>
     <div class="container">
-      <!-- <div class="index-heading"></div> -->
-
       <div class="steps-info">Step 1 of 3</div>
       <h1 class="landing-title">Book your citizenship appointment</h1>
-      <form method="get" action="">
 
+      {{#error}}
+        <div>
+          Incorrect Client ID and/or Family Name provided.
+          Please check your details and try again.
+          If the issue persists, please call the Citizenship line.
+        </div>
+      {{/error}}
+
+      <form action="/login" method="post">
+        <input name="{{ _csrf.parameterName }}" type="hidden" value="{{ _csrf.token }}" />
         <label for="clientId">Client ID</label>
-        <input id="clientId" type="text" ></input>
+        <input id="clientId" type="text" name="username"></input>
 
         <label for="familyName">Family Name</label>
-        <input id="familyName" type="text" ></input>
+        <input id="familyName" type="text" name="familyName"></input>
 
         <input type="submit" value="Next"></input>
 

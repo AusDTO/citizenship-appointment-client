@@ -25,7 +25,7 @@ module.exports = {
       },
       {
         test: /\.mustache$/,
-        exclude: /(node_modules|lib)/,
+        include: /views\/client/,
         loader: 'mustache?noShortcut'
       }
     ]

@@ -39,12 +39,20 @@ require('express-livereload')(app, { watchDir: path.join(__dirname), exts: ['mus
 app.use('/images', express.static(path.join(__dirname, 'images')));
 
 app.get('/', (req, res) => {
-  res.render('index', {
+  res.redirect('/login');
+});
+
+app.get('/login', (req, res) => {
+  res.render('login', {
     partials: {
       header: 'partials/header',
       footer: 'partials/footer'
     }
   });
+});
+
+app.post('/login', (req, res) => {
+  res.redirect('/booking');
 });
 
 app.get('/booking', (req, res) => {
