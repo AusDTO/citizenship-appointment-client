@@ -43,7 +43,7 @@ app.get('/', (req, res) => {
 });
 
 app.get('/login', (req, res) => {
-  res.render('login', {
+  res.render('login_page', {
     partials: {
       header: 'partials/header',
       footer: 'partials/footer'
@@ -56,7 +56,7 @@ app.post('/login', (req, res) => {
 });
 
 app.get('/booking', (req, res) => {
-  res.render('booking', {
+  res.render('booking_page', {
     partials: {
       header: 'partials/header',
       footer: 'partials/footer',
