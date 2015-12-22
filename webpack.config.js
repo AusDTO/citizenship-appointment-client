@@ -36,7 +36,8 @@ module.exports = {
       'process.env': {
         'NODE_ENV': JSON.stringify('production')
       }
-    })
+    }),
+    new webpack.ContextReplacementPlugin(/moment[\/\\]locale$/, /en-au/)
   ],
   node: {
    fs: 'empty'
