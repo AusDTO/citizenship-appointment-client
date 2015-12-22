@@ -192,7 +192,7 @@
 	
 	      let bookable = this.settings.bookingData[this.formatIso(curDate)];
 	      if(bookable) {
-	        displayAvailable = bookable.vacant_slots + ' available';
+	        displayAvailable = bookable.available_slots_count + ' available';
 	      } else {
 	        displayAvailable='';
 	      }
