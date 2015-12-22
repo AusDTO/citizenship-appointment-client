@@ -1,18 +1,18 @@
 {
 	"2015-12-15": {
 		"calendar_id": 185,
-		"vacant_slots": 7
+		"available_slots_count": 7
 	},
 	"2015-12-18": {
 		"calendar_id": 186,
-		"vacant_slots": 1
+		"available_slots_count": 1
 	},
 	"2016-01-26": {
 		"calendar_id": 189,
-		"vacant_slots": 4
+		"available_slots_count": 4
 	},
   "2016-02-17": {
     "calendar_id": 190,
-    "vacant_slots": 12
+    "available_slots_count": 12
   }
 }
