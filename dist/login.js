@@ -47,15 +47,15 @@
 
 	'use strict';
 	
-	var $ = __webpack_require__(2);
+	var $ = __webpack_require__(192);
 	
-	var template = __webpack_require__(15);
+	var template = __webpack_require__(201);
 	var html = template.render({ message: 'Hello, World!' });
 	$('.index-heading').append(html);
 
 /***/ },
 
-/***/ 2:
+/***/ 192:
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -9272,7 +9272,7 @@
 
 /***/ },
 
-/***/ 12:
+/***/ 198:
 /***/ function(module, exports, __webpack_require__) {
 
 	/*
@@ -9620,10 +9620,10 @@
 
 /***/ },
 
-/***/ 15:
+/***/ 201:
 /***/ function(module, exports, __webpack_require__) {
 
-	var H = __webpack_require__(12);
+	var H = __webpack_require__(198);
 	module.exports = function() { var T = new H.Template({code: function (c,p,i) { var t=this;t.b(i=i||"");t.b("<p>");t.b(t.v(t.f("message",c,p,0)));t.b("</p>");t.b("\n");return t.fl(); },partials: {}, subs: {  }}, "<p>{{ message }}</p>\n", H);return T; }();
 
 /***/ }
