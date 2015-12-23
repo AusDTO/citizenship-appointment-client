@@ -7,12 +7,12 @@ module.exports = {
   debug: true,
   context: path.join(__dirname, 'lib'),
   entry: {
-    login: "./login",
-    booking: "./booking"
+    login: './login',
+    booking: './booking'
   },
   output: {
-    path: path.join(__dirname, "dist"),
-    filename: "[name].js"
+    path: path.join(__dirname, 'dist'),
+    filename: '[name].js'
   },
   devtool: 'source-map',
   target: 'web',
@@ -20,8 +20,11 @@ module.exports = {
     loaders: [
       {
         test: /\.js$/,
-        exclude: /(node_modules|lib)/,
-        loader: 'babel'
+        include: path.join(__dirname, 'lib'),
+        loader: 'babel',
+        query: {
+          presets: ['es2015']
+        }
       },
       {
         test: /\.mustache$/,

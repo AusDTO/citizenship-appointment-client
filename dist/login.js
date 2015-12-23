@@ -40,22 +40,22 @@
 /******/ 	return __webpack_require__(0);
 /******/ })
 /************************************************************************/
-/******/ ([
-/* 0 */
+/******/ ({
+
+/***/ 0:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	const $ = __webpack_require__(2);
+	var $ = __webpack_require__(2);
 	
-	let template = __webpack_require__(11);
-	let html = template.render({message: 'Hello, World!'});
+	var template = __webpack_require__(15);
+	var html = template.render({ message: 'Hello, World!' });
 	$('.index-heading').append(html);
 
-
 /***/ },
-/* 1 */,
-/* 2 */
+
+/***/ 2:
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -9271,12 +9271,8 @@
 
 
 /***/ },
-/* 3 */,
-/* 4 */,
-/* 5 */,
-/* 6 */,
-/* 7 */,
-/* 8 */
+
+/***/ 12:
 /***/ function(module, exports, __webpack_require__) {
 
 	/*
@@ -9623,14 +9619,14 @@
 
 
 /***/ },
-/* 9 */,
-/* 10 */,
-/* 11 */
+
+/***/ 15:
 /***/ function(module, exports, __webpack_require__) {
 
-	var H = __webpack_require__(8);
+	var H = __webpack_require__(12);
 	module.exports = function() { var T = new H.Template({code: function (c,p,i) { var t=this;t.b(i=i||"");t.b("<p>");t.b(t.v(t.f("message",c,p,0)));t.b("</p>");t.b("\n");return t.fl(); },partials: {}, subs: {  }}, "<p>{{ message }}</p>\n", H);return T; }();
 
 /***/ }
-/******/ ]);
+
+/******/ });
 //# sourceMappingURL=login.js.map
