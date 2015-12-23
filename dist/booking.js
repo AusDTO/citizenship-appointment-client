@@ -107,9 +107,10 @@
 	      var _loop = function _loop() {
 	        var date = _step.value;
 	
+	        var calendar_id = bookingData[date].calendar_id;
 	        bookingData[date].availableTimes = new Promise(function (resolve, reject) {
 	          var request = new XMLHttpRequest();
-	          request.open('GET', 'get_available_times?date=' + date);
+	          request.open('GET', 'get_available_times?calendar_id=' + calendar_id);
 	          request.onload = function () {
 	            if (request.status === 200) {
 	              var availableTimes = JSON.parse(request.responseText).times;
@@ -156,8 +157,8 @@
 	      var bookableMonths = [];
 	      var prevMonth = '',
 	          curDate = undefined;
-	      for (var _date in this.settings.bookingData) {
-	        curDate = moment.utc(_date);
+	      for (var date in this.settings.bookingData) {
+	        curDate = moment.utc(date);
 	        if (curDate.month() !== prevMonth) {
 	          bookableMonths.push(curDate);
 	          prevMonth = curDate.month();

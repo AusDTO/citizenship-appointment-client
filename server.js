@@ -42,7 +42,6 @@ app.use('/images', express.static(path.join(__dirname, 'images')));
 
 app.get('/get_available_times', (req, res) => {
   res.json({
-    "date": req.query['date'],
   	"times": [
   		"13:00",
   		"13:20",
