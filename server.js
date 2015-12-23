@@ -40,6 +40,20 @@ require('express-livereload')(app, { watchDir: path.join(__dirname), exts: ['mus
 
 app.use('/images', express.static(path.join(__dirname, 'images')));
 
+app.get('/get_available_times', (req, res) => {
+  res.json({
+    "date": req.query['date'],
+  	"times": [
+  		"13:00",
+  		"13:20",
+  		"13:40",
+  		"14:00",
+  		"14:20",
+  		"14:40"
+  	]
+  });
+});
+
 app.get('/', (req, res) => {
   res.redirect('/login');
 });
