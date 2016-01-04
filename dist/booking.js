@@ -80,9 +80,11 @@
 	
 	var $ = __webpack_require__(192),
 	    moment = __webpack_require__(193),
-	    tmplRow = __webpack_require__(197),
-	    tmplDate = __webpack_require__(199),
-	    tmplDay = __webpack_require__(200);
+	    week_template = __webpack_require__(197),
+	    day_template = __webpack_require__(199),
+	    month_template = __webpack_require__(200),
+	    times_template = __webpack_require__(201),
+	    selection_template = __webpack_require__(202);
 	
 	moment.locale('en-au');
 	
@@ -98,7 +100,6 @@
 	
 	    this.settings = defaults;
 	    this.settings.today = moment.utc();
-	    this.settings.bookableDates = Object.keys(bookingData);
 	    var _iteratorNormalCompletion = true;
 	    var _didIteratorError = false;
 	    var _iteratorError = undefined;
@@ -126,7 +127,7 @@
 	        });
 	      };
 	
-	      for (var _iterator = this.settings.bookableDates[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+	      for (var _iterator = Object.keys(bookingData)[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
 	        _loop();
 	      }
 	    } catch (err) {
@@ -146,16 +147,18 @@
 	
 	    this.settings.bookingData = bookingData;
 	    this.settings.navMonths = this.setupNavMonths();
+	    this.settings.calendarData = this.buildCalendar();
+	    this.render(this.settings.navMonths[0].month());
+	    this.hideTimes();
 	    this.updateNav();
-	    this.renderCalendar();
-	    this.bindEvents();
+	    this.bindNavEvents();
 	  }
 	
 	  _createClass(SlotPicker, [{
 	    key: 'setupNavMonths',
 	    value: function setupNavMonths() {
-	      var bookableMonths = [];
-	      var prevMonth = '',
+	      var bookableMonths = [],
+	          prevMonth = '',
 	          curDate = undefined;
 	      for (var date in this.settings.bookingData) {
 	        curDate = moment.utc(date);
@@ -179,10 +182,14 @@
 	      } else {
 	        $('.BookingCalendar-nav--next').removeClass('is-active');
 	      }
+	      this.selectedDateListener();
 	    }
 	  }, {
-	    key: 'renderCalendar',
-	    value: function renderCalendar() {
+	    key: 'buildCalendar',
+	    value: function buildCalendar() {
+	      var from = '',
+	          to = '',
+	          calendar = {};
 	      var _iteratorNormalCompletion2 = true;
 	      var _didIteratorError2 = false;
 	      var _iteratorError2 = undefined;
@@ -191,7 +198,7 @@
 	        for (var _iterator2 = this.settings.navMonths[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
 	          var monthDate = _step2.value;
 	
-	          this.renderMonth(monthDate);
+	          calendar[monthDate.month()] = this.buildMonth(monthDate);
 	        }
 	      } catch (err) {
 	        _didIteratorError2 = true;
@@ -208,14 +215,66 @@
 	        }
 	      }
 	
-	      this.displayMonth(this.settings.navMonths[0].month());
+	      return calendar;
 	    }
 	  }, {
-	    key: 'renderMonth',
-	    value: function renderMonth(monthDate) {
-	      var from = this.firstDayOfMonth(monthDate),
-	          to = this.lastDayOfMonth(monthDate);
-	      $('.BookingCalendar-datesBody').append(this.buildDates(tmplRow, tmplDate, from, to));
+	    key: 'buildMonth',
+	    value: function buildMonth(monthDate) {
+	      var startDate = this.firstDayOfWeek(this.firstDayOfMonth(monthDate)),
+	          endDate = this.lastDayOfWeek(this.lastDayOfMonth(monthDate)),
+	          curDate = '',
+	          weeks = [],
+	          days = [],
+	          count = 1;
+	
+	      for (curDate = startDate; curDate.isBefore(endDate); curDate.date(curDate.date() + 1)) {
+	        days.push(this.buildDay(curDate, startDate, endDate));
+	        if (count === 7) {
+	          weeks.push({
+	            week: curDate.week(),
+	            days: days
+	          });
+	          days = [];
+	          count = 0;
+	        }
+	        count++;
+	      }
+	      return weeks;
+	    }
+	  }, {
+	    key: 'buildDay',
+	    value: function buildDay(curDate, from, to) {
+	      var dayStr = this.settings.days[curDate.day()],
+	          curIso = this.formatIso(curDate),
+	          todayIso = this.formatIso(this.settings.today);
+	
+	      var className = this.settings.bookingData[this.formatIso(curDate)] ? 'BookingCalendar-date--bookable' : 'BookingCalendar-date--unavailable';
+	      if (curDate.isBefore(from) || curDate.isAfter(to)) {
+	        className += ' BookingCalendar-date--hide';
+	      }
+	      var bookable = this.settings.bookingData[this.formatIso(curDate)];
+	      var displayAvailable = '';
+	      displayAvailable = bookable ? bookable.available_slots_count + ' available' : '';
+	
+	      return {
+	        date: curIso,
+	        day: curDate.date(),
+	        available: displayAvailable,
+	        today: curIso === todayIso,
+	        klass: className
+	      };
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render(month) {
+	      var output = month_template.render({
+	        weeks: this.settings.calendarData[month]
+	      }, {
+	        week: week_template,
+	        day: day_template
+	      });
+	      document.querySelector('.BookingCalendar-datesBody').innerHTML = output;
+	      this.renderMonthLabel(month);
 	    }
 	  }, {
 	    key: 'renderMonthLabel',
@@ -223,15 +282,8 @@
 	      $('.BookingCalendar-currentMonth').text(this.settings.months[month]);
 	    }
 	  }, {
-	    key: 'displayMonth',
-	    value: function displayMonth(month) {
-	      $('.BookingCalendar-datesBody tr').hide();
-	      $('tr.CalRow.month-' + month).show();
-	      this.renderMonthLabel(month);
-	    }
-	  }, {
-	    key: 'bindEvents',
-	    value: function bindEvents() {
+	    key: 'bindNavEvents',
+	    value: function bindNavEvents() {
 	      var self = this;
 	      $('button.BookingCalendar-nav--next').click(function () {
 	        self.nudgeNav(1);
@@ -240,17 +292,55 @@
 	      $('button.BookingCalendar-nav--prev').click(function () {
 	        self.nudgeNav(-1);
 	      });
-	
+	    }
+	  }, {
+	    key: 'selectedDateListener',
+	    value: function selectedDateListener() {
+	      var self = this;
 	      $('.BookingCalendar-dateLink').click(function () {
+	        self.hideTimes();
 	        self.highlightDate($(this));
 	        var week = $(this).closest('tr').attr('data-week');
-	        var date = $(this).attr('data-date');
+	        self.settings.selectedDate = $(this).attr('data-date');
 	        document.querySelector('tr.CalRow-slots[data-week=\'' + week + '\']').style.display = 'table-row';
-	        self.settings.bookingData[date].availableTimes.then(function (availableTimes) {
-	          document.querySelector('tr.CalRow-slots[data-week=\'' + week + '\'] ul').innerHTML = availableTimes;
+	        self.settings.bookingData[self.settings.selectedDate].availableTimes.then(function (availableTimes) {
+	          var output = times_template.render({
+	            times: availableTimes.map(self.displayTime)
+	          });
+	          document.querySelector('tr.CalRow-slots[data-week=\'' + week + '\'] ul').innerHTML = output;
+	          self.selectedTimeListener();
 	        }, function (err) {
 	          // FIXME(Emily)
 	        });
+	      });
+	    }
+	  }, {
+	    key: 'hideTimes',
+	    value: function hideTimes() {
+	      this.clearSelection();
+	      $('tr.CalRow-slots').hide();
+	    }
+	  }, {
+	    key: 'clearSelection',
+	    value: function clearSelection() {
+	      $('td.CalRow-selection').empty();
+	      $('tr.CalRow-selection').hide();
+	    }
+	  }, {
+	    key: 'selectedTimeListener',
+	    value: function selectedTimeListener() {
+	      var self = this;
+	      $('.BookingCalendar-timeLink').click(function () {
+	        self.clearSelection();
+	        var week = $(this).closest('tr').attr('data-week');
+	        document.querySelector('tr.CalRow-selection[data-week=\'' + week + '\']').style.display = 'table-row';
+	
+	        self.settings.selectedTime = $(this).attr('data-time');
+	        var data = self.displayTime(self.settings.selectedTime);
+	        data['selected_appointment'] = self.settings.selectedDate + "T" + self.settings.selectedTime + ":00";
+	        data['display_date'] = moment.utc(self.settings.selectedDate).format("dddd D MMMM");
+	        var output = selection_template.render(data);
+	        document.querySelector('tr.CalRow-selection[data-week=\'' + week + '\'] td').innerHTML = output;
 	      });
 	    }
 	  }, {
@@ -263,61 +353,8 @@
 	    key: 'nudgeNav',
 	    value: function nudgeNav(i) {
 	      this.settings.navPointer = this.settings.navPointer + i;
-	      this.displayMonth(this.settings.navMonths[this.settings.navPointer].month());
+	      this.render(this.settings.navMonths[this.settings.navPointer].month());
 	      this.updateNav();
-	    }
-	  }, {
-	    key: 'buildDates',
-	    value: function buildDates(templateRow, templateDate, from, to) {
-	      var out = '',
-	          row = '',
-	          curIso = undefined,
-	          displayAvailable = '',
-	          dayStr = '',
-	          todayIso = this.formatIso(this.settings.today),
-	          count = 1,
-	          curDate = this.firstDayOfWeek(from),
-	          end = this.lastDayOfWeek(to);
-	
-	      while (curDate <= end) {
-	        dayStr = this.settings.days[curDate.day()];
-	        curIso = this.formatIso(curDate);
-	
-	        var className = this.dateBookable(this.formatIso(curDate), this.settings.bookableDates) ? 'BookingCalendar-date--bookable' : 'BookingCalendar-date--unavailable';
-	        if (curDate < from || curDate > to) {
-	          className += ' BookingCalendar-date--hide';
-	        }
-	
-	        var bookable = this.settings.bookingData[this.formatIso(curDate)];
-	        if (bookable) {
-	          displayAvailable = bookable.available_slots_count + ' available';
-	        } else {
-	          displayAvailable = '';
-	        }
-	
-	        row += templateDate.render({
-	          date: curIso,
-	          day: curDate.date(),
-	          available: displayAvailable,
-	          today: curIso === todayIso,
-	          klass: className
-	        });
-	
-	        if (count === 7) {
-	          out += templateRow.render({
-	            week: curDate.week(),
-	            month: from.month(),
-	            cells: row
-	          });
-	          row = '';
-	          count = 0;
-	        }
-	
-	        curDate.date(curDate.date() + 1);
-	        count++;
-	      }
-	
-	      return out;
 	    }
 	  }, {
 	    key: 'firstDayOfWeek',
@@ -351,6 +388,16 @@
 	    key: 'dateBookable',
 	    value: function dateBookable(date, dates) {
 	      return dates.indexOf(date) >= 0;
+	    }
+	  }, {
+	    key: 'displayTime',
+	    value: function displayTime(time) {
+	      var hours = parseInt(time.substr(0, 2)),
+	          mins = time.substr(2),
+	          ampm = hours >= 12 ? 'PM' : 'AM';
+	      hours = hours % 12;
+	      hours = hours ? hours : 12;
+	      return { time: time, display_time: hours + mins, ampm: ampm };
 	    }
 	  }]);
 	
@@ -18156,7 +18203,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	var H = __webpack_require__(198);
-	module.exports = function() { var T = new H.Template({code: function (c,p,i) { var t=this;t.b(i=i||"");t.b("<tr class=\"CalRow month-");t.b(t.v(t.f("month",c,p,0)));t.b("\" data-week=\"");t.b(t.v(t.f("week",c,p,0)));t.b("\">");t.b("\n" + i);t.b("  ");t.b(t.t(t.f("cells",c,p,0)));t.b("\n" + i);t.b("</tr>");t.b("\n" + i);t.b("<tr class=\"CalRow-slots\" data-week=\"");t.b(t.v(t.f("week",c,p,0)));t.b("\">");t.b("\n" + i);t.b("  <td class=\"CalRow-slots\" colspan=\"7\">");t.b("\n" + i);t.b("    <ul class=\"CalRow-slots\">");t.b("\n" + i);t.b("      Please wait");t.b("\n" + i);t.b("    </ul>");t.b("\n" + i);t.b("  </td>");t.b("\n" + i);t.b("</tr>");t.b("\n");return t.fl(); },partials: {}, subs: {  }}, "<tr class=\"CalRow month-{{ month }}\" data-week=\"{{week}}\">\n  {{{ cells }}}\n</tr>\n<tr class=\"CalRow-slots\" data-week=\"{{week}}\">\n  <td class=\"CalRow-slots\" colspan=\"7\">\n    <ul class=\"CalRow-slots\">\n      Please wait\n    </ul>\n  </td>\n</tr>\n", H);return T; }();
+	module.exports = function() { var T = new H.Template({code: function (c,p,i) { var t=this;t.b(i=i||"");t.b("<tr class=\"CalRow\" data-week=\"");t.b(t.v(t.f("week",c,p,0)));t.b("\">");t.b("\n" + i);if(t.s(t.f("days",c,p,1),c,p,0,52,69,"{{ }}")){t.rs(c,p,function(c,p,t){t.b(t.rp("<day0",c,p,"    "));});c.pop();}t.b("</tr>");t.b("\n" + i);t.b("<tr class=\"CalRow-slots\" data-week=\"");t.b(t.v(t.f("week",c,p,0)));t.b("\">");t.b("\n" + i);t.b("  <td class=\"CalRow-slots\" colspan=\"7\">");t.b("\n" + i);t.b("    <ul class=\"CalRow-slots\">");t.b("\n" + i);t.b("      Please wait");t.b("\n" + i);t.b("    </ul>");t.b("\n" + i);t.b("  </td>");t.b("\n" + i);t.b("</tr>");t.b("\n" + i);t.b("<tr class=\"CalRow-selection\" data-week=\"");t.b(t.v(t.f("week",c,p,0)));t.b("\">");t.b("\n" + i);t.b("  <td class=\"CalRow-selection\" colspan=\"7\">");t.b("\n" + i);t.b("  </td>");t.b("\n" + i);t.b("</tr>");t.b("\n");return t.fl(); },partials: {"<day0":{name:"day", partials: {}, subs: {  }}}, subs: {  }}, "<tr class=\"CalRow\" data-week=\"{{week}}\">\n  {{#days}}\n    {{> day}}\n  {{/days}}\n</tr>\n<tr class=\"CalRow-slots\" data-week=\"{{week}}\">\n  <td class=\"CalRow-slots\" colspan=\"7\">\n    <ul class=\"CalRow-slots\">\n      Please wait\n    </ul>\n  </td>\n</tr>\n<tr class=\"CalRow-selection\" data-week=\"{{week}}\">\n  <td class=\"CalRow-selection\" colspan=\"7\">\n  </td>\n</tr>\n", H);return T; }();
 
 /***/ },
 /* 198 */
@@ -18510,14 +18557,28 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	var H = __webpack_require__(198);
-	module.exports = function() { var T = new H.Template({code: function (c,p,i) { var t=this;t.b(i=i||"");t.b("<td class=\"");t.b(t.v(t.f("klass",c,p,0)));t.b("\">");t.b("\n" + i);t.b("  <div class=\"BookingCalendar-content\">");t.b("\n" + i);t.b("    <a class=\"BookingCalendar-dateLink\"  ");t.b(t.v(t.f("disabled",c,p,0)));t.b(" data-date=\"");t.b(t.v(t.f("date",c,p,0)));t.b("\" href=\"#date-");t.b(t.v(t.f("date",c,p,0)));t.b("\">");t.b("\n");t.b("\n" + i);if(t.s(t.f("today",c,p,1),c,p,0,186,275,"{{ }}")){t.rs(c,p,function(c,p,t){t.b("        <span class=\"BookingCalendar-tag BookingCalendar-tag--today\">TODAY</span>");t.b("\n" + i);});c.pop();}t.b("      <p class=\"BookingCalendar-day\">");t.b(t.v(t.f("day",c,p,0)));t.b("</p>");t.b("\n" + i);t.b("      <p class=\"BookingCalendar-available\">");t.b(t.v(t.f("available",c,p,0)));t.b("</p>");t.b("\n" + i);t.b("    </a>");t.b("\n" + i);t.b("  </div>");t.b("\n" + i);t.b("</td>");t.b("\n");return t.fl(); },partials: {}, subs: {  }}, "<td class=\"{{ klass }}\">\n  <div class=\"BookingCalendar-content\">\n    <a class=\"BookingCalendar-dateLink\"  {{ disabled }} data-date=\"{{ date }}\" href=\"#date-{{ date }}\">\n\n      {{#today}}\n        <span class=\"BookingCalendar-tag BookingCalendar-tag--today\">TODAY</span>\n      {{/today}}\n      <p class=\"BookingCalendar-day\">{{ day }}</p>\n      <p class=\"BookingCalendar-available\">{{ available }}</p>\n    </a>\n  </div>\n</td>\n", H);return T; }();
+	module.exports = function() { var T = new H.Template({code: function (c,p,i) { var t=this;t.b(i=i||"");t.b("<td class=\"");t.b(t.v(t.f("klass",c,p,0)));t.b("\">");t.b("\n" + i);t.b("  <div class=\"BookingCalendar-content\">");t.b("\n" + i);t.b("    <a class=\"BookingCalendar-dateLink\"  ");t.b(t.v(t.f("disabled",c,p,0)));t.b(" data-date=\"");t.b(t.v(t.f("date",c,p,0)));t.b("\" href=\"#date-");t.b(t.v(t.f("date",c,p,0)));t.b("\">");t.b("\n" + i);if(t.s(t.f("today",c,p,1),c,p,0,185,274,"{{ }}")){t.rs(c,p,function(c,p,t){t.b("        <span class=\"BookingCalendar-tag BookingCalendar-tag--today\">TODAY</span>");t.b("\n" + i);});c.pop();}t.b("      <p class=\"BookingCalendar-day\">");t.b(t.v(t.f("day",c,p,0)));t.b("</p>");t.b("\n" + i);t.b("      <p class=\"BookingCalendar-available\">");t.b(t.v(t.f("available",c,p,0)));t.b("</p>");t.b("\n" + i);t.b("    </a>");t.b("\n" + i);t.b("  </div>");t.b("\n" + i);t.b("</td>");t.b("\n");return t.fl(); },partials: {}, subs: {  }}, "<td class=\"{{ klass }}\">\n  <div class=\"BookingCalendar-content\">\n    <a class=\"BookingCalendar-dateLink\"  {{ disabled }} data-date=\"{{ date }}\" href=\"#date-{{ date }}\">\n      {{#today}}\n        <span class=\"BookingCalendar-tag BookingCalendar-tag--today\">TODAY</span>\n      {{/today}}\n      <p class=\"BookingCalendar-day\">{{ day }}</p>\n      <p class=\"BookingCalendar-available\">{{ available }}</p>\n    </a>\n  </div>\n</td>\n", H);return T; }();
 
 /***/ },
 /* 200 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var H = __webpack_require__(198);
-	module.exports = function() { var T = new H.Template({code: function (c,p,i) { var t=this;t.b(i=i||"");t.b("<li class=\"SlotPicker-day\" id=\"date-");t.b(t.v(t.f("slot",c,p,0)));t.b("\">");t.b("\n" + i);t.b("  <h2 class=\"SlotPicker-dayTitle\">");t.b(t.v(t.f("date",c,p,0)));t.b("</h2>");t.b("\n" + i);t.b("  ");t.b(t.t(t.f("slots",c,p,0)));t.b("\n" + i);t.b("</li>");t.b("\n");return t.fl(); },partials: {}, subs: {  }}, "<li class=\"SlotPicker-day\" id=\"date-{{ slot }}\">\n  <h2 class=\"SlotPicker-dayTitle\">{{ date }}</h2>\n  {{{ slots }}}\n</li>\n", H);return T; }();
+	module.exports = function() { var T = new H.Template({code: function (c,p,i) { var t=this;t.b(i=i||"");if(t.s(t.f("weeks",c,p,1),c,p,0,10,24,"{{ }}")){t.rs(c,p,function(c,p,t){t.b(t.rp("<week0",c,p,"  "));});c.pop();}return t.fl(); },partials: {"<week0":{name:"week", partials: {}, subs: {  }}}, subs: {  }}, "{{#weeks}}\n  {{> week}}\n{{/weeks}}\n", H);return T; }();
+
+/***/ },
+/* 201 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var H = __webpack_require__(198);
+	module.exports = function() { var T = new H.Template({code: function (c,p,i) { var t=this;t.b(i=i||"");if(t.s(t.f("times",c,p,1),c,p,0,10,160,"{{ }}")){t.rs(c,p,function(c,p,t){t.b("  <a class=\"BookingCalendar-timeLink\" data-time=\"");t.b(t.v(t.f("time",c,p,0)));t.b("\" href=\"#time-");t.b(t.v(t.f("time",c,p,0)));t.b("\">");t.b("\n" + i);t.b("    ");t.b(t.v(t.f("display_time",c,p,0)));t.b(" ");t.b(t.v(t.f("ampm",c,p,0)));t.b("\n" + i);t.b("  </a>");t.b("\n" + i);t.b("  <span>&nbsp&nbsp</span>");t.b("\n" + i);});c.pop();}return t.fl(); },partials: {}, subs: {  }}, "{{#times}}\n  <a class=\"BookingCalendar-timeLink\" data-time=\"{{ time }}\" href=\"#time-{{ time }}\">\n    {{display_time}} {{ampm}}\n  </a>\n  <span>&nbsp&nbsp</span>\n{{/times}}\n", H);return T; }();
+
+/***/ },
+/* 202 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var H = __webpack_require__(198);
+	module.exports = function() { var T = new H.Template({code: function (c,p,i) { var t=this;t.b(i=i||"");t.b(t.v(t.f("display_date",c,p,0)));t.b(", ");t.b(t.v(t.f("display_time",c,p,0)));t.b("  ");t.b(t.v(t.f("ampm",c,p,0)));t.b("\n" + i);t.b("<form action=\"/book_appointment\" method=\"post\">");t.b("\n" + i);t.b("  <input type=\"hidden\" name=\"selected_appointment\" value=\"");t.b(t.v(t.f("selected_appointment",c,p,0)));t.b("\"/>");t.b("\n" + i);t.b("  <input type=\"submit\" class=\"button\" value=\"Confirm\"/>");t.b("\n" + i);t.b("</form>");t.b("\n");return t.fl(); },partials: {}, subs: {  }}, "{{display_date}}, {{display_time}}  {{ampm}}\n<form action=\"/book_appointment\" method=\"post\">\n  <input type=\"hidden\" name=\"selected_appointment\" value=\"{{selected_appointment}}\"/>\n  <input type=\"submit\" class=\"button\" value=\"Confirm\"/>\n</form>\n", H);return T; }();
 
 /***/ }
 /******/ ]);

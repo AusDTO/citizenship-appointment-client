@@ -5,6 +5,8 @@ const express = require('express'),
       sassMiddleware = require('node-sass-middleware'),
       webpack = require('webpack'),
       webpackMiddleware = require('webpack-dev-middleware'),
+      bodyParser = require('body-parser'),
+      urlencodedParser = bodyParser.urlencoded({ extended: false }),
       path = require('path'),
       fs = require('fs'),
       app = express(),
@@ -79,6 +81,21 @@ app.get('/booking', (req, res) => {
     },
     location: "2 Lonsdale Street, Melbourne VIC 3000",
     todayDate: "2015-12-09"
+  });
+});
+
+app.post('/book_appointment', urlencodedParser, (req, res) => {
+  if (!req.body) return res.sendStatus(400)
+  res.redirect('/confirmation?selected_appointment=' + req.body.selected_appointment);
+});
+
+app.get('/confirmation', (req, res) => {
+  res.render('confirmation_page', {
+    partials: {
+      header: 'partials/header',
+      footer: 'partials/footer'
+    },
+    selected_appointment: req.query.selected_appointment
   });
 });
 
