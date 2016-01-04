@@ -1,5 +1,7 @@
-<tr class="CalRow month-{{ month }}" data-week="{{week}}">
-  {{{ cells }}}
+<tr class="CalRow" data-week="{{week}}">
+  {{#days}}
+    {{> day}}
+  {{/days}}
 </tr>
 <tr class="CalRow-slots" data-week="{{week}}">
   <td class="CalRow-slots" colspan="7">
