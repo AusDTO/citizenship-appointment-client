@@ -8,7 +8,8 @@ module.exports = {
   context: path.join(__dirname, 'lib'),
   entry: {
     login: './login',
-    booking: './booking'
+    booking: './booking',
+    confirmation: './confirmation'
   },
   output: {
     path: path.join(__dirname, 'dist'),

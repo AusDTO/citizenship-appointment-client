@@ -13,4 +13,29 @@ h1 {
     width: 100%;
     padding: 0 1rem;
   }
+
+  .main{
+  	padding: 0.5rem;
+  }
+}
+
+.blue-button {
+  background:#0060BD;
+  color:#FFFFFF;
+  text-transform: none;
+}
+
+.blue-button:focus, .blue-button:hover {
+  background-color: #003296;
+  color:#FFFFFF;
+}
+
+ul {
+	list-style: disc inside;
+    padding-left: 1rem;
+    margin-bottom: 0px;
+}
+
+ul li {
+	margin-bottom: 0.2rem;
 }

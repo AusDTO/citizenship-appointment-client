@@ -1,0 +1,82 @@
+.steps-and-close-div {
+	margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.steps-info.inline {
+	display: inline;
+	margin: 0;
+}
+
+.close-link {
+  margin: 0;
+  font-weight: lighter;
+  float: right;
+  display: inline;
+}
+
+.title {
+  font-size: 3.5rem;
+}
+
+.subtitle {
+  letter-spacing:0.05rem;
+  font-size: 2rem;
+  font-weight: bold;
+  text-align:left;
+}
+
+.section-title {
+	margin-top: 2rem;
+	font-size: 2rem;
+	font-weight: bold;
+	letter-spacing:0.05rem;
+}
+
+.barcode{
+	font-family: Code39AzaleaFont; 
+	font-size: 6rem; 
+}
+
+.barcode-text {
+	font-style: italic;
+	font-size: 1.2rem;
+	line-height: 1.5rem;
+}
+
+.strong-top-line {
+	border-top :2px solid #232D35;
+	padding-top: 2rem;
+	margin-top: 2rem;
+}
+
+.grey-div {
+	padding: 0.1rem 1.5rem 1.5rem 1.5rem;
+	background-color: #ECF0F3;
+	margin-top: 0rem;
+	margin-bottom: 2rem;
+}
+
+.min-left-margin {
+	margin-left: 1%;
+}
+
+// BEGIN: mobile media query
+
+@media (max-width: 550px) {
+	.blue-button {
+		width: 100%;
+	}
+
+	.barcode {
+		font-size: 7rem; 
+		text-align: center;	
+	}	
+
+	.min-left-margin {
+		margin-left: 0rem;
+	}
+
+}
+
+//END: mobile change

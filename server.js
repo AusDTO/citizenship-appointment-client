@@ -87,7 +87,7 @@ app.get('/booking', (req, res) => {
 
 app.post('/book_appointment', urlencodedParser, (req, res) => {
   if (!req.body) return res.sendStatus(400)
-  res.redirect('/confirmation?selected_appointment=' + req.body.selected_appointment);
+  res.redirect('/confirmation');
 });
 
 app.get('/confirmation', (req, res) => {
@@ -96,7 +96,11 @@ app.get('/confirmation', (req, res) => {
       header: 'partials/header',
       footer: 'partials/footer'
     },
-    selected_appointment: req.query.selected_appointment
+    selected_appointment: "Thursday 21 January, 1:30 PM",
+    location: "2 Lonsdale Street, Melbourne VIC 3000",
+    clientId: "919191",
+    hasEmail: true,
+    level: "Level 4" // TODO how to do it?
   });
 });
 
