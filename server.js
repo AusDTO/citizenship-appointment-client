@@ -17,14 +17,6 @@ app.set('view engine', 'mustache');
 app.engine('mustache', consolidate.hogan);
 app.set('views', path.join(__dirname, 'views', 'server'));
 
-app.use(sassMiddleware({
-    src: path.join(__dirname, 'sass'),
-    dest: path.join(__dirname, 'dist'),
-    debug: true,
-    outputStyle: 'nested',
-    sourceMap: path.join(__dirname, 'dist', 'bundle.css.map')
-}));
-
 app.use(webpackMiddleware(webpack(require('./webpack.config')), {
     noInfo: false,
     quiet: false,
@@ -33,6 +25,15 @@ app.use(webpackMiddleware(webpack(require('./webpack.config')), {
     stats: {
         colors: true
     }
+}));
+
+app.use(sassMiddleware({
+    src: path.join(__dirname, 'sass'),
+    dest: path.join(__dirname, 'dist'),
+    debug: true,
+    outputStyle: 'nested',
+    sourceMap: path.join(__dirname, 'dist', 'bundle.css.map'),
+    prefix: publicPath
 }));
 
 app.use(publicPath, express.static(path.join(__dirname, 'dist')));
