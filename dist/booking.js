@@ -100,6 +100,7 @@
 	
 	    this.settings = defaults;
 	    this.settings.today = moment.utc();
+	    var delay = 0;
 	    var _iteratorNormalCompletion = true;
 	    var _didIteratorError = false;
 	    var _iteratorError = undefined;
@@ -110,21 +111,24 @@
 	
 	        var calendar_id = bookingData[date].calendar_id;
 	        bookingData[date].availableTimes = new Promise(function (resolve, reject) {
-	          var request = new XMLHttpRequest();
-	          request.open('GET', 'get_available_times?calendar_id=' + calendar_id);
-	          request.onload = function () {
-	            if (request.status === 200) {
-	              var availableTimes = JSON.parse(request.responseText).times;
-	              resolve(availableTimes);
-	            } else {
-	              reject(request.statusText);
-	            }
-	          };
-	          request.onerror = function () {
-	            reject("There was a problem sending the request.");
-	          };
-	          request.send();
+	          setTimeout(function () {
+	            var request = new XMLHttpRequest();
+	            request.open('GET', 'get_available_times?calendar_id=' + calendar_id);
+	            request.onload = function () {
+	              if (request.status === 200) {
+	                var availableTimes = JSON.parse(request.responseText).times;
+	                resolve(availableTimes);
+	              } else {
+	                reject(request.statusText);
+	              }
+	            };
+	            request.onerror = function () {
+	              reject("There was a problem sending the request.");
+	            };
+	            request.send();
+	          }, delay);
 	        });
+	        delay += 500;
 	      };
 	
 	      for (var _iterator = Object.keys(bookingData)[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
