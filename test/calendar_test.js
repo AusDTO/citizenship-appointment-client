@@ -2,7 +2,7 @@
 
 const test = require('tape');
 const calendar = require('../lib/calendar');
-const moment = require('moment');
+const datetime = require('../lib/datetime');
 
 test('bookable months', (assert) => {
   let data = calendar({
@@ -16,8 +16,8 @@ test('bookable months', (assert) => {
     }
   });
 
-  let expectedMonths = ['2015-12-01', '2016-01-01', '2016-02-01'];
+  let expectedMonths = ['2015-12', '2016-01', '2016-02'];
 
-  assert.deepEqual(data.getBookableMonths().map((bookableMonth)=>{return bookableMonth.format('YYYY-MM-DD')}), expectedMonths);
+  assert.deepEqual(data.getBookableMonths().map((bookableMonth)=>{return bookableMonth.toMonthString()}), expectedMonths);
   assert.end();
 });
