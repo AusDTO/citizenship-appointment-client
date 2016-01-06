@@ -44,7 +44,7 @@
 
           <button type="button" class="blue-button">
             <span class="fa fa-plus"></span>&nbsp;Add to my calendar&nbsp;
-            <i class="fa fa-caret-down"></i>
+            <span class="fa fa-caret-down" title="Show available calendars"></span>
           </button>
           <button type="button" class="blue-button" id="print-page">
             <span class="fa fa-print"></span>&nbsp;Print this page
@@ -73,7 +73,7 @@
       <h3 class="section-title strong-top-line">When you arrive</h3>
       <ul>
         <li>Please allow enough <a href="http://maps.google.com/maps?daddr={{location}}" target="_blank">travel time</a> to arrive at least 5 minutes prior to your appointment</li>
-        <li>Take the escalator to <b>{{level}}</b> at {{location}}. If you need special assistance, please <a href="https://www.border.gov.au/about/contact/make-enquiry" target="_blank">let us know</a></li>
+        <li>The appointment will take place at {{location}}. If you need special assistance, please <a href="https://www.border.gov.au/about/contact/make-enquiry" target="_blank">let us know</a></li>
         <li>Collect a ticket at the Citizenship kiosk by entering your Client ID or scanning the barcode on top of this page</li>
         <li>Wait until your number is called at the assigned counter</li> 
       </ul>
@@ -88,7 +88,7 @@
         </p>
         <div class="row">
           <div class="eight columns">
-            <input type="text" style="width:100%" placeholder="Your mobile number"/>
+            <input type="text" name="sms_reminder" title="Enter your mobile number" style="width:100%" placeholder="Your mobile number"/>
           </div>
           <div class="two columns min-left-margin">
             <button type="button" class="blue-button" id="sms-setup">Set up</button>
@@ -107,7 +107,7 @@
         {{/hasEmail}}
         <div class="row">
           <div class="eight columns">
-            <input type="text" style="width:100%" placeholder="Email address"/>
+            <input type="text" name="email_confirmation" title="Enter email address" style="width:100%" placeholder="Email address"/>
           </div>
           <div class="two columns min-left-margin">
             <button type="button" class="blue-button" id="email-send">Send</button>

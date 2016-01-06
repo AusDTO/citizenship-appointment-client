@@ -102,8 +102,7 @@ app.get('/confirmation', (req, res) => {
     selected_appointment: "Thursday 21 January, 1:30 PM",
     location: "2 Lonsdale Street, Melbourne VIC 3000",
     clientId: "919191",
-    hasEmail: true,
-    level: "Level 4" // TODO how to do it?
+    hasEmail: true
   });
 });
 
