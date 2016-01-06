@@ -81,7 +81,10 @@ app.get('/booking', (req, res) => {
       slotpicker: 'partials/slotpicker'
     },
     location: "2 Lonsdale Street, Melbourne VIC 3000",
-    todayDate: "2015-12-09"
+    _csrf: {
+      token: "csrf-token",
+      parameterName: "_csrf"
+    }
   });
 });
 

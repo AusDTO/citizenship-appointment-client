@@ -18920,7 +18920,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	var H = __webpack_require__(198);
-	module.exports = function() { var T = new H.Template({code: function (c,p,i) { var t=this;t.b(i=i||"");t.b(t.v(t.f("display_date",c,p,0)));t.b(", ");t.b(t.v(t.f("display_time",c,p,0)));t.b("  ");t.b(t.v(t.f("ampm",c,p,0)));t.b("\n" + i);t.b("<form action=\"/book_appointment\" method=\"post\">");t.b("\n" + i);t.b("  <input type=\"hidden\" name=\"selected_appointment\" value=\"");t.b(t.v(t.f("selected_appointment",c,p,0)));t.b("\"/>");t.b("\n" + i);t.b("  <input type=\"submit\" class=\"button\" value=\"Confirm\"/>");t.b("\n" + i);t.b("</form>");t.b("\n");return t.fl(); },partials: {}, subs: {  }}, "{{display_date}}, {{display_time}}  {{ampm}}\n<form action=\"/book_appointment\" method=\"post\">\n  <input type=\"hidden\" name=\"selected_appointment\" value=\"{{selected_appointment}}\"/>\n  <input type=\"submit\" class=\"button\" value=\"Confirm\"/>\n</form>\n", H);return T; }();
+	module.exports = function() { var T = new H.Template({code: function (c,p,i) { var t=this;t.b(i=i||"");t.b(t.v(t.f("display_date",c,p,0)));t.b(", ");t.b(t.v(t.f("display_time",c,p,0)));t.b("  ");t.b(t.v(t.f("ampm",c,p,0)));t.b("\n" + i);t.b("<input type=\"hidden\" name=\"selected_appointment\" value=\"");t.b(t.v(t.f("selected_appointment",c,p,0)));t.b("\"/>");t.b("\n" + i);t.b("<input type=\"submit\" class=\"button\" value=\"Confirm\"/>");t.b("\n");return t.fl(); },partials: {}, subs: {  }}, "{{display_date}}, {{display_time}}  {{ampm}}\n<input type=\"hidden\" name=\"selected_appointment\" value=\"{{selected_appointment}}\"/>\n<input type=\"submit\" class=\"button\" value=\"Confirm\"/>\n", H);return T; }();
 
 /***/ }
 /******/ ]);

@@ -30,7 +30,7 @@
         &nbsp;Mon-Fri,&nbsp;9:00am&nbsp;-&nbsp;4:00pm
       </span>
 
-      <div class="calendar" data-today="{{todayDate}}">
+      <div class="calendar">
         <div class="BookingCalendar-legend">
           <span class="BookingCalendar-legendBox"></span>
           &nbsp;Available
@@ -38,7 +38,10 @@
           &nbsp;Unavailable
         </div>
 
-        {{> slotpicker }}
+        <form action="book_appointment" method="post">
+          <input name="{{ _csrf.parameterName }}" type="hidden" value="{{ _csrf.token }}" />
+          {{> slotpicker }}
+        </form>
       </div>
 
     </div>
