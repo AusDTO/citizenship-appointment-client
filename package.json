@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node server.js",
     "dev": "supervisor --watch 'server.js,webpack.config.js' node server.js",
-    "test": "echo \"Error: no test specified\" && exit 0"
+    "test": "tape test/*.js | faucet"
   },
   "author": "",
   "license": "MIT",
@@ -19,6 +19,7 @@
     "consolidate": "^0.13.1",
     "express": "^4.13.3",
     "express-livereload": "0.0.24",
+    "faucet": "0.0.1",
     "mkdirp": "^0.5.1",
     "mustache-loader": "^0.3.0",
     "node-sass": "^3.4.2",
