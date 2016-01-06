@@ -9,7 +9,8 @@ module.exports = {
   entry: {
     login: './login',
     booking: './booking',
-    confirmation: './confirmation'
+    confirmation: './confirmation',
+    calendar_page: './calendar_page'
   },
   output: {
     path: path.join(__dirname, 'dist'),

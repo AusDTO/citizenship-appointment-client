@@ -24,6 +24,7 @@
     "node-sass": "^3.4.2",
     "node-sass-middleware": "^0.9.7",
     "supervisor": "^0.9.1",
+    "tape": "^4.4.0",
     "webpack": "^1.12.9",
     "webpack-dev-middleware": "^1.4.0"
   },

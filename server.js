@@ -73,6 +73,21 @@ app.post('/login', (req, res) => {
   res.redirect('/booking');
 });
 
+app.get('/calendar', (req, res) => {
+  res.render('calendar_page', {
+    partials: {
+      header: 'partials/header',
+      footer: 'partials/footer',
+      calendar: 'partials/calendar'
+    },
+    location: "2 Lonsdale Street, Melbourne VIC 3000",
+    _csrf: {
+      token: "csrf-token",
+      parameterName: "_csrf"
+    }
+  });
+});
+
 app.get('/booking', (req, res) => {
   res.render('booking_page', {
     partials: {
@@ -88,6 +103,7 @@ app.get('/booking', (req, res) => {
     }
   });
 });
+
 
 app.post('/book_appointment', urlencodedParser, (req, res) => {
   if (!req.body) return res.sendStatus(400)
