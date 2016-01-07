@@ -13,74 +13,762 @@
           <tr> 
             <td align="center">
               <center style="width:100%">
-                <table style="margin:0 auto;max-width:512px;font-weight:200;width:inherit;font-family:Helvetica,Arial,sans-serif" bgcolor="#FFFFFF" border="0" cellpadding="0" cellspacing="0" width="512">
+                <table style="margin:0 auto;max-width:512px;font-weight:200;width:inherit;font-family:Helvetica,Arial,sans-serif" bgcolor="FFFFFF" border="0" cellpadding="10" cellspacing="0" width="512">
                   <tbody>
                     <tr>
                       <td style="background-color:rgb(232, 232, 232);padding:12px;" bgcolor="e8e8e8" width="100%">
-                        <img style="height: 50px; margin: 5px" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAYYAAABeCAYAAAAnmrMTAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAABANpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMDY3IDc5LjE1Nzc0NywgMjAxNS8wMy8zMC0yMzo0MDo0MiAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtbG5zOmRjPSJodHRwOi8vcHVybC5vcmcvZGMvZWxlbWVudHMvMS4xLyIgeG1wTU06T3JpZ2luYWxEb2N1bWVudElEPSJ1dWlkOmIwZDM0M2M2LTJiY2MtMDU0Mi1hMThmLTEzYzdhZWQ2YmQ1ZiIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDo0ODNCOUI3OTg0NzcxMUU1ODRBMUE4MzZGNENDNTkxRCIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDo0ODNCOUI3ODg0NzcxMUU1ODRBMUE4MzZGNENDNTkxRCIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBJbGx1c3RyYXRvciBDUzYgKE1hY2ludG9zaCkiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDowMTgwMTE3NDA3MjA2ODExODIyQUJFNTU5M0FFREE4NyIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDow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" alt="Australian Government" />
+                        <img style="height: 40px; margin: 5px" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAYYAAABeCAYAAAAnmrMTAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAABANpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMDY3IDc5LjE1Nzc0NywgMjAxNS8wMy8zMC0yMzo0MDo0MiAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtbG5zOmRjPSJodHRwOi8vcHVybC5vcmcvZGMvZWxlbWVudHMvMS4xLyIgeG1wTU06T3JpZ2luYWxEb2N1bWVudElEPSJ1dWlkOmIwZDM0M2M2LTJiY2MtMDU0Mi1hMThmLTEzYzdhZWQ2YmQ1ZiIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDo0ODNCOUI3OTg0NzcxMUU1ODRBMUE4MzZGNENDNTkxRCIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDo0ODNCOUI3ODg0NzcxMUU1ODRBMUE4MzZGNENDNTkxRCIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBJbGx1c3RyYXRvciBDUzYgKE1hY2ludG9zaCkiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDowMTgwMTE3NDA3MjA2ODExODIyQUJFNTU5M0FFREE4NyIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDow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" alt="Australian Government" />
                       </td>
                     </tr>
                       <td>
                         <table>
-                        <tbody>
-                          <tr>
-                            <td>
-                              <h1>Your appointment is confirmed</h1>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>
-                              <table>
-                                <tr>
-                                  <td style="width: 18px;">
-                                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAOCAMAAAAolt3jAAAAb1BMVEUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABt6r1GAAAAJHRSTlMAAgMFDg8QFRcgIiMmKS4wYmR3naCjvMDDyMzP0dXZ3ODx9/sSNayqAAAAYUlEQVQIHQXBC0IBAQBAwbEV8isUbUVZ7/5nNAN4AsBwmJoOA2A2VjXOgPe+5l7O7YFrSyz6A27N8dwEHPsYDMc+gde6/9xrBThVdQbYVLUFMFbfAOyqNwD8dgGA9f8GeAByQwhRr8TccwAAAABJRU5ErkJggg==" alt="Location"/>
-                                  </td>
-                                  <td>
-                                    <!--DO NOT REMOVE: #UnitName -->
-                                    #UnitAddress  <a href="http://maps.google.com/maps?daddr=#UnitAddress ">Directions</a>
-                                  </td>
-                                </tr>
-                                <tr>
-                                  <td style="width: 18px;">
-                                   <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAOBAMAAADtZjDiAAAAHlBMVEUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAC3KG9qAAAACXRSTlMACWRnc5XT+ftSEaYeAAAAMklEQVQIW2NgMFcAIQaGhgYQYnCbMC1twjQHhpkTZwLRBIaZYDCBYQIDCJBPR4LNCQAAQ9YaybK1n2gAAAAASUVORK5CYII=" alt="Date"/>
-                                  </td>
-                                  <td>
-                                    @FormatDate(#ReferenceDate, dddd dd MMMM hh:mm tt)
-                                  </td>
-                                </tr>
-                                <tr>
-                                  <td>
-                                   &nbsp;
-                                  </td>
-                                  <td>
-                                    <a href="https://citizenship-appointment-beta.cfapps.io/login?id=#CustomerExtRef">Reschedule</a>
-                                    <a href="#">Add to my calendar</a>
-                                  </td>
-                                </tr>
-                              </table>
-                            </td>
-                          </tr>
-                        </tbody>
+                          <tbody>
+                            <tr>
+                              <td>
+                                <h1>Your appointment is confirmed</h1>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <table>
+                                  <tbody>
+                                    <tr>
+                                      <td>
+                                        <table>
+                                          <tr>
+                                            <td style="width: 18px;">
+                                              <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAOCAMAAAAolt3jAAAAb1BMVEUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABt6r1GAAAAJHRSTlMAAgMFDg8QFRcgIiMmKS4wYmR3naCjvMDDyMzP0dXZ3ODx9/sSNayqAAAAYUlEQVQIHQXBC0IBAQBAwbEV8isUbUVZ7/5nNAN4AsBwmJoOA2A2VjXOgPe+5l7O7YFrSyz6A27N8dwEHPsYDMc+gde6/9xrBThVdQbYVLUFMFbfAOyqNwD8dgGA9f8GeAByQwhRr8TccwAAAABJRU5ErkJggg==" alt="Location"/>
+                                            </td>
+                                            <td>
+                                              <!--DO NOT REMOVE: #UnitName -->
+                                              #UnitAddress  <a href="http://maps.google.com/maps?daddr=#UnitAddress ">Directions</a>
+                                            </td>
+                                          </tr>
+                                          <tr>
+                                            <td style="width: 18px;">
+                                             <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAOBAMAAADtZjDiAAAAHlBMVEUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAC3KG9qAAAACXRSTlMACWRnc5XT+ftSEaYeAAAAMklEQVQIW2NgMFcAIQaGhgYQYnCbMC1twjQHhpkTZwLRBIaZYDCBYQIDCJBPR4LNCQAAQ9YaybK1n2gAAAAASUVORK5CYII=" alt="Date"/>
+                                            </td>
+                                            <td>
+                                              @FormatDate(#ReferenceDate, dddd dd MMMM hh:mm tt)
+                                            </td>
+                                          </tr>
+                                          <tr>
+                                            <td>
+                                             &nbsp;
+                                            </td>
+                                            <td>
+                                              <a href="https://citizenship-appointment-beta.cfapps.io/login?id=#CustomerExtRef">Reschedule</a>
+                                              <a href="#">Add to my calendar</a>
+                                            </td>
+                                          </tr>
+                                        </table>
+                                      </td>
+                                      <td>
+                                        <a href="http://maps.google.com/maps?daddr=#UnitAddress " alt="Go to Google Maps to see directions" target="_blank">
+                                          <img src="http://maps.googleapis.com/maps/api/staticmap?center=#UnitAddress &size=250x200&maptype=roadmap&zoom=14&markers=color:redC%7C#UnitAddress "/>
+                                        </a>
+                                      </td>
+                                    </tr>
+                                  </tbody>
+                                </table>
+                              </td>
+                            </tr>
+                          </tbody>
                         </table>
                       </td>
                     <tr>
+                      <td>
+                        <div style="border-top:2px black solid;"></div>
+                        <h2>Prepare for your appointment</h2>
+                        <ul style="list-style: disc inside; padding-left: 1rem;">
+                          <li>Collect all originals of the <a href="https://www.border.gov.au/Trav/Citi/Appl/What-documents-do-you-need" target="_blank">required documents</a></li>
+                          <li>Translate non-english documents</li>
+                          <li>Study for the <a href="https://www.border.gov.au/Trav/Citi/Lear/Citizenship-test" target="_blank">citizenship test</a></li>
+                        </ul> 
+                      </td>
                     </tr>
                     <tr>
+                      <td>
+                        <div style="border-top:2px black solid;"></div>
+                        <table>
+                          <tr>
+                            <td>
+                              <h2>When you arrive</h2>
+                               <ul style="list-style: disc inside; padding-left: 1rem;">
+                                <li>Please allow enough <a href="http://maps.google.com/maps?daddr=#UnitAddress " target="_blank">travel time</a> to arrive at least 5 minutes prior to your appointment</li>
+                                <li>The appointment will take place at #UnitAddress . If you need special assistance, please <a href="https://www.border.gov.au/about/contact/make-enquiry" target="_blank">let us know</a></li>
+                                <li>Collect a ticket at the Citizenship kiosk by entering your Client ID or scanning the barcode on top of this page</li>
+                                <li>Wait until your number is called at the assigned counter</li> 
+                              </ul>
+                            </td>
+                            <td>
+                              Barcode goes here
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
                     </tr>
                     <tr>
+                      <td>
+                        <div style="border-top:2px black solid;"></div>
+                        <table>
+                          <tbody>
+                            <tr>
+                              <td>
+                                <h2>You must bring the following original documents</h2>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <h3>
+                                  Evidence of when you first arrived in Australia and your present country of citizenship
+                                </h3>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <table>
+                                  <tbody>
+                                    <tr>
+                                      <td>
+                                        <img src="" alt="Passport icon" />
+                                      </td>
+                                      <td>
+                                        <table>
+                                          <tbody>
+                                            <tr>
+                                              <td>
+                                                Current and/or previous passports <strong>and</strong> travel documents with visas (if applicable).
+                                              </td>
+                                            </tr>
+                                            <tr>
+                                              <td>
+                                                <em>E.g. Document for Travel to Australia (DFTTA), PLO56 (M56), Titre de Voyage</em>
+                                              </td>
+                                            </tr>
+                                          </tbody>
+                                        </table>
+                                      </td>
+                                    </tr>
+                                  </tbody>
+                                </table>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                Evidence of your identity
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <table>
+                                  <tbody>
+                                    <tr>
+                                      <td>
+                                        <img src="" alt="Birth certificate icon" />
+                                      </td>
+                                      <td>
+                                        Birth certificate, <strong>and</strong>
+                                      </td>
+                                    </tr>
+                                  </tbody>
+                                </table>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <table>
+                                  <tbody>
+                                    <tr>
+                                      <td>
+                                        <img src="" alt="Document with photo icon" />
+                                      </td>
+                                      <td>
+                                        <table>
+                                          <tbody>
+                                            <tr>
+                                              <td>
+                                                A document with your photo and sugnature, <strong>and</strong>
+                                              </td>
+                                            </tr>
+                                            <tr>
+                                              <td>
+                                                <em>E.g. Australian driver licence, National identity card, current passport, an air crew identity document, seafarer identity document, military identity document, Student Card, Australian Proof of Age card, Australian Keypass card, Working with Children Check card.</em>
+                                              </td>
+                                            </tr>
+                                          </tbody>
+                                        </table>
+                                      </td>
+                                    </tr>
+                                  </tbody>
+                                </table>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <table>
+                                  <tbody>
+                                    <tr>
+                                      <td>
+                                        <img src="" alt="Residential address icon" />
+                                      </td>
+                                      <td>
+                                        <table>
+                                          <tbody>
+                                            <tr>
+                                              <td>
+                                                A proof of your current residential address
+                                              </td>
+                                            </tr>
+                                            <tr>
+                                              <td>
+                                                <em>E.g. Utilities notice (such as electricity, gas or water bill), bank notice, rental contract or rates notice.</em>
+                                              </td>
+                                            </tr>
+                                          </tbody>
+                                        </table>
+                                      </td>
+                                    </tr>
+                                  </tbody>
+                                </table>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                If you have changed your name or been known by any other names
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <table>
+                                  <tbody>
+                                    <tr>
+                                      <td>
+                                        <img src="" alt="Certificate icon" />
+                                      </td>
+                                      <td>
+                                        <table>
+                                          <tbody>
+                                            <tr>
+                                              <td>
+                                                If you have changed your name or been known by any other names since bith, you must provide official evidence of links between present and previous names.
+                                              </td>
+                                            </tr>
+                                            <tr>
+                                              <td>
+                                                <em>E.g. Marriage or divorce certificate, Name Change Certificate from the Australian Registry of Births, Deaths and Marriages (RBDM) or an official overseas authority.</em>
+                                              </td>
+                                            </tr>
+                                          </tbody>
+                                        </table>
+                                      </td>
+                                    </tr>
+                                  </tbody>
+                                </table>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                Good character documents
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <table>
+                                  <tbody>
+                                    <tr>
+                                      <td>
+                                        <img src="" alt="Police check icon" />
+                                      </td>
+                                      <td>
+                                        <table>
+                                          <tbody>
+                                            <tr>
+                                              <td>
+                                                Overseas penal clearance
+                                              </td>
+                                            </tr>
+                                            <tr>
+                                              <td>
+                                                <em>You will need to provide <a href="" target="_blank">original penal clearance</a> certificates from overseas countries if, since the grant of your first permanentn Australian visa:
+                                                  <ul>
+                                                    <li>
+                                                      You have lived or travelled overseas since the age of 18 or over, <strong>and</strong>
+                                                    </li>
+                                                    <li>
+                                                      The total time spent overseas added up to 12 months or more, <strong>and</strong>
+                                                    </li>
+                                                    <li>
+                                                      The time you spent in any one country was more than 90 days, <strong>or</strong>
+                                                    </li>
+                                                    <li>
+                                                      You are requested to do so by the department.
+                                                    </li>
+                                                  </ul>
+                                                </em>
+                                              </td>
+                                            </tr>
+                                            <tr>
+                                              <td>
+                                                <em>If you are applying outside Australia, then Australia should be considered an overseas country. <a href="http://www.border.gov.au/Trav/Visa/Char" alt="Character requirements details">www.border.gov.au/Trav/Visa/Char</a>
+                                              </td>
+                                            </tr>
+                                          </tbody>
+                                        </table>
+                                      </td>
+                                    </tr>
+                                  </tbody>
+                                </table>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <em>In some cases further documents might be requested.</em>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </td>
                     </tr>
                     <tr>
+                      <td>
+                        <div style="border-top:2px black solid;"></div>
+                        <table>
+                          <tbody>
+                            <tr>
+                              <td>
+                                <h2>Documents for children</h2>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <h3>
+                                  The following documents are required for all children under 16 years of age
+                                </h3>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <table>
+                                  <tbody>
+                                    <tr>
+                                      <td>
+                                        <img src="" alt="Birth certificate icon" />
+                                      </td>
+                                      <td>
+                                        <table>
+                                          <tbody>
+                                            <tr>
+                                              <td>
+                                                A full birth certificate of family register containing parent's details
+                                              </td>
+                                            </tr>
+                                          </tbody>
+                                        </table>
+                                      </td>
+                                    </tr>
+                                    <tr>
+                                      <td>
+                                        <img src="" alt="Passport icon" />
+                                      </td>
+                                      <td>
+                                        <table>
+                                          <tbody>
+                                            <tr>
+                                              <td>
+                                                A Passport or travel document used to enter Australia, if not on your passport
+                                              </td>
+                                            </tr>
+                                          </tbody>
+                                        </table>
+                                      </td>
+                                    </tr>
+                                    <tr>
+                                      <td>
+                                        <img src="" alt="Name change certificate icon" />
+                                      </td>
+                                      <td>
+                                        <table>
+                                          <tbody>
+                                            <tr>
+                                              <td>
+                                                Evidence of any name change between birth and and current name, if applicable
+                                              </td>
+                                            </tr>
+                                          </tbody>
+                                        </table>
+                                      </td>
+                                    </tr>
+                                    <tr>
+                                      <td>
+                                        <img src="" alt="Certificate icon" />
+                                      </td>
+                                      <td>
+                                        <table>
+                                          <tbody>
+                                            <tr>
+                                              <td>
+                                                If you have been granted custody and/or guardianship of the child, bring the relevant court orders.
+                                              </td>
+                                            </tr>
+                                          </tbody>
+                                        </table>
+                                      </td>
+                                    </tr>
+                                    <tr>
+                                      <td>
+                                        <img src="" alt="Adoption certificate icon" />
+                                      </td>
+                                      <td>
+                                        <table>
+                                          <tbody>
+                                            <tr>
+                                              <td>
+                                                If the child is adopted, bring the decision papers
+                                              </td>
+                                            </tr>
+                                          </tbody>
+                                        </table>
+                                      </td>
+                                    </tr>
+                                  </tbody>
+                                </table>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <em>If you have included children in your application they are not required to attend this appointment. There are no childcare facilities so you will need to make alternative childcare arrangements for your children.</em>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </td>
                     </tr>
                     <tr>
+                      <td>
+                        <div style="border-top:2px black solid;"></div>
+                        <table>
+                          <tbody>
+                            <tr>
+                              <td>
+                                <h2>If you have applied online</h2>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <table>
+                                  <tbody>
+                                    <tr>
+                                      <td>
+                                        <img src="" alt="Form icon" />
+                                      </td>
+                                      <td>
+                                        <table>
+                                          <tbody>
+                                            <tr>
+                                              <td>
+                                                <a href="" alt="" target="_blank">
+                                                  Form 1195 - Identity declaration
+                                                </a>
+                                              </td>
+                                            </tr>
+                                            <tr>
+                                              <td>
+                                                <em>Provide Form 1195 for you and all children included in your application.</em>
+                                              </td>
+                                            </tr>
+                                          </tbody>
+                                        </table>
+                                      </td>
+                                    </tr>
+                                  </tbody>
+                                </table>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </td>
                     </tr>
                     <tr>
+                      <td>
+                        <div style="border-top:2px black solid;"></div>
+                        <table>
+                          <tbody>
+                            <tr>
+                              <td>
+                                <h2>Documents for children</h2>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <h3>
+                                  The following documents are required for all children under 16 years of age
+                                </h3>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <table>
+                                  <tbody>
+                                    <tr>
+                                      <td>
+                                        <img src="" alt="Birth certificate icon" />
+                                      </td>
+                                      <td>
+                                        <table>
+                                          <tbody>
+                                            <tr>
+                                              <td>
+                                                A full birth certificate of family register containing parent's details
+                                              </td>
+                                            </tr>
+                                          </tbody>
+                                        </table>
+                                      </td>
+                                    </tr>
+                                    <tr>
+                                      <td>
+                                        <img src="" alt="Passport icon" />
+                                      </td>
+                                      <td>
+                                        <table>
+                                          <tbody>
+                                            <tr>
+                                              <td>
+                                                A Passport or travel document used to enter Australia, if not on your passport
+                                              </td>
+                                            </tr>
+                                          </tbody>
+                                        </table>
+                                      </td>
+                                    </tr>
+                                    <tr>
+                                      <td>
+                                        <img src="" alt="Name change certificate icon" />
+                                      </td>
+                                      <td>
+                                        <table>
+                                          <tbody>
+                                            <tr>
+                                              <td>
+                                                Evidence of any name change between birth and and current name, if applicable
+                                              </td>
+                                            </tr>
+                                          </tbody>
+                                        </table>
+                                      </td>
+                                    </tr>
+                                    <tr>
+                                      <td>
+                                        <img src="" alt="Certificate icon" />
+                                      </td>
+                                      <td>
+                                        <table>
+                                          <tbody>
+                                            <tr>
+                                              <td>
+                                                If you have been granted custody and/or guardianship of the child, bring the relevant court orders.
+                                              </td>
+                                            </tr>
+                                          </tbody>
+                                        </table>
+                                      </td>
+                                    </tr>
+                                    <tr>
+                                      <td>
+                                        <img src="" alt="Adoption certificate icon" />
+                                      </td>
+                                      <td>
+                                        <table>
+                                          <tbody>
+                                            <tr>
+                                              <td>
+                                                If the child is adopted, bring the decision papers
+                                              </td>
+                                            </tr>
+                                          </tbody>
+                                        </table>
+                                      </td>
+                                    </tr>
+                                  </tbody>
+                                </table>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <em>If you have included children in your application they are not required to attend this appointment. There are no childcare facilities so you will need to make alternative childcare arrangements for your children.</em>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </td>
                     </tr>
                     <tr>
+                      <td>
+                        <div style="border-top:2px black solid;"></div>
+                        <table>
+                          <tbody>
+                            <tr>
+                              <td>
+                                <h2>Translating your documents</h2>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                If required documents are not in English, you will also need to provide a translation with the original document.
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                If you are in Australia when applying, use translators accredited by the National Accreditation Authority of Translatiors and Interpreters (NAATI). For more information see <a href="http://www.naati.com.au" target="_blank" alt="">www.naati.com.au</a>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                If you are outside of Australia when applying, the English translation must be completed by a qualified translator and must be endorsed by the translator with their full name, address, telephone number and details of their qualifications and experience in the language being translated.
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </td>
                     </tr>
                     <tr>
+                      <td>
+                        <div style="border-top:2px black solid;"></div>
+                        <table>
+                          <tbody>
+                            <tr>
+                              <td>
+                                <h2>Interview for 60 years and over</h2>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                During the interview we will ensure that you understand the nature of your citizenship application, unless you are applying on the grounds that you have a physical or mental disability. If you need an interpreter, you can bring a family member or friend to assist you during the interview. You will not need to sit the test.
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </td>
                     </tr>
                     <tr>
+                      <td>
+                        <div style="border-top:2px black solid;"></div>
+                        <table>
+                          <tbody>
+                            <tr>
+                              <td>
+                                <h2>Interview for 16 and 17 year olds</h2>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                During the interview, we will ensure that you understand the nature of your citizenship application, unless you are applying on the grounds that you have a physical or mental incapacity.
+                              </td>
+                            </tr>
+                             <tr>
+                              <td>
+                                If you are 16 or 17 years of age we will asses your English language ability and your knowledge of the responsibilities and priviledges of Australian citizenship. You do not need to sit the citizenship test. Please refer to the secion 'How to prepare for the test' which provides the information you need for your assesment. 
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </td>
                     </tr>
+                    <tr>
+                      <td>
+                        <div style="border-top:2px black solid;"></div>
+                        <table>
+                          <tbody>
+                            <tr>
+                              <td>
+                                <h2>How to prepare for the test</h2>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                The citizenship test is computer-based and conducted in English and cosists of 20 mutiple choice questions.
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <a href="" target="_blank" alt="">Australian Citizenship: Our Common Bond</a> is your Study Guide, which is <strong>available in 37 languages</strong> and has all the information you need to help you pass the citizenship test.
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <a href="" target="_blank" alt="">Watch</a>
+                                <a href="" target="_blank" alt="">Download (6.5MB PDF)</a>
+                                <a href="" target="_blank" alt="">Practice</a>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <a href="" target="_blank" alt="">More information about the citizenship test</a>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <div style="border-top:2px black solid;"></div>
+                        <table>
+                          <tbody>
+                            <tr>
+                              <td>
+                                <h2>Changes to your circumstances</h2>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                It is important that you tell us about any changes to your circumstances including your name, contact details, address or children included in this application as soon as possible. If you applied online, you can update your details through immi-account. Alternatively, use <a href="" target="_blank" alt="">Form 929 Change of address and/or passport details</a> or contact the Citizenship information line.
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <div style="border-top:2px black solid;"></div>
+                        <table>
+                          <tbody>
+                            <tr>
+                              <td>
+                                <h2>Contact us</h2>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <strong>General enquires</strong><br/>
+                                Citizenship Information Line. Call 131 880 Monday to Friday 8.30am - 4.30pm.
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <strong>Compliments and complaints</strong><br/>
+                                Global Feedback Unit. Call 133 177 Monday to Friday 8.30am - 4.30pm.
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        Yours sincerely
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        Assistant Secretary<br/>
+                        Permanent Visa and Citizenship Programme<br/>
+                        Position number 3355<br/>
+                        Department of Immigration and Border Protection
+                      </td>
+                    </tr> 
                     <tr>
                       <td style="background-color:rgb(232, 232, 232);padding:12px;" bgcolor="e8e8e8" width="100%">
                         &nbsp;
@@ -96,30 +784,3 @@
     </div>
   </body>
 </html>
-<!-- 
-          <h2 style="border-top:2px black solid; padding-top: 10px;">Prepare for your appointment</h2>
-          <ul style="list-style: disc inside; padding-left: 1rem;">
-            <li>Collect all originals of the <a href="https://www.border.gov.au/Trav/Citi/Appl/What-documents-do-you-need" target="_blank">required documents</a></li>
-            <li>Translate non-english documents</li>
-            <li>Study for the <a href="https://www.border.gov.au/Trav/Citi/Lear/Citizenship-test" target="_blank">citizenship test</a></li>
-          </ul> 
-          <table style="border-top:2px black solid">
-            <tr>
-              <td>
-                <h2 class="section-title strong-top-line">When you arrive</h2>
-                 <ul style="list-style: disc inside; padding-left: 1rem; margin-bottom: 0px;">
-                  <li>Please allow enough <a href="http://maps.google.com/maps?daddr=#UnitAddress " target="_blank">travel time</a> to arrive at least 5 minutes prior to your appointment</li>
-                  <li>The appointment will take place at #UnitAddress . If you need special assistance, please <a href="https://www.border.gov.au/about/contact/make-enquiry" target="_blank">let us know</a></li>
-                  <li>Collect a ticket at the Citizenship kiosk by entering your Client ID or scanning the barcode on top of this page</li>
-                  <li>Wait until your number is called at the assigned counter</li> 
-                </ul>
-              </td>
-              <td>
-                BArcode goes here
-              </td>
-            </tr>
-          </table>    
-        </td>
-        <td bgcolor="e8e8e8">
-        </td>
-      </tr>-->
