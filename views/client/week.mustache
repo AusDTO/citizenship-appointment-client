@@ -1,6 +1,17 @@
-<tr class="CalRow">
-    {{week_label}}
+<tr class="Week">
   {{#days}}
     {{> day_template}}
   {{/days}}
 </tr>
+{{#days}}
+<tr class="AvailableTimes date-{{date}}">
+ <td class="AvailableTimesCell date-{{date}}" colspan="7">
+    {{> times_template}}
+ </td>
+</tr>
+<!--<tr class="Selection time-{{datetime}}">-->
+    <!--<td colspan="7">-->
+        <!--{{> selection_template}}-->
+    <!--</td>-->
+<!--</tr>-->
+{{/days}}

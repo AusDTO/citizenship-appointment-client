@@ -1,5 +1,8 @@
+{{^times}}
+    Please Wait
+{{/times}}
 {{#times}}
-  <a class="BookingCalendar-timeLink" data-time="{{ time }}" href="#time-{{ time }}">
+  <a class="AppointmentLink datetime-{{datetime}}" href="#time/{{datetime}}">
     {{display_time}} {{ampm}}
   </a>
   <span>&nbsp&nbsp</span>

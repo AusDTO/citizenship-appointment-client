@@ -1,31 +1,14 @@
 'use strict';
 
 const test = require('tape');
-const bookable = require('../lib/bookable');
+const getCalendarStructure = require('../lib/getCalendarStructure');
 const datetime = require('../lib/datetime');
 
-test('bookable months', (assert) => {
-  let bookableMonths = bookable.getBookableMonths({
-    "2015-12-04": {
-      "calendar_id": "1228",
-      "available_times_count": 6
-    },
-    "2016-02-05": {
-      "calendar_id": "1229",
-      "available_times_count": 6
-    }
-  });
+test('get calendar structure', (assert) => {
+  let bookableMonths = [datetime('2015-12')];
 
-  let expectedMonths = ['2015-12', '2016-01', '2016-02'];
-
-  assert.deepEqual(bookableMonths.map((bookableMonth)=> {
-    return bookableMonth.toMonthString()
-  }), expectedMonths);
-  assert.end();
-});
-
-test('calendar structure', (assert) => {
-  let calendarStructure = bookable.getCalendarStructure([datetime('2015-12')], {
+  let availableDates =
+  {
     "2015-12-04": {
       "calendar_id": "1228",
       "available_times_count": 20
@@ -34,7 +17,9 @@ test('calendar structure', (assert) => {
       "calendar_id": "1229",
       "available_times_count": 6
     }
-  });
+  };
+
+  let calendarStructure = getCalendarStructure(bookableMonths, availableDates);
 
   let expectedStructure =
   {
