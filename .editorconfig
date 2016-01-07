@@ -14,12 +14,15 @@ trim_trailing_whitespace = true
 
 [*.{js,json}]
 indent_size = 2
+continuation_indent_size = 4
 
 [.*rc]
 indent_size = 2
+continuation_indent_size = 4
 
 [*.{yml,yaml}]
 indent_size = 2
+continuation_indent_size = 4
 
 [Makefile*]
 indent_style = tab

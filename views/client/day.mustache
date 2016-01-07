@@ -1,11 +1,11 @@
-<td class="{{ klass }}">
+<td class="Day BookingCalendar-date--bookable {{^available_times_count}}BookingCalendar-date--unavailable{{/available_times_count}}">
   <div class="BookingCalendar-content">
-    <a class="BookingCalendar-dateLink"  {{ disabled }} data-date="{{ date }}" href="#date-{{ date }}">
+    <a class="BookingCalendar-dateLink date-{{date}}" href="#date-{{ date }}">
       {{#today}}
         <span class="BookingCalendar-tag BookingCalendar-tag--today">TODAY</span>
       {{/today}}
       <p class="BookingCalendar-day">{{ day }}</p>
-      <p class="BookingCalendar-available">{{ available }}</p>
+      {{#available_times_count}}<p class="BookingCalendar-available">{{available_times_count}} available</p>{{/available_times_count}}
     </a>
   </div>
 </td>

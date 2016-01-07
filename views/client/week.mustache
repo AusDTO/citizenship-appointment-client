@@ -1,16 +1,6 @@
-<tr class="CalRow" data-week="{{week}}">
+<tr class="CalRow">
+    {{week_label}}
   {{#days}}
-    {{> day}}
+    {{> day_template}}
   {{/days}}
-</tr>
-<tr class="CalRow-slots" data-week="{{week}}">
-  <td class="CalRow-slots" colspan="7">
-    <ul class="CalRow-slots">
-      Please wait
-    </ul>
-  </td>
-</tr>
-<tr class="CalRow-selection" data-week="{{week}}">
-  <td class="CalRow-selection" colspan="7">
-  </td>
 </tr>

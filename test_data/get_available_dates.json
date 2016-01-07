@@ -1,142 +1,142 @@
 {
    "2016-01-04":{
       "calendar_id":"1228",
-      "available_slots_count":6
+      "available_times_count":6
    },
    "2016-01-05":{
       "calendar_id":"1229",
-      "available_slots_count":6
+      "available_times_count":6
    },
    "2016-01-06":{
       "calendar_id":"1230",
-      "available_slots_count":6
+      "available_times_count":6
    },
    "2016-01-07":{
       "calendar_id":"1231",
-      "available_slots_count":6
+      "available_times_count":6
    },
    "2016-01-08":{
       "calendar_id":"1232",
-      "available_slots_count":6
+      "available_times_count":6
    },
    "2016-01-11":{
       "calendar_id":"1233",
-      "available_slots_count":6
+      "available_times_count":6
    },
    "2016-01-12":{
       "calendar_id":"1234",
-      "available_slots_count":6
+      "available_times_count":6
    },
    "2016-01-13":{
       "calendar_id":"1235",
-      "available_slots_count":6
+      "available_times_count":6
    },
    "2016-01-14":{
       "calendar_id":"1236",
-      "available_slots_count":6
+      "available_times_count":6
    },
    "2016-01-15":{
       "calendar_id":"1237",
-      "available_slots_count":6
+      "available_times_count":6
    },
    "2016-01-18":{
       "calendar_id":"1238",
-      "available_slots_count":6
+      "available_times_count":6
    },
    "2016-01-19":{
       "calendar_id":"1239",
-      "available_slots_count":6
+      "available_times_count":6
    },
    "2016-01-20":{
       "calendar_id":"1240",
-      "available_slots_count":6
+      "available_times_count":6
    },
    "2016-01-21":{
       "calendar_id":"1241",
-      "available_slots_count":6
+      "available_times_count":6
    },
    "2016-01-22":{
       "calendar_id":"1242",
-      "available_slots_count":6
+      "available_times_count":6
    },
    "2016-01-25":{
       "calendar_id":"1243",
-      "available_slots_count":6
+      "available_times_count":6
    },
    "2016-01-26":{
       "calendar_id":"1244",
-      "available_slots_count":6
+      "available_times_count":6
    },
    "2016-01-27":{
       "calendar_id":"1245",
-      "available_slots_count":6
+      "available_times_count":6
    },
    "2016-01-28":{
       "calendar_id":"1246",
-      "available_slots_count":6
+      "available_times_count":6
    },
    "2016-01-29":{
       "calendar_id":"1247",
-      "available_slots_count":6
+      "available_times_count":6
    },
 	 "2016-02-02":{
 			"calendar_id":"1250",
-			"available_slots_count":6
+			"available_times_count":6
 	 },
 	 "2016-02-03":{
 			"calendar_id":"1251",
-			"available_slots_count":6
+			"available_times_count":6
 	 },
 	 "2016-02-04":{
 			"calendar_id":"1252",
-			"available_slots_count":6
+			"available_times_count":6
 	 },
 	 "2016-02-05":{
 			"calendar_id":"1253",
-			"available_slots_count":6
+			"available_times_count":6
 	 },
 	 "2016-02-08":{
 			"calendar_id":"1254",
-			"available_slots_count":6
+			"available_times_count":6
 	 },
 	 "2016-02-09":{
 			"calendar_id":"1255",
-			"available_slots_count":6
+			"available_times_count":6
 	 },
 	 "2016-02-10":{
 			"calendar_id":"1256",
-			"available_slots_count":6
+			"available_times_count":6
 	 },
 	 "2016-02-11":{
 			"calendar_id":"1257",
-			"available_slots_count":6
+			"available_times_count":6
 	 },
 	 "2016-02-12":{
 			"calendar_id":"1258",
-			"available_slots_count":6
+			"available_times_count":6
 	 },
 	 "2016-02-15":{
 			"calendar_id":"1259",
-			"available_slots_count":6
+			"available_times_count":6
 	 },
 	 "2016-02-16":{
 			"calendar_id":"1260",
-			"available_slots_count":6
+			"available_times_count":6
 	 },
 	 "2016-02-17":{
 			"calendar_id":"1261",
-			"available_slots_count":6
+			"available_times_count":6
 	 },
 	 "2016-02-18":{
 			"calendar_id":"1262",
-			"available_slots_count":6
+			"available_times_count":6
 	 },
 	 "2016-02-19":{
 			"calendar_id":"1263",
-			"available_slots_count":6
+			"available_times_count":6
 	 },
 	 "2016-02-22":{
 			"calendar_id":"1264",
-			"available_slots_count":6
+			"available_times_count":6
 	 }
 }
