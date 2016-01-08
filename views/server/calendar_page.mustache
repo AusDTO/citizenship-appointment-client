@@ -1,55 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>calendar</title>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-  <link rel="icon" type="image/png" href="images/coat-of-arms-black-on-white-32x32.png" sizes="32x32">
-  <link rel="stylesheet" type="text/css" href="static/bundle.css">
+    <title>calendar</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="icon" type="image/png" href="images/coat-of-arms-black-on-white-32x32.png" sizes="32x32">
+    <link rel="stylesheet" type="text/css" href="static/bundle.css">
 </head>
 <body>
 
-  {{> header }}
+{{> header }}
 
-  <main>
+<main>
     <div class="container">
-      <div class="steps-info">Step 2 of 3</div>
-      <h1>Select time and date</h1>
+        <div class="steps-info">Step 2 of 3</div>
+        <h1>Select time and date</h1>
 
-      <span>
-        <span class="fa fa-map-marker"></span>
-        &nbsp;<strong>Location:</strong>
-        &nbsp;<a href="http://maps.google.com/maps?daddr={{location}}" target="_blank">{{ location }}</a>
-      </span>
-      <span>
-      <span class="fa fa-building-o"></span>
-        &nbsp;<strong>Regular hours:</strong>
-        &nbsp;Mon-Fri,&nbsp;9:00am&nbsp;-&nbsp;4:00pm
-      </span>
-
-      <div class="calendar">
-        <div class="BookingCalendar-legend">
-          <span class="BookingCalendar-legendBox"></span>
-          &nbsp;Available
-          <span class="BookingCalendar-legendBox BookingCalendar-legendBox--unavailable"></span>
-          &nbsp;Unavailable
+        <span>
+            <span class="fa fa-map-marker"></span>
+            &nbsp;<strong>Location:</strong>
+            &nbsp;<a href="http://maps.google.com/maps?daddr={{location}}" target="_blank">{{ location }}</a>
+        </span>
+        <span>
+            <span class="fa fa-building-o"></span>
+            &nbsp;<strong>Regular hours:</strong>
+            &nbsp;Mon-Fri,&nbsp;9:00am&nbsp;-&nbsp;4:00pm
+        </span>
+        <div class="Legend">
+            <span class="Legend-box"></span>
+            &nbsp;Available
+            <span class="Legend-box Legend-box--unavailable"></span>
+            &nbsp;Unavailable
         </div>
 
         <form action="book_appointment" method="post">
-          <input name="{{ _csrf.parameterName }}" type="hidden" value="{{ _csrf.token }}" />
-            <div class="where_calendars_go"></div>
+            <input name="{{ _csrf.parameterName }}" type="hidden" value="{{ _csrf.token }}"/>
+            <div class="Calendars"></div>
         </form>
-      </div>
-
     </div>
-  </main>
+</main>
 
-  {{> footer }}
+{{> footer }}
 
-  <script src="static/calendar_page.js" charset="utf-8"></script>
+<script src="static/calendar_page.js" charset="utf-8"></script>
 
 </body>
 </html>

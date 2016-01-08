@@ -1,18 +1,18 @@
 {{#months}}
-    <div class="BookingCalendar month-{{month}}">
+    <div class="Calendar month-{{month}}">
         <!-- Calendar title and navigation -->
-        <div class="BookingCalendar-header">
+        <div class="Calendar-nav">
             {{#prevMonth}}
-                <a href="#month/{{prevMonth}}" class="button CalendarNav prev">
-                    <span class="BookingCalendar-nav--prev fa fa-angle-left"></span>
-                    <span class="BookingCalendar-nav--prev button-desc"></span>
+                <a href="#month/{{prevMonth}}" class="button Calendar-nav--prev" name="month/{{prevMonth}}">
+                    <span class="fa fa-angle-left Calendar-nav--label"></span>
+                    &nbsp
                 </a>
             {{/prevMonth}}
-            <strong class="BookingCalendar-currentMonth">{{monthName}}</strong>
+            <strong class="Calendar-nav--month">{{monthName}}</strong>
             {{#nextMonth}}
-                <a href="#month/{{nextMonth}}" class="button CalendarNav next">
-                    <span class="BookingCalendar-nav--next button-desc"></span>
-                    <span class="BookingCalendar-nav--next fa fa-angle-right"></span>
+                <a href="#month/{{nextMonth}}" class="button Calendar-nav--next" name="month/{{nextMonth}}">
+                    <span class="fa fa-angle-right Calendar-nav--label"></span>
+                    &nbsp
                 </a>
             {{/nextMonth}}
 
@@ -20,16 +20,16 @@
 
         <!-- Calendar table -->
 
-        <table class="BookingCalendar-dates">
-            <thead>
+        <table class="Calendar-dates">
+            <thead class="Calendar-dates--header">
             <tr>
-                <th class="abbr" data-state="M">Mon</th>
-                <th class="abbr" data-state="T">Tue</th>
-                <th class="abbr" data-state="W">Wed</th>
-                <th class="abbr" data-state="T">Thu</th>
-                <th class="abbr" data-state="F">Fri</th>
-                <th class="abbr" data-state="S">Sat</th>
-                <th class="abbr" data-state="S">Sun</th>
+                <th class="Calendar-header--dayLabel" data-state="M">Mon</th>
+                <th class="Calendar-header--dayLabel" data-state="T">Tue</th>
+                <th class="Calendar-header--dayLabel" data-state="W">Wed</th>
+                <th class="Calendar-header--dayLabel" data-state="T">Thu</th>
+                <th class="Calendar-header--dayLabel" data-state="F">Fri</th>
+                <th class="Calendar-header--dayLabel" data-state="S">Sat</th>
+                <th class="Calendar-header--dayLabel" data-state="S">Sun</th>
             </tr>
             </thead>
             {{> month_template}}

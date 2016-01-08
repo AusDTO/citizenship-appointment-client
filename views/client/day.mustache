@@ -1,11 +1,12 @@
-<td class="DateCell BookingCalendar-date--bookable {{^available_times_count}}BookingCalendar-date--unavailable{{/available_times_count}}">
-  <div class="BookingCalendar-content">
-    <a class="BookingCalendar-dateLink date-{{date}}" href="#date/{{ date }}">
+<td class="DateCell Calendar-date--bookable {{^available_times_count}}Calendar-date--unavailable{{/available_times_count}} {{^bookable}}Calendar-date--hide{{/bookable}} date-{{date}}">
+  <div class="DateCell-content">
+
+    <a class="DateCell-content--datelink date-{{date}}" href="#date/{{ date }}" name="date/{{ date }}">
       {{#today}}
-        <span class="BookingCalendar-tag BookingCalendar-tag--today">TODAY</span>
+        <span class="DateCell-content--tag">TODAY</span>
       {{/today}}
-      <p class="BookingCalendar-day">{{ day }}</p>
-      {{#available_times_count}}<p class="BookingCalendar-available">{{available_times_count}} available</p>{{/available_times_count}}
+      <p class="DateCell-content--day">{{ day }}</p>
+      {{#available_times_count}}<p class="DateCell-content--availableTimesCount">{{available_times_count}} available</p>{{/available_times_count}}
     </a>
   </div>
 </td>
