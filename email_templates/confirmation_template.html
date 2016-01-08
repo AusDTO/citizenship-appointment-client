@@ -13,7 +13,7 @@
           <tr> 
             <td align="center">
               <center style="width:100%">
-                <table style="margin:0 auto;max-width:512px;font-weight:200;width:inherit;font-family:Helvetica,Arial,sans-serif" bgcolor="FFFFFF" border="0" cellpadding="10" cellspacing="0" width="512">
+                <table style="margin:0 auto;max-width:512px;font-weight:200;width:inherit;" bgcolor="FFFFFF" border="0" cellpadding="10" cellspacing="0" width="512">
                   <tbody>
                     <tr>
                       <td style="background-color:rgb(232, 232, 232);padding:12px;" bgcolor="e8e8e8" width="100%">
@@ -63,9 +63,9 @@
                                           </tr>
                                         </table>
                                       </td>
-                                      <td>
+                                      <td width="130px">
                                         <a href="http://maps.google.com/maps?daddr=#UnitAddress " alt="Go to Google Maps to see directions" target="_blank">
-                                          <img src="http://maps.googleapis.com/maps/api/staticmap?center=#UnitAddress &size=250x200&maptype=roadmap&zoom=14&markers=color:redC%7C#UnitAddress "/>
+                                          <img src="http://maps.googleapis.com/maps/api/staticmap?center=#UnitAddress &size=190x120&maptype=roadmap&zoom=13&markers=color:redC%7C#UnitAddress "/>
                                         </a>
                                       </td>
                                     </tr>
@@ -102,7 +102,7 @@
                               </ul>
                             </td>
                             <td>
-                              Barcode goes here
+                              <!--Barcode goes here-->
                             </td>
                           </tr>
                         </table>
@@ -127,11 +127,11 @@
                             </tr>
                             <tr>
                               <td>
-                                <table>
+                                <table style="table-layout:fixed;font-weight:200;font-family:Helvetica,Arial,sans-serif;border:2px solid rgb(232, 232, 232);" align="left" border="0" cellpadding="4px" cellspacing="0" width="100%">
                                   <tbody>
                                     <tr>
-                                      <td>
-                                        <img src="" alt="Passport icon" />
+                                      <td valign="top" align="center" width="40px" style="vertical-align: top; width: 40px">
+                                        <img height="35px" style="height:35px;" src="data:image/png;base64,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" alt="Passport icon" />
                                       </td>
                                       <td>
                                         <table>
@@ -156,34 +156,26 @@
                             </tr>
                             <tr>
                               <td>
-                                Evidence of your identity
+                                <h3>Evidence of your identity</h3>
                               </td>
                             </tr>
                             <tr>
                               <td>
-                                <table>
+                                <table style="table-layout:fixed;font-weight:200;font-family:Helvetica,Arial,sans-serif;border:2px solid rgb(232, 232, 232);" align="left" border="0" cellpadding="4px" cellspacing="0" width="100%">
                                   <tbody>
                                     <tr>
-                                      <td>
-                                        <img src="" alt="Birth certificate icon" />
+                                      <td valign="top" align="center" width="40px" style="vertical-align: top; width: 40px;border-bottom:2px solid rgb(232, 232, 232);">
+                                        <img height="35px" style="height:35px;" src="data:image/png;base64,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" alt="Birth certificate icon" />
                                       </td>
-                                      <td>
+                                      <td  style="border-bottom:2px solid rgb(232, 232, 232);">
                                         Birth certificate, <strong>and</strong>
                                       </td>
                                     </tr>
-                                  </tbody>
-                                </table>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <table>
-                                  <tbody>
                                     <tr>
-                                      <td>
-                                        <img src="" alt="Document with photo icon" />
+                                      <td valign="top" align="center" width="40px" style="vertical-align: top; width: 40px;border-bottom:2px solid rgb(232, 232, 232);">
+                                        <img height="35px" style="height:35px;" src="data:image/png;base64,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" alt="Document with photo icon" />
                                       </td>
-                                      <td>
+                                      <td style="border-bottom:2px solid rgb(232, 232, 232);">
                                         <table>
                                           <tbody>
                                             <tr>
@@ -200,17 +192,9 @@
                                         </table>
                                       </td>
                                     </tr>
-                                  </tbody>
-                                </table>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <table>
-                                  <tbody>
                                     <tr>
-                                      <td>
-                                        <img src="" alt="Residential address icon" />
+                                      <td valign="top" align="center" width="40px" style="vertical-align: top; width: 40px">
+                                        <img height="35px" style="height:35px;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAFoElEQVR4Xu2c7XHWOhCFNxVAB9ABUAF0AHQAFRAqgFQAVAAdAB2QDqACoAOoAOZkrBm/jiTvao9lK1n/eedyrbV0Hh+tvpwzGf96JSJvp2bg98PITTobuPL3ReSjiDxZtOGbiLwUkV8jtm1UIG9mrsjp/kdE3ovIxWhQRgPycHIFfjXX98kt+B3iGglIzRWXk9qPC6ojtwzhlhGA1Fzxd+q60D3hOp/++04GzBBuOTqQNVe8yCRvJPtPIjKkW44KxOKKUm4Y0i1HBNLiihKU4dxyJCCYT2BeARGXF3IFuqcvjUMllEWeyeUWzFcwb8H8ZffrCEDuighcgS4md32dYGBu4bnwHOSWp4Ugad7ifY6njrI3kC1dURLm2QTmkG7ZCwjbFWmiqJ0AHtYtewBhugLCIu/grceFLum1iGi7ncO5pScQtisgJmAg7vwCDCRp7QDgUG7pBaTmit9T0taOcpauKOUKAAEYrVtQRzjsXiZgt5HY1kDWxMPeBdaZtKKVXFGC0uIW1Ad7LLnL2iWaR1xbAqmJx3ZFWjjE8Dl3Md1ihWyCsgWQnq74MXV3aXSF0Rbe4gcZFaxCoh01t1ghq8CwgfR2Rdq6XTYW/z6kW1hA9nRF6c0b0i0MIDVXLLuUNduugUWuKLmiFJvtFiyxMLrEbH09QNjiMcEuG8t0C2IzIZ/UtRVIOnqznJQh+BFc0cMta5CbjiRZgZSO3iQBrF3Klq7okVvW3GI+kmQBMqorhnKLBshNcMUwblkDUnMFjt7kDhmUGg+w72Yrs/P7lqdH1kZj7P9f23+3TgBr28aYnFZzSwlIzRUt4jHBsmGkeC4hM5WqQS7mlhwQpnhssFvBmMdtErJQMTPkORDG0Zt5vZhge4CYP8Ms5EoF1yBjU+1qPS4BYR+9yZ1Kx/NaurveMPZwSxo+XwAIlgJy6/8t4o3sitpgpHQScjVJG3PLBwD5lymEozewmfYbixFzhdV5a92O5ZsU6AUjXDuSlAPy3LAfjUbdRFf0cgtWKj7PH5YDsjY3mQ8Tb0qu2NMtJz1UK5Db5Iqt3eICchtyRW+3NAMJV5RReeYtZiDhCr1nWkZiJiA1V1iHxvpmjX1ncUg7nT9bLi6qgKy5wvOtxthy62tfOzc8X1xcBZJsl9ueZX2roW/W2HfWzg2nWX76YPWqpaWZek4G64RxbCm5tb82ASyFtwDRThjTs1AJbEjlPlGzNBeroFgN1R7GtsTueW9uiera87cE8pMAI1UYUB71VG+DZ7mAIFcsF76sDlFVwNBw6/MNobvcutQjp/FVDsGecRJ//rXrMoBVkAByyjmn53IkdgmR0cfPPwlL32qwgXiBWst3ee0NDynpmU7Z4/e81sgAYlBbcatKzwCiUJJ0SwAhCckKE0BYSpLiBBCSkKwwAYSlJClOACEJyQoTQFhKkuIEEJKQrDABhKUkKU4AIQnJCnM4IN6G3dS1rBNdei6dBJBTBbLabwkEB7Vzf+qoBQw+tdb+eXHWTmWpnq07mLt3WRAGR15yf/XAAgUwcPBCu4XL3KmsQbHuYO4OxCI68172xlipbtacFkCYlDOxAohSYNWbqIw1v80bV1V+y6Te0GZKEVXDG57kjasqH0D0ZFSCVsKpygeQAKJXoPFO1ZvYENsbV1U+HKInoxI0uqzrCniFK2nqjasqHw4Jh+gVaLxT9SY2xPbGVZUPh+jJqASNHBI5RP9K7XSn902OpE4GF0DIgnrDBRCvguTyAYQsqDdcAPEqSC4fQMiCesMFEK+C5PIBhCyoN1wA8SpILh9AyIJ6wwUQr4Lk8gGELKg3XADxKkguH0DIgnrDBRCvguTyAYQsqDdcAPEqSC4fQMiCesPdGiBeoaL8qQLuT9pCUK4CZiDMbwS5TRk/WvGbydq5LNY3guPLx21B9ZvJ/xg2TNWl71FDAAAAAElFTkSuQmCC" alt="Residential address icon" />
                                       </td>
                                       <td>
                                         <table>
@@ -235,16 +219,16 @@
                             </tr>
                             <tr>
                               <td>
-                                If you have changed your name or been known by any other names
+                                <h3>If you have changed your name or been known by any other names</h3>
                               </td>
                             </tr>
                             <tr>
                               <td>
-                                <table>
+                                <table style="table-layout:fixed;font-weight:200;font-family:Helvetica,Arial,sans-serif;border:2px solid rgb(232, 232, 232);" align="left" border="0" cellpadding="4px" cellspacing="0" width="100%">
                                   <tbody>
                                     <tr>
-                                      <td>
-                                        <img src="" alt="Certificate icon" />
+                                      <td valign="top" align="center" width="40px" style="vertical-align: top; width: 40px">
+                                        <img height="35px" style="height:35px;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAFD0lEQVR4Xu2djbENQRCF+0VABogAGRABIkAEiAARIAJEgAjIABEgAyKgDruvRtu92zPdd7bNPVOllPfm93z9MzO7tc6EJZUCZ6lmw8kIgSQzAgIhkGQKJJsOPYRAkimQbDr0kAGB3BaRZyJyOdnaek/nk4g8EpEPnoEjPOQLYZwjAJTrewP56ZnAgG1dRu5qPIlJIH9blUtTV+MVIBF9/k+Oow3StX5XYwL5rQCBJHMfAiGQwwqEWkgysS3TCV0/c4hF8o4GSSAE4lcgWQ8MWQTSMYYmE9syHXqIRaWOdQiko9iWoQjEolLHOgTSUWzLUARiUaljHQLpKLZlKAKxqNSxDoF0FNsyFIFYVOpYh0A6im0Zahgg2V+OsN6EE4jFbAPqEEiAiJFdEEikmgF9nRyQAM1SdDFMDkmhZsAkCCRAxMguCCRSzYC+CCRAxMguCCRSzYC+CCRAxMguCCRSzYC+hgHCu6wFa7CeRg8ZUquFEAiBVAUoq7G2GuTiZKyD0kPWFRgGSJW5Jq5MIMngEAiBHFYg1EKSiW2ZTuj690zqlsX+D3UIJBklAiEQ5pBjnMPSHQyTGXrzdBiymqU7TkMCOY6uzb0SSLN0x2l4UkCuichjEcF3Hb+LyFsReSEi+JRelnIyQADjvYhcVMoDzM1EUIYFcldEnlR8UBNgAOvr1O71Ti4zJJDnIvLAKejTCYyzm+rmwwGBleNTszo0lcogRKEghK0VeMyVKddUq+poMByQG0roH5OolyaR8HFieBAKQhqSPMq3CeKFQkyAc33IuAHMcECwg3pTCDEDQFJHfoDllwWehK9oY6f1cPqq9vz7O9NOrEHX5iZDAbknIi+VFDW5YCn33BeRV83y1jccBoj2jFmKmrCjw90enjIMkI8igrBUFmxd4TU1Bd6ALXNZ3N9gr5jAMED0QvAR+9YTOMACcFkinoZauAwDBMm63CF5ErIOf9ipHdpGW4S21hkGiA41AAQvwc6qpmDHBe8oAbSEvpoxy7rDAJmvPUovadkhLXkHIOntcqvgW+2GAYKF6sRes8OahdI7rZ4JHXMYCki5GJy8W//bpFBRtlxC/T507IidiGdCui2uRpBD3hlCDkLerWnrjBP7Hjus4TwE4eXqgkXi5whfa3kAMHDRqM8x6Orzys8rDd9c3WOQ/wyyt4esndYx0fIKZRZ+PqeUl4x6UZ7ts5lCUXEoIEsuP68VoQuhCOKXQPBv3GGt5ZsII6sBczJAakTZK38Ml0MOeQiBNCrgdVndHqdsfVmoH1rNU12qy5Dl3HIuAUWyx60vdllI5PPzDeQUHASRX/BKEP54DaLRDs+bhY4fYU3eCe3dnkCCT7peoARCIOs2wJDl9Y/gHHYMINYlzmNvhRwkd/x/7Sh4I0W/wLDWXv/cOi9vPZemrsbTzFsXvgUE91UAoZ+xAwjAzPdcBKJMCFvQ+aW2Gus6BARXJXg9aOnyEGNgK4yHWfg7ExD3xWaEh+DMgPulpVvbQ4DWgEBoeMbWM3F4CDxFv9e11m+NsbTUBQyck1xvTkYAaZl82cYS8rBYFAv0DGtq1iTD5LeA4HpkfgCFW159raIXn2FNQwLB/RVA6F0VkjzAlC9HlAIQSLM5/Gm45CEIURB+7cU5JHuAWgphBOIEondpc4jaeo0HSV+HsJ4vyDmXvdw8gzXBE7BLg8BLIWpr4WUIa3mva6v/rr/PAKTrgrMPRiDJCP0CzHxIdP+01PcAAAAASUVORK5CYII=" alt="Certificate icon" />
                                       </td>
                                       <td>
                                         <table>
@@ -269,16 +253,16 @@
                             </tr>
                             <tr>
                               <td>
-                                Good character documents
+                                <h3>Good character documents</h3>
                               </td>
                             </tr>
                             <tr>
                               <td>
-                                <table>
+                                <table style="table-layout:fixed;font-weight:200;font-family:Helvetica,Arial,sans-serif;border:2px solid rgb(232, 232, 232);" align="left" border="0" cellpadding="4px" cellspacing="0" width="100%">
                                   <tbody>
                                     <tr>
-                                      <td>
-                                        <img src="" alt="Police check icon" />
+                                      <td valign="top" align="center" width="40px" style="vertical-align: top; width: 40px">
+                                        <img height="35px" style="height:35px;" src="data:image/png;base64,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" alt="Police check icon" />
                                       </td>
                                       <td>
                                         <table>
@@ -349,13 +333,13 @@
                             </tr>
                             <tr>
                               <td>
-                                <table>
+                                <table style="table-layout:fixed;font-weight:200;font-family:Helvetica,Arial,sans-serif;border:2px solid rgb(232, 232, 232);" align="left" border="0" cellpadding="4px" cellspacing="0" width="100%">
                                   <tbody>
                                     <tr>
-                                      <td>
-                                        <img src="" alt="Birth certificate icon" />
+                                      <td valign="top" align="center" width="40px" style="vertical-align: top; width: 40px;border-bottom:2px solid rgb(232, 232, 232);">
+                                        <img height="35px" style="height:35px;" src="data:image/png;base64,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" alt="Birth certificate icon" />
                                       </td>
-                                      <td>
+                                      <td style="border-bottom:2px solid rgb(232, 232, 232);">
                                         <table>
                                           <tbody>
                                             <tr>
@@ -368,10 +352,10 @@
                                       </td>
                                     </tr>
                                     <tr>
-                                      <td>
-                                        <img src="" alt="Passport icon" />
+                                      <td valign="top" align="center" width="40px" style="vertical-align: top; width: 40px;border-bottom:2px solid rgb(232, 232, 232);">
+                                        <img height="35px" style="height:35px;" src="data:image/png;base64,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" alt="Passport icon" />
                                       </td>
-                                      <td>
+                                      <td style="border-bottom:2px solid rgb(232, 232, 232);">
                                         <table>
                                           <tbody>
                                             <tr>
@@ -384,10 +368,10 @@
                                       </td>
                                     </tr>
                                     <tr>
-                                      <td>
-                                        <img src="" alt="Name change certificate icon" />
+                                      <td valign="top" align="center" width="40px" style="vertical-align: top; width: 40px;border-bottom:2px solid rgb(232, 232, 232);">
+                                        <img height="35px" style="height:35px;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyhpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMDY3IDc5LjE1Nzc0NywgMjAxNS8wMy8zMC0yMzo0MDo0MiAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTUgKE1hY2ludG9zaCkiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6QTc2QUVBNzk4OUM2MTFFNUI0MzdDMDFBMzYzQ0M0NzEiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6QTc2QUVBN0E4OUM2MTFFNUI0MzdDMDFBMzYzQ0M0NzEiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDpBNzZBRUE3Nzg5QzYxMUU1QjQzN0MwMUEzNjNDQzQ3MSIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDpBNzZBRUE3ODg5QzYxMUU1QjQzN0MwMUEzNjNDQzQ3MSIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/Pp/rHDoAAAVxSURBVHja7J1Lix1FGIark5hBNCpxJUkIiiESFxlwFiELjYmLqOM16A9QiQQG9B9Y2ekqi0A0LlyIYowQBMWFMIK6MGK8LiQwMbMQl2PwRpIZzPgV3WJbU2fOpb4+U139vPAyqTOnqidVT1dXfd3VVSwvLxvUXa2jCgAAAQACAAQACAAQACAAQACAAAABAAIABAAIABAAIABAAIAAAAEAAgAEAAgAEACgNmtDbAFFUfgf3SM+LN4v3i6+jmqO0pJ4XjwrPin+vv7L6HUdroAY13SD+A1XJG7UDoLrtdqviCWo6gFc438s3ssJOxZ9Kn5QfDm2/bTGAMdp/LHqPvExlZIULgFTgW7qR/F01TOgON0ofkx8PlDPk9HtpwDA64HGv5l2U9ctAQhOpADAnPdHPUJbNabHvbo+n8IgcNGb6m0S/0lbNSJXt7/X0ovSfhNR7acAgF9AQTs1Jle317wxXFR9Ewlsl9Tf5gEAHRcAAAACAAQACAAQACAAQACAAAB1RBvW4Ji8nHh1FfQACAAQAKBMxwA8L0APgAAAAQACAAQACAAQAKDuxAEGgXKf+GHxHvEOUy6LcrpkypVIZ8Ufij8z3nPyIyi1exPjjZMoLA3zFyzGwOheLHHRDL5W/oL4OfH6SABS8lB/bwprAzUA2CX+JqLSzol3AkA7AXBd/V8KFefWIx4EgHYB4Bp/KVDGVfGb4idN+Z6hjZXdvw+J36q+4+dbGhGCNikbAHb1OPNPibcMkH+r+HSPnmAnAKQNgBvwfevlc6P5IyOMmGeqvPWyvoocGAJAwwAcDuQ7ElEpM4HyngGANAFYF5jqnVKYO7/nlTmXaaCr9QDcHxjwbVGomG3iRa/sewFgda/FGTLtpd8V/6JQ7s9VL+DPMlBi9wL2eOn3Fcv2y+LdhQneC9jhpb9WLPtcn2NpdcHZ3AtYi5dE+W8Vm6g+05Ar64p3rInMAPjf8dv4kqj1mR6LMcCAuuSlb1Ms259NLNDE6QEw56WnFMue6nMsrS66SWcPwJde+gnFsv2yznKO9xtRjD8QdMCsDARtVfivbDcrA0H7cmwy0/JIoBuYzXt5Tkd2fy7vGbPyaSFCwYneDHo+kG8molJeCJT3bK6dtsnkdrD/CNi1CoJiyDP/RcPt4FY+EHK3CT8Q4uL52wa85p8J5P9DfFfOwzaT0SNh0yb8XJwbzL0tfkp8exXNc75D/LT4ncCA718/lPu4XROAFPYL0A6tFh0AoD6LY78AlBcAPw3x3Qs0YWR3meAlwI3e3ZM8j5ry2YE7xbdWv3OxfRfe/UL8gfhz8d8dugSobxnTxKZRN1Uj8VEBiAUoZwBc3f5WS0dvGqVxCZj30gfoWBvTA176YgpjgE+89Mvmv9W8SE+bxa/0qfsR5hTxcYDJwFzc7XDptjvdNOy8NnZenOE133X7h8zKDTqdd6cQCHJ6zYxvcWQ/ALriVzVOYK3t491+9h8Znduvax1IaoOS2z7+silDsCe5VDcud+YfrOo8iTiA/9FuU67922/K2P1GeoAoXa1mWrOm3Kn9B38MlxoAJrIBQwVOVj+/63gcIDiIT+ES0KQmK/pnayAgTYIUZgGxPUCvWYBr8IXa7xYCEOQ8DWy+/RIGwG/8XhAAQIYA9Gr8EAQAkBkA/RrfhwAAEggEac4CfjVl3Luuo9XPlwb4LrOAlg8Cfdvad63RDyVzCUgYABv4vgWAbgBgV8ljASBvAOwA+SwA5AmAHSKvBYC8ALAj5LcAkAcANqIMCwDtBsAqlGMBoJ0AWMX6sAAw5kggardYGwgACAAQACAAQACAAAABAAIABAAIABAAIABAAIAAAAEAAgAEAAgAUDb6R4ABADdHVdDQqxoIAAAAAElFTkSuQmCC" alt="Name change certificate icon" />
                                       </td>
-                                      <td>
+                                      <td style="border-bottom:2px solid rgb(232, 232, 232);">
                                         <table>
                                           <tbody>
                                             <tr>
@@ -400,10 +384,10 @@
                                       </td>
                                     </tr>
                                     <tr>
-                                      <td>
-                                        <img src="" alt="Certificate icon" />
+                                      <td valign="top" align="center" width="40px" style="vertical-align: top; width: 40px;border-bottom:2px solid rgb(232, 232, 232);">
+                                        <img height="35px" style="height:35px;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAFD0lEQVR4Xu2djbENQRCF+0VABogAGRABIkAEiAARIAJEgAjIABEgAyKgDruvRtu92zPdd7bNPVOllPfm93z9MzO7tc6EJZUCZ6lmw8kIgSQzAgIhkGQKJJsOPYRAkimQbDr0kAGB3BaRZyJyOdnaek/nk4g8EpEPnoEjPOQLYZwjAJTrewP56ZnAgG1dRu5qPIlJIH9blUtTV+MVIBF9/k+Oow3StX5XYwL5rQCBJHMfAiGQwwqEWkgysS3TCV0/c4hF8o4GSSAE4lcgWQ8MWQTSMYYmE9syHXqIRaWOdQiko9iWoQjEolLHOgTSUWzLUARiUaljHQLpKLZlKAKxqNSxDoF0FNsyFIFYVOpYh0A6im0Zahgg2V+OsN6EE4jFbAPqEEiAiJFdEEikmgF9nRyQAM1SdDFMDkmhZsAkCCRAxMguCCRSzYC+CCRAxMguCCRSzYC+CCRAxMguCCRSzYC+hgHCu6wFa7CeRg8ZUquFEAiBVAUoq7G2GuTiZKyD0kPWFRgGSJW5Jq5MIMngEAiBHFYg1EKSiW2ZTuj690zqlsX+D3UIJBklAiEQ5pBjnMPSHQyTGXrzdBiymqU7TkMCOY6uzb0SSLN0x2l4UkCuichjEcF3Hb+LyFsReSEi+JRelnIyQADjvYhcVMoDzM1EUIYFcldEnlR8UBNgAOvr1O71Ti4zJJDnIvLAKejTCYyzm+rmwwGBleNTszo0lcogRKEghK0VeMyVKddUq+poMByQG0roH5OolyaR8HFieBAKQhqSPMq3CeKFQkyAc33IuAHMcECwg3pTCDEDQFJHfoDllwWehK9oY6f1cPqq9vz7O9NOrEHX5iZDAbknIi+VFDW5YCn33BeRV83y1jccBoj2jFmKmrCjw90enjIMkI8igrBUFmxd4TU1Bd6ALXNZ3N9gr5jAMED0QvAR+9YTOMACcFkinoZauAwDBMm63CF5ErIOf9ipHdpGW4S21hkGiA41AAQvwc6qpmDHBe8oAbSEvpoxy7rDAJmvPUovadkhLXkHIOntcqvgW+2GAYKF6sRes8OahdI7rZ4JHXMYCki5GJy8W//bpFBRtlxC/T507IidiGdCui2uRpBD3hlCDkLerWnrjBP7Hjus4TwE4eXqgkXi5whfa3kAMHDRqM8x6Orzys8rDd9c3WOQ/wyyt4esndYx0fIKZRZ+PqeUl4x6UZ7ts5lCUXEoIEsuP68VoQuhCOKXQPBv3GGt5ZsII6sBczJAakTZK38Ml0MOeQiBNCrgdVndHqdsfVmoH1rNU12qy5Dl3HIuAUWyx60vdllI5PPzDeQUHASRX/BKEP54DaLRDs+bhY4fYU3eCe3dnkCCT7peoARCIOs2wJDl9Y/gHHYMINYlzmNvhRwkd/x/7Sh4I0W/wLDWXv/cOi9vPZemrsbTzFsXvgUE91UAoZ+xAwjAzPdcBKJMCFvQ+aW2Gus6BARXJXg9aOnyEGNgK4yHWfg7ExD3xWaEh+DMgPulpVvbQ4DWgEBoeMbWM3F4CDxFv9e11m+NsbTUBQyck1xvTkYAaZl82cYS8rBYFAv0DGtq1iTD5LeA4HpkfgCFW159raIXn2FNQwLB/RVA6F0VkjzAlC9HlAIQSLM5/Gm45CEIURB+7cU5JHuAWgphBOIEondpc4jaeo0HSV+HsJ4vyDmXvdw8gzXBE7BLg8BLIWpr4WUIa3mva6v/rr/PAKTrgrMPRiDJCP0CzHxIdP+01PcAAAAASUVORK5CYII=" alt="Certificate icon" />
                                       </td>
-                                      <td>
+                                      <td style="border-bottom:2px solid rgb(232, 232, 232);">
                                         <table>
                                           <tbody>
                                             <tr>
@@ -416,8 +400,8 @@
                                       </td>
                                     </tr>
                                     <tr>
-                                      <td>
-                                        <img src="" alt="Adoption certificate icon" />
+                                      <td valign="top" align="center" width="40px" style="vertical-align: top; width: 40px">
+                                        <img height="35px" style="height:35px;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyhpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMDY3IDc5LjE1Nzc0NywgMjAxNS8wMy8zMC0yMzo0MDo0MiAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTUgKE1hY2ludG9zaCkiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6QTc2QUVBNzk4OUM2MTFFNUI0MzdDMDFBMzYzQ0M0NzEiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6QTc2QUVBN0E4OUM2MTFFNUI0MzdDMDFBMzYzQ0M0NzEiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDpBNzZBRUE3Nzg5QzYxMUU1QjQzN0MwMUEzNjNDQzQ3MSIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDpBNzZBRUE3ODg5QzYxMUU1QjQzN0MwMUEzNjNDQzQ3MSIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/Pp/rHDoAAAVxSURBVHja7J1Lix1FGIark5hBNCpxJUkIiiESFxlwFiELjYmLqOM16A9QiQQG9B9Y2ekqi0A0LlyIYowQBMWFMIK6MGK8LiQwMbMQl2PwRpIZzPgV3WJbU2fOpb4+U139vPAyqTOnqidVT1dXfd3VVSwvLxvUXa2jCgAAAQACAAQACAAQACAAQACAAAABAAIABAAIABAAIABAAIAAAAEAAgAEAAgAEACgNmtDbAFFUfgf3SM+LN4v3i6+jmqO0pJ4XjwrPin+vv7L6HUdroAY13SD+A1XJG7UDoLrtdqviCWo6gFc438s3ssJOxZ9Kn5QfDm2/bTGAMdp/LHqPvExlZIULgFTgW7qR/F01TOgON0ofkx8PlDPk9HtpwDA64HGv5l2U9ctAQhOpADAnPdHPUJbNabHvbo+n8IgcNGb6m0S/0lbNSJXt7/X0ovSfhNR7acAgF9AQTs1Jle317wxXFR9Ewlsl9Tf5gEAHRcAAAACAAQACAAQACAAQACAAAB1RBvW4Ji8nHh1FfQACAAQAKBMxwA8L0APgAAAAQACAAQACAAQAKDuxAEGgXKf+GHxHvEOUy6LcrpkypVIZ8Ufij8z3nPyIyi1exPjjZMoLA3zFyzGwOheLHHRDL5W/oL4OfH6SABS8lB/bwprAzUA2CX+JqLSzol3AkA7AXBd/V8KFefWIx4EgHYB4Bp/KVDGVfGb4idN+Z6hjZXdvw+J36q+4+dbGhGCNikbAHb1OPNPibcMkH+r+HSPnmAnAKQNgBvwfevlc6P5IyOMmGeqvPWyvoocGAJAwwAcDuQ7ElEpM4HyngGANAFYF5jqnVKYO7/nlTmXaaCr9QDcHxjwbVGomG3iRa/sewFgda/FGTLtpd8V/6JQ7s9VL+DPMlBi9wL2eOn3Fcv2y+LdhQneC9jhpb9WLPtcn2NpdcHZ3AtYi5dE+W8Vm6g+05Ar64p3rInMAPjf8dv4kqj1mR6LMcCAuuSlb1Ms259NLNDE6QEw56WnFMue6nMsrS66SWcPwJde+gnFsv2yznKO9xtRjD8QdMCsDARtVfivbDcrA0H7cmwy0/JIoBuYzXt5Tkd2fy7vGbPyaSFCwYneDHo+kG8molJeCJT3bK6dtsnkdrD/CNi1CoJiyDP/RcPt4FY+EHK3CT8Q4uL52wa85p8J5P9DfFfOwzaT0SNh0yb8XJwbzL0tfkp8exXNc75D/LT4ncCA718/lPu4XROAFPYL0A6tFh0AoD6LY78AlBcAPw3x3Qs0YWR3meAlwI3e3ZM8j5ry2YE7xbdWv3OxfRfe/UL8gfhz8d8dugSobxnTxKZRN1Uj8VEBiAUoZwBc3f5WS0dvGqVxCZj30gfoWBvTA176YgpjgE+89Mvmv9W8SE+bxa/0qfsR5hTxcYDJwFzc7XDptjvdNOy8NnZenOE133X7h8zKDTqdd6cQCHJ6zYxvcWQ/ALriVzVOYK3t491+9h8Znduvax1IaoOS2z7+silDsCe5VDcud+YfrOo8iTiA/9FuU67922/K2P1GeoAoXa1mWrOm3Kn9B38MlxoAJrIBQwVOVj+/63gcIDiIT+ES0KQmK/pnayAgTYIUZgGxPUCvWYBr8IXa7xYCEOQ8DWy+/RIGwG/8XhAAQIYA9Gr8EAQAkBkA/RrfhwAAEggEac4CfjVl3Luuo9XPlwb4LrOAlg8Cfdvad63RDyVzCUgYABv4vgWAbgBgV8ljASBvAOwA+SwA5AmAHSKvBYC8ALAj5LcAkAcANqIMCwDtBsAqlGMBoJ0AWMX6sAAw5kggardYGwgACAAQACAAQACAAAABAAIABAAIABAAIABAAIAAAAEAAgAEAAgAUDb6R4ABADdHVdDQqxoIAAAAAElFTkSuQmCC" alt="Adoption certificate icon" />
                                       </td>
                                       <td>
                                         <table>
@@ -456,11 +440,11 @@
                             </tr>
                             <tr>
                               <td>
-                                <table>
+                                <table style="table-layout:fixed;font-weight:200;font-family:Helvetica,Arial,sans-serif;border:2px solid rgb(232, 232, 232);" align="left" border="0" cellpadding="4px" cellspacing="0" width="100%">
                                   <tbody>
                                     <tr>
-                                      <td>
-                                        <img src="" alt="Form icon" />
+                                      <td valign="top" align="center" width="40px" style="vertical-align: top; width: 40px">
+                                        <img height="35px" style="height:35px;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAACgUlEQVR4Xu3cYU6DQBRFYbpTXZnuVENsYkRaZt4cZl6Z42+40vMJak28LX6kKnBLdTVezCJIsi8CQS4E8pXstdRczvuyLJ81J/Q6tuUOeWWQtW9KlJlBUqLMDpIOhQRp2erxiH72iE3z+GqJuH2BLVujQdLcKS0RrwaSAmVmkPUx9bFzaw59fM0Msr72t2wos4OsN0gqFEF+nllpUAT5/SaSAkWQv9/Vh6MI8v/HrKEoguz/SjoMRZDH7xEMQRHk+Zs23VEEOX4XrSuKIMcgXX9PEaQMpBuKIOUgXVAEqQM5HUWQepBTUQSJgZyGMjNInOL4zPAfuQQ5jhs9ItQ2dNL9Cq/4N/Vo/L3zQm1DJwlS5BZqGzrpRUGKKjYchDwxBGkQ2JwqCNcSWRIEyciNCMK1RJYEQTJyI4JwLZElQZCM3IggXEtkSRAkIzciCNcSWRIEyciNCMK1RJYEQTJyI4JwLZElQZCM3IggXEtkSRAkIzciCNcSWRIEyciNCMK1RJYEQTJyI4JwLZElQZCM3IggXEtkSRAkIzciCNcSWRIEyciNCMK1RJYEQTJyI4JwLZElQZCM3IggXEtkSRAkIzciCNcSWRIEyciNCMK1RJYEQTJyI4JwLZElQZCM3IggXEtkSRAkIzciCNcSWRIEyciNCMK1RJYEQTJyI4JwLZElQZCM3IggXEtkSRAkIzciCNcSWRIEyciNCMK1RJYEQTJyI4JwLZElQZCM3IggXEtkSRAkIzciCNcSWRIEyciNpAPhXto1lkL/xj100r3X9iviGhm5VxFqGzpJkCK1UNvQSYLkBCm6Kg+qK9Byh9R9Jo8uKiBIUaZ+BwnSr3XRZ/oGxPTaZT76FL8AAAAASUVORK5CYII=" alt="Form icon" />
                                       </td>
                                       <td>
                                         <table>
@@ -483,120 +467,6 @@
                                     </tr>
                                   </tbody>
                                 </table>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <div style="border-top:2px black solid;"></div>
-                        <table>
-                          <tbody>
-                            <tr>
-                              <td>
-                                <h2>Documents for children</h2>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <h3>
-                                  The following documents are required for all children under 16 years of age
-                                </h3>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <table>
-                                  <tbody>
-                                    <tr>
-                                      <td>
-                                        <img src="" alt="Birth certificate icon" />
-                                      </td>
-                                      <td>
-                                        <table>
-                                          <tbody>
-                                            <tr>
-                                              <td>
-                                                A full birth certificate of family register containing parent's details
-                                              </td>
-                                            </tr>
-                                          </tbody>
-                                        </table>
-                                      </td>
-                                    </tr>
-                                    <tr>
-                                      <td>
-                                        <img src="" alt="Passport icon" />
-                                      </td>
-                                      <td>
-                                        <table>
-                                          <tbody>
-                                            <tr>
-                                              <td>
-                                                A Passport or travel document used to enter Australia, if not on your passport
-                                              </td>
-                                            </tr>
-                                          </tbody>
-                                        </table>
-                                      </td>
-                                    </tr>
-                                    <tr>
-                                      <td>
-                                        <img src="" alt="Name change certificate icon" />
-                                      </td>
-                                      <td>
-                                        <table>
-                                          <tbody>
-                                            <tr>
-                                              <td>
-                                                Evidence of any name change between birth and and current name, if applicable
-                                              </td>
-                                            </tr>
-                                          </tbody>
-                                        </table>
-                                      </td>
-                                    </tr>
-                                    <tr>
-                                      <td>
-                                        <img src="" alt="Certificate icon" />
-                                      </td>
-                                      <td>
-                                        <table>
-                                          <tbody>
-                                            <tr>
-                                              <td>
-                                                If you have been granted custody and/or guardianship of the child, bring the relevant court orders.
-                                              </td>
-                                            </tr>
-                                          </tbody>
-                                        </table>
-                                      </td>
-                                    </tr>
-                                    <tr>
-                                      <td>
-                                        <img src="" alt="Adoption certificate icon" />
-                                      </td>
-                                      <td>
-                                        <table>
-                                          <tbody>
-                                            <tr>
-                                              <td>
-                                                If the child is adopted, bring the decision papers
-                                              </td>
-                                            </tr>
-                                          </tbody>
-                                        </table>
-                                      </td>
-                                    </tr>
-                                  </tbody>
-                                </table>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <em>If you have included children in your application they are not required to attend this appointment. There are no childcare facilities so you will need to make alternative childcare arrangements for your children.</em>
                               </td>
                             </tr>
                           </tbody>
@@ -697,9 +567,57 @@
                             </tr>
                             <tr>
                               <td>
-                                <a href="" target="_blank" alt="">Watch</a>
-                                <a href="" target="_blank" alt="">Download (6.5MB PDF)</a>
-                                <a href="" target="_blank" alt="">Practice</a>
+                                <table>
+                                  <tbody>
+                                    <tr>
+                                      <td>
+                                        <a href="" style="white-space:nowrap;display:block;text-decoration:none" target="_blank"> 
+                                          <table style="font-weight:200;font-family:Helvetica,Arial,sans-serif" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+                                            <tbody> 
+                                              <tr> 
+                                                <td style="border-radius:2px;background-color:#008cc9;padding:6px 16px;font-size:16px;border-color:#008cc9;border-width:1px;border-style:solid" bgcolor="#008CC9">
+                                                  <a href="" style="color:#ffffff;white-space:nowrap;display:block;text-decoration:none" target="_blank">
+                                                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAOCAMAAAAolt3jAAAAVFBMVEUAAAD///////////////////////////////////////////////////////////////////////////////////////////////////////////8wXzyWAAAAG3RSTlMAAwQFCDJKS3l7f4CGm8DDxcfI3N7t7/P3+fv9DAO6AAAAVUlEQVQIW32OSQ6AIADERnHHHUSx//+nBy6GA701mTQjFTHz5kOEGPw2G438mHQAVP0DwKkbQGoWgEsklVqAXLNxSnUptWvgxyBjVxdeeINbbV2+/AGQrAsaasxn7QAAAABJRU5ErkJggg==" alt ""/> Watch
+                                                  </a>
+                                                </td> 
+                                              </tr> 
+                                            </tbody> 
+                                          </table>
+                                        </a>
+                                      </td>
+                                       <td>
+                                        <a href="" style="white-space:nowrap;display:block;text-decoration:none" target="_blank"> 
+                                          <table style="font-weight:200;font-family:Helvetica,Arial,sans-serif" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+                                            <tbody> 
+                                              <tr> 
+                                                <td style="border-radius:2px;background-color:#008cc9;padding:6px 16px;font-size:16px;border-color:#008cc9;border-width:1px;border-style:solid" bgcolor="#008CC9">
+                                                  <a href="" style="color:#ffffff;white-space:nowrap;display:block;text-decoration:none" target="_blank">
+                                                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAOCAMAAAAolt3jAAAAVFBMVEUAAAD///////////////////////////////////////////////////////////////////////////////////////////////////////////8wXzyWAAAAG3RSTlMAAQIEBwsUFxgdIyssLi9DcHR4fouMlZu0wf12V8SPAAAAVElEQVQIHQXBBwLBAAAAsdCi9irK/f+fEpaq+r0HENDlO0BAjt8BAXF5I3haqh+CDwjBDYSwmg8Qwnm8nqZRCPdpv5s/QjaPNRDy2gJCAISlqqoWf7JhBqrChZssAAAAAElFTkSuQmCC" alt ""/> Download (6.5MB PDF)
+                                                  </a>
+                                                </td> 
+                                              </tr> 
+                                            </tbody> 
+                                          </table>
+                                        </a>
+                                      </td>
+                                       <td>
+                                        <a href="" style="white-space:nowrap;display:block;text-decoration:none" target="_blank"> 
+                                          <table style="font-weight:200;font-family:Helvetica,Arial,sans-serif" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+                                            <tbody> 
+                                              <tr> 
+                                                <td style="border-radius:2px;background-color:#008cc9;padding:6px 16px;font-size:16px;border-color:#008cc9;border-width:1px;border-style:solid" bgcolor="#008CC9">
+                                                  <a href="" style="color:#ffffff;white-space:nowrap;display:block;text-decoration:none" target="_blank">
+                                                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAOCAMAAAAolt3jAAAAaVBMVEUAAAD////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////8G612AAAAInRSTlMAAQIDBAUHDRw7REdJSmh0foCCjJGSmJqbnaO8wMjP2fX3TxCUVQAAAGxJREFUCB1dwdsWgVAUQNG1t3INoeSus/7/I41BT+bkT9WNfpVVLKFvMn7y5oaSTM56xOTnpENg1vcdcNAhwGy1jb0OAZjzl771EgvApH6q12AETKgeXoMQKAnM1gE5At02J00H1F3xq/QV/z7AMQj8tBlJbwAAAABJRU5ErkJggg==" alt="" />Practice
+                                                  </a>
+                                                </td> 
+                                              </tr> 
+                                            </tbody> 
+                                          </table>
+                                        </a>
+                                      </td>
+                                    </tr>
+                                  </tbody>
+                                </table>
                               </td>
                             </tr>
                             <tr>
