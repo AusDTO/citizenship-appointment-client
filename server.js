@@ -81,6 +81,7 @@ app.get('/booking', (req, res) => {
       slotpicker: 'partials/slotpicker'
     },
     location: "2 Lonsdale Street, Melbourne VIC 3000",
+    current_appointment: "Thursday, 12 December, 1:30PM",
     _csrf: {
       token: "csrf-token",
       parameterName: "_csrf"
