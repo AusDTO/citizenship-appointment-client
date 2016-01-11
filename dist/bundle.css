@@ -688,217 +688,6 @@ ul li {
       height: 100%;
       vertical-align: middle; }
 
-@-ms-viewport {
-  width: device-width; }
-
-@-o-viewport {
-  width: device-width; }
-
-@-ms-viewport {
-  width: device-width; }
-
-@-o-viewport {
-  width: device-width; }
-
-.BookingCalendar-legend {
-  display: table; }
-
-.BookingCalendar-legendBox {
-  display: table-cell;
-  width: 2.5rem;
-  height: 2.5rem;
-  margin: 0 0.5em 0 0;
-  background: #D1EAFB; }
-
-.BookingCalendar-legendBox--unavailable {
-  background: url("../images/unavailable_tile.png"); }
-
-.BookingCalendar {
-  font-size: 16px; }
-
-.BookingCalendar-header {
-  position: relative; }
-
-.BookingCalendar-tag {
-  position: absolute;
-  top: 0;
-  left: 0;
-  min-width: 4rem;
-  padding: 0 0.5rem;
-  line-height: normal;
-  text-align: center;
-  font-size: 0.45em;
-  color: white;
-  background: #9A9B9C; }
-
-.BookingCalendar-tag--today {
-  background: #222C35; }
-
-table.BookingCalendar-dates {
-  width: 100%;
-  border-spacing: 0.5rem 0.50rem;
-  border-collapse: separate;
-  background: white; }
-
-table.BookingCalendar-dates th,
-table.BookingCalendar-dates td {
-  width: 14.28571%; }
-
-table.BookingCalendar-dates th {
-  text-align: center;
-  border: 0;
-  padding: 0;
-  font-size: 1em; }
-
-table.BookingCalendar-dates tbody td {
-  font-size: 1.9em;
-  padding: 0;
-  border: 0; }
-
-table.BookingCalendar-dates .BookingCalendar-date--unavailable {
-  pointer-events: none;
-  cursor: default;
-  background: url("../images/unavailable_tile.png"); }
-  table.BookingCalendar-dates .BookingCalendar-date--unavailable p.BookingCalendar-day {
-    font-weight: lighter; }
-
-p.BookingCalendar-day {
-  padding: 1rem 0 0 0;
-  font-weight: bold; }
-
-table.BookingCalendar-dates .BookingCalendar-date--hide {
-  background: transparent; }
-
-.BookingCalendar-date--hide * {
-  display: none; }
-
-table.BookingCalendar-dates .BookingCalendar-date--bookable.is-active {
-  border-color: #222C35;
-  background: #222C35; }
-
-a.BookingCalendar-dateLink {
-  position: absolute;
-  top: 0;
-  font-style: normal;
-  text-align: center;
-  width: 100%;
-  height: 100%;
-  color: #6D6D6D;
-  text-decoration: none; }
-
-a.BookingCalendar-dateLink p {
-  margin: 0; }
-
-p.BookingCalendar-available {
-  font-size: 0.5em; }
-
-.BookingCalendar-date--bookable a.BookingCalendar-dateLink {
-  color: #333333; }
-
-.BookingCalendar-date--bookable a.BookingCalendar-dateLink:hover {
-  text-decoration: none;
-  background: #DCEEFF; }
-
-.BookingCalendar-date--bookable.is-active a.BookingCalendar-dateLink {
-  color: white;
-  background: #222C35; }
-
-.BookingCalendar-date--bookable.is-active a.BookingCalendar-dateLink:hover {
-  background: #222C35; }
-
-.BookingCalendar-date--bookable {
-  background: #D1EAFB; }
-
-.BookingCalendar-date--bookable.is-active {
-  background: #222C35; }
-
-.BookingCalendar-content {
-  position: relative;
-  height: 9rem; }
-
-table.BookingCalendar-dates tbody td.CalRow-slots {
-  border: 0;
-  border-color: transparent;
-  font-size: 1em; }
-
-ul.CalRow-slots {
-  padding: 0;
-  margin: 0; }
-
-.BookingCalendar-currentMonth {
-  display: block;
-  font-size: 1.6em;
-  line-height: normal;
-  text-transform: none;
-  font-weight: bold;
-  margin: 0;
-  padding: 0.5em 0;
-  text-align: center; }
-
-.BookingCalendar-nav {
-  display: none; }
-
-.BookingCalendar-nav.is-active {
-  display: block; }
-
-button.BookingCalendar-nav--next,
-button.BookingCalendar-nav--prev {
-  position: absolute;
-  top: 0;
-  margin-top: 1rem;
-  text-decoration: none;
-  background-color: transparent;
-  border: 0; }
-  button.BookingCalendar-nav--next span,
-  button.BookingCalendar-nav--prev span {
-    text-transform: capitalize;
-    color: #333333;
-    font-weight: bold;
-    font-size: 2em; }
-  button.BookingCalendar-nav--next span:hover,
-  button.BookingCalendar-nav--prev span:hover {
-    color: #DCEEFF; }
-
-button.BookingCalendar-nav--prev {
-  left: 0; }
-
-button.BookingCalendar-nav--next {
-  right: 0; }
-
-th.abbr {
-  position: relative; }
-
-.abbr:after {
-  content: attr(data-state);
-  display: none; }
-
-@media (min-width: 640px) {
-  .BookingCalendar {
-    display: block; } }
-
-@media (max-width: 640px) {
-  .BookingCalendar {
-    display: block; }
-  .abbr:after {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: white;
-    display: block; }
-  p.BookingCalendar-available {
-    display: none; }
-  p.BookingCalendar-day {
-    padding: 0; }
-  .BookingCalendar-tag {
-    font-size: 0.3em;
-    font-weight: bold;
-    min-width: 100%;
-    padding: 0; }
-  .BookingCalendar-content {
-    max-height: 4.5rem; } }
-
 .steps-and-close-div {
   margin-top: 2rem;
   margin-bottom: 2rem; }
@@ -974,5 +763,168 @@ th.abbr {
   /* Legacy iOS */
   font-weight: normal;
   font-style: normal; }
+
+.Legend {
+  display: table; }
+
+.Legend-box {
+  display: table-cell;
+  width: 2.5rem;
+  height: 2.5rem;
+  margin: 0 0.5em 0 0;
+  background: #D1EAFB; }
+
+.Legend-box--unavailable {
+  background: url("../images/unavailable_tile.png"); }
+
+.Calendar-nav {
+  position: relative; }
+
+.Calendar-nav--month {
+  display: block;
+  font-size: 1.6em;
+  line-height: normal;
+  padding: 0.5em 0;
+  text-align: center; }
+
+.Calendar-nav--next,
+.Calendar-nav--prev {
+  background-color: transparent;
+  text-decoration: none;
+  border: 0;
+  position: absolute;
+  top: 0;
+  margin-top: 1rem; }
+
+.Calendar-nav--label {
+  color: #333333;
+  font-weight: bold;
+  font-size: 2.5em; }
+
+.Calendar-nav--label:hover {
+  color: #DCEEFF; }
+
+.Calendar-nav--prev {
+  left: 0; }
+
+.Calendar-nav--next {
+  right: 0; }
+
+.Calendar-header--dayLabel {
+  position: relative;
+  text-align: center;
+  border: 0;
+  padding: 0;
+  font-size: 1em; }
+
+.Calendar-header--dayLabel:after {
+  content: attr(data-state);
+  display: none; }
+
+.Calendar-dates {
+  width: 100%;
+  border-spacing: 0.5rem 0.50rem;
+  border-collapse: separate;
+  background: white; }
+
+.Calendar-header--dayLabel,
+.DateCell {
+  width: 14.28571%; }
+
+.DateCell {
+  font-size: 1.9em;
+  padding: 0;
+  border: 0; }
+
+.DateCell-content {
+  position: relative;
+  height: 9rem; }
+
+.DateCell-content--datelink {
+  position: absolute;
+  top: 0;
+  font-style: normal;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  color: #6D6D6D;
+  text-decoration: none; }
+
+.DateCell-content--day {
+  margin: 0;
+  padding: 1rem 0 0 0;
+  font-weight: bold; }
+
+.DateCell-content--availableTimesCount {
+  font-size: 0.5em; }
+
+.DateCell-content--tag {
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-width: 4rem;
+  padding: 0 0.5rem;
+  line-height: normal;
+  text-align: center;
+  font-size: 0.45em;
+  color: white;
+  background: #222C35; }
+
+.Calendar-date--bookable {
+  background: #D1EAFB;
+  color: #333333; }
+
+.Calendar-date--bookable .DateCell-content--datelink {
+  color: #333333; }
+
+.Calendar-date--bookable .DateCell-content--datelink:hover {
+  text-decoration: none;
+  background: #DCEEFF; }
+
+.Calendar-date--bookable.is-active {
+  border-color: #222C35;
+  background: #222C35; }
+
+.Calendar-date--bookable.is-active {
+  background: #222C35; }
+
+.Calendar-date--bookable.is-active .DateCell-content--datelink {
+  color: white;
+  background: #222C35; }
+
+.DateCell.Calendar-date--unavailable {
+  pointer-events: none;
+  cursor: default;
+  background: url("../images/unavailable_tile.png"); }
+
+.Calendar-date--unavailable .DateCell-content--day {
+  font-weight: lighter; }
+
+.DateCell.Calendar-date--hide {
+  background: transparent; }
+
+.Calendar-date--hide .DateCell-content {
+  display: none; }
+
+@media (max-width: 640px) {
+  .Calendar-header--dayLabel:after {
+    display: block;
+    background: white;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; }
+  .DateCell-content {
+    max-height: 4.5rem; }
+  .DateCell-content--day {
+    padding: 0; }
+  .DateCell-content--availableTimesCount {
+    display: none; }
+  .DateCell-content--tag {
+    font-size: 0.3em;
+    font-weight: bold;
+    min-width: 100%;
+    padding: 0; } }
 
 /*# sourceMappingURL=bundle.css.map */
