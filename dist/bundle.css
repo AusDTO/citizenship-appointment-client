@@ -928,9 +928,14 @@ th.abbr {
   font-weight: bold;
   letter-spacing: 0.05rem; }
 
+.barcode-frame {
+  border: 2px solid #000000;
+  text-align: center;
+  margin-bottom: 1rem; }
+
 .barcode {
   font-family: Code39AzaleaFont;
-  font-size: 6rem; }
+  font-size: 4rem; }
 
 .barcode-text {
   font-style: italic;
@@ -950,6 +955,9 @@ th.abbr {
 
 .min-left-margin {
   margin-left: 1%; }
+
+.disclaimer {
+  font-style: italic; }
 
 @media (max-width: 550px) {
   .blue-button {
