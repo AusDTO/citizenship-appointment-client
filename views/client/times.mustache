@@ -1,9 +1,13 @@
 {{^times}}
     Please Wait
 {{/times}}
-{{#times}}
-  <a class="AppointmentLink datetime-{{datetime}}" href="#time/{{datetime}}" name="time/{{datetime}}">
-    {{display_time}} {{ampm}}
-  </a>
-  <span>&nbsp&nbsp</span>
-{{/times}}
+<div class="AppointmentTimes-table">
+    {{#times}}
+    <div class="AppointmentTimes-list--item datetime-{{timeClass}}">
+        <a class="AppointmentLink" href="#time/{{datetime}}" name="time/{{datetime}}">
+            <span class="AppointmentLink-time">{{display_time}}</span>
+            <span class="AppointmentLink-ampm">{{ampm}}</span>
+        </a>
+    </div>
+    {{/times}}
+</div>
