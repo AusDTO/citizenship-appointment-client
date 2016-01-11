@@ -19,16 +19,28 @@
         <div class="steps-info">Step 2 of 3</div>
         <h1>Select time and date</h1>
 
-        <span>
-            <span class="fa fa-map-marker"></span>
-            &nbsp;<strong>Location:</strong>
-            &nbsp;<a href="http://maps.google.com/maps?daddr={{location}}" target="_blank">{{ location }}</a>
-        </span>
-        <span>
-            <span class="fa fa-building-o"></span>
-            &nbsp;<strong>Regular hours:</strong>
-            &nbsp;Mon-Fri,&nbsp;9:00am&nbsp;-&nbsp;4:00pm
-        </span>
+        <div class="row">
+            <div class="{{#current_appointment }}six{{/current_appointment }}
+            {{^current_appointment}}twelve{{/current_appointment }} columns">
+              <span>
+                <span class="fa fa-map-marker"></span>
+                &nbsp;<strong>Location:</strong>
+                &nbsp;<a href="http://maps.google.com/maps?daddr={{location}}" target="_blank">{{ location }}</a>
+              </span>
+            </div>
+
+
+            {{#current_appointment }}
+            <div class="six columns">
+              <span>
+                <span class="fa fa-calendar-o"></span>
+                &nbsp;<strong>Current appointment:</strong>
+                &nbsp;{{ current_appointment }}</a>
+              </span>
+            </div>
+            {{/current_appointment }}
+          </div>
+      
         <div class="Legend">
             <span class="Legend-box"></span>
             &nbsp;Available
