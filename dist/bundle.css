@@ -857,7 +857,8 @@ ul li {
 .DateCell-content--availableTimesCount {
   font-size: 0.5em; }
 
-.DateCell-content--tag {
+.today::before {
+  content: 'TODAY';
   position: absolute;
   top: 0;
   left: 0;
@@ -992,7 +993,7 @@ input.SelectionConfirmation-button:focus, input.SelectionConfirmation-button:hov
     padding: 0; }
   .DateCell-content--availableTimesCount {
     display: none; }
-  .DateCell-content--tag {
+  .today::before {
     font-size: 0.3em;
     font-weight: bold;
     min-width: 100%;

@@ -1,10 +1,7 @@
 <td class="DateCell Calendar-date--bookable {{^available_times_count}}Calendar-date--unavailable{{/available_times_count}} {{^bookable}}Calendar-date--hide{{/bookable}} date-{{date}}">
   <div class="DateCell-content">
 
-    <a class="DateCell-content--datelink date-{{date}}" href="#date/{{ date }}" name="date/{{ date }}">
-      {{#today}}
-        <span class="DateCell-content--tag">TODAY</span>
-      {{/today}}
+    <a class="DateCell-content--datelink date-{{date}} {{#today}}today{{/today}}" href="#date/{{ date }}" name="date/{{ date }}">
       <p class="DateCell-content--day">{{ day }}</p>
       {{#available_times_count}}<p class="DateCell-content--availableTimesCount">{{available_times_count}} available</p>{{/available_times_count}}
     </a>

@@ -19,7 +19,9 @@ test('get calendar structure', (assert) => {
     }
   };
 
-  let calendarStructure = getCalendarStructure(bookableMonths, availableDates);
+  let todayDate = datetime('2015-12-12');
+
+  let calendarStructure = getCalendarStructure(bookableMonths, availableDates, todayDate);
 
   let expectedStructure =
   {
@@ -120,7 +122,7 @@ test('get calendar structure', (assert) => {
               },
               {
                 date: "2015-12-12",
-                today: false,
+                today: true,
                 day: 12,
                 available_times_count: 0,
                 bookable: true

@@ -58,7 +58,7 @@
 	request.onload = function () {
 	  if (request.status >= 200 && request.status < 300) {
 	    var availableDates = JSON.parse(request.responseText);
-	    var foo = calendar(availableDates);
+	    var foo = calendar(availableDates, document.querySelector('.Calendars').getAttribute('data-today'));
 	    calendarRenderer(foo);
 	    window.addEventListener("hashchange", router(foo));
 	  } else {
@@ -5343,20 +5343,22 @@
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 	
-	var getBookableMonths = __webpack_require__(192);
+	var datetime = __webpack_require__(192);
+	var getBookableMonths = __webpack_require__(197);
 	var getCalendarStructure = __webpack_require__(198);
 	var getAvailableDatesWithTimes = __webpack_require__(199);
 	
-	var Calendar = function Calendar(availableDates) {
+	var Calendar = function Calendar(availableDates, todayDateString) {
 	  _classCallCheck(this, Calendar);
 	
+	  this.todayDate = datetime(todayDateString);
 	  this.bookableMonths = getBookableMonths(availableDates);
-	  this.calendarStructure = getCalendarStructure(this.bookableMonths, availableDates);
+	  this.calendarStructure = getCalendarStructure(this.bookableMonths, availableDates, this.todayDate);
 	  this.availableDatesWithTimes = getAvailableDatesWithTimes(availableDates);
 	};
 	
-	module.exports = function (availableDates) {
-	  return new Calendar(availableDates);
+	module.exports = function (availableDates, todayDateString) {
+	  return new Calendar(availableDates, todayDateString);
 	};
 
 /***/ },
@@ -5365,35 +5367,11 @@
 
 	'use strict';
 	
-	var datetime = __webpack_require__(193);
-	
-	module.exports = function (availableDates) {
-	  var bookableMonths = [];
-	
-	  var dates = Object.keys(availableDates);
-	  var firstDateAsString = dates[0];
-	  var lastDateAsString = dates[dates.length - 1];
-	
-	  var date = datetime(firstDateAsString);
-	  var lastDate = datetime(lastDateAsString);
-	
-	  for (; date.toMonthString() <= lastDate.toMonthString(); date = date.add(1, 'months')) {
-	    bookableMonths.push(date.set('date', 1));
-	  }
-	  return bookableMonths;
-	};
-
-/***/ },
-/* 193 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 	
-	var moment = __webpack_require__(194);
+	var moment = __webpack_require__(193);
 	
 	moment.locale('en-au');
 	
@@ -5503,7 +5481,7 @@
 	};
 
 /***/ },
-/* 194 */
+/* 193 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(module) {//! moment.js
@@ -5782,7 +5760,7 @@
 	                module && module.exports) {
 	            try {
 	                oldLocale = globalLocale._abbr;
-	                __webpack_require__(196)("./" + name);
+	                __webpack_require__(195)("./" + name);
 	                // because defineLocale currently also sets the global locale, we
 	                // want to undo that for lazy loaded locales
 	                locale_locales__getSetGlobalLocale(oldLocale);
@@ -9112,10 +9090,10 @@
 	    return _moment;
 	
 	}));
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(195)(module)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(194)(module)))
 
 /***/ },
-/* 195 */
+/* 194 */
 /***/ function(module, exports) {
 
 	module.exports = function(module) {
@@ -9131,12 +9109,12 @@
 
 
 /***/ },
-/* 196 */
+/* 195 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var map = {
-		"./en-au": 197,
-		"./en-au.js": 197
+		"./en-au": 196,
+		"./en-au.js": 196
 	};
 	function webpackContext(req) {
 		return __webpack_require__(webpackContextResolve(req));
@@ -9149,18 +9127,18 @@
 	};
 	webpackContext.resolve = webpackContextResolve;
 	module.exports = webpackContext;
-	webpackContext.id = 196;
+	webpackContext.id = 195;
 
 
 /***/ },
-/* 197 */
+/* 196 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
 	//! locale : australian english (en-au)
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(194)) :
+	    true ? factory(__webpack_require__(193)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -9223,17 +9201,40 @@
 	}));
 
 /***/ },
+/* 197 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	var datetime = __webpack_require__(192);
+	
+	module.exports = function (availableDates) {
+	  var bookableMonths = [];
+	
+	  var dates = Object.keys(availableDates);
+	  var firstDateAsString = dates[0];
+	  var lastDateAsString = dates[dates.length - 1];
+	
+	  var date = datetime(firstDateAsString);
+	  var lastDate = datetime(lastDateAsString);
+	
+	  for (; date.toMonthString() <= lastDate.toMonthString(); date = date.add(1, 'months')) {
+	    bookableMonths.push(date.set('date', 1));
+	  }
+	  return bookableMonths;
+	};
+
+/***/ },
 /* 198 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var datetime = __webpack_require__(193);
+	var datetime = __webpack_require__(192);
 	
-	module.exports = function (bookableMonths, availableDates) {
+	module.exports = function (bookableMonths, availableDates, todayDate) {
 	  var months = [],
 	      weeks = [];
-	  var today = datetime();
 	
 	  var _iteratorNormalCompletion = true;
 	  var _didIteratorError = false;
@@ -9257,7 +9258,7 @@
 	        week.push({
 	          date: date.toDateString(),
 	          day: date.date(),
-	          today: date.isSameDay(today),
+	          today: date.isSameDay(todayDate),
 	          available_times_count: availableDates[date.toDateString()] ? availableDates[date.toDateString()].available_times_count : 0,
 	          bookable: date.isSameYearAndMonth(month)
 	        });
@@ -9301,7 +9302,7 @@
 
 	'use strict';
 	
-	var datetime = __webpack_require__(193);
+	var datetime = __webpack_require__(192);
 	var REQUEST_DELAY = 100;
 	
 	module.exports = function (availableDates) {
@@ -9897,7 +9898,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	var H = __webpack_require__(204);
-	module.exports = function() { var T = new H.Template({code: function (c,p,i) { var t=this;t.b(i=i||"");t.b("<td class=\"DateCell Calendar-date--bookable ");if(!t.s(t.f("available_times_count",c,p,1),c,p,1,0,0,"")){t.b("Calendar-date--unavailable");};t.b(" ");if(!t.s(t.f("bookable",c,p,1),c,p,1,0,0,"")){t.b("Calendar-date--hide");};t.b(" date-");t.b(t.v(t.f("date",c,p,0)));t.b("\">");t.b("\n" + i);t.b("  <div class=\"DateCell-content\">");t.b("\n");t.b("\n" + i);t.b("    <a class=\"DateCell-content--datelink date-");t.b(t.v(t.f("date",c,p,0)));t.b("\" href=\"#date/");t.b(t.v(t.f("date",c,p,0)));t.b("\" name=\"date/");t.b(t.v(t.f("date",c,p,0)));t.b("\">");t.b("\n" + i);if(t.s(t.f("today",c,p,1),c,p,0,339,403,"{{ }}")){t.rs(c,p,function(c,p,t){t.b("        <span class=\"DateCell-content--tag\">TODAY</span>");t.b("\n" + i);});c.pop();}t.b("      <p class=\"DateCell-content--day\">");t.b(t.v(t.f("day",c,p,0)));t.b("</p>");t.b("\n" + i);t.b("      ");if(t.s(t.f("available_times_count",c,p,1),c,p,0,499,587,"{{ }}")){t.rs(c,p,function(c,p,t){t.b("<p class=\"DateCell-content--availableTimesCount\">");t.b(t.v(t.f("available_times_count",c,p,0)));t.b(" available</p>");});c.pop();}t.b("\n" + i);t.b("    </a>");t.b("\n" + i);t.b("  </div>");t.b("\n" + i);t.b("</td>");t.b("\n");return t.fl(); },partials: {}, subs: {  }}, "<td class=\"DateCell Calendar-date--bookable {{^available_times_count}}Calendar-date--unavailable{{/available_times_count}} {{^bookable}}Calendar-date--hide{{/bookable}} date-{{date}}\">\n  <div class=\"DateCell-content\">\n\n    <a class=\"DateCell-content--datelink date-{{date}}\" href=\"#date/{{ date }}\" name=\"date/{{ date }}\">\n      {{#today}}\n        <span class=\"DateCell-content--tag\">TODAY</span>\n      {{/today}}\n      <p class=\"DateCell-content--day\">{{ day }}</p>\n      {{#available_times_count}}<p class=\"DateCell-content--availableTimesCount\">{{available_times_count}} available</p>{{/available_times_count}}\n    </a>\n  </div>\n</td>\n", H);return T; }();
+	module.exports = function() { var T = new H.Template({code: function (c,p,i) { var t=this;t.b(i=i||"");t.b("<td class=\"DateCell Calendar-date--bookable ");if(!t.s(t.f("available_times_count",c,p,1),c,p,1,0,0,"")){t.b("Calendar-date--unavailable");};t.b(" ");if(!t.s(t.f("bookable",c,p,1),c,p,1,0,0,"")){t.b("Calendar-date--hide");};t.b(" date-");t.b(t.v(t.f("date",c,p,0)));t.b("\">");t.b("\n" + i);t.b("  <div class=\"DateCell-content\">");t.b("\n");t.b("\n" + i);t.b("    <a class=\"DateCell-content--datelink date-");t.b(t.v(t.f("date",c,p,0)));t.b(" ");if(t.s(t.f("today",c,p,1),c,p,0,284,289,"{{ }}")){t.rs(c,p,function(c,p,t){t.b("today");});c.pop();}t.b("\" href=\"#date/");t.b(t.v(t.f("date",c,p,0)));t.b("\" name=\"date/");t.b(t.v(t.f("date",c,p,0)));t.b("\">");t.b("\n" + i);t.b("      <p class=\"DateCell-content--day\">");t.b(t.v(t.f("day",c,p,0)));t.b("</p>");t.b("\n" + i);t.b("      ");if(t.s(t.f("available_times_count",c,p,1),c,p,0,434,522,"{{ }}")){t.rs(c,p,function(c,p,t){t.b("<p class=\"DateCell-content--availableTimesCount\">");t.b(t.v(t.f("available_times_count",c,p,0)));t.b(" available</p>");});c.pop();}t.b("\n" + i);t.b("    </a>");t.b("\n" + i);t.b("  </div>");t.b("\n" + i);t.b("</td>");t.b("\n");return t.fl(); },partials: {}, subs: {  }}, "<td class=\"DateCell Calendar-date--bookable {{^available_times_count}}Calendar-date--unavailable{{/available_times_count}} {{^bookable}}Calendar-date--hide{{/bookable}} date-{{date}}\">\n  <div class=\"DateCell-content\">\n\n    <a class=\"DateCell-content--datelink date-{{date}} {{#today}}today{{/today}}\" href=\"#date/{{ date }}\" name=\"date/{{ date }}\">\n      <p class=\"DateCell-content--day\">{{ day }}</p>\n      {{#available_times_count}}<p class=\"DateCell-content--availableTimesCount\">{{available_times_count}} available</p>{{/available_times_count}}\n    </a>\n  </div>\n</td>\n", H);return T; }();
 
 /***/ },
 /* 208 */
@@ -9915,7 +9916,7 @@
 	var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
 	
 	var dom = __webpack_require__(201);
-	var datetime = __webpack_require__(193);
+	var datetime = __webpack_require__(192);
 	var showCalendar = __webpack_require__(202);
 	var showAvailableTimes = __webpack_require__(210);
 	var showSelectionConfirmation = __webpack_require__(211);
@@ -9996,7 +9997,7 @@
 	'use strict';
 	
 	var dom = __webpack_require__(201);
-	var datetime = __webpack_require__(193);
+	var datetime = __webpack_require__(192);
 	
 	var selection_confirmation_template = __webpack_require__(212);
 	

@@ -96,6 +96,7 @@ app.get('/calendar', (req, res) => {
     },
     location: "2 Lonsdale Street, Melbourne VIC 3000",
     current_appointment: "Thursday, 12 December, 1:30PM",
+    today_date: "2016-01-05T11:20:00",
     _csrf: {
       token: "csrf-token",
       parameterName: "_csrf"

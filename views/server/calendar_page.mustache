@@ -40,7 +40,7 @@
             </div>
             {{/current_appointment }}
           </div>
-      
+
         <div class="Legend">
             <span class="Legend-box"></span>
             &nbsp;Available
@@ -50,7 +50,7 @@
 
         <form action="book_appointment" method="post">
             <input name="{{ _csrf.parameterName }}" type="hidden" value="{{ _csrf.token }}"/>
-            <div class="Calendars"></div>
+            <div class="Calendars" data-today="{{today_date}}"></div>
         </form>
     </div>
 </main>
