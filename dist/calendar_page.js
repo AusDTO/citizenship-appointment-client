@@ -5433,6 +5433,11 @@
 	      return this.toDateString() === that.toDateString();
 	    }
 	  }, {
+	    key: 'isSameDayOrAfter',
+	    value: function isSameDayOrAfter(that) {
+	      return this.toDateString() >= that.toDateString();
+	    }
+	  }, {
 	    key: 'asMoment',
 	    value: function asMoment() {
 	      return moment(this.datetime);
@@ -9248,6 +9253,8 @@
 	      var endDate = month.endOf('month').endOf('week');
 	
 	      var week = undefined;
+	      var dayData = undefined;
+	
 	      for (var dayCount = 0; date.isBefore(endDate); date = date.add(1, 'days'), dayCount++) {
 	
 	        if (dayCount % 7 === 0) {
@@ -9255,13 +9262,21 @@
 	          weeks.push({ days: week });
 	        }
 	
-	        week.push({
+	        dayData = date.isSameDay(todayDate) ? {
 	          date: date.toDateString(),
 	          day: date.date(),
-	          today: date.isSameDay(todayDate),
-	          available_times_count: availableDates[date.toDateString()] ? availableDates[date.toDateString()].available_times_count : 0,
+	          today: true,
+	          available_times_count: "Spots",
 	          bookable: date.isSameYearAndMonth(month)
-	        });
+	        } : {
+	          date: date.toDateString(),
+	          day: date.date(),
+	          today: false,
+	          available_times_count: availableDates[date.toDateString()] && date.isAfter(todayDate) ? availableDates[date.toDateString()].available_times_count : 0,
+	          bookable: date.isSameYearAndMonth(month)
+	        };
+	
+	        week.push(dayData);
 	      }
 	
 	      var monthData = { month: month.toMonthString(), monthName: month.monthName(), weeks: weeks };
@@ -9936,7 +9951,7 @@
 	      showCalendar(hashValue);
 	    } else if (hashType === '#date') {
 	      highlightDateCell(hashValue);
-	      showAvailableTimes(hashValue, calendar.availableDatesWithTimes);
+	      showAvailableTimes(hashValue, calendar.availableDatesWithTimes, calendar.todayDate);
 	    } else if (hashType === '#time') {
 	      highlightTimesCell(hashValue);
 	      showSelectionConfirmation(hashValue);
@@ -9961,15 +9976,22 @@
 
 	'use strict';
 	
+	var datetime = __webpack_require__(192);
 	var dom = __webpack_require__(201);
 	var times_template = __webpack_require__(208);
 	
-	module.exports = function (date, availableDatesWithTimes) {
+	module.exports = function (dateString, availableDatesWithTimes, todayDate) {
 	  dom.hideElementsBySelectors('.AvailableTimes');
-	  document.querySelector('.AvailableTimes.date-' + date).style.display = '';
+	  document.querySelector('.AvailableTimes.date-' + dateString).style.display = '';
+	  var date = datetime(dateString);
 	
-	  // TODO: Refactor to get rid of global object
-	  availableDatesWithTimes[date].available_times.then(function (availableTimes) {
+	  availableDatesWithTimes[dateString].available_times.then(function (availableTimes) {
+	
+	    if (date.isSameDay(todayDate)) {
+	      availableTimes = availableTimes.filter(function (datetime) {
+	        return datetime.isAfter(todayDate);
+	      });
+	    }
 	
 	    var renderedTimesHtml = times_template.render({
 	      times: availableTimes.map(function (time) {
@@ -9982,7 +10004,7 @@
 	      })
 	    });
 	
-	    document.querySelector('.AvailableTimesCell.date-' + date).innerHTML = renderedTimesHtml;
+	    document.querySelector('.AvailableTimesCell.date-' + dateString).innerHTML = renderedTimesHtml;
 	  }, function (err) {
 	    // FIXME(Emily)
 	    // Error may occur if trying to render times before calendar has been rendered
