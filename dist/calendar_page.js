@@ -9321,8 +9321,7 @@
 	var REQUEST_DELAY = 100;
 	
 	module.exports = function (availableDates) {
-	  var calendarId = undefined,
-	      delay = 0;
+	  var delay = 0;
 	
 	  var _iteratorNormalCompletion = true;
 	  var _didIteratorError = false;
@@ -9332,7 +9331,7 @@
 	    var _loop = function _loop() {
 	      var dateString = _step.value;
 	
-	      calendarId = availableDates[dateString].calendar_id;
+	      var calendarId = availableDates[dateString].calendar_id;
 	      availableDates[dateString].available_times = new Promise(function (resolve, reject) {
 	        setTimeout(function () {
 	          var request = new XMLHttpRequest();
