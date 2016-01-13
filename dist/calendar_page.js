@@ -60,7 +60,10 @@
 	    var availableDates = JSON.parse(request.responseText);
 	    var foo = calendar(availableDates, document.querySelector('.Calendars').getAttribute('data-today'));
 	    calendarRenderer(foo);
-	    window.addEventListener("hashchange", router(foo));
+	    if (window.location.hash) {
+	      router(foo, true)();
+	    }
+	    window.addEventListener("hashchange", router(foo, false));
 	  } else {
 	    // We reached our target server, but it returned an error
 	  }
@@ -9318,7 +9321,7 @@
 	'use strict';
 	
 	var datetime = __webpack_require__(192);
-	var REQUEST_DELAY = 100;
+	var REQUEST_DELAY = 300;
 	
 	module.exports = function (availableDates) {
 	  var delay = 0;
@@ -9524,6 +9527,16 @@
 	      }
 	    }
 	  }
+	};
+	
+	mod.highlightDateCell = function (dateString) {
+	  mod.removeClassFromElements('.Calendar-date--bookable.is-active', 'is-active');
+	  mod.addClassToElements('.Calendar-date--bookable.date-' + dateString, 'is-active');
+	};
+	
+	mod.highlightTimesCell = function (datetimeClassString) {
+	  mod.removeClassFromElements('.AppointmentTimes-list--item.is-active', 'is-active');
+	  mod.addClassToElements('.AppointmentTimes-list--item.datetime-' + datetimeClassString, 'is-active');
 	};
 
 /***/ },
@@ -9935,38 +9948,56 @@
 	var showAvailableTimes = __webpack_require__(210);
 	var showSelectionConfirmation = __webpack_require__(211);
 	
-	module.exports = function (calendar) {
+	module.exports = function (calendar, onPageLoad) {
 	  return function () {
-	    dom.clearSelection();
+	    if (onPageLoad) {
+	      var _location$hash$split = location.hash.split("/");
 	
-	    var _location$hash$split = location.hash.split("/");
+	      var _location$hash$split2 = _slicedToArray(_location$hash$split, 2);
 	
-	    var _location$hash$split2 = _slicedToArray(_location$hash$split, 2);
+	      var hashType = _location$hash$split2[0];
+	      var hashValue = _location$hash$split2[1];
 	
-	    var hashType = _location$hash$split2[0];
-	    var hashValue = _location$hash$split2[1];
+	      if (hashType === '#month') {
+	        showCalendar(hashValue);
+	      } else if (hashType === '#date') {
+	        var date = datetime(hashValue);
+	        showCalendar(date.toMonthString());
 	
-	    if (hashType === '#month') {
-	      showCalendar(hashValue);
-	    } else if (hashType === '#date') {
-	      highlightDateCell(hashValue);
-	      showAvailableTimes(hashValue, calendar.availableDatesWithTimes, calendar.todayDate);
-	    } else if (hashType === '#time') {
-	      highlightTimesCell(hashValue);
-	      showSelectionConfirmation(hashValue);
+	        dom.highlightDateCell(hashValue);
+	        showAvailableTimes(hashValue, calendar.availableDatesWithTimes, calendar.todayDate);
+	      } else if (hashType === '#time') {
+	        var date = datetime(hashValue);
+	        showCalendar(date.toMonthString());
+	
+	        dom.highlightDateCell(date.toDateString());
+	        showAvailableTimes(date.toDateString(), calendar.availableDatesWithTimes, calendar.todayDate);
+	
+	        dom.highlightTimesCell(date.toDateTimeClassString());
+	        showSelectionConfirmation(hashValue);
+	      }
+	    } else {
+	      dom.clearSelection();
+	
+	      var _location$hash$split3 = location.hash.split("/");
+	
+	      var _location$hash$split4 = _slicedToArray(_location$hash$split3, 2);
+	
+	      var hashType = _location$hash$split4[0];
+	      var hashValue = _location$hash$split4[1];
+	
+	      if (hashType === '#month') {
+	        showCalendar(hashValue);
+	      } else if (hashType === '#date') {
+	        dom.highlightDateCell(hashValue);
+	        showAvailableTimes(hashValue, calendar.availableDatesWithTimes, calendar.todayDate);
+	      } else if (hashType === '#time') {
+	        var className = datetime(hashValue).toDateTimeClassString();
+	        dom.highlightTimesCell(className);
+	        showSelectionConfirmation(hashValue);
+	      }
 	    }
 	  };
-	};
-	
-	var highlightDateCell = function highlightDateCell(date) {
-	  dom.removeClassFromElements('.Calendar-date--bookable.is-active', 'is-active');
-	  dom.addClassToElements('.Calendar-date--bookable.date-' + date, 'is-active');
-	};
-	
-	var highlightTimesCell = function highlightTimesCell(datetimeString) {
-	  var className = datetime(datetimeString).toDateTimeClassString();
-	  dom.removeClassFromElements('.AppointmentTimes-list--item.is-active', 'is-active');
-	  dom.addClassToElements('.AppointmentTimes-list--item.datetime-' + className, 'is-active');
 	};
 
 /***/ },
@@ -9974,6 +10005,8 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
+	
+	var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
 	
 	var datetime = __webpack_require__(192);
 	var dom = __webpack_require__(201);
@@ -10004,6 +10037,20 @@
 	    });
 	
 	    document.querySelector('.AvailableTimesCell.date-' + dateString).innerHTML = renderedTimesHtml;
+	
+	    if (window.location.hash) {
+	      var _location$hash$split = location.hash.split("/");
+	
+	      var _location$hash$split2 = _slicedToArray(_location$hash$split, 2);
+	
+	      var hashType = _location$hash$split2[0];
+	      var hashValue = _location$hash$split2[1];
+	
+	      if (hashType === '#time') {
+	        var className = datetime(hashValue).toDateTimeClassString();
+	        dom.addClassToElements('.AppointmentTimes-list--item.datetime-' + className, 'is-active');
+	      }
+	    }
 	  }, function (err) {
 	    // FIXME(Emily)
 	    // Error may occur if trying to render times before calendar has been rendered
