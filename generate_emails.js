@@ -11,7 +11,7 @@ const baseDir = path.join(__dirname, 'email_templates');
 const templateDir = path.join(baseDir, 'partials');
 const outputDir = path.join(baseDir, 'generated');
 const imagesDir = path.join(__dirname, 'images', 'email_templates');
-const dest_environment = "https://citizenship-appointment-beta.cfapps.io/images/";
+const dest_environment = "https://citizenship-appointment-beta.cfapps.io/";
 
 
 const email_templates = [
@@ -20,7 +20,8 @@ const email_templates = [
 		"template_name": "invitation_template",
 		"data": {
 			angleIcon: convertImageToHostedSrc("angle_icon.png"),
-			headerText: "Invitation to book your citizenship appointment"
+			headerText: "Invitation to book your citizenship appointment",
+			websiteLink: dest_environment
 		}
 	},
 	{
@@ -28,7 +29,8 @@ const email_templates = [
 		"template_name": "confirmation_template",
 		"data": {
 			locationIcon: convertImageToHostedSrc("location_icon.png"),
-			calendarIcon: convertImageToHostedSrc("calendar_icon.png")
+			calendarIcon: convertImageToHostedSrc("calendar_icon.png"),
+			websiteLink: dest_environment
 		}
 	},
 	{
@@ -36,7 +38,8 @@ const email_templates = [
 		"template_name": "invitation_template",
 		"data": {
 			angleIcon: convertImageToHostedSrc("angle_icon.png"),
-			headerText: "Reminder to book your citizenship appointment"
+			headerText: "Reminder to book your citizenship appointment",
+			websiteLink: dest_environment
 		}
 	},
 	{
@@ -44,14 +47,16 @@ const email_templates = [
 		"template_name": "invitation_template",
 		"data": {
 			angleIcon: convertImageToHostedSrc("angle_icon.png"),
-			headerText: "You have missed your appointment. Please book your next citizenship appointment"
+			headerText: "You have missed your appointment. Please book your next citizenship appointment",
+			websiteLink: dest_environment
 		}
 	},
 	{
 		"name": "lastchance_template",
 		"template_name": "lastchance_template",
 		"data": {
-			angleIcon: convertImageToHostedSrc("angle_icon.png")
+			angleIcon: convertImageToHostedSrc("angle_icon.png"),
+			websiteLink: dest_environment
 		}
 	}
 ];
@@ -82,7 +87,7 @@ function convertImageToBase64(fileName) {
 }
 
 function convertImageToHostedSrc(fileName){
-	return dest_environment + fileName;
+	return dest_environment + "images/" + fileName;
 }
 
 function getImagesForMainTemplate(){
