@@ -16,15 +16,41 @@ const imagesDir = path.join(__dirname, 'images', 'email_templates');
 const email_templates = [
 	{
 		"name": "invitation_template",
+		"template_name": "invitation_template",
 		"data": {
-			angleIcon: convertImageToBase64("angle_icon.png") 
+			angleIcon: convertImageToBase64("angle_icon.png"),
+			headerText: "Invitation to book your citizenship appointment"
 		}
 	},
 	{
 		"name": "confirmation_template",
+		"template_name": "confirmation_template",
 		"data": {
 			locationIcon: convertImageToBase64("location_icon.png"),
 			calendarIcon: convertImageToBase64("calendar_icon.png")
+		}
+	},
+	{
+		"name": "reminder_template",
+		"template_name": "invitation_template",
+		"data": {
+			angleIcon: convertImageToBase64("angle_icon.png"),
+			headerText: "Reminder to book your citizenship appointment"
+		}
+	},
+	{
+		"name": "noshow_template",
+		"template_name": "invitation_template",
+		"data": {
+			angleIcon: convertImageToBase64("angle_icon.png"),
+			headerText: "You have missed your appointment. Please book your next citizenship appointment"
+		}
+	},
+	{
+		"name": "lastchance_template",
+		"template_name": "lastchance_template",
+		"data": {
+			angleIcon: convertImageToBase64("angle_icon.png")
 		}
 	}
 ];
@@ -36,7 +62,7 @@ function generateTemplates(){
 		mainBodyTemplate = compileTemplate("main_body.mustache");
 
 	email_templates.forEach(function(template) {
-		var compiledTemplate = compileTemplate(template.name + ".mustache");
+		var compiledTemplate = compileTemplate(template.template_name + ".mustache");
 		var templateData = mergeObjects(mainTemplateData, template.data);
 
 		var fullTemplate = mainBodyTemplate.render(templateData, {content: compiledTemplate});
