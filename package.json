@@ -10,7 +10,7 @@
     "test": "tape test/unit/*.js | faucet",
     "selenium-install": "selenium-standalone install --version=2.48.2",
     "selenium-start": "selenium-standalone start",
-    "uitest": "PORT=3001 node server.js & PID=$! ; sleep 1 ; PORT=3001 tape test/ui/*.js ; RESULT=$? ; kill $PID ; exit $RESULT",
+    "uitest": "webpack ; NODE_ENV=production PORT=3001 node server.js & PID=$! ; sleep 1 ; PORT=3001 tape test/ui/*.js ; RESULT=$? ; kill $PID ; exit $RESULT",
     "sauce-connect-install": "SAUCE_CONNECT_DOWNLOAD_ON_INSTALL=true node node_modules/sauce-connect-launcher/scripts/install.js",
     "sauce-connect-start": "./node_modules/sauce-connect-launcher/sc/sc-*/bin/sc --tunnel-identifier $SAUCE_USERNAME"
   },

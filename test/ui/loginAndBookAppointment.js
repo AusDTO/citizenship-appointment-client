@@ -17,7 +17,6 @@ test('should successfully login and book appointment', (assert) => {
       })
       .setValue('#clientId', '12345678911')
       .setValue('#familyName', 'soprano')
-      .saveScreenshot('snapshot01-login.png')
       .click('#submitLogin')
       .getTitle()
       .then((title) => {
@@ -27,13 +26,11 @@ test('should successfully login and book appointment', (assert) => {
       .click('[name="date/2016-02-11"]')
       .timeoutsImplicitWait(10000)
       .click('[name="time/2016-02-11T15:00:00"]')
-      .saveScreenshot('snapshot02-calendar.png')
       .click('.SelectionConfirmation-button')
       .getTitle()
       .then((title) => {
         assert.equal(title, 'Citizenship Appointment Booking Confirmation');
       })
-      .saveScreenshot('snapshot03-confirmation.png')
       .end();
 
 });

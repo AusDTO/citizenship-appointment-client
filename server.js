@@ -1,51 +1,53 @@
 'use strict';
 
 const express = require('express'),
-      consolidate = require('consolidate'),
-      sassMiddleware = require('node-sass-middleware'),
-      webpack = require('webpack'),
-      webpackMiddleware = require('webpack-dev-middleware'),
-      bodyParser = require('body-parser'),
-      urlencodedParser = bodyParser.urlencoded({ extended: false }),
-      path = require('path'),
-      fs = require('fs'),
-      app = express(),
-      default_port = (process.env.PORT || 3000),
-      publicPath = '/static';
+    consolidate = require('consolidate'),
+    sassMiddleware = require('node-sass-middleware'),
+    webpack = require('webpack'),
+    webpackMiddleware = require('webpack-dev-middleware'),
+    bodyParser = require('body-parser'),
+    urlencodedParser = bodyParser.urlencoded({extended: false}),
+    path = require('path'),
+    fs = require('fs'),
+    app = express(),
+    default_port = (process.env.PORT || 3000),
+    publicPath = '/static';
 
 app.set('view engine', 'mustache');
 app.engine('mustache', consolidate.hogan);
 app.set('views', path.join(__dirname, 'views', 'server'));
 
-app.use(webpackMiddleware(webpack(require('./webpack.config')), {
+if (process.env.NODE_ENV !== "production") {
+  app.use(webpackMiddleware(webpack(require('./webpack.config')), {
     noInfo: false,
     quiet: false,
     lazy: false,
     publicPath: publicPath,
     stats: {
-        colors: true
+      colors: true
     }
-}));
+  }));
 
-app.use(sassMiddleware({
+  app.use(sassMiddleware({
     src: path.join(__dirname, 'sass'),
     dest: path.join(__dirname, 'dist'),
     debug: true,
     outputStyle: 'nested',
     sourceMap: path.join(__dirname, 'dist', 'bundle.css.map'),
     prefix: publicPath
-}));
+  }));
+}
 
 app.use(publicPath, express.static(path.join(__dirname, 'dist')));
 app.use('/', express.static(path.join(__dirname, 'test_data')));
 app.use(require('connect-livereload')());  // runs livereload server and serves livereload.js
-require('express-livereload')(app, { watchDir: path.join(__dirname), exts: ['mustache'] });  // inserts <script> reference to livereload.js
+require('express-livereload')(app, {watchDir: path.join(__dirname), exts: ['mustache']});  // inserts <script> reference to livereload.js
 
 app.use('/images', express.static(path.join(__dirname, 'images')));
 
 app.get('/get_available_times', (req, res) => {
   let json = {};
-  if (req.query.calendar_id === '1247' ) {
+  if (req.query.calendar_id === '1247') {
     json = {
       "times": [
         "09:00",
@@ -57,7 +59,7 @@ app.get('/get_available_times', (req, res) => {
       ]
     };
   } else {
-    json= {
+    json = {
       "times": [
         "09:00",
         "09:20",
