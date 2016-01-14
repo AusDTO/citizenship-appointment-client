@@ -15,18 +15,20 @@ test('should successfully login and book appointment', (assert) => {
       .then((title) => {
         assert.equal(title, 'Citizenship Appointment Booking');
       })
-      .setValue('#clientId', '12345678911')
-      .setValue('#familyName', 'soprano')
+      .setValue('#clientId', '99999999999')
+      .setValue('#familyName', 'Family-Name')
       .click('#submitLogin')
+      .timeouts('page load',5000)
       .getTitle()
       .then((title) => {
         assert.equal(title, 'Citizenship Appointment Booking Calendar');
       })
       .click('[name="month/2016-02"]')
       .click('[name="date/2016-02-11"]')
-      .timeoutsImplicitWait(10000)
+      .waitForVisible('[name="time/2016-02-11T15:00:00"]', 10000)
       .click('[name="time/2016-02-11T15:00:00"]')
       .click('.SelectionConfirmation-button')
+      .timeouts('page load',5000)
       .getTitle()
       .then((title) => {
         assert.equal(title, 'Citizenship Appointment Booking Confirmation');
