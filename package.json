@@ -6,8 +6,13 @@
   "scripts": {
     "start": "node server.js",
     "dev": "supervisor --watch 'server.js,webpack.config.js' node server.js",
-    "test": "tape test/*.js | faucet",
-    "generate_emails": "node generate_emails.js"
+    "generate_emails": "node generate_emails.js",
+    "test": "tape test/unit/*.js | faucet",
+    "selenium-install": "selenium-standalone install",
+    "selenium-start": "selenium-standalone start",
+    "uitest": "PORT=3001 node server.js & PID=$! ; sleep 1 ; PORT=3001 tape test/ui/*.js ; RESULT=$? ; kill $PID ; exit $RESULT",
+    "sauce-connect-install": "SAUCE_CONNECT_DOWNLOAD_ON_INSTALL=true node node_modules/sauce-connect-launcher/scripts/install.js",
+    "sauce-connect-start": "./node_modules/sauce-connect-launcher/sc/sc-*/bin/sc --tunnel-identifier $SAUCE_USERNAME"
   },
   "author": "",
   "license": "MIT",
@@ -26,8 +31,11 @@
     "mustache-loader": "^0.3.0",
     "node-sass": "^3.4.2",
     "node-sass-middleware": "^0.9.7",
+    "sauce-connect-launcher": "^0.14.0",
+    "selenium-standalone": "^4.8.0",
     "supervisor": "^0.9.1",
     "tape": "^4.4.0",
+    "webdriverio": "^3.4.0",
     "webpack": "^1.12.9",
     "webpack-dev-middleware": "^1.4.0"
   },

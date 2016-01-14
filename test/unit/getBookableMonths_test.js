@@ -1,8 +1,8 @@
 'use strict';
 
 const test = require('tape');
-const getBookableMonths = require('../lib/getBookableMonths');
-const datetime = require('../lib/datetime');
+const getBookableMonths = require('../../lib/getBookableMonths');
+const datetime = require('../../lib/datetime');
 
 test('get bookable months', (assert) => {
   let availableDates =
