@@ -11,6 +11,7 @@ const baseDir = path.join(__dirname, 'email_templates');
 const templateDir = path.join(baseDir, 'partials');
 const outputDir = path.join(baseDir, 'generated');
 const imagesDir = path.join(__dirname, 'images', 'email_templates');
+const dest_environment = "https://citizenship-appointment-beta.cfapps.io/images/";
 
 
 const email_templates = [
@@ -18,7 +19,7 @@ const email_templates = [
 		"name": "invitation_template",
 		"template_name": "invitation_template",
 		"data": {
-			angleIcon: convertImageToBase64("angle_icon.png"),
+			angleIcon: convertImageToHostedSrc("angle_icon.png"),
 			headerText: "Invitation to book your citizenship appointment"
 		}
 	},
@@ -26,15 +27,15 @@ const email_templates = [
 		"name": "confirmation_template",
 		"template_name": "confirmation_template",
 		"data": {
-			locationIcon: convertImageToBase64("location_icon.png"),
-			calendarIcon: convertImageToBase64("calendar_icon.png")
+			locationIcon: convertImageToHostedSrc("location_icon.png"),
+			calendarIcon: convertImageToHostedSrc("calendar_icon.png")
 		}
 	},
 	{
 		"name": "reminder_template",
 		"template_name": "invitation_template",
 		"data": {
-			angleIcon: convertImageToBase64("angle_icon.png"),
+			angleIcon: convertImageToHostedSrc("angle_icon.png"),
 			headerText: "Reminder to book your citizenship appointment"
 		}
 	},
@@ -42,7 +43,7 @@ const email_templates = [
 		"name": "noshow_template",
 		"template_name": "invitation_template",
 		"data": {
-			angleIcon: convertImageToBase64("angle_icon.png"),
+			angleIcon: convertImageToHostedSrc("angle_icon.png"),
 			headerText: "You have missed your appointment. Please book your next citizenship appointment"
 		}
 	},
@@ -50,7 +51,7 @@ const email_templates = [
 		"name": "lastchance_template",
 		"template_name": "lastchance_template",
 		"data": {
-			angleIcon: convertImageToBase64("angle_icon.png")
+			angleIcon: convertImageToHostedSrc("angle_icon.png")
 		}
 	}
 ];
@@ -80,20 +81,24 @@ function convertImageToBase64(fileName) {
     return util.format("data:%s;base64,%s", mime.lookup(filePath), data);
 }
 
+function convertImageToHostedSrc(fileName){
+	return dest_environment + fileName;
+}
+
 function getImagesForMainTemplate(){
 	return {
-		headerLogo: convertImageToBase64("aust-govt-black-on-transparent-247x60.png"),
-		passportIcon: convertImageToBase64("passport.png"),
-		birthCertificateIcon: convertImageToBase64("id-verified.png"),
-		documentWithPhotoIcon: convertImageToBase64("license.png"),
-		residentialAddressIcon: convertImageToBase64("exterior.png"),
-		certificateIcon: convertImageToBase64("certificate-2.png"),
-		formIcon: convertImageToBase64("file.png"),
-		policeCheckIcon: convertImageToBase64("badge.png"),
-		smallCertificateIcon: convertImageToBase64("certificate.png"),
-		playIcon: convertImageToBase64("play_icon.png"),
-		pdfIcon: convertImageToBase64("pdf_icon.png"),
-		checkIcon: convertImageToBase64("check_icon.png")
+		headerLogo: convertImageToHostedSrc("aust-govt-black-on-transparent-247x60.png"),
+		passportIcon: convertImageToHostedSrc("passport.png"),
+		birthCertificateIcon: convertImageToHostedSrc("id-verified.png"),
+		documentWithPhotoIcon: convertImageToHostedSrc("license.png"),
+		residentialAddressIcon: convertImageToHostedSrc("exterior.png"),
+		certificateIcon: convertImageToHostedSrc("certificate-2.png"),
+		formIcon: convertImageToHostedSrc("file.png"),
+		policeCheckIcon: convertImageToHostedSrc("badge.png"),
+		smallCertificateIcon: convertImageToHostedSrc("certificate.png"),
+		playIcon: convertImageToHostedSrc("play_icon.png"),
+		pdfIcon: convertImageToHostedSrc("pdf_icon.png"),
+		checkIcon: convertImageToHostedSrc("check_icon.png")
 	};
 }
 
