@@ -2,9 +2,31 @@ language: node_js
 # Controlled by .nvmrc
 #node_js:
 #  - "4.2"
+
+sudo: false
+
+addons:
+  sauce_connect:
+    username:
+      secure: REQoqTO96Ff6yF4z54W9Q6rDXzkkK7H8HKH2eqwdta3vCwXym1OdBXzzlrofaIQkFu60CbehnCOQNG2MOrP+YXYmt8zPGKrDARiF+f76bW52UPZeHM/JlMEDKnFwtTllzTZ3dH8vswenixPiZKDpdQkFjlO1VgWPZHSjVOe/FViXIOhic0mCJgPSEBuL1OH0FmyYkY9NSvRo+tHNE3E2MmlAKDy/GSiR6piIfm34J04sTDwRHFwPZauFTVS52PEuh1XNFg5maWkQzGYD7IFkjxglB7om7BjwHkSoSJhU7njx/6ROx/ERB+ktbaOfohW3S9WCSdeXscjwrqwy54tuyqiGkEZBGhSeVMTQadRLDU7S+sWAraf1vy+grKn24Bba2vqoEhhgYYQHRBsrTf10naYvz9H9d8LpaO6jS2YkL7QpcdKIsouAtI0p22u7E04qDEPx4O9bYUiPp5WmMZOu1o0aP1NF+UaLyFCggepMBmFgROUKeEYxgfFhYpaxvibRUsnojcrNyHPtdPMe3gcZiz3JJ9y1/7Z3FVvh2pX4S7kxh/dVcK/ICLVKHrU+UPvh5wixclqFYz0WUXDbjFwOVt+DksZLI1Ohhr0EJRceHkR3L82KYq6VRqo8iW5TfhNCYMd4PsdDzg9DRefrk0p96U4S+YUSKeBBa6ScGVuyu/c=
+    access_key:
+      secure: K+WIVO9NPD1c7zRHUE1eQOKpkGYjnxkqAAd2AiLg/x/d0Z3VRTPuNR2hrI9G4Cx2uWvYyO1lqvlWYszJcyuy8yFJ3Nnd11RdPO0hIb0dwuzCXPKyz6UIrK0Rd9Chq8MiLtMDbYNV5cQtEFQCh5Jpwra8i0j4yxObyfScjT/MAZxJM7lP5Inbyg8svVQmFhHjOtyqEtKwt7GTNP+rEquAFpCB8kN4iNs6fGZKMFtrzKuOIgdRpgUXu3ynH7RBjPljmdt4nQ4iuKynYScxJpec5CVVA2MNe8qtdjy1a5RFp1boQd4ihwhwlHuypHDPSBeJPFM1ivb2Bs+HPW74tbcc8M3Fu8+Pcby/BJ6sJKt7jAv+l3eznGkbsIWiObMMzD7O+Fshvkx+UINPtaHBbxGKqNDuJOala68Kg2A1yrSi/FEmLX5zincG3uQpjAHAAaiPnJWSSZmlVLKx/kWn4T4jUdTPg5IaCTuL9InvFfLkckNUzgd5RscrA6pg1HGE57jx2ESGP93ZqAkp7pdyPd3ijO+ptXNBgIiy24PDuX2mAqxG/DNUF8Q4I2XZF8hRW/Xabav1KLoNVH9Eq4OxDWLhNiRdw9YcQJ7G2Kfi0l02LJyb0hMVdv60p1igiFBCH/RLkgzQ9GS84I2lHX2PSBxWCNoqLWZhaPURC3WXT3xNcgE=
+
+script:
+  - npm test
+  - npm run selenium-install
+  - npm run selenium-start &
+  - sleep 1
+  - BROWSER=phantomjs npm run uitest
+  - USE_SAUCE=true BROWSER=chrome npm run uitest
+  - USE_SAUCE=true BROWSER=firefox npm run uitest
+  - USE_SAUCE=true BROWSER='internet explorer' BROWSER_VERSION=11 npm run uitest
+  - USE_SAUCE=true BROWSER='internet explorer' BROWSER_VERSION=9 npm run uitest
+  - USE_SAUCE=true BROWSER=safari PLATFORM=MAC npm run uitest
+
 notifications:
   email: false
-sudo: false
+
 cache:
   directories:
     - node_modules
