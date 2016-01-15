@@ -20,12 +20,18 @@
       <h1 class="landing-title">Book your citizenship appointment</h1>
 
       {{#error}}
-        <div>
+        <div class="error-div">
           Incorrect Client ID and/or Family Name provided.
           Please check your details and try again.
           If the issue persists, please call the Citizenship line.
         </div>
       {{/error}}
+
+      {{#expired}}
+        <div class="error-div">
+            Your session has expired. Please log in.
+        </div>
+      {{/expired}}
 
       <form action="/login" method="post">
         <input name="{{ _csrf.parameterName }}" type="hidden" value="{{ _csrf.token }}" />

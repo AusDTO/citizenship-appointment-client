@@ -17,6 +17,18 @@
 <main>
     <div class="container">
         <div class="steps-info">Step 2 of 3</div>
+
+        {{#error}}
+            <div class="error-div">
+                There was an error processing your request. Your appointment was not booked. Please try again.
+            </div>
+        {{/error}}
+        {{#unavailable}}
+            <div class="error-div">
+                Sorry your slot has been taken in the meantime or the department availability has changed. Please select other slot and try again.
+            </div>
+        {{/unavailable}}
+
         <h1>Select time and date</h1>
 
         <div class="row">

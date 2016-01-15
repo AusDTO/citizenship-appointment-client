@@ -677,6 +677,21 @@ ul {
 ul li {
   margin-bottom: 0.2rem; }
 
+.error-div {
+  background-color: #F7D5D6;
+  padding: 0.5rem;
+  border: 1px #000000 solid;
+  font-weight: bold;
+  position: relative;
+  padding-left: 30px; }
+
+.error-div:after {
+  content: '\f071';
+  font-family: fontAwesome;
+  position: absolute;
+  left: 1rem;
+  top: 0.6rem; }
+
 .footer {
   background-color: #222C35;
   padding: 1rem 0;
