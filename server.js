@@ -121,6 +121,15 @@ app.get('/calendar', (req, res) => {
   });
 });
 
+app.get('/error', (req, res) => {
+  res.render('error_page', {
+    partials: {
+      header: 'partials/header',
+      footer: 'partials/footer'
+    }
+  });
+});
+
 app.post('/book_appointment', urlencodedParser, (req, res) => {
   if (!req.body) return res.sendStatus(400)
   res.redirect('/confirmation');
