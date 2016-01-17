@@ -63,6 +63,8 @@
         <form action="book_appointment" method="post">
             <input name="{{ _csrf.parameterName }}" type="hidden" value="{{ _csrf.token }}"/>
             <div class="Calendars" data-today="{{today_date}}"></div>
+            <button type="submit" hidden>.</button>
+
         </form>
     </div>
 </main>

@@ -825,6 +825,9 @@ ul li {
 .Calendar-nav--next {
   right: 0; }
 
+.hidden {
+  display: none; }
+
 .Calendar-header--dayLabel {
   position: relative;
   text-align: center;

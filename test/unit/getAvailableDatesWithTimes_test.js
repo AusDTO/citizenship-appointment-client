@@ -1,8 +1,8 @@
 'use strict';
 
 const test = require('tape');
-const getAvailableDatesWithTimes = require('../../lib/getAvailableDatesWithTimes');
-const datetime = require('../../lib/datetime');
+const getAvailableDatesWithTimes = require('../../lib/calendar/getAvailableDatesWithTimes');
+const datetime = require('../../lib/datetime/datetime');
 
 // TODO: test using FakeXMLHttpRequest and tape-promise
 

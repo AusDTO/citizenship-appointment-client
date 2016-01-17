@@ -1,8 +1,8 @@
 'use strict';
 
 const test = require('tape');
-const getCalendarStructure = require('../../lib/getCalendarStructure');
-const datetime = require('../../lib/datetime');
+const getCalendarStructure = require('../../lib/calendar/getCalendarStructure');
+const datetime = require('../../lib/datetime/datetime');
 
 test('get calendar structure', (assert) => {
   let bookableMonths = [datetime('2015-12')];
