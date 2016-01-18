@@ -16,10 +16,6 @@ trim_trailing_whitespace = true
 indent_size = 2
 continuation_indent_size = 4
 
-[*.{htm,html,mustache}]
-indent_size = 2
-continuation_indent_size = 4
-
 [.*rc]
 indent_size = 2
 continuation_indent_size = 4
