@@ -1,0 +1,17 @@
+input.button {
+    border: 0;
+    border-radius: 0;
+    text-transform: none;
+    margin: 0;
+    padding: 0 1.5rem 0 2rem;
+
+    background: $primary;
+    color: white;
+    font-size: 20px;
+    font-style: normal;
+}
+
+input.button:focus, input.button:hover {
+    background-color: $primary-hover;
+    color: white;
+}

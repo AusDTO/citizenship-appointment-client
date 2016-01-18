@@ -41,11 +41,19 @@
           </div>
 
           <br/>
-
-          <button type="button" class="blue-button">
-            <span class="fa fa-plus"></span>&nbsp;Add to my calendar&nbsp;
-            <span class="fa fa-caret-down" title="Show available calendars"></span>
-          </button>
+          <div class="dropdown">
+            <button type="button" class="blue-button" id="addToCalendar">
+              <span class="fa fa-plus"></span>&nbsp;Add to my calendar&nbsp;
+              <span class="fa fa-caret-down" title="Show available calendars"></span>
+            </button>
+            <ul role="listbox" id="calendarOptions">
+              <li role="listitem" class="cal_option"><a class="cal_option" href="/calendar.ics" target="blank"><i class="fa fa-apple"></i>&nbsp;Apple Calendar</a></li>
+              <li role="listitem" class="cal_option"><a class="cal_option" href="/googlecalendar" target="blank"><i class="fa fa-google"></i>&nbsp;Google</a></li>
+              <li role="listitem" class="cal_option"><a class="cal_option" href="/calendar.ics" target="blank"><i class="fa fa-windows"></i>&nbsp;Outlook</a></li>
+              <li role="listitem" class="cal_option"><a class="cal_option" href="/outlookonline" target="blank"><i class="fa fa-windows"></i>&nbsp;Outlook Online</a></li>
+              <li role="listitem" class="cal_option"><a class="cal_option" href="/yahoocalendar" target="blank"><i class="fa fa-yahoo"></i>&nbsp;Yahoo</a></li>
+            </ul>
+          </div>
           <button type="button" class="blue-button" id="print-page">
             <span class="fa fa-print"></span>&nbsp;Print this page
           </button>

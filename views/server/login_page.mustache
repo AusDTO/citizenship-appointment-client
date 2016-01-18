@@ -1,81 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Citizenship Appointment Booking</title>
+    <title>Citizenship Appointment Booking</title>
 
-  <link rel="icon" type="image/png" href="images/coat-of-arms-black-on-white-32x32.png" sizes="32x32">
-  <link rel="stylesheet" type="text/css" href="static/bundle.css">
+    <link rel="icon" type="image/png" href="images/coat-of-arms-black-on-white-32x32.png" sizes="32x32">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="static/bundle.css">
 </head>
 <body>
 
-  <!--[if lt IE 9]>
-  <div>
+<!--[if lt IE 9]>
+<div>
     <a href="http://windows.microsoft.com/en-au/internet-explorer/download-ie" style="text-decoration: none;" target="_blank">
-      <span style="background-color: #222C35; color: white; display: table-cell; padding: 10px 16px 10px 16px;">Your browser is out of date!</span>
-      <span style="display: table-cell; padding: 10px 10px; color: #222C35;">You're using an unsupported version of Internet Explorer. For improved security and to use this site, please <span style="text-decoration: underline;">upgrade your browser</span>.</span>
+        <span style="background-color: #222C35; color: white; display: table-cell; padding: 10px 16px 10px 16px;">Your browser is out of date!</span>
+        <span style="display: table-cell; padding: 10px 10px; color: #222C35;">You're using an unsupported version of Internet Explorer. For improved security and to use this site, please <span style="text-decoration: underline;">upgrade your browser</span>.</span>
     </a>
-  </div>
-  <![endif]-->
+</div>
+<![endif]-->
 
-  <noscript>
+<noscript>
     <div>
-      <a href="javascript:window.location.reload();" style="text-decoration: none;">
-        <span style="background-color: #222C35; color: white; display: table-cell; padding: 10px 16px 10px 16px;">JavaScript is disabled!</span>
-        <span style="display: table-cell; padding: 10px 10px; color: #222C35;">JavaScript is required to use this site. Please enable JavaScript and <span style="text-decoration: underline;">reload this page</span>.</span>
-      </a>
+        <a href="javascript:window.location.reload();" style="text-decoration: none;">
+            <span style="background-color: #222C35; color: white; display: table-cell; padding: 10px 16px 10px 16px;">JavaScript is disabled!</span>
+            <span style="display: table-cell; padding: 10px 10px; color: #222C35;">JavaScript is required to use this site. Please enable JavaScript and <span style="text-decoration: underline;">reload this page</span>.</span>
+        </a>
     </div>
-  </noscript>
+</noscript>
 
-  <div style="display: none;">
+<div style="display: none;">
     <a href="javascript:window.location.reload();" style="text-decoration: none;">
-      <span style="background-color: #222C35; color: white; display: table-cell; padding: 10px 16px 10px 16px;">Cookies are disabled!</span>
-      <span style="display: table-cell; padding: 10px 10px; color: #222C35;">Cookies are required to use this site. Please enable cookies and <span style="text-decoration: underline;">reload this page</span>.</span>
+        <span style="background-color: #222C35; color: white; display: table-cell; padding: 10px 16px 10px 16px;">Cookies are disabled!</span>
+        <span style="display: table-cell; padding: 10px 10px; color: #222C35;">Cookies are required to use this site. Please enable cookies and <span style="text-decoration: underline;">reload this page</span>.</span>
     </a>
-  </div>
+</div>
 
-  {{> header }}
+{{> header }}
 
-  <main>
+<main>
     <div class="container">
-      <div class="steps-info">Step 1 of 3</div>
-      <h1 class="landing-title">Book your citizenship appointment</h1>
+        <div class="steps-info">Step 1 of 3</div>
+        <h1 class="landing-title">Book your citizenship appointment</h1>
 
-      {{#error}}
+        {{#error}}
         <div class="error-div">
-          Incorrect Client ID and/or Family Name provided.
-          Please check your details and try again.
-          If the issue persists, please call the Citizenship line.
+            Incorrect Client ID and/or Family Name provided.
+            Please check your details and try again.
+            If the issue persists, please call the Citizenship line.
         </div>
-      {{/error}}
+        {{/error}}
 
-      {{#expired}}
+        {{#expired}}
         <div class="error-div">
             Your session has expired. Please log in.
         </div>
-      {{/expired}}
+        {{/expired}}
 
-      <form action="/login" method="post">
-        <input name="{{ _csrf.parameterName }}" type="hidden" value="{{ _csrf.token }}" />
-        <label for="clientId">Client ID</label>
-        <input id="clientId" type="text" name="username"
-        {{#clientId}}value="{{clientId}}"{{/clientId}}></input>
+        <form action="/login" method="post">
+            <input name="{{ _csrf.parameterName }}" type="hidden" value="{{ _csrf.token }}"/>
 
-        <label for="familyName">Family Name</label>
-        <input id="familyName" type="text" name="familyName"></input>
+            <div class="row">
+                <div class="three columns">
+                    <label for="clientId">Client ID</label>
+                </div>
+                <div class="three columns">
+                    <label for="familyName">Family Name</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="three columns">
+                    <input id="clientId" type="text" name="username" {{#clientId}}value="{{clientId}}"{{/clientId}}></input>
+                </div>
+                <div class="three columns">
+                    <input id="familyName" type="text" name="familyName"/>
+                </div>
+                <div class="three columns">
+                    <input type="submit" class="button fa" value="Next &nbsp; &#xf105;" id="submitLogin"/>
+                </div>
+            </div>
+        </form>
 
-        <input type="submit" value="Next" id="submitLogin"></input>
-
-      </form>
+        <div class="row">
+            <div class="eleven columns">
+                <div class="ClientIdHelp">
+                    <a href="#" class="ClientIdHelp-link link">How to find Client ID</a>
+                    <img src="images/client_id_help.png" class="ClientIdHelp-image" alt="Find the ID in your letter"/>
+                </div>
+            </div>
+        </div>
     </div>
-  </main>
+</main>
 
-  {{> footer }}
+{{> footer }}
 
-  <script src="static/login.js" charset="utf-8"></script>
+<script src="static/login.js" charset="utf-8"></script>
 
 </body>
 </html>

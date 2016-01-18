@@ -7,13 +7,23 @@ const client = require('./client')({
 });
 
 test('should successfully login and book appointment', (assert) => {
-  assert.plan(3);
+  assert.plan(5);
   client
       .init()
       .url(client.baseUrl)
       .getTitle()
       .then((title) => {
         assert.equal(title, 'Citizenship Appointment Booking');
+      })
+      .click('.ClientIdHelp-link')
+      .isVisible('.ClientIdHelp-image')
+      .then((foo) => {
+        assert.equal(true, foo );
+      })
+      .click('.ClientIdHelp-link')
+      .isVisible('.ClientIdHelp-image')
+      .then((foundElement) => {
+        assert.equal(false, foundElement );
       })
       .setValue('#clientId', '99999999999')
       .setValue('#familyName', 'Family-Name')

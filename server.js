@@ -7,6 +7,8 @@ const express = require('express'),
     webpackMiddleware = require('webpack-dev-middleware'),
     bodyParser = require('body-parser'),
     urlencodedParser = bodyParser.urlencoded({extended: false}),
+    uuid = require('node-uuid'),
+    querystring = require('querystring'),
     path = require('path'),
     fs = require('fs'),
     app = express(),
@@ -146,6 +148,55 @@ app.get('/confirmation', (req, res) => {
     clientId: "919191",
     hasEmail: true
   });
+});
+
+
+app.get('/calendar.ics', function(req, res) {
+  res.type('text/calendar');
+  res.render('calendar_ics', {
+    id: uuid.v4(),
+    timeZone: 'Australia/Melbourne',
+    startTime: '20160204T130000',
+    endTime: '20160204T150000',
+    location:'2 Lonsdale Street, Melbourne VIC 3000, Australia'
+  })
+});
+
+app.get('/googlecalendar', function(req, res) {
+  var calendar_event = querystring.stringify({
+    'action': 'TEMPLATE',
+    'text': 'Citizenship Appointment',
+    'dates': '20160204T130000/20160204T150000',
+    'czt': 'Australia/Melbourne',
+    'location': '2 Lonsdale Street, Melbourne VIC 3000, Australia',
+    'details': 'Australian Citizenship Appointment\nplease bring all the required documents and make sure you are prepared to sit the test',
+    'trp': 'false'
+  });
+  res.redirect('http://www.google.com/calendar/event?' + calendar_event);
+});
+
+app.get('/yahoocalendar', function(req, res) {
+  var calendar_event = querystring.stringify({
+    'v':'60',
+    'DUR': '0200',
+    'TITLE': 'Citizenship Appointment',
+    'ST': '20160204T130000',
+    'in_loc': '2 Lonsdale Street, Melbourne VIC 3000, Australia',
+    'DESC': 'Australian Citizenship Appointment\nplease bring all the required documents and make sure you are prepared to sit the test'
+  });
+  res.redirect('http://calendar.yahoo.com/?' + calendar_event);
+});
+
+app.get('/outlookonline', function(req, res) {
+  var calendar_event = querystring.stringify({
+    'rru': 'addevent',
+    'summary': 'Citizenship Appointment',
+    'dtstart': '20160204T130000',
+    'dtend': '20160204T150000',
+    'location': '2 Lonsdale Street, Melbourne VIC 3000, Australia',
+    'description': 'Australian Citizenship Appointment\nplease bring all the required documents and make sure you are prepared to sit the test',
+  });
+  res.redirect('http://calendar.live.com/calendar/calendar.aspx?' + calendar_event);
 });
 
 let server = app.listen(default_port, () => {
