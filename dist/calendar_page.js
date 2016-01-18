@@ -49,8 +49,8 @@
 	__webpack_require__(1);
 	
 	var calendar = __webpack_require__(191);
-	var calendarRenderer = __webpack_require__(200);
-	var router = __webpack_require__(209);
+	var calendarRenderer = __webpack_require__(199);
+	var router = __webpack_require__(208);
 	
 	var request = new XMLHttpRequest();
 	request.open('GET', 'get_available_dates.json');
@@ -5349,15 +5349,14 @@
 	var datetime = __webpack_require__(192);
 	var getBookableMonths = __webpack_require__(197);
 	var getCalendarStructure = __webpack_require__(198);
-	var getAvailableDatesWithTimes = __webpack_require__(199);
 	
 	var Calendar = function Calendar(availableDates, todayDateString) {
 	  _classCallCheck(this, Calendar);
 	
+	  this.availableDates = availableDates;
 	  this.todayDate = datetime(todayDateString);
-	  this.bookableMonths = getBookableMonths(availableDates);
-	  this.calendarStructure = getCalendarStructure(this.bookableMonths, availableDates, this.todayDate);
-	  this.availableDatesWithTimes = getAvailableDatesWithTimes(availableDates);
+	  this.bookableMonths = getBookableMonths(this.availableDates);
+	  this.calendarStructure = getCalendarStructure(this.bookableMonths, this.availableDates, this.todayDate);
 	};
 	
 	module.exports = function (availableDates, todayDateString) {
@@ -9320,79 +9319,14 @@
 
 	'use strict';
 	
-	var datetime = __webpack_require__(192);
-	var REQUEST_DELAY = 300;
+	var dom = __webpack_require__(200);
+	var showCalendar = __webpack_require__(201);
 	
-	module.exports = function (availableDates) {
-	  var delay = 0;
-	
-	  var _iteratorNormalCompletion = true;
-	  var _didIteratorError = false;
-	  var _iteratorError = undefined;
-	
-	  try {
-	    var _loop = function _loop() {
-	      var dateString = _step.value;
-	
-	      var calendarId = availableDates[dateString].calendar_id;
-	      availableDates[dateString].available_times = new Promise(function (resolve, reject) {
-	        setTimeout(function () {
-	          var request = new XMLHttpRequest();
-	          request.open('GET', 'get_available_times?calendar_id=' + calendarId);
-	          request.onload = function () {
-	            if (request.status === 200) {
-	              var availableTimes = JSON.parse(request.responseText).times.map(function (time) {
-	                return datetime(dateString + ' ' + time);
-	              });
-	              resolve(availableTimes);
-	            } else {
-	              reject(request.statusText);
-	            }
-	          };
-	          request.onerror = function () {
-	            reject("There was a problem sending the request.");
-	          };
-	          request.send();
-	        }, delay);
-	      });
-	      delay += REQUEST_DELAY;
-	    };
-	
-	    for (var _iterator = Object.keys(availableDates)[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-	      _loop();
-	    }
-	  } catch (err) {
-	    _didIteratorError = true;
-	    _iteratorError = err;
-	  } finally {
-	    try {
-	      if (!_iteratorNormalCompletion && _iterator.return) {
-	        _iterator.return();
-	      }
-	    } finally {
-	      if (_didIteratorError) {
-	        throw _iteratorError;
-	      }
-	    }
-	  }
-	
-	  return availableDates;
-	};
-
-/***/ },
-/* 200 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	var dom = __webpack_require__(201);
-	var showCalendar = __webpack_require__(202);
-	
-	var calendar_template = __webpack_require__(203);
-	var month_template = __webpack_require__(205);
-	var week_template = __webpack_require__(206);
-	var day_template = __webpack_require__(207);
-	var times_template = __webpack_require__(208);
+	var calendar_template = __webpack_require__(202);
+	var month_template = __webpack_require__(204);
+	var week_template = __webpack_require__(205);
+	var day_template = __webpack_require__(206);
+	var times_template = __webpack_require__(207);
 	
 	module.exports = function (calendar) {
 	  var renderedCalendarsHtml = calendar_template.render(calendar.calendarStructure, {
@@ -9409,7 +9343,7 @@
 	};
 
 /***/ },
-/* 201 */
+/* 200 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -9444,7 +9378,7 @@
 	  }
 	};
 	
-	mod.removeClassFromElements = function (selectorString, className) {
+	mod.removeClass = function (selectorString, className) {
 	  var elements = document.querySelectorAll(selectorString);
 	  var _iteratorNormalCompletion2 = true;
 	  var _didIteratorError2 = false;
@@ -9529,22 +9463,22 @@
 	};
 	
 	mod.highlightDateCell = function (dateString) {
-	  mod.removeClassFromElements('.Calendar-date--bookable.is-active', 'is-active');
+	  mod.removeClass('.Calendar-date--bookable.is-active', 'is-active');
 	  mod.addClass('.Calendar-date--bookable.date-' + dateString, 'is-active');
 	};
 	
 	mod.highlightTimesCell = function (datetimeClassString) {
-	  mod.removeClassFromElements('.AppointmentTimes-list--item.is-active', 'is-active');
+	  mod.removeClass('.AppointmentTimes-list--item.is-active', 'is-active');
 	  mod.addClass('.AppointmentTimes-list--item.datetime-' + datetimeClassString, 'is-active');
 	};
 
 /***/ },
-/* 202 */
+/* 201 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var dom = __webpack_require__(201);
+	var dom = __webpack_require__(200);
 	
 	module.exports = function (month) {
 	  dom.hideElementsBySelectors('.Calendar');
@@ -9552,14 +9486,14 @@
 	};
 
 /***/ },
-/* 203 */
+/* 202 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var H = __webpack_require__(204);
+	var H = __webpack_require__(203);
 	module.exports = function() { var T = new H.Template({code: function (c,p,i) { var t=this;t.b(i=i||"");if(t.s(t.f("months",c,p,1),c,p,0,11,1662,"{{ }}")){t.rs(c,p,function(c,p,t){t.b("    <div class=\"Calendar month-");t.b(t.v(t.f("month",c,p,0)));t.b("\">");t.b("\n" + i);t.b("        <!-- Calendar title and navigation -->");t.b("\n" + i);t.b("        <div class=\"Calendar-nav\">");t.b("\n" + i);if(t.s(t.f("prevMonth",c,p,1),c,p,0,163,463,"{{ }}")){t.rs(c,p,function(c,p,t){t.b("                <a href=\"#month/");t.b(t.v(t.f("prevMonth",c,p,0)));t.b("\" class=\"button Calendar-nav--prev\" aria-label=\"Previous Month\" name=\"month/");t.b(t.v(t.f("prevMonth",c,p,0)));t.b("\" name=\"month/");t.b(t.v(t.f("prevMonth",c,p,0)));t.b("\">");t.b("\n" + i);t.b("                    <i class=\"fa fa-angle-left Calendar-nav--label\"><span class=\"hidden\">.</span></i>");t.b("\n" + i);t.b("                </a>");t.b("\n" + i);});c.pop();}t.b("            <strong class=\"Calendar-nav--month\">");t.b(t.v(t.f("monthName",c,p,0)));t.b("</strong>");t.b("\n" + i);if(t.s(t.f("nextMonth",c,p,1),c,p,0,575,845,"{{ }}")){t.rs(c,p,function(c,p,t){t.b("                <a href=\"#month/");t.b(t.v(t.f("nextMonth",c,p,0)));t.b("\" class=\"button Calendar-nav--next\" aria-label=\"Next Month\" name=\"month/");t.b(t.v(t.f("nextMonth",c,p,0)));t.b("\">");t.b("\n" + i);t.b("                    <i class=\"fa fa-angle-right Calendar-nav--label\"><span class=\"hidden\">.</span></i>");t.b("\n" + i);t.b("                </a>");t.b("\n" + i);});c.pop();}t.b("        </div>");t.b("\n");t.b("\n" + i);t.b("        <!-- Calendar table -->");t.b("\n");t.b("\n" + i);t.b("        <table class=\"Calendar-dates\">");t.b("\n" + i);t.b("            <thead class=\"Calendar-dates--header\">");t.b("\n" + i);t.b("            <tr>");t.b("\n" + i);t.b("                <th class=\"Calendar-header--dayLabel\" data-state=\"M\">Mon</th>");t.b("\n" + i);t.b("                <th class=\"Calendar-header--dayLabel\" data-state=\"T\">Tue</th>");t.b("\n" + i);t.b("                <th class=\"Calendar-header--dayLabel\" data-state=\"W\">Wed</th>");t.b("\n" + i);t.b("                <th class=\"Calendar-header--dayLabel\" data-state=\"T\">Thu</th>");t.b("\n" + i);t.b("                <th class=\"Calendar-header--dayLabel\" data-state=\"F\">Fri</th>");t.b("\n" + i);t.b("                <th class=\"Calendar-header--dayLabel\" data-state=\"S\">Sat</th>");t.b("\n" + i);t.b("                <th class=\"Calendar-header--dayLabel\" data-state=\"S\">Sun</th>");t.b("\n" + i);t.b("            </tr>");t.b("\n" + i);t.b("            </thead>");t.b("\n" + i);t.b(t.rp("<month_template0",c,p,"            "));t.b("        </table>");t.b("\n" + i);t.b("    </div>");t.b("\n" + i);});c.pop();}return t.fl(); },partials: {"<month_template0":{name:"month_template", partials: {}, subs: {  }}}, subs: {  }}, "{{#months}}\n    <div class=\"Calendar month-{{month}}\">\n        <!-- Calendar title and navigation -->\n        <div class=\"Calendar-nav\">\n            {{#prevMonth}}\n                <a href=\"#month/{{prevMonth}}\" class=\"button Calendar-nav--prev\" aria-label=\"Previous Month\" name=\"month/{{prevMonth}}\" name=\"month/{{prevMonth}}\">\n                    <i class=\"fa fa-angle-left Calendar-nav--label\"><span class=\"hidden\">.</span></i>\n                </a>\n            {{/prevMonth}}\n            <strong class=\"Calendar-nav--month\">{{monthName}}</strong>\n            {{#nextMonth}}\n                <a href=\"#month/{{nextMonth}}\" class=\"button Calendar-nav--next\" aria-label=\"Next Month\" name=\"month/{{nextMonth}}\">\n                    <i class=\"fa fa-angle-right Calendar-nav--label\"><span class=\"hidden\">.</span></i>\n                </a>\n            {{/nextMonth}}\n        </div>\n\n        <!-- Calendar table -->\n\n        <table class=\"Calendar-dates\">\n            <thead class=\"Calendar-dates--header\">\n            <tr>\n                <th class=\"Calendar-header--dayLabel\" data-state=\"M\">Mon</th>\n                <th class=\"Calendar-header--dayLabel\" data-state=\"T\">Tue</th>\n                <th class=\"Calendar-header--dayLabel\" data-state=\"W\">Wed</th>\n                <th class=\"Calendar-header--dayLabel\" data-state=\"T\">Thu</th>\n                <th class=\"Calendar-header--dayLabel\" data-state=\"F\">Fri</th>\n                <th class=\"Calendar-header--dayLabel\" data-state=\"S\">Sat</th>\n                <th class=\"Calendar-header--dayLabel\" data-state=\"S\">Sun</th>\n            </tr>\n            </thead>\n            {{> month_template}}\n        </table>\n    </div>\n{{/months}}\n", H);return T; }();
 
 /***/ },
-/* 204 */
+/* 203 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*
@@ -9906,45 +9840,45 @@
 
 
 /***/ },
+/* 204 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var H = __webpack_require__(203);
+	module.exports = function() { var T = new H.Template({code: function (c,p,i) { var t=this;t.b(i=i||"");if(t.s(t.f("weeks",c,p,1),c,p,0,10,33,"{{ }}")){t.rs(c,p,function(c,p,t){t.b(t.rp("<week_template0",c,p,"  "));});c.pop();}return t.fl(); },partials: {"<week_template0":{name:"week_template", partials: {}, subs: {  }}}, subs: {  }}, "{{#weeks}}\n  {{> week_template}}\n{{/weeks}}\n", H);return T; }();
+
+/***/ },
 /* 205 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var H = __webpack_require__(204);
-	module.exports = function() { var T = new H.Template({code: function (c,p,i) { var t=this;t.b(i=i||"");if(t.s(t.f("weeks",c,p,1),c,p,0,10,33,"{{ }}")){t.rs(c,p,function(c,p,t){t.b(t.rp("<week_template0",c,p,"  "));});c.pop();}return t.fl(); },partials: {"<week_template0":{name:"week_template", partials: {}, subs: {  }}}, subs: {  }}, "{{#weeks}}\n  {{> week_template}}\n{{/weeks}}\n", H);return T; }();
+	var H = __webpack_require__(203);
+	module.exports = function() { var T = new H.Template({code: function (c,p,i) { var t=this;t.b(i=i||"");t.b("<tr>");t.b("\n" + i);if(t.s(t.f("days",c,p,1),c,p,0,16,42,"{{ }}")){t.rs(c,p,function(c,p,t){t.b(t.rp("<day_template0",c,p,"    "));});c.pop();}t.b("</tr>");t.b("\n" + i);if(t.s(t.f("days",c,p,1),c,p,0,67,341,"{{ }}")){t.rs(c,p,function(c,p,t){t.b("<tr class=\"AvailableTimes date-");t.b(t.v(t.f("date",c,p,0)));t.b("\">");t.b("\n" + i);t.b(" <td class=\"AvailableTimesCell date-");t.b(t.v(t.f("date",c,p,0)));t.b("\" colspan=\"7\">");t.b("\n" + i);t.b(t.rp("<times_template1",c,p,"    "));t.b(" </td>");t.b("\n" + i);t.b("</tr>");t.b("\n" + i);t.b("<tr class=\"SelectionConfirmation date-");t.b(t.v(t.f("date",c,p,0)));t.b("\">");t.b("\n" + i);t.b("    <td class=\"SelectionConfirmationCell date-");t.b(t.v(t.f("date",c,p,0)));t.b("\" colspan=\"7\">");t.b("\n" + i);t.b("    </td>");t.b("\n" + i);t.b("</tr>");t.b("\n" + i);});c.pop();}return t.fl(); },partials: {"<day_template0":{name:"day_template", partials: {}, subs: {  }},"<times_template1":{name:"times_template", partials: {}, subs: {  }}}, subs: {  }}, "<tr>\n  {{#days}}\n    {{> day_template}}\n  {{/days}}\n</tr>\n{{#days}}\n<tr class=\"AvailableTimes date-{{date}}\">\n <td class=\"AvailableTimesCell date-{{date}}\" colspan=\"7\">\n    {{> times_template}}\n </td>\n</tr>\n<tr class=\"SelectionConfirmation date-{{date}}\">\n    <td class=\"SelectionConfirmationCell date-{{date}}\" colspan=\"7\">\n    </td>\n</tr>\n{{/days}}\n", H);return T; }();
 
 /***/ },
 /* 206 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var H = __webpack_require__(204);
-	module.exports = function() { var T = new H.Template({code: function (c,p,i) { var t=this;t.b(i=i||"");t.b("<tr>");t.b("\n" + i);if(t.s(t.f("days",c,p,1),c,p,0,16,42,"{{ }}")){t.rs(c,p,function(c,p,t){t.b(t.rp("<day_template0",c,p,"    "));});c.pop();}t.b("</tr>");t.b("\n" + i);if(t.s(t.f("days",c,p,1),c,p,0,67,341,"{{ }}")){t.rs(c,p,function(c,p,t){t.b("<tr class=\"AvailableTimes date-");t.b(t.v(t.f("date",c,p,0)));t.b("\">");t.b("\n" + i);t.b(" <td class=\"AvailableTimesCell date-");t.b(t.v(t.f("date",c,p,0)));t.b("\" colspan=\"7\">");t.b("\n" + i);t.b(t.rp("<times_template1",c,p,"    "));t.b(" </td>");t.b("\n" + i);t.b("</tr>");t.b("\n" + i);t.b("<tr class=\"SelectionConfirmation date-");t.b(t.v(t.f("date",c,p,0)));t.b("\">");t.b("\n" + i);t.b("    <td class=\"SelectionConfirmationCell date-");t.b(t.v(t.f("date",c,p,0)));t.b("\" colspan=\"7\">");t.b("\n" + i);t.b("    </td>");t.b("\n" + i);t.b("</tr>");t.b("\n" + i);});c.pop();}return t.fl(); },partials: {"<day_template0":{name:"day_template", partials: {}, subs: {  }},"<times_template1":{name:"times_template", partials: {}, subs: {  }}}, subs: {  }}, "<tr>\n  {{#days}}\n    {{> day_template}}\n  {{/days}}\n</tr>\n{{#days}}\n<tr class=\"AvailableTimes date-{{date}}\">\n <td class=\"AvailableTimesCell date-{{date}}\" colspan=\"7\">\n    {{> times_template}}\n </td>\n</tr>\n<tr class=\"SelectionConfirmation date-{{date}}\">\n    <td class=\"SelectionConfirmationCell date-{{date}}\" colspan=\"7\">\n    </td>\n</tr>\n{{/days}}\n", H);return T; }();
+	var H = __webpack_require__(203);
+	module.exports = function() { var T = new H.Template({code: function (c,p,i) { var t=this;t.b(i=i||"");t.b("<td class=\"DateCell Calendar-date--bookable ");if(!t.s(t.f("available_times_count",c,p,1),c,p,1,0,0,"")){t.b("Calendar-date--unavailable");};t.b(" ");if(!t.s(t.f("bookable",c,p,1),c,p,1,0,0,"")){t.b("Calendar-date--hide");};t.b(" date-");t.b(t.v(t.f("date",c,p,0)));t.b("\">");t.b("\n" + i);t.b("  <div class=\"DateCell-content ");if(t.s(t.f("today",c,p,1),c,p,0,226,231,"{{ }}")){t.rs(c,p,function(c,p,t){t.b("today");});c.pop();}t.b("\">");t.b("\n");t.b("\n" + i);t.b("    <a class=\"DateCell-content--datelink ");if(t.s(t.f("today",c,p,1),c,p,0,296,301,"{{ }}")){t.rs(c,p,function(c,p,t){t.b("today");});c.pop();}t.b(" date-");t.b(t.v(t.f("date",c,p,0)));t.b(" \" href=\"#date/");t.b(t.v(t.f("date",c,p,0)));t.b("\" name=\"date/");t.b(t.v(t.f("date",c,p,0)));t.b("\"  ");if(!t.s(t.f("available_times_count",c,p,1),c,p,1,0,0,"")){t.b("tabindex=\"-1\"");};t.b(">");t.b("\n" + i);t.b("    <p class=\"DateCell-content--day\">");t.b(t.v(t.f("day",c,p,0)));t.b("</p>");t.b("\n" + i);if(t.s(t.f("available_times_count",c,p,1),c,p,0,520,608,"{{ }}")){t.rs(c,p,function(c,p,t){t.b("<p class=\"DateCell-content--availableTimesCount\">");t.b(t.v(t.f("available_times_count",c,p,0)));t.b(" available</p>");});c.pop();}t.b("\n" + i);t.b("    </a>");t.b("\n" + i);t.b("  </div>");t.b("\n" + i);t.b("</td>");t.b("\n");return t.fl(); },partials: {}, subs: {  }}, "<td class=\"DateCell Calendar-date--bookable {{^available_times_count}}Calendar-date--unavailable{{/available_times_count}} {{^bookable}}Calendar-date--hide{{/bookable}} date-{{date}}\">\n  <div class=\"DateCell-content {{#today}}today{{/today}}\">\n\n    <a class=\"DateCell-content--datelink {{#today}}today{{/today}} date-{{date}} \" href=\"#date/{{ date }}\" name=\"date/{{ date }}\"  {{^available_times_count}}tabindex=\"-1\"{{/available_times_count}}>\n    <p class=\"DateCell-content--day\">{{ day }}</p>\n{{#available_times_count}}<p class=\"DateCell-content--availableTimesCount\">{{available_times_count}} available</p>{{/available_times_count}}\n    </a>\n  </div>\n</td>\n", H);return T; }();
 
 /***/ },
 /* 207 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var H = __webpack_require__(204);
-	module.exports = function() { var T = new H.Template({code: function (c,p,i) { var t=this;t.b(i=i||"");t.b("<td class=\"DateCell Calendar-date--bookable ");if(!t.s(t.f("available_times_count",c,p,1),c,p,1,0,0,"")){t.b("Calendar-date--unavailable");};t.b(" ");if(!t.s(t.f("bookable",c,p,1),c,p,1,0,0,"")){t.b("Calendar-date--hide");};t.b(" date-");t.b(t.v(t.f("date",c,p,0)));t.b("\">");t.b("\n" + i);t.b("  <div class=\"DateCell-content ");if(t.s(t.f("today",c,p,1),c,p,0,226,231,"{{ }}")){t.rs(c,p,function(c,p,t){t.b("today");});c.pop();}t.b("\">");t.b("\n");t.b("\n" + i);t.b("    <a class=\"DateCell-content--datelink ");if(t.s(t.f("today",c,p,1),c,p,0,296,301,"{{ }}")){t.rs(c,p,function(c,p,t){t.b("today");});c.pop();}t.b(" date-");t.b(t.v(t.f("date",c,p,0)));t.b(" \" href=\"#date/");t.b(t.v(t.f("date",c,p,0)));t.b("\" name=\"date/");t.b(t.v(t.f("date",c,p,0)));t.b("\"  ");if(!t.s(t.f("available_times_count",c,p,1),c,p,1,0,0,"")){t.b("tabindex=\"-1\"");};t.b(">");t.b("\n" + i);t.b("    <p class=\"DateCell-content--day\">");t.b(t.v(t.f("day",c,p,0)));t.b("</p>");t.b("\n" + i);if(t.s(t.f("available_times_count",c,p,1),c,p,0,520,608,"{{ }}")){t.rs(c,p,function(c,p,t){t.b("<p class=\"DateCell-content--availableTimesCount\">");t.b(t.v(t.f("available_times_count",c,p,0)));t.b(" available</p>");});c.pop();}t.b("\n" + i);t.b("    </a>");t.b("\n" + i);t.b("  </div>");t.b("\n" + i);t.b("</td>");t.b("\n");return t.fl(); },partials: {}, subs: {  }}, "<td class=\"DateCell Calendar-date--bookable {{^available_times_count}}Calendar-date--unavailable{{/available_times_count}} {{^bookable}}Calendar-date--hide{{/bookable}} date-{{date}}\">\n  <div class=\"DateCell-content {{#today}}today{{/today}}\">\n\n    <a class=\"DateCell-content--datelink {{#today}}today{{/today}} date-{{date}} \" href=\"#date/{{ date }}\" name=\"date/{{ date }}\"  {{^available_times_count}}tabindex=\"-1\"{{/available_times_count}}>\n    <p class=\"DateCell-content--day\">{{ day }}</p>\n{{#available_times_count}}<p class=\"DateCell-content--availableTimesCount\">{{available_times_count}} available</p>{{/available_times_count}}\n    </a>\n  </div>\n</td>\n", H);return T; }();
-
-/***/ },
-/* 208 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var H = __webpack_require__(204);
+	var H = __webpack_require__(203);
 	module.exports = function() { var T = new H.Template({code: function (c,p,i) { var t=this;t.b(i=i||"");if(!t.s(t.f("times",c,p,1),c,p,1,0,0,"")){t.b("    Please Wait");t.b("\n" + i);};t.b("<div class=\"AppointmentTimes-table\">");t.b("\n" + i);if(t.s(t.f("times",c,p,1),c,p,0,89,408,"{{ }}")){t.rs(c,p,function(c,p,t){t.b("    <div class=\"AppointmentTimes-list--item datetime-");t.b(t.v(t.f("timeClass",c,p,0)));t.b("\">");t.b("\n" + i);t.b("        <a class=\"AppointmentLink\" href=\"#time/");t.b(t.v(t.f("datetime",c,p,0)));t.b("\" name=\"time/");t.b(t.v(t.f("datetime",c,p,0)));t.b("\">");t.b("\n" + i);t.b("            <span class=\"AppointmentLink-time\">");t.b(t.v(t.f("display_time",c,p,0)));t.b("</span>");t.b("\n" + i);t.b("            <span class=\"AppointmentLink-ampm\">");t.b(t.v(t.f("ampm",c,p,0)));t.b("</span>");t.b("\n" + i);t.b("        </a>");t.b("\n" + i);t.b("    </div>");t.b("\n" + i);});c.pop();}t.b("</div>");t.b("\n");return t.fl(); },partials: {}, subs: {  }}, "{{^times}}\n    Please Wait\n{{/times}}\n<div class=\"AppointmentTimes-table\">\n    {{#times}}\n    <div class=\"AppointmentTimes-list--item datetime-{{timeClass}}\">\n        <a class=\"AppointmentLink\" href=\"#time/{{datetime}}\" name=\"time/{{datetime}}\">\n            <span class=\"AppointmentLink-time\">{{display_time}}</span>\n            <span class=\"AppointmentLink-ampm\">{{ampm}}</span>\n        </a>\n    </div>\n    {{/times}}\n</div>\n", H);return T; }();
 
 /***/ },
-/* 209 */
+/* 208 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
 	var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
 	
-	var dom = __webpack_require__(201);
+	var dom = __webpack_require__(200);
 	var datetime = __webpack_require__(192);
-	var showCalendar = __webpack_require__(202);
-	var showAvailableTimes = __webpack_require__(210);
+	var showCalendar = __webpack_require__(201);
+	var showAvailableTimes = __webpack_require__(209);
 	var showSelectionConfirmation = __webpack_require__(211);
 	
 	module.exports = function (calendar, onPageLoad) {
@@ -9964,13 +9898,13 @@
 	        showCalendar(date.toMonthString());
 	
 	        dom.highlightDateCell(hashValue);
-	        showAvailableTimes(hashValue, calendar.availableDatesWithTimes, calendar.todayDate);
+	        showAvailableTimes(hashValue, calendar.availableDates, calendar.todayDate);
 	      } else if (hashType === '#time') {
 	        var date = datetime(hashValue);
 	        showCalendar(date.toMonthString());
 	
 	        dom.highlightDateCell(date.toDateString());
-	        showAvailableTimes(date.toDateString(), calendar.availableDatesWithTimes, calendar.todayDate);
+	        showAvailableTimes(date.toDateString(), calendar.availableDates, calendar.todayDate);
 	
 	        dom.highlightTimesCell(date.toDateTimeClassString());
 	        showSelectionConfirmation(hashValue);
@@ -9990,7 +9924,7 @@
 	        showCalendar(hashValue);
 	      } else if (hashType === '#date') {
 	        dom.highlightDateCell(hashValue);
-	        showAvailableTimes(hashValue, calendar.availableDatesWithTimes, calendar.todayDate);
+	        showAvailableTimes(hashValue, calendar.availableDates, calendar.todayDate);
 	      } else if (hashType === '#time') {
 	        var className = datetime(hashValue).toDateTimeClassString();
 	        dom.highlightTimesCell(className);
@@ -10001,7 +9935,7 @@
 	};
 
 /***/ },
-/* 210 */
+/* 209 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -10009,16 +9943,20 @@
 	var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
 	
 	var datetime = __webpack_require__(192);
-	var dom = __webpack_require__(201);
-	var times_template = __webpack_require__(208);
+	var dom = __webpack_require__(200);
+	var getAvailableTimes = __webpack_require__(210);
+	var times_template = __webpack_require__(207);
 	
-	module.exports = function (dateString, availableDatesWithTimes, todayDate) {
+	module.exports = function (dateString, availableDates, todayDate) {
 	  dom.hideElementsBySelectors('.AvailableTimes');
 	  document.querySelector('.AvailableTimes.date-' + dateString).style.display = '';
 	  var date = datetime(dateString);
 	
-	  availableDatesWithTimes[dateString].available_times.then(function (availableTimes) {
+	  if (availableDates[dateString].availableTimes === undefined) {
+	    availableDates[dateString].availableTimes = getAvailableTimes(availableDates, dateString);
+	  }
 	
+	  availableDates[dateString].availableTimes.then(function (availableTimes) {
 	    if (date.isSameDay(todayDate)) {
 	      availableTimes = availableTimes.filter(function (datetime) {
 	        return datetime.isAfter(todayDate);
@@ -10048,7 +9986,7 @@
 	
 	      if (hashType === '#time') {
 	        var className = datetime(hashValue).toDateTimeClassString();
-	        dom.addClassToElements('.AppointmentTimes-list--item.datetime-' + className, 'is-active');
+	        dom.addClass('.AppointmentTimes-list--item.datetime-' + className, 'is-active');
 	      }
 	    }
 	  }, function (err) {
@@ -10059,12 +9997,42 @@
 	};
 
 /***/ },
+/* 210 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	var datetime = __webpack_require__(192);
+	
+	module.exports = function (availableDates, dateString) {
+	  var calendarId = availableDates[dateString].calendar_id;
+	  return new Promise(function (resolve, reject) {
+	    var request = new XMLHttpRequest();
+	    request.open('GET', 'get_available_times?calendar_id=' + calendarId);
+	    request.onload = function () {
+	      if (request.status === 200) {
+	        var availableTimes = JSON.parse(request.responseText).times.map(function (time) {
+	          return datetime(dateString + ' ' + time);
+	        });
+	        resolve(availableTimes);
+	      } else {
+	        reject(request.statusText);
+	      }
+	    };
+	    request.onerror = function () {
+	      reject("There was a problem sending the request.");
+	    };
+	    request.send();
+	  });
+	};
+
+/***/ },
 /* 211 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var dom = __webpack_require__(201);
+	var dom = __webpack_require__(200);
 	var datetime = __webpack_require__(192);
 	
 	var selection_confirmation_template = __webpack_require__(212);
@@ -10089,7 +10057,7 @@
 /* 212 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var H = __webpack_require__(204);
+	var H = __webpack_require__(203);
 	module.exports = function() { var T = new H.Template({code: function (c,p,i) { var t=this;t.b(i=i||"");t.b(t.v(t.f("display_date",c,p,0)));t.b(", ");t.b(t.v(t.f("display_time",c,p,0)));t.b("  ");t.b(t.v(t.f("ampm",c,p,0)));t.b("\n" + i);t.b("<input type=\"hidden\" name=\"selected_appointment\" value=\"");t.b(t.v(t.f("selected_appointment",c,p,0)));t.b("\"/>");t.b("\n" + i);t.b("<input type=\"submit\" class=\"SelectionConfirmation-button\" value=\"Confirm\"/>");t.b("\n");return t.fl(); },partials: {}, subs: {  }}, "{{display_date}}, {{display_time}}  {{ampm}}\n<input type=\"hidden\" name=\"selected_appointment\" value=\"{{selected_appointment}}\"/>\n<input type=\"submit\" class=\"SelectionConfirmation-button\" value=\"Confirm\"/>\n", H);return T; }();
 
 /***/ }
