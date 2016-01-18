@@ -42,6 +42,7 @@
   },
   "dependencies": {
     "babel-polyfill": "^6.3.14",
+    "bwip-js": "^0.15.1",
     "hogan.js": "^3.0.2",
     "jquery": "^2.1.4",
     "moment": "^2.10.6",

@@ -8,6 +8,7 @@ const express = require('express'),
     bodyParser = require('body-parser'),
     urlencodedParser = bodyParser.urlencoded({extended: false}),
     uuid = require('node-uuid'),
+    bwipjs = require('bwip-js'),
     querystring = require('querystring'),
     path = require('path'),
     fs = require('fs'),
@@ -150,6 +151,21 @@ app.get('/confirmation', (req, res) => {
   });
 });
 
+app.get('/barcode/pdf417/:id', (req, res) => {
+  bwipjs.toBuffer({
+    bcid: 'pdf417compact',
+    text: req.params.id
+  }, function (err, pngBuffer) {
+    if (err) {
+      console.log(err);
+      res.type('text/plain');
+      res.status(500).send('Internal server error');
+    } else {
+      res.type('png');
+      res.status(200).send(pngBuffer);
+    }
+  });
+});
 
 app.get('/calendar.ics', function(req, res) {
   res.type('text/calendar');
