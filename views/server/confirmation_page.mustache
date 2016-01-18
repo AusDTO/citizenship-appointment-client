@@ -32,7 +32,7 @@
           {{/hasEmail}}
           <div>
             <span class="fa fa-map-marker"></span>
-            &nbsp;<a href="http://maps.google.com/maps?daddr={{location}}" target="_blank">{{ location }}</a>
+            &nbsp;<a href="https://www.google.com.au/maps?daddr={{location}}" target="_blank">{{ location }}</a>
           </div>
 
           <div>
@@ -53,8 +53,9 @@
         </div>
         <div class="three columns">
           <div class="barcode-frame">
-            <div class="barcode">*{{clientId}}*</div>
-            <div>{{clientId}}</div>
+            <div class="barcode">
+                <img src="barcode/pdf417/{{clientId}}" alt="Barcode to scan on your arrival" />
+            </div>
           </div>
           <div class="barcode-text">
               For faster check-in, scan this barcode at the reception on your arrival
@@ -75,10 +76,10 @@
     <div class="container">
       <h3 class="section-title strong-top-line">When you arrive</h3>
       <ul>
-        <li>Please allow enough <a href="http://maps.google.com/maps?daddr={{location}}" target="_blank">travel time</a> to arrive at least 5 minutes prior to your appointment</li>
+        <li>Please allow enough <a href="https://www.google.com.au/maps?daddr={{location}}" target="_blank">travel time</a> to arrive at least 5 minutes prior to your appointment</li>
         <li>The appointment will take place at {{location}}. If you need special assistance, please <a href="https://www.border.gov.au/about/contact/make-enquiry" target="_blank">let us know</a></li>
         <li>Collect a ticket at the Citizenship kiosk by entering your Client ID or scanning the barcode on top of this page</li>
-        <li>Wait until your number is called at the assigned counter</li> 
+        <li>Wait until your number is called at the assigned counter</li>
       </ul>
     </div>
 
@@ -116,7 +117,7 @@
             <button type="button" class="blue-button" id="email-send">Send</button>
           </div>
         </div>
-        <p class="disclaimer">The contact details you have provided to schedule this appointment will not be used by the department for future communications. If you would like to update your official contact details please use <a href="https://www.border.gov.au/EnteringorleavingAustralia/Documents/929.pdf#search=929" target="_blank">Form 929</a> or your <a href="http://www.border.gov.au/trav/visa/immi" target="_blank">ImmiAccount</a>.</p>
+        <p class="disclaimer">The contact details you have provided to schedule this appointment will not be used by the department for future communications. If you would like to update your official contact details please use <a href="https://www.border.gov.au/EnteringorleavingAustralia/Documents/929.pdf#search=929" target="_blank">Form 929</a> or your <a href="https://www.border.gov.au/trav/visa/immi" target="_blank">ImmiAccount</a>.</p>
       </div>
     </div>
 
