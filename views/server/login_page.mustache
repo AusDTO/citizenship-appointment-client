@@ -12,6 +12,15 @@
 </head>
 <body>
 
+  <!--[if lt IE 9]>
+  <div>
+    <a href="http://windows.microsoft.com/en-au/internet-explorer/download-ie" style="text-decoration: none;" target="_blank">
+      <span style="background-color: #222C35; color: white; display: table-cell; padding: 10px 16px 10px 16px;">Your browser is out of date!</span>
+      <span style="display: table-cell; padding: 10px 10px; color: #222C35;">You're using an unsupported version of Internet Explorer. For improved security and to use this site, please <span style="text-decoration: underline;">upgrade your browser</span>.</span>
+    </a>
+  </div>
+  <![endif]-->
+
   {{> header }}
 
   <main>
@@ -36,7 +45,7 @@
       <form action="/login" method="post">
         <input name="{{ _csrf.parameterName }}" type="hidden" value="{{ _csrf.token }}" />
         <label for="clientId">Client ID</label>
-        <input id="clientId" type="text" name="username" 
+        <input id="clientId" type="text" name="username"
         {{#clientId}}value="{{clientId}}"{{/clientId}}></input>
 
         <label for="familyName">Family Name</label>
