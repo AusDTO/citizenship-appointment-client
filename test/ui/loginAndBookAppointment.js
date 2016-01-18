@@ -22,8 +22,8 @@ test('should successfully login and book appointment', (assert) => {
       })
       .click('.ClientIdHelp-link')
       .isVisible('.ClientIdHelp-image')
-      .then((foo) => {
-        assert.equal(false, foo );
+      .then((foundElement) => {
+        assert.equal(false, foundElement );
       })
       .setValue('#clientId', '99999999999')
       .setValue('#familyName', 'Family-Name')

@@ -48,7 +48,6 @@
 	
 	var toggleClientIdHelp = function toggleClientIdHelp() {
 	  var el = document.querySelector('.ClientIdHelp-image');
-	  console.log(el.style.display);
 	  if (el.style.display === 'block') {
 	    el.style.display = 'none';
 	    document.querySelector('.ClientIdHelp-link').textContent = 'How to find Client ID';
