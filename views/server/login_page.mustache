@@ -14,27 +14,27 @@
 <body>
 
 <!--[if lt IE 9]>
-<div>
-    <a href="http://windows.microsoft.com/en-au/internet-explorer/download-ie" style="text-decoration: none;" target="_blank">
-        <span style="background-color: #222C35; color: white; display: table-cell; padding: 10px 16px 10px 16px;">Your browser is out of date!</span>
-        <span style="display: table-cell; padding: 10px 10px; color: #222C35;">You're using an unsupported version of Internet Explorer. For improved security and to use this site, please <span style="text-decoration: underline;">upgrade your browser</span>.</span>
+<div class="warning-banner warning-ie">
+    <a href="http://windows.microsoft.com/en-au/internet-explorer/download-ie" target="_blank" class="warning-link">
+        <span class="warning-header">Your browser is out of date!</span>
+        <span class="warning-message">You're using an unsupported version of Internet Explorer. For improved security and to use this site, please <span class="warning-action-text">upgrade your browser</span>.</span>
     </a>
 </div>
 <![endif]-->
 
 <noscript>
-    <div>
-        <a href="javascript:window.location.reload();" style="text-decoration: none;">
-            <span style="background-color: #222C35; color: white; display: table-cell; padding: 10px 16px 10px 16px;">JavaScript is disabled!</span>
-            <span style="display: table-cell; padding: 10px 10px; color: #222C35;">JavaScript is required to use this site. Please enable JavaScript and <span style="text-decoration: underline;">reload this page</span>.</span>
+    <div class="warning-banner warning-javascript">
+        <a href="javascript:window.location.reload();" class="warning-link">
+            <span class="warning-header">JavaScript is disabled!</span>
+            <span class="warning-message">JavaScript is required to use this site. Please enable JavaScript and <span class="warning-action-text">reload this page</span>.</span>
         </a>
     </div>
 </noscript>
 
-<div style="display: none;">
-    <a href="javascript:window.location.reload();" style="text-decoration: none;">
-        <span style="background-color: #222C35; color: white; display: table-cell; padding: 10px 16px 10px 16px;">Cookies are disabled!</span>
-        <span style="display: table-cell; padding: 10px 10px; color: #222C35;">Cookies are required to use this site. Please enable cookies and <span style="text-decoration: underline;">reload this page</span>.</span>
+<div class="warning-banner warning-cookies" style="display: none;">
+    <a href="javascript:window.location.reload();" class="warning-link">
+        <span class="warning-header">Cookies are disabled!</span>
+        <span class="warning-message">Cookies are required to use this site. Please enable cookies and <span class="warning-action-text">reload this page</span>.</span>
     </a>
 </div>
 
@@ -59,7 +59,7 @@
         </div>
         {{/expired}}
 
-        <form action="/login" method="post">
+        <form action="login" method="post">
             <input name="{{ _csrf.parameterName }}" type="hidden" value="{{ _csrf.token }}"/>
 
             <div class="row">

@@ -736,6 +736,23 @@ ul li {
   .ClientIdHelp-image {
     width: 100%; } }
 
+.warning-link {
+  text-decoration: none; }
+
+.warning-header {
+  background-color: #222C35;
+  color: white;
+  display: table-cell;
+  padding: 10px 16px; }
+
+.warning-message {
+  color: #222C35;
+  display: table-cell;
+  padding: 10px 10px; }
+
+.warning-action-text {
+  text-decoration: underline; }
+
 .steps-and-close-div {
   margin-top: 2rem;
   margin-bottom: 2rem; }
@@ -875,13 +892,6 @@ ul li {
 
 .dropdown li i {
   margin-right: 5px; }
-
-@font-face {
-  font-family: Code39AzaleaFont;
-  src: url("//s3.amazonaws.com/kn-includes/fonts/Code39Azalea.eot") format("embedded-opentype"), url("//s3.amazonaws.com/kn-includes/fonts/Code39Azalea.woff") format("woff"), url("//s3.amazonaws.com/kn-includes/fonts/Code39Azalea.ttf") format("truetype"), url("//s3.amazonaws.com/kn-includes/fonts/Code39Azalea.svg#Code39Azalea") format("svg");
-  /* Legacy iOS */
-  font-weight: normal;
-  font-style: normal; }
 
 .Legend {
   display: table; }

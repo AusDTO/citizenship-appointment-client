@@ -46,6 +46,10 @@
 
 	'use strict';
 	
+	if (!navigator.cookieEnabled) {
+	  document.querySelector('.warning-cookies').style.display = 'block';
+	}
+	
 	var toggleClientIdHelp = function toggleClientIdHelp() {
 	  var el = document.querySelector('.ClientIdHelp-image');
 	  if (el.style.display === 'block') {

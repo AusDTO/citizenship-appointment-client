@@ -16,3 +16,27 @@
         width: 100%;
     }
 }
+
+.warning-banner {
+}
+
+.warning-link {
+    text-decoration: none;
+}
+
+.warning-header {
+    background-color: $govau-slate;
+    color: white;
+    display: table-cell;
+    padding: 10px 16px;
+}
+
+.warning-message {
+    color: $govau-slate;
+    display: table-cell;
+    padding: 10px 10px;
+}
+
+.warning-action-text {
+    text-decoration: underline;
+}
