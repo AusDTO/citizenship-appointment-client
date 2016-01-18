@@ -90,3 +90,89 @@
 }
 
 //END: mobile change
+
+//BEGIN: Add to calendar dropdown
+
+.dropdown {
+   	display: inline;
+   	float: left;
+	position: relative;
+}
+
+.dropdown ul {
+    list-style: none;
+    width: 100%;
+    background-color: white;
+    border: 1px solid #d7d8de;
+    position: absolute;
+	left: -9999px;
+	opacity: 0;
+	transition: 0.1s linear opacity;
+	z-index:100;
+	margin-top: -1rem;
+	padding-left: 0rem;
+}
+
+.dropdown li > a {
+	float: left;
+    padding: 0.2em 0.8em;
+    text-decoration: none;
+    background: #ffffff;
+    color: #333333;
+}
+
+.dropdown li > a:hover,
+.dropdown li > a:focus,
+.dropdown li > a:active,
+.dropdown li:focus > a,
+.dropdown li:hover > a,
+.dropdown li:active > a,
+.dropdown button:focus > a,
+.dropdown button:hover > a,
+.dropdown button:active > a {
+	background: #BBBBBB;
+}
+
+.dropdown > a:hover,
+.dropdown > a:focus,
+.dropdown:focus > a,
+.dropdown:hover > a,
+.dropdown:active > a{
+	background: #BBBBBB;
+}
+
+.dropdown:hover ul,
+.dropdown:focus ul,
+.dropdown:active ul,
+.dropdown button:focus + ul,
+.dropdown button:hover + ul,
+.dropdown button:active + ul,
+.dropdown ul.show-menu {
+	left: 0;
+	opacity: 0.99;
+}
+
+
+.dropdown ul li {
+	float: none;
+	position: static;
+}
+
+.dropdown ul a {
+	float: none;
+	display: block;
+	text-shadow: none;
+	transition: 0.1s linear all;
+}
+
+.dropdown ul a:hover,
+.dropdown ul a:focus,
+.dropdown ul a:active {
+	text-shadow: none;
+}
+
+.dropdown li i{
+    margin-right: 5px;
+ }
+
+//END: Add to calendar dropdown
