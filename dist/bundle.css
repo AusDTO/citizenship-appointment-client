@@ -617,8 +617,29 @@ ol,
 form {
   margin-bottom: 2.5rem; }
 
+form {
+  margin-bottom: 0; }
+
 label {
   cursor: pointer; }
+
+input.button {
+  border: 0;
+  border-radius: 0;
+  text-transform: none;
+  margin: 0;
+  padding: 0 1.5rem 0 2rem;
+  background: #0060BD;
+  color: white;
+  font-size: 20px;
+  font-style: normal; }
+
+input.button:focus, input.button:hover {
+  background-color: #003296;
+  color: white; }
+
+.link {
+  color: #0060BD; }
 
 .header {
   background-color: #E8E8E8;
@@ -702,6 +723,18 @@ ul li {
     .footer div img {
       height: 100%;
       vertical-align: middle; }
+
+.ClientIdHelp {
+  margin-bottom: 2rem; }
+
+.ClientIdHelp-image {
+  display: none;
+  max-width: 60rem;
+  margin-top: 2rem; }
+
+@media (max-width: 550px) {
+  .ClientIdHelp-image {
+    width: 100%; } }
 
 .steps-and-close-div {
   margin-top: 2rem;
@@ -982,16 +1015,6 @@ ul li {
   font-size: 1.5em;
   text-align: center;
   border-bottom: 1px solid; }
-
-input.SelectionConfirmation-button {
-  background: #0060BD;
-  color: #FFFFFF;
-  text-transform: none;
-  margin: 0; }
-
-input.SelectionConfirmation-button:focus, input.SelectionConfirmation-button:hover {
-  background-color: #003296;
-  color: #FFFFFF; }
 
 .SelectionConfirmationCell > * {
   vertical-align: middle; }

@@ -1,56 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Citizenship Appointment Booking</title>
+    <title>Citizenship Appointment Booking</title>
 
-  <link rel="icon" type="image/png" href="images/coat-of-arms-black-on-white-32x32.png" sizes="32x32">
-  <link rel="stylesheet" type="text/css" href="static/bundle.css">
+    <link rel="icon" type="image/png" href="images/coat-of-arms-black-on-white-32x32.png" sizes="32x32">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="static/bundle.css">
 </head>
 <body>
 
-  {{> header }}
+{{> header }}
 
-  <main>
+<main>
     <div class="container">
-      <div class="steps-info">Step 1 of 3</div>
-      <h1 class="landing-title">Book your citizenship appointment</h1>
+        <div class="steps-info">Step 1 of 3</div>
+        <h1 class="landing-title">Book your citizenship appointment</h1>
 
-      {{#error}}
-        <div class="error-div">
-          Incorrect Client ID and/or Family Name provided.
-          Please check your details and try again.
-          If the issue persists, please call the Citizenship line.
+        {{#error}}
+            <div class="error-div">
+                Incorrect Client ID and/or Family Name provided.
+                Please check your details and try again.
+                If the issue persists, please call the Citizenship line.
+            </div>
+        {{/error}}
+
+        {{#expired}}
+            <div class="error-div">
+                Your session has expired. Please log in.
+            </div>
+        {{/expired}}
+
+        <form action="/login" method="post">
+            <input name="{{ _csrf.parameterName }}" type="hidden" value="{{ _csrf.token }}"/>
+
+            <div class="row">
+                <div class="three columns">
+                    <label for="clientId">Client ID</label>
+                </div>
+                <div class="three columns">
+                    <label for="familyName">Family Name</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="three columns">
+                    <input id="clientId" type="text" name="username" {{#clientId}}value="{{clientId}}"{{/clientId}}></input>
+                </div>
+                <div class="three columns">
+                    <input id="familyName" type="text" name="familyName"/>
+                </div>
+                <div class="three columns">
+                    <input type="submit" class="button fa" value="Next &nbsp; &#xf105;" id="submitLogin"/>
+                </div>
+            </div>
+        </form>
+
+        <div class="row">
+            <div class="eleven columns">
+                <div class="ClientIdHelp">
+                    <a href="#" class="ClientIdHelp-link link">How to find Client ID</a>
+                    <img src="images/client_id_help.png" class="ClientIdHelp-image" alt="Find the ID in your letter"/>
+                </div>
+            </div>
         </div>
-      {{/error}}
-
-      {{#expired}}
-        <div class="error-div">
-            Your session has expired. Please log in.
-        </div>
-      {{/expired}}
-
-      <form action="/login" method="post">
-        <input name="{{ _csrf.parameterName }}" type="hidden" value="{{ _csrf.token }}" />
-        <label for="clientId">Client ID</label>
-        <input id="clientId" type="text" name="username" 
-        {{#clientId}}value="{{clientId}}"{{/clientId}}></input>
-
-        <label for="familyName">Family Name</label>
-        <input id="familyName" type="text" name="familyName"></input>
-
-        <input type="submit" value="Next" id="submitLogin"></input>
-
-      </form>
     </div>
-  </main>
+</main>
 
-  {{> footer }}
+{{> footer }}
 
-  <script src="static/login.js" charset="utf-8"></script>
+<script src="static/login.js" charset="utf-8"></script>
 
 </body>
 </html>

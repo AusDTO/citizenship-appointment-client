@@ -1,0 +1,18 @@
+.ClientIdHelp {
+    margin-bottom: 2rem;
+}
+
+.ClientIdHelp-image {
+    display: none;
+    max-width: 60rem;
+    margin-top: 2rem;
+}
+
+// Responsive Styles (Mobile)
+//––––––––––––––––––––––––––––––––––––––––––––––––––
+
+@media (max-width: 550px) {
+    .ClientIdHelp-image {
+        width: 100%;
+    }
+}
