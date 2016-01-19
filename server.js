@@ -187,7 +187,7 @@ app.get('/googlecalendar', function(req, res) {
     'action': 'TEMPLATE',
     'text': 'Citizenship appointment',
     'dates': '20160204T130000Z/20160204T150000Z',
-    'location': 'Department of Immigration and Border Protection, 2 Lonsdale Street, Melbourne VIC 3000, Australia',
+    'location': '2 Lonsdale Street, Melbourne VIC 3000, Australia',
     'details': 'For details please refer to your citizenship appointment email/letter.',
     'trp': 'false'
   });
@@ -200,7 +200,7 @@ app.get('/yahoocalendar', function(req, res) {
     'DUR': '0200',
     'TITLE': 'Citizenship appointment',
     'ST': '20160204T130000Z',
-    'in_loc': 'Department of Immigration and Border Protection, 2 Lonsdale Street, Melbourne VIC 3000, Australia',
+    'in_loc': '2 Lonsdale Street, Melbourne VIC 3000, Australia',
     'DESC': 'For details please refer to your citizenship appointment email/letter.'
   });
   res.redirect('http://calendar.yahoo.com/?' + calendar_event);
@@ -212,7 +212,7 @@ app.get('/outlookonline', function(req, res) {
     'summary': 'Citizenship appointment',
     'dtstart': '20160204T130000Z',
     'dtend': '20160204T150000Z',
-    'location': 'Department of Immigration and Border Protection, 2 Lonsdale Street, Melbourne VIC 3000, Australia',
+    'location': '2 Lonsdale Street, Melbourne VIC 3000, Australia',
     'description': 'For details please refer to your citizenship appointment email/letter.',
   });
   res.redirect('http://calendar.live.com/calendar/calendar.aspx?' + calendar_event);
