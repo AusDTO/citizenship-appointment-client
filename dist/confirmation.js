@@ -57,6 +57,10 @@
 			document.getElementById("calendarOptions").className = "";
 		});
 	}
+	
+	document.getElementById("print-page").addEventListener("click", function () {
+		window.print();
+	});
 
 /***/ }
 /******/ ]);
