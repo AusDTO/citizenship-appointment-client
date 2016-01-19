@@ -6,3 +6,28 @@ label {
     cursor: pointer;
 }
 
+input {
+    &[type="email"],
+    &[type="number"],
+    &[type="search"],
+    &[type="text"],
+    &[type="tel"],
+    &[type="url"],
+    &[type="password"] {
+     border-radius: 0;
+    }
+}
+
+@media (max-width: 550px) {
+    input {
+        &[type="email"],
+        &[type="number"],
+        &[type="search"],
+        &[type="text"],
+        &[type="tel"],
+        &[type="url"],
+        &[type="password"] {
+            width: 100%;
+        }
+    }
+}

@@ -393,7 +393,7 @@ p {
   display: table;
   clear: both; }
 
-.button,
+.button, input.button,
 button {
   display: inline-block;
   height: 38px;
@@ -597,7 +597,8 @@ td:last-child {
   padding-right: 0; }
 
 button,
-.button {
+.button,
+input.button {
   margin-bottom: 1rem; }
 
 input,
@@ -623,22 +624,36 @@ form {
 label {
   cursor: pointer; }
 
-input.button {
+input[type="email"], input[type="number"], input[type="search"], input[type="text"], input[type="tel"], input[type="url"], input[type="password"] {
+  border-radius: 0; }
+
+@media (max-width: 550px) {
+  input[type="email"], input[type="number"], input[type="search"], input[type="text"], input[type="tel"], input[type="url"], input[type="password"] {
+    width: 100%; } }
+
+.button, input.button {
   border: 0;
   border-radius: 0;
   text-transform: none;
-  margin: 0;
+  margin-right: 1rem;
   padding: 0 1.5rem 0 2rem;
   background: #0060BD;
-  color: white;
-  font-size: 20px;
-  font-style: normal; }
+  color: white; }
 
+.button:focus, .button:hover,
 input.button:focus, input.button:hover {
   background-color: #003296;
   color: white; }
 
-.link {
+input.button {
+  font-size: 20px;
+  font-style: normal; }
+
+@media (max-width: 550px) {
+  .button, input.button, input.button {
+    width: 100%; } }
+
+a {
   color: #0060BD; }
 
 .header {
@@ -674,21 +689,12 @@ input.button:focus, input.button:hover {
 h1 {
   font-weight: bold; }
 
-@media (max-width: 640px) {
+@media (max-width: 550px) {
   .container {
     width: 100%;
     padding: 0 1rem; }
   .main {
     padding: 0.5rem; } }
-
-.blue-button {
-  background: #0060BD;
-  color: #FFFFFF;
-  text-transform: none; }
-
-.blue-button:focus, .blue-button:hover {
-  background-color: #003296;
-  color: #FFFFFF; }
 
 ul {
   list-style: disc inside;
@@ -761,7 +767,7 @@ ul li {
   display: inline;
   margin: 0; }
 
-.close-link {
+.Logout {
   margin: 0;
   font-weight: lighter;
   float: right;
@@ -812,15 +818,6 @@ ul li {
 
 .disclaimer {
   font-style: italic; }
-
-@media (max-width: 550px) {
-  .blue-button {
-    width: 100%; }
-  .barcode {
-    font-size: 7rem;
-    text-align: center; }
-  .min-left-margin {
-    margin-left: 0rem; } }
 
 .dropdown {
   display: inline;
@@ -892,6 +889,15 @@ ul li {
 
 .dropdown li i {
   margin-right: 5px; }
+
+@media (max-width: 550px) {
+  .barcode {
+    font-size: 7rem;
+    text-align: center; }
+  .min-left-margin {
+    margin-left: 0rem; }
+  .dropdown {
+    width: 100%; } }
 
 .Legend {
   display: table; }

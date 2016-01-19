@@ -7,7 +7,7 @@ const client = require('./client')({
 });
 
 test('should successfully login and book appointment', (assert) => {
-  assert.plan(5);
+  assert.plan(6);
   client
       .init()
       .url(client.baseUrl)
@@ -43,6 +43,11 @@ test('should successfully login and book appointment', (assert) => {
       .then((title) => {
         assert.equal(title, 'Citizenship Appointment Booking Confirmation');
       })
+      .click('.Logout-link')
+      .timeouts('page load',5000)
+      .getTitle()
+      .then((title) => {
+        assert.equal(title, 'Citizenship Appointment Booking');
+      })
       .end();
-
 });

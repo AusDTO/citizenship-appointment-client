@@ -1,17 +1,28 @@
-input.button {
+.button {
     border: 0;
     border-radius: 0;
     text-transform: none;
-    margin: 0;
+    margin-right: 1rem;
     padding: 0 1.5rem 0 2rem;
 
     background: $primary;
     color: white;
+}
+
+.button:focus, .button:hover,
+input.button:focus, input.button:hover {
+    background-color: $primary-hover;
+    color: white;
+}
+
+input.button {
+    @extend .button;
     font-size: 20px;
     font-style: normal;
 }
 
-input.button:focus, input.button:hover {
-    background-color: $primary-hover;
-    color: white;
+@media (max-width: 550px) {
+    .button, input.button {
+        width: 100%;
+    }
 }

@@ -95,6 +95,10 @@ app.get('/', (req, res) => {
   res.redirect('/login');
 });
 
+app.get('/logout', (req, res) => {
+  res.redirect('/login');
+});
+
 app.get('/login', (req, res) => {
   res.render('login_page', {
     partials: {

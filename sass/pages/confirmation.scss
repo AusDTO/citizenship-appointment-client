@@ -8,7 +8,7 @@
 	margin: 0;
 }
 
-.close-link {
+.Logout {
   margin: 0;
   font-weight: lighter;
   float: right;
@@ -40,8 +40,8 @@
 }
 
 .barcode{
-	font-family: Code39AzaleaFont; 
-	font-size: 4rem; 
+	font-family: Code39AzaleaFont;
+	font-size: 4rem;
 }
 
 .barcode-text {
@@ -70,26 +70,6 @@
 .disclaimer {
 	font-style: italic;
 }
-
-// BEGIN: mobile media query
-
-@media (max-width: 550px) {
-	.blue-button {
-		width: 100%;
-	}
-
-	.barcode {
-		font-size: 7rem; 
-		text-align: center;	
-	}	
-
-	.min-left-margin {
-		margin-left: 0rem;
-	}
-
-}
-
-//END: mobile change
 
 //BEGIN: Add to calendar dropdown
 
@@ -176,3 +156,24 @@
  }
 
 //END: Add to calendar dropdown
+
+
+// BEGIN: mobile media query
+
+@media (max-width: 550px) {
+    .barcode {
+        font-size: 7rem;
+        text-align: center;
+    }
+
+    .min-left-margin {
+        margin-left: 0rem;
+    }
+
+    .dropdown {
+        width: 100%;
+    }
+
+}
+
+//END: mobile change

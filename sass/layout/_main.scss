@@ -8,7 +8,7 @@ h1 {
   font-weight: bold;
 }
 
-@media (max-width: 640px) {
+@media (max-width: 550px) {
   .container {
     width: 100%;
     padding: 0 1rem;
@@ -17,17 +17,6 @@ h1 {
   .main{
   	padding: 0.5rem;
   }
-}
-
-.blue-button {
-  background:#0060BD;
-  color:#FFFFFF;
-  text-transform: none;
-}
-
-.blue-button:focus, .blue-button:hover {
-  background-color: #003296;
-  color:#FFFFFF;
 }
 
 ul {
