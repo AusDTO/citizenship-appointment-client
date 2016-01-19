@@ -185,11 +185,10 @@ app.get('/calendar.ics', function(req, res) {
 app.get('/googlecalendar', function(req, res) {
   var calendar_event = querystring.stringify({
     'action': 'TEMPLATE',
-    'text': 'Citizenship Appointment',
-    'dates': '20160204T130000/20160204T150000',
-    'czt': 'Australia/Melbourne',
-    'location': '2 Lonsdale Street, Melbourne VIC 3000, Australia',
-    'details': 'Australian Citizenship Appointment\nplease bring all the required documents and make sure you are prepared to sit the test',
+    'text': 'Citizenship appointment',
+    'dates': '20160204T130000Z/20160204T150000Z',
+    'location': 'Department of Immigration and Border Protection, 2 Lonsdale Street, Melbourne VIC 3000, Australia',
+    'details': 'For details please refer to your citizenship appointment email/letter.',
     'trp': 'false'
   });
   res.redirect('http://www.google.com/calendar/event?' + calendar_event);
@@ -199,10 +198,10 @@ app.get('/yahoocalendar', function(req, res) {
   var calendar_event = querystring.stringify({
     'v':'60',
     'DUR': '0200',
-    'TITLE': 'Citizenship Appointment',
-    'ST': '20160204T130000',
-    'in_loc': '2 Lonsdale Street, Melbourne VIC 3000, Australia',
-    'DESC': 'Australian Citizenship Appointment\nplease bring all the required documents and make sure you are prepared to sit the test'
+    'TITLE': 'Citizenship appointment',
+    'ST': '20160204T130000Z',
+    'in_loc': 'Department of Immigration and Border Protection, 2 Lonsdale Street, Melbourne VIC 3000, Australia',
+    'DESC': 'For details please refer to your citizenship appointment email/letter.'
   });
   res.redirect('http://calendar.yahoo.com/?' + calendar_event);
 });
@@ -210,11 +209,11 @@ app.get('/yahoocalendar', function(req, res) {
 app.get('/outlookonline', function(req, res) {
   var calendar_event = querystring.stringify({
     'rru': 'addevent',
-    'summary': 'Citizenship Appointment',
-    'dtstart': '20160204T130000',
-    'dtend': '20160204T150000',
-    'location': '2 Lonsdale Street, Melbourne VIC 3000, Australia',
-    'description': 'Australian Citizenship Appointment\nplease bring all the required documents and make sure you are prepared to sit the test',
+    'summary': 'Citizenship appointment',
+    'dtstart': '20160204T130000Z',
+    'dtend': '20160204T150000Z',
+    'location': 'Department of Immigration and Border Protection, 2 Lonsdale Street, Melbourne VIC 3000, Australia',
+    'description': 'For details please refer to your citizenship appointment email/letter.',
   });
   res.redirect('http://calendar.live.com/calendar/calendar.aspx?' + calendar_event);
 });
