@@ -9264,17 +9264,11 @@
 	          weeks.push({ days: week });
 	        }
 	
-	        dayData = date.isSameDay(todayDate) ? {
+	        dayData = {
 	          date: date.toDateString(),
 	          day: date.date(),
-	          today: true,
-	          available_times_count: "Spots",
-	          bookable: date.isSameYearAndMonth(month)
-	        } : {
-	          date: date.toDateString(),
-	          day: date.date(),
-	          today: false,
-	          available_times_count: availableDates[date.toDateString()] && date.isAfter(todayDate) ? availableDates[date.toDateString()].available_times_count : 0,
+	          today: date.isSameDay(todayDate),
+	          available_times_count: availableDates[date.toDateString()] && date.isSameOrAfter(todayDate) ? availableDates[date.toDateString()].available_times_count : 0,
 	          bookable: date.isSameYearAndMonth(month)
 	        };
 	
