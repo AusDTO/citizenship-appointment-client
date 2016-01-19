@@ -744,10 +744,7 @@ ul li {
 
 @media (max-width: 550px) {
   .ClientIdHelp-image {
-    width: 100%; }
-  .survey {
-    margin-top: 5rem;
-    margin-bottom: 1rem; } }
+    width: 100%; } }
 
 .warning-link {
   text-decoration: none; }
