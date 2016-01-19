@@ -59,27 +59,18 @@
         </div>
         {{/expired}}
 
-        <form action="login" method="post">
+        <form class="LoginForm" action="login" method="post">
             <input name="{{ _csrf.parameterName }}" type="hidden" value="{{ _csrf.token }}"/>
-
-            <div class="row">
-                <div class="three columns">
-                    <label for="clientId">Client ID</label>
-                </div>
-                <div class="three columns">
-                    <label for="familyName">Family Name</label>
-                </div>
+            <div class="LoginForm-input">
+                <label for="clientId">Client ID</label>
+                <input class="LoginForm-input--field" id="clientId" type="text" name="username" {{#clientId}}value="{{clientId}}"{{/clientId}}/>
             </div>
-            <div class="row">
-                <div class="three columns">
-                    <input id="clientId" type="text" name="username" {{#clientId}}value="{{clientId}}"{{/clientId}}></input>
-                </div>
-                <div class="three columns">
-                    <input id="familyName" type="text" name="familyName"/>
-                </div>
-                <div class="three columns">
-                    <input type="submit" class="button fa" value="Next &nbsp; &#xf105;" id="submitLogin"/>
-                </div>
+            <div class="LoginForm-input">
+                <label for="familyName">Family Name</label>
+                <input class="LoginForm-input--field" id="familyName" type="text" name="familyName"/>
+            </div>
+            <div class="LoginForm-input">
+                <input type="submit" class="button fa" value="Next &nbsp; &#xf105;" id="submitLogin"/>
             </div>
         </form>
 

@@ -771,9 +771,14 @@ ul li {
   margin-top: 5rem;
   margin-bottom: 1rem; }
 
+.LoginForm-input {
+  display: inline-block; }
+
 @media (max-width: 550px) {
   .ClientIdHelp-image {
-    width: 100%; } }
+    width: 100%; }
+  .LoginForm-input {
+    display: block; } }
 
 .warning-link {
   text-decoration: none; }

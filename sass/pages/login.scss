@@ -13,12 +13,20 @@
     margin-bottom: 1rem;
 }
 
+.LoginForm-input {
+    display: inline-block;
+}
+
 // Responsive Styles (Mobile)
 //––––––––––––––––––––––––––––––––––––––––––––––––––
 
 @media (max-width: 550px) {
     .ClientIdHelp-image {
         width: 100%;
+    }
+
+    .LoginForm-input {
+        display: block;
     }
 }
 
