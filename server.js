@@ -48,6 +48,8 @@ require('express-livereload')(app, {watchDir: path.join(__dirname), exts: ['must
 
 app.use('/images', express.static(path.join(__dirname, 'images')));
 
+const trackingId = 'UA-XXXXX-Y';
+
 app.get('/get_available_times', (req, res) => {
   let json = {};
   if (req.query.calendar_id === '1247') {
@@ -103,8 +105,10 @@ app.get('/login', (req, res) => {
   res.render('login_page', {
     partials: {
       header: 'partials/header',
-      footer: 'partials/footer'
-    }
+      footer: 'partials/footer',
+      analytics: 'partials/analytics'
+    },
+    trackingId
   });
 });
 
@@ -116,8 +120,10 @@ app.get('/calendar', (req, res) => {
   res.render('calendar_page', {
     partials: {
       header: 'partials/header',
-      footer: 'partials/footer'
+      footer: 'partials/footer',
+      analytics: 'partials/analytics'
     },
+    trackingId,
     location: "2 Lonsdale Street, Melbourne VIC 3000",
     current_appointment: "Thursday, 12 December, 1:30PM",
     today_date: "2016-01-05T11:20:00",
@@ -132,8 +138,10 @@ app.get('/error', (req, res) => {
   res.render('error_page', {
     partials: {
       header: 'partials/header',
-      footer: 'partials/footer'
-    }
+      footer: 'partials/footer',
+      analytics: 'partials/analytics'
+    },
+    trackingId
   });
 });
 
@@ -146,8 +154,10 @@ app.get('/confirmation', (req, res) => {
   res.render('confirmation_page', {
     partials: {
       header: 'partials/header',
-      footer: 'partials/footer'
+      footer: 'partials/footer',
+      analytics: 'partials/analytics'
     },
+    trackingId,
     selected_appointment: "Thursday 21 January, 1:30 PM",
     location: "2 Lonsdale Street, Melbourne VIC 3000",
     clientId: "919191",
