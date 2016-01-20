@@ -724,11 +724,40 @@ ul li {
   padding: 1rem 0;
   position: relative;
   bottom: 0; }
-  .footer div {
-    height: 7rem; }
-    .footer div img {
-      height: 100%;
-      vertical-align: middle; }
+  .footer img {
+    height: 7rem;
+    vertical-align: middle; }
+  .footer a.footerlink {
+    color: #FFFFFF;
+    text-decoration: none;
+    font-size: 1.2rem; }
+  .footer a:hover,
+  .footer a:focus,
+  .footer a:active {
+    color: #E5E5E5;
+    text-decoration: underline; }
+  .footer div.footerlink {
+    display: inline;
+    padding: 10px;
+    white-space: nowrap; }
+  .footer div.footerlinks {
+    position: absolute;
+    bottom: 0.5rem;
+    width: inherit; }
+  .footer .desktop {
+    display: inherit; }
+  .footer .mobile {
+    display: none; }
+  @media (max-width: 550px) {
+    .footer div.footerlink {
+      display: block; }
+    .footer div.footerlinks {
+      position: static; }
+    .footer .desktop {
+      display: none; }
+    .footer .mobile {
+      display: inherit;
+      margin-top: 1rem; } }
 
 .ClientIdHelp {
   margin-bottom: 2rem; }

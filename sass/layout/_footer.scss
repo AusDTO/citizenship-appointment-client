@@ -4,12 +4,62 @@
   position: relative;
   bottom: 0;
 
-  div {
+  img {
     height: 7rem;
+    vertical-align: middle;
+  }
 
-    img {
-      height: 100%;
-      vertical-align: middle;
+  a.footerlink {
+    color: #FFFFFF;
+    text-decoration: none;
+    font-size: 1.2rem;
+  }
+
+  a:hover,  
+  a:focus,
+  a:active{
+    color: #E5E5E5;
+    text-decoration: underline;  
+  }
+
+  div.footerlink {
+    display: inline;
+    padding: 10px;
+    white-space: nowrap;
+  }
+
+  div.footerlinks {
+    position: absolute;
+    bottom: 0.5rem;
+    width: inherit;
+  }
+
+  .desktop {
+      display: inherit;
     }
+
+  .mobile {
+    display: none;
+  }
+
+  @media (max-width: 550px) {
+
+     div.footerlink {
+      display: block;
+    }
+
+    div.footerlinks {
+      position: static;
+    }
+
+    .desktop {
+      display: none;
+    }
+
+    .mobile {
+      display: inherit;
+      margin-top: 1rem;
+    }
+
   }
 }
