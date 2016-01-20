@@ -37,7 +37,7 @@
             {{^current_appointment}}twelve{{/current_appointment }} columns">
               <span>
                 <span class="fa fa-map-marker"></span>
-                &nbsp;<strong>Location:</strong>
+                &nbsp;<strong class="icon-label">Location:</strong>
                 &nbsp;<a href="https://www.google.com.au/maps?daddr={{location}}" target="_blank">{{ location }}</a>
               </span>
             </div>
@@ -47,19 +47,28 @@
             <div class="six columns">
               <span>
                 <span class="fa fa-calendar-o"></span>
-                &nbsp;<strong>Current appointment:</strong>
+                &nbsp;<strong class="icon-label">Current appointment:</strong>
                 &nbsp;{{ current_appointment }}</a>
               </span>
             </div>
             {{/current_appointment }}
           </div>
+        <div class="row">
+            <div class="six columns">
 
-        <div class="Legend">
-            <span class="Legend-box"></span>
-            &nbsp;Available
-            <span class="Legend-box Legend-box--unavailable"></span>
-            &nbsp;Unavailable
+                <div class="Legend">
+                    <div class="Legend-key">
+                        <span class="Legend-box"></span>
+                        &nbsp;Available
+                    </div>
+                    <div class="Legend-key">
+                        <span class="Legend-box Legend-box--unavailable"></span>
+                        &nbsp;Unavailable
+                    </div>
+                </div>
+            </div>
         </div>
+
 
         <form action="book_appointment" method="post">
             <input name="{{ _csrf.parameterName }}" type="hidden" value="{{ _csrf.token }}"/>

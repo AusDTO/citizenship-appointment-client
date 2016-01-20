@@ -2,7 +2,13 @@
 //––––––––––––––––––––––––––––––––––––––––––––––––––
 
 .Legend {
+    margin-top: 1rem;
     display: table;
+}
+
+.Legend-key {
+    display: inline-table;
+    padding-right: 2rem;
 }
 
 .Legend-box {

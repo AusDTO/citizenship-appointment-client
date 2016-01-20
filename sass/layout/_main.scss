@@ -31,21 +31,6 @@ h1 {
   font-weight: bold;
 }
 
-@media (max-width: 550px) {
-    .MainContainer {
-        padding-bottom: 280px; /* height of your footer */
-    }
-
-    .container {
-    width: 100%;
-    padding: 0 1rem;
-  }
-
-  .main{
-  	padding: 0.5rem;
-  }
-}
-
 ul {
 	list-style: disc inside;
     padding-left: 1rem;
@@ -71,4 +56,23 @@ ul li {
   position: absolute;
   left: 1rem;
   top: 0.6rem;
+}
+
+@media (max-width: 550px) {
+    .MainContainer {
+        padding-bottom: 280px; /* height of your footer */
+    }
+
+    .container {
+        width: 100%;
+        padding: 0 1rem;
+    }
+
+    .main{
+        padding: 0.5rem;
+    }
+
+    .icon-label {
+        display: none;
+    }
 }
