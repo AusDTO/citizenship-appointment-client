@@ -124,7 +124,7 @@ test('get calendar structure', (assert) => {
                 date: "2015-12-12",
                 today: true,
                 day: 12,
-                available_times_count: "Spots",
+                available_times_count: 0,
                 bookable: true
               },
               {
