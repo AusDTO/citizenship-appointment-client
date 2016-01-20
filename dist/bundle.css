@@ -682,6 +682,27 @@ a {
       .header div span {
         font-size: 1em; } }
 
+* {
+  box-sizing: border-box; }
+
+*:before,
+*:after {
+  box-sizing: border-box; }
+
+html,
+body {
+  height: 100%;
+  position: relative; }
+
+.MainContainer {
+  min-height: 100vh;
+  /* will cover the 100% of viewport */
+  overflow: hidden;
+  display: block;
+  position: relative;
+  padding-bottom: 100px;
+  /* height of your footer */ }
+
 .steps-info {
   padding: 2rem 0;
   font-size: 1.5em;
@@ -689,13 +710,6 @@ a {
 
 h1 {
   font-weight: bold; }
-
-@media (max-width: 550px) {
-  .container {
-    width: 100%;
-    padding: 0 1rem; }
-  .main {
-    padding: 0.5rem; } }
 
 ul {
   list-style: disc inside;
@@ -720,10 +734,22 @@ ul li {
   left: 1rem;
   top: 0.6rem; }
 
+@media (max-width: 550px) {
+  .MainContainer {
+    padding-bottom: 280px;
+    /* height of your footer */ }
+  .container {
+    width: 100%;
+    padding: 0 1rem; }
+  .main {
+    padding: 0.5rem; }
+  .icon-label {
+    display: none; } }
+
 .footer {
   background-color: #222C35;
   padding: 1rem 0;
-  position: relative;
+  position: absolute;
   bottom: 0; }
   .footer img {
     height: 7rem;
@@ -773,7 +799,8 @@ ul li {
   margin-bottom: 1rem; }
 
 .LoginForm-input {
-  display: inline-block; }
+  display: inline-block;
+  margin-right: 2rem; }
 
 @media (max-width: 550px) {
   .ClientIdHelp-image {
@@ -939,7 +966,12 @@ ul li {
     width: 100%; } }
 
 .Legend {
+  margin-top: 1rem;
   display: table; }
+
+.Legend-key {
+  display: inline-table;
+  padding-right: 2rem; }
 
 .Legend-box {
   display: table-cell;
@@ -968,7 +1000,8 @@ ul li {
   border: 0;
   position: absolute;
   top: 0;
-  margin-top: 1rem; }
+  margin-top: 1rem;
+  padding: 0 1.5rem 0 2rem; }
 
 .Calendar-nav--label {
   color: #333333;

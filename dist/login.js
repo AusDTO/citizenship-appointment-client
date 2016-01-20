@@ -64,6 +64,11 @@
 	document.querySelector('.ClientIdHelp-link').addEventListener("click", function () {
 	  toggleClientIdHelp();
 	});
+	
+	// If a user stays too long on the login page without logging in, reload the page to get a fresh CSRF token
+	setTimeout(function () {
+	  window.location.reload();
+	}, 1000 * 60 * 28); // 28 minutes
 
 /***/ }
 /******/ ]);
