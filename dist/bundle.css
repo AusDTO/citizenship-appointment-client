@@ -638,7 +638,8 @@ input[type="email"], input[type="number"], input[type="search"], input[type="tex
   margin-right: 1rem;
   padding: 0 1.5rem 0 2rem;
   background: #0060BD;
-  color: white; }
+  color: white;
+  font-size: 1.5rem; }
 
 .button:focus, .button:hover,
 input.button:focus, input.button:hover {
