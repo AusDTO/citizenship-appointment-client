@@ -1,7 +1,7 @@
 .footer {
   background-color: $govau-slate;
   padding: 1rem 0;
-  position: relative;
+  position: absolute;
   bottom: 0;
 
   img {
@@ -15,11 +15,11 @@
     font-size: 1.2rem;
   }
 
-  a:hover,  
+  a:hover,
   a:focus,
   a:active{
     color: #E5E5E5;
-    text-decoration: underline;  
+    text-decoration: underline;
   }
 
   div.footerlink {

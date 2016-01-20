@@ -1,3 +1,26 @@
+* {
+    box-sizing: border-box;
+}
+
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+    position: relative;
+}
+
+.MainContainer {
+    min-height: 100vh; /* will cover the 100% of viewport */
+    overflow: hidden;
+    display: block;
+    position: relative;
+    padding-bottom: 100px; /* height of your footer */
+}
+
 .steps-info {
   padding: 2rem 0;
   font-size: 1.5em;
@@ -9,7 +32,11 @@ h1 {
 }
 
 @media (max-width: 550px) {
-  .container {
+    .MainContainer {
+        padding-bottom: 280px; /* height of your footer */
+    }
+
+    .container {
     width: 100%;
     padding: 0 1rem;
   }
