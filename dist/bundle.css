@@ -674,6 +674,18 @@ a {
       font-size: 1.2em;
       letter-spacing: -0.75px; }
 
+.Beta {
+  margin-top: 1rem;
+  font-size: 0.85em; }
+
+.Beta-message:before {
+  content: 'BETA';
+  background: #F16A22;
+  color: white;
+  padding: 0.3rem 0.5rem;
+  font-weight: bold;
+  margin-right: 0.5rem; }
+
 @media (max-width: 550px) {
   .header {
     padding: 0.5rem 0; }

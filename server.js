@@ -106,6 +106,7 @@ app.get('/login', (req, res) => {
     partials: {
       header: 'partials/header',
       footer: 'partials/footer',
+      beta: 'partials/beta',
       feedback: 'partials/feedback',
       analytics: 'partials/analytics'
     },
@@ -122,6 +123,7 @@ app.get('/calendar', (req, res) => {
     partials: {
       header: 'partials/header',
       footer: 'partials/footer',
+      beta: 'partials/beta',
       feedback: 'partials/feedback',
       analytics: 'partials/analytics'
     },
@@ -141,6 +143,7 @@ app.get('/error', (req, res) => {
     partials: {
       header: 'partials/header',
       footer: 'partials/footer',
+      beta: 'partials/beta',
       feedback: 'partials/feedback',
       analytics: 'partials/analytics'
     },
@@ -158,6 +161,7 @@ app.get('/confirmation', (req, res) => {
     partials: {
       header: 'partials/header',
       footer: 'partials/footer',
+      beta: 'partials/beta',
       feedback: 'partials/feedback',
       analytics: 'partials/analytics'
     },

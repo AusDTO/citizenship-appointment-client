@@ -24,6 +24,20 @@
   }
 }
 
+.Beta {
+    margin-top: 1rem;
+    font-size: 0.85em;
+}
+
+.Beta-message:before {
+    content: 'BETA';
+    background: $beta-tag;
+    color: white;
+    padding: 0.3rem 0.5rem;
+    font-weight: bold;
+    margin-right: 0.5rem;
+}
+
 @media (max-width: 550px) {
   .header {
     padding: 0.5rem 0;
