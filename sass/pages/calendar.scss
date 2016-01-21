@@ -1,28 +1,39 @@
+// Calendar information
+//––––––––––––––––––––––––––––––––––––––––––––––––––
+
+.Calendar-info {
+    text-align: justify;
+    font-size: 0.9em;
+}
+
+.Calendar-info--field {
+    display: inline-block;
+}
+
+.Calendar-info:after {
+    content: '';
+    width: 100%;
+    display: inline-block;
+}
+
 // Calendar Legend
 //––––––––––––––––––––––––––––––––––––––––––––––––––
 
-.Legend {
-    margin-top: 1rem;
-    display: table;
-}
-
-.Legend-key {
-    display: inline-table;
-    padding-right: 2rem;
+.Legend-label {
+    vertical-align: middle;
 }
 
 .Legend-box {
-    display: table-cell;
-    width: 2.5rem;
-    height: 2.5rem;
-    margin: 0 0.5em 0 0;
+    display: inline-block;
+    vertical-align: middle;
     background: $available-color;
+    width: 2rem;
+    height: 2rem;
 }
 
 .Legend-box--unavailable {
     background: url('../images/unavailable_tile.png');
 }
-
 
 // Calendar Section
 //––––––––––––––––––––––––––––––––––––––––––––––––––
@@ -326,4 +337,5 @@
         min-width: 100%;
         padding: 0;
     }
+
 }

@@ -983,20 +983,27 @@ ul li {
   .dropdown {
     width: 100%; } }
 
-.Legend {
-  margin-top: 1rem;
-  display: table; }
+.Calendar-info {
+  text-align: justify;
+  font-size: 0.9em; }
 
-.Legend-key {
-  display: inline-table;
-  padding-right: 2rem; }
+.Calendar-info--field {
+  display: inline-block; }
+
+.Calendar-info:after {
+  content: '';
+  width: 100%;
+  display: inline-block; }
+
+.Legend-label {
+  vertical-align: middle; }
 
 .Legend-box {
-  display: table-cell;
-  width: 2.5rem;
-  height: 2.5rem;
-  margin: 0 0.5em 0 0;
-  background: #D1EAFB; }
+  display: inline-block;
+  vertical-align: middle;
+  background: #D1EAFB;
+  width: 2rem;
+  height: 2rem; }
 
 .Legend-box--unavailable {
   background: url("../images/unavailable_tile.png"); }
