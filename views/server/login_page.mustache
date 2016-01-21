@@ -61,7 +61,7 @@
         </div>
         {{/expired}}
 
-        <form class="LoginForm" action="login" method="post">
+        <form class="LoginForm" action="login" method="post" autocomplete="off">
             <input name="{{ _csrf.parameterName }}" type="hidden" value="{{ _csrf.token }}"/>
             <div class="LoginForm-input">
                 <label for="clientId">Client ID</label>
