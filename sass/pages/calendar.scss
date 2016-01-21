@@ -3,7 +3,6 @@
 
 .Calendar-info {
     text-align: justify;
-    font-size: 0.9em;
 }
 
 .Calendar-info--field {
@@ -146,7 +145,7 @@
 
 .DateCell-content--day {
     margin: 0;
-    padding: 1rem 0 0 0;
+    padding: 2rem 0 0 0;
     font-weight: bold;
 }
 
@@ -328,7 +327,7 @@
     }
 
     .DateCell-content--day {
-        padding: 0;
+        padding: 1rem;
     }
 
     .DateCell-content--availableTimesCount {

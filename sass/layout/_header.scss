@@ -15,8 +15,8 @@
     }
 
     span {
-      font-family: 'Times New Roman', Times, serif;
-      font-weight: bold;
+      font-family: $au-gov-font-family;
+      font-weight: $au-gov-font-weight;
       color: black;
       font-size: 1.2em;
       letter-spacing: -0.75px;
@@ -26,7 +26,6 @@
 
 .Beta {
     margin-top: 1rem;
-    font-size: 0.85em;
 }
 
 .Beta-message:before {

@@ -1,0 +1,13 @@
+body {
+    color: $font-color;
+    font-size: $base-font-size;
+    font-family: $base-font-family;
+    font-weight: $base-font-weight;
+    line-height: $base-line-height;
+}
+
+@media (max-width: 550px) {
+    h1 {
+        font-size: 2.5em;
+    }
+}

@@ -618,6 +618,17 @@ ol,
 form {
   margin-bottom: 2.5rem; }
 
+body {
+  color: #333333;
+  font-size: 14px;
+  font-family: "Open Sans", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: normal;
+  line-height: 24px; }
+
+@media (max-width: 550px) {
+  h1 {
+    font-size: 2.5em; } }
+
 form {
   margin-bottom: 0; }
 
@@ -668,15 +679,14 @@ a {
     .header div a {
       text-decoration: none; }
     .header div span {
-      font-family: 'Times New Roman', Times, serif;
+      font-family: "Times New Roman", Times, serif;
       font-weight: bold;
       color: black;
       font-size: 1.2em;
       letter-spacing: -0.75px; }
 
 .Beta {
-  margin-top: 1rem;
-  font-size: 0.85em; }
+  margin-top: 1rem; }
 
 .Beta-message:before {
   content: 'BETA';
@@ -984,8 +994,7 @@ ul li {
     width: 100%; } }
 
 .Calendar-info {
-  text-align: justify;
-  font-size: 0.9em; }
+  text-align: justify; }
 
 .Calendar-info--field {
   display: inline-block; }
@@ -1092,7 +1101,7 @@ ul li {
 
 .DateCell-content--day {
   margin: 0;
-  padding: 1rem 0 0 0;
+  padding: 2rem 0 0 0;
   font-weight: bold; }
 
 .DateCell-content--availableTimesCount {
@@ -1224,7 +1233,7 @@ ul li {
   .DateCell-content {
     max-height: 4.5rem; }
   .DateCell-content--day {
-    padding: 0; }
+    padding: 1rem; }
   .DateCell-content--availableTimesCount {
     display: none; }
   .today::before {

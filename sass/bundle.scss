@@ -15,12 +15,16 @@
 @import "node_modules/skeleton-scss/scss/modules/media-queries";
 
 @import "base/variables";
+@import "base/typography";
+
 @import "modules/forms";
 @import "modules/buttons";
 @import "modules/links";
+
 @import "layout/header";
 @import "layout/main";
 @import "layout/footer";
+
 @import "pages/login";
 @import "pages/confirmation";
 @import "pages/calendar";
