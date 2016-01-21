@@ -41,6 +41,11 @@ module.exports = {
         'NODE_ENV': JSON.stringify('production')
       }
     }),
+    new webpack.optimize.UglifyJsPlugin({
+      compress: {
+        warnings: true
+      }
+    }),
     new webpack.ContextReplacementPlugin(/moment[\/\\]locale$/, /en-au/)
   ],
   node: {
