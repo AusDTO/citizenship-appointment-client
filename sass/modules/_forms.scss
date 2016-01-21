@@ -14,7 +14,9 @@ input {
     &[type="tel"],
     &[type="url"],
     &[type="password"] {
-     border-radius: 0;
+        border-radius: 0;
+        height: 4.8rem;
+        width: 25rem;
     }
 }
 

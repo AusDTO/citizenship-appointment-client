@@ -636,13 +636,16 @@ label {
   cursor: pointer; }
 
 input[type="email"], input[type="number"], input[type="search"], input[type="text"], input[type="tel"], input[type="url"], input[type="password"] {
-  border-radius: 0; }
+  border-radius: 0;
+  height: 4.8rem;
+  width: 25rem; }
 
 @media (max-width: 550px) {
   input[type="email"], input[type="number"], input[type="search"], input[type="text"], input[type="tel"], input[type="url"], input[type="password"] {
     width: 100%; } }
 
 .button, input.button {
+  height: 4.8rem;
   border: 0;
   border-radius: 0;
   text-transform: none;
