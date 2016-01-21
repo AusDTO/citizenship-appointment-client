@@ -8,7 +8,6 @@
 
   <link rel="icon" type="image/png" href="images/coat-of-arms-black-on-white-32x32.png" sizes="32x32">
   <link rel="stylesheet" type="text/css" href="static/bundle.css">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 </head>
 <body>
 
@@ -33,31 +32,31 @@
             <h2 class="subtitle">We have sent this confirmation to your email address</h2>
           {{/hasEmail}}
           <div>
-            <span class="fa fa-map-marker"></span>
+            <img src="images/map-marker.svg" class="icon" alt ="Location icon"/>
             &nbsp;<a href="https://www.google.com.au/maps?daddr={{location}}" target="_blank">{{ location }}</a>
           </div>
 
           <div>
-            <span class="fa fa-calendar-o"></span>
+            <img src="images/calendar-o.svg" class="icon" alt ="Calendar icon"/>
             &nbsp;{{selected_appointment}}
           </div>
 
           <br/>
           <div class="dropdown">
             <button type="button" class="button" id="addToCalendar">
-              <span class="fa fa-plus"></span>&nbsp;Add to my calendar&nbsp;
-              <span class="fa fa-caret-down" title="Show available calendars"></span>
+              <img src="images/plus-white.svg" class="icon" alt =""/>&nbsp;Add to my calendar&nbsp;
+              <img src="images/caret-down-white.svg" class="icon" alt ="Show available calendars">
             </button>
             <ul role="listbox" id="calendarOptions">
-              <li role="listitem" class="cal_option"><a class="cal_option" href="/calendar.ics" target="blank"><i class="fa fa-apple"></i>&nbsp;Apple Calendar</a></li>
-              <li role="listitem" class="cal_option"><a class="cal_option" href="/googlecalendar" target="blank"><i class="fa fa-google"></i>&nbsp;Google</a></li>
-              <li role="listitem" class="cal_option"><a class="cal_option" href="/calendar.ics" target="blank"><i class="fa fa-windows"></i>&nbsp;Outlook</a></li>
-              <li role="listitem" class="cal_option"><a class="cal_option" href="/outlookonline" target="blank"><i class="fa fa-windows"></i>&nbsp;Outlook Online</a></li>
-              <li role="listitem" class="cal_option"><a class="cal_option" href="/yahoocalendar" target="blank"><i class="fa fa-yahoo"></i>&nbsp;Yahoo</a></li>
+              <li role="listitem" class="cal_option"><a class="cal_option" href="/calendar.ics" target="blank"><img src="images/apple.svg" class="icon" alt =""/>&nbsp;Apple Calendar</a></li>
+              <li role="listitem" class="cal_option"><a class="cal_option" href="/googlecalendar" target="blank"><img src="images/google.png" class="icon" alt =""/>&nbsp;Google</a></li>
+              <li role="listitem" class="cal_option"><a class="cal_option" href="/calendar.ics" target="blank"><img src="images/windows.svg" class="icon" alt =""/>&nbsp;Outlook</a></li>
+              <li role="listitem" class="cal_option"><a class="cal_option" href="/outlookonline" target="blank"><img src="images/windows.svg" class="icon" alt =""/>&nbsp;Outlook Online</a></li>
+              <li role="listitem" class="cal_option"><a class="cal_option" href="/yahoocalendar" target="blank"><img src="images/yahoo.svg" class="icon" alt =""/>&nbsp;Yahoo</a></li>
             </ul>
           </div>
           <button type="button" class="button" id="print-page">
-            <span class="fa fa-print"></span>&nbsp;Print this page
+            <img src="images/print-white.svg" class="icon" alt =""/>&nbsp;Print this page
           </button>
 
         </div>
