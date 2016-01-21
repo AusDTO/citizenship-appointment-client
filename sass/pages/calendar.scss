@@ -301,8 +301,12 @@
     border-bottom: 1px solid;
 }
 
-.SelectionConfirmationCell > * {
-    vertical-align: middle;
+.SelectionConfirmation-button {
+    margin-top: 1rem;
+}
+
+.SelectionConfirmation-label {
+    padding-right: 1rem;
 }
 
 // Responsive Styles (Mobile)

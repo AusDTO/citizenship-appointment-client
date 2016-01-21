@@ -1206,8 +1206,11 @@ ul li {
   text-align: center;
   border-bottom: 1px solid; }
 
-.SelectionConfirmationCell > * {
-  vertical-align: middle; }
+.SelectionConfirmation-button {
+  margin-top: 1rem; }
+
+.SelectionConfirmation-label {
+  padding-right: 1rem; }
 
 @media (max-width: 640px) {
   .Calendar-header--dayLabel:after {
