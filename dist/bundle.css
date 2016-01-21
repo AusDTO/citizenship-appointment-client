@@ -700,7 +700,7 @@ body {
   overflow: hidden;
   display: block;
   position: relative;
-  padding-bottom: 100px;
+  padding-bottom: 150px;
   /* height of your footer */ }
 
 .steps-info {
@@ -736,7 +736,7 @@ ul li {
 
 @media (max-width: 550px) {
   .MainContainer {
-    padding-bottom: 280px;
+    padding-bottom: 335px;
     /* height of your footer */ }
   .container {
     width: 100%;
@@ -746,11 +746,22 @@ ul li {
   .icon-label {
     display: none; } }
 
-.footer {
-  background-color: #222C35;
-  padding: 1rem 0;
+.Footer-section {
   position: absolute;
   bottom: 0; }
+
+.Feedback {
+  position: relative;
+  bottom: 0;
+  margin-bottom: 1rem; }
+
+.Feedback-survey {
+  position: absolute;
+  bottom: 0; }
+
+.footer {
+  background-color: #222C35;
+  padding: 1rem 0; }
   .footer img {
     height: 7rem;
     vertical-align: middle; }
@@ -793,10 +804,6 @@ ul li {
   display: none;
   max-width: 60rem;
   margin-top: 2rem; }
-
-.survey {
-  margin-top: 5rem;
-  margin-bottom: 1rem; }
 
 .LoginForm-input {
   display: inline-block;
@@ -982,6 +989,12 @@ ul li {
 .Legend-box--unavailable {
   background: url("../images/unavailable_tile.png"); }
 
+.Loading-message {
+  text-align: center;
+  font-style: italic;
+  max-height: 30vh;
+  line-height: 30vh; }
+
 .Calendar-nav {
   position: relative; }
 
@@ -1008,7 +1021,7 @@ ul li {
   font-size: 2.5em; }
 
 .Calendar-nav--label:hover {
-  color: #DCEEFF; }
+  color: black; }
 
 .Calendar-nav--prev {
   left: 0; }

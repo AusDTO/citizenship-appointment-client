@@ -1,8 +1,22 @@
+.Footer-section {
+    position: absolute;
+    bottom: 0;
+}
+
+.Feedback {
+    position: relative;
+    bottom: 0;
+    margin-bottom: 1rem;
+}
+
+.Feedback-survey {
+    position: absolute;
+    bottom: 0;
+}
+
 .footer {
   background-color: $govau-slate;
   padding: 1rem 0;
-  position: absolute;
-  bottom: 0;
 
   img {
     height: 7rem;

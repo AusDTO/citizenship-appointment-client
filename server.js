@@ -106,6 +106,7 @@ app.get('/login', (req, res) => {
     partials: {
       header: 'partials/header',
       footer: 'partials/footer',
+      feedback: 'partials/feedback',
       analytics: 'partials/analytics'
     },
     trackingId
@@ -121,6 +122,7 @@ app.get('/calendar', (req, res) => {
     partials: {
       header: 'partials/header',
       footer: 'partials/footer',
+      feedback: 'partials/feedback',
       analytics: 'partials/analytics'
     },
     trackingId,
@@ -139,6 +141,7 @@ app.get('/error', (req, res) => {
     partials: {
       header: 'partials/header',
       footer: 'partials/footer',
+      feedback: 'partials/feedback',
       analytics: 'partials/analytics'
     },
     trackingId
@@ -155,6 +158,7 @@ app.get('/confirmation', (req, res) => {
     partials: {
       header: 'partials/header',
       footer: 'partials/footer',
+      feedback: 'partials/feedback',
       analytics: 'partials/analytics'
     },
     trackingId,
