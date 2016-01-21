@@ -16,7 +16,7 @@
 
 .footer {
   background-color: $govau-slate;
-  padding: 1rem 0;
+  padding: 2rem;
 
   img {
     height: 7rem;
@@ -45,7 +45,7 @@
   div.footerlinks {
     position: absolute;
     bottom: 0.5rem;
-    width: inherit;
+    right: 0;
   }
 
   .desktop {

@@ -1,6 +1,6 @@
 .header {
   background-color: $light-grey;
-  padding: 0.75rem 0;
+  padding: 1.5rem 0;
 
   div {
     height: 6rem;
@@ -39,7 +39,7 @@
 
 @media (max-width: 550px) {
   .header {
-    padding: 0.5rem 0;
+    padding: 1rem 0;
 
     div {
       height: 4rem;

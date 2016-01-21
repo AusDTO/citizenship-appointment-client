@@ -673,7 +673,7 @@ a {
 
 .header {
   background-color: #E8E8E8;
-  padding: 0.75rem 0; }
+  padding: 1.5rem 0; }
   .header div {
     height: 6rem; }
     .header div img {
@@ -701,7 +701,7 @@ a {
 
 @media (max-width: 550px) {
   .header {
-    padding: 0.5rem 0; }
+    padding: 1rem 0; }
     .header div {
       height: 4rem; }
       .header div span {
@@ -786,7 +786,7 @@ ul li {
 
 .footer {
   background-color: #222C35;
-  padding: 1rem 0; }
+  padding: 2rem; }
   .footer img {
     height: 7rem;
     vertical-align: middle; }
@@ -806,7 +806,7 @@ ul li {
   .footer div.footerlinks {
     position: absolute;
     bottom: 0.5rem;
-    width: inherit; }
+    right: 0; }
   .footer .desktop {
     display: inherit; }
   .footer .mobile {
