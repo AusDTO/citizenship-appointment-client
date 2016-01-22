@@ -653,7 +653,8 @@ input[type="email"], input[type="number"], input[type="search"], input[type="tex
   padding: 0 1.5rem 0 2rem;
   background: #0060BD;
   color: white;
-  font-size: 1.5rem; }
+  font-size: 1.5rem;
+  height: 4rem; }
 
 .button:focus, .button:hover,
 input.button:focus, input.button:hover {
@@ -667,6 +668,11 @@ input.button {
 @media (max-width: 550px) {
   .button, input.button, input.button {
     width: 100%; } }
+
+.icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  vertical-align: baseline; }
 
 a {
   color: #0060BD; }
@@ -856,6 +862,14 @@ ul li {
 
 .warning-action-text {
   text-decoration: underline; }
+
+.button-icon {
+  width: 2.5rem;
+  height: 2.5rem; }
+
+button.with-icon > img,
+button.with-icon > span {
+  vertical-align: middle; }
 
 .steps-and-close-div {
   margin-top: 2rem;

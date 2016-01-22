@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Citizenship Appointment Booking Calendar</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <link rel="icon" type="image/png" href="images/coat-of-arms-black-on-white-32x32.png" sizes="32x32">
     <link rel="stylesheet" type="text/css" href="static/bundle.css">
 </head>
@@ -34,13 +33,13 @@
 
         <div class="Calendar-info">
             <div class="Calendar-info--field">
-                <i class="fa fa-map-marker"></i>
+                <img src="images/map-marker.svg" class="icon" alt =""/>
                 <strong class="icon-label">&nbsp;Location:</strong>
                 &nbsp;<a href="https://www.google.com.au/maps?daddr={{location}}" target="_blank">{{ location }}</a>
             </div>
             {{#current_appointment }}
             <div class="Calendar-info--field">
-                <i class="fa fa-calendar-o"></i>
+                <img src="images/calendar-o.svg" class="icon" alt =""/>
                 <strong class="icon-label">&nbsp;Current appointment:</strong>
                 &nbsp;{{ current_appointment }}</a>
             </div>

@@ -49,3 +49,13 @@
 .warning-action-text {
     text-decoration: underline;
 }
+
+.button-icon {
+    width: 2.5rem;
+    height: 2.5rem
+}
+
+button.with-icon > img,
+button.with-icon > span {
+  vertical-align: middle;
+}
