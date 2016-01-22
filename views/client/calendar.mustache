@@ -4,13 +4,13 @@
         <div class="Calendar-nav">
             {{#prevMonth}}
                 <a href="#month/{{prevMonth}}" class="Calendar-nav--prev" aria-label="Previous Month" name="month/{{prevMonth}}" name="month/{{prevMonth}}">
-                    <i class="fa fa-angle-left Calendar-nav--label"><span class="hidden">.</span></i>
+                    <img src="images/angle-left.svg" class="Calendar-nav--label" alt ="Navigate to Previous Month"/>
                 </a>
             {{/prevMonth}}
             <strong class="Calendar-nav--month">{{monthName}}</strong>
             {{#nextMonth}}
                 <a href="#month/{{nextMonth}}" class="Calendar-nav--next" aria-label="Next Month" name="month/{{nextMonth}}">
-                    <i class="fa fa-angle-right Calendar-nav--label"><span class="hidden">.</span></i>
+                    <img src="images/angle-right.svg" class="Calendar-nav--label" alt="Navigate to Next Month"/>
                 </a>
             {{/nextMonth}}
         </div>

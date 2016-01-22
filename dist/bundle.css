@@ -1058,15 +1058,11 @@ button.with-icon > span {
   position: absolute;
   top: 0;
   margin-top: 1rem;
-  padding: 0 1.5rem 0 2rem; }
+  padding: 0 2rem; }
 
 .Calendar-nav--label {
-  color: #333333;
-  font-weight: bold;
-  font-size: 2.5em; }
-
-.Calendar-nav--label:hover {
-  color: black; }
+  vertical-align: middle;
+  height: 2.5rem; }
 
 .Calendar-nav--prev {
   left: 0; }

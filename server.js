@@ -115,7 +115,8 @@ app.get('/login', (req, res) => {
       analytics: 'partials/analytics'
     },
     trackingId,
-    clientId
+    clientId,
+    expired: req.query.expired
   });
 });
 
