@@ -28,7 +28,7 @@ test('should successfully login and book appointment', (assert) => {
       .setValue('#clientId', '99999999999')
       .setValue('#familyName', 'Family-Name')
       .click('#submitLogin')
-      .timeouts('page load',5000)
+      .timeouts('page load',10000)
       .getTitle()
       .then((title) => {
         assert.equal(title, 'Citizenship Appointment Booking Calendar');
@@ -38,13 +38,13 @@ test('should successfully login and book appointment', (assert) => {
       .waitForVisible('[name="time/2016-02-11T15:00:00"]', 10000)
       .click('[name="time/2016-02-11T15:00:00"]')
       .click('.SelectionConfirmation-button')
-      .timeouts('page load',5000)
+      .timeouts('page load',10000)
       .getTitle()
       .then((title) => {
         assert.equal(title, 'Citizenship Appointment Booking Confirmation');
       })
       .click('.Logout-link')
-      .timeouts('page load',5000)
+      .timeouts('page load',10000)
       .getTitle()
       .then((title) => {
         assert.equal(title, 'Citizenship Appointment Booking');
