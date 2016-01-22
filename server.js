@@ -50,9 +50,6 @@ app.use('/images', express.static(path.join(__dirname, 'images')));
 
 const trackingId = 'UA-XXXXX-Y';
 
-
-const retryCounter = 0;
-
 app.get('/get_available_times', (req, res) => {
   let json = {};
   if (req.query.calendar_id === '1247') {
@@ -93,8 +90,9 @@ app.get('/get_available_times', (req, res) => {
       ]
     };
   }
-  //(retryCounter < 3) ? res.status(500) :
-  process.exit();
+  //res.status(500);
+  //res.status(401);
+  //process.exit();
   res.json(json);
 });
 
@@ -156,7 +154,8 @@ app.get('/error', (req, res) => {
       feedback: 'partials/feedback',
       analytics: 'partials/analytics'
     },
-    trackingId
+    trackingId,
+    expired: req.query.expired
   });
 });
 
