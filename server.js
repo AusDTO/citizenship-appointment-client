@@ -102,6 +102,7 @@ app.get('/logout', (req, res) => {
 });
 
 app.get('/login', (req, res) => {
+  const clientId = req.query.id;
   res.render('login_page', {
     partials: {
       header: 'partials/header',
@@ -110,15 +111,17 @@ app.get('/login', (req, res) => {
       feedback: 'partials/feedback',
       analytics: 'partials/analytics'
     },
-    trackingId
+    trackingId,
+    clientId
   });
 });
 
-app.post('/login', (req, res) => {
-  res.redirect('/calendar');
+app.post('/login', urlencodedParser, (req, res) => {
+  res.redirect('/calendar?' + querystring.stringify({ id: req.body.username }));
 });
 
 app.get('/calendar', (req, res) => {
+  const clientId = req.query.id;
   res.render('calendar_page', {
     partials: {
       header: 'partials/header',
@@ -128,6 +131,7 @@ app.get('/calendar', (req, res) => {
       analytics: 'partials/analytics'
     },
     trackingId,
+    clientId,
     location: "2 Lonsdale Street, Melbourne VIC 3000",
     current_appointment: "Thursday, 12 December, 1:30PM",
     today_date: "2016-01-05T11:20:00",
@@ -153,7 +157,7 @@ app.get('/error', (req, res) => {
 
 app.post('/book_appointment', urlencodedParser, (req, res) => {
   if (!req.body) return res.sendStatus(400)
-  res.redirect('/confirmation');
+  res.redirect('/confirmation?');
 });
 
 app.get('/confirmation', (req, res) => {
@@ -168,7 +172,7 @@ app.get('/confirmation', (req, res) => {
     trackingId,
     selected_appointment: "Thursday 21 January, 1:30 PM",
     location: "2 Lonsdale Street, Melbourne VIC 3000",
-    clientId: "919191",
+    clientId: "12345678901",
     hasEmail: true
   });
 });
