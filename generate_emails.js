@@ -12,52 +12,66 @@ const baseDir = path.join(__dirname, 'email_templates');
 const templateDir = path.join(baseDir, 'partials');
 const outputDir = path.join(baseDir, 'generated');
 const imagesDir = path.join(__dirname, 'images', 'email_templates');
-const dest_environment = "https://citizenship-appointment-beta.cfapps.io/";
+const dest_environment = "https://appointments.border.gov.au/";
 
+const appointment_types = [
+	{
+		"appointmentInformation": compileTemplate("citizenship_test_template.mustache"),
+		"data": {
+			appointmentType: "Australian citizenship interview and test (standard)",
+			hasTest: true
+		},
+		"name": "_standard"
+	},
+	{
+		"appointmentInformation": compileTemplate("citizenship_test_template.mustache"),
+		"data": {
+			appointmentType: "Australian citizenship interview and test (assisted)",
+			hasTest: true
+		},
+		"name": "_assisted"
+	},
+	{
+		"appointmentInformation": compileTemplate("citizenship_interview_template.mustache"),
+		"data": {
+			appointmentType: "Australian citizenship interview",
+			hasTest: false
+		},
+		"name": "_interviewOnly"
+	}
+];
 
 const email_templates = [
 	{
-		"name": "invitation_template",
+		"name": "invitation",
 		"template_name": "invitation_template",
 		"data": {
-			angleIcon: convertImageToHostedSrc("angle_icon.png"),
 			headerText: "Invitation to book your citizenship appointment",
-			websiteLink: dest_environment
+			hasArriveInfo: false
+			
 		}
 	},
 	{
-		"name": "confirmation_template",
+		"name": "confirmation",
 		"template_name": "confirmation_template",
 		"data": {
-			locationIcon: convertImageToHostedSrc("location_icon.png"),
-			calendarIcon: convertImageToHostedSrc("calendar_icon.png"),
-			websiteLink: dest_environment
+			hasArriveInfo: true
 		}
 	},
 	{
-		"name": "reminder_template",
+		"name": "reminder",
 		"template_name": "invitation_template",
 		"data": {
-			angleIcon: convertImageToHostedSrc("angle_icon.png"),
 			headerText: "Reminder to book your citizenship appointment",
-			websiteLink: dest_environment
+			hasArriveInfo: false
 		}
 	},
 	{
-		"name": "noshow_template",
+		"name": "noshow",
 		"template_name": "invitation_template",
 		"data": {
-			angleIcon: convertImageToHostedSrc("angle_icon.png"),
 			headerText: "You have missed your appointment. Please book your next citizenship appointment",
-			websiteLink: dest_environment
-		}
-	},
-	{
-		"name": "lastchance_template",
-		"template_name": "lastchance_template",
-		"data": {
-			angleIcon: convertImageToHostedSrc("angle_icon.png"),
-			websiteLink: dest_environment
+			hasArriveInfo: false
 		}
 	}
 ];
@@ -69,11 +83,18 @@ function generateTemplates(){
 		mainBodyTemplate = compileTemplate("main_body.mustache");
 
 	email_templates.forEach(function(template) {
-		var compiledTemplate = compileTemplate(template.template_name + ".mustache");
-		var templateData = mergeObjects(mainTemplateData, template.data);
+		appointment_types.forEach(function(appointmentType){
+			var extendedTemplate = mergeTemplateConfig(template, appointmentType);
 
-		var fullTemplate = mainBodyTemplate.render(templateData, {content: compiledTemplate});
-			fs.writeFileSync(path.join(outputDir, template.name + ".html"), fullTemplate);
+			var compiledTemplate = compileTemplate(extendedTemplate.template_name + ".mustache");
+			var templateData = mergeObjects(mainTemplateData, extendedTemplate.data);
+
+			var fullTemplate = mainBodyTemplate.render(templateData, {
+				content: compiledTemplate,
+				appointmentInformation: extendedTemplate.appointmentInformation
+			});
+			fs.writeFileSync(path.join(outputDir, extendedTemplate.name + ".html"), fullTemplate);
+		});
 	});
 };
 
@@ -94,17 +115,10 @@ function convertImageToHostedSrc(fileName){
 function getImagesForMainTemplate(){
 	return {
 		headerLogo: convertImageToHostedSrc("aust-govt-black-on-transparent-247x60.png"),
-		passportIcon: convertImageToHostedSrc("passport.png"),
-		birthCertificateIcon: convertImageToHostedSrc("id-verified.png"),
-		documentWithPhotoIcon: convertImageToHostedSrc("license.png"),
-		residentialAddressIcon: convertImageToHostedSrc("exterior.png"),
-		certificateIcon: convertImageToHostedSrc("certificate-2.png"),
-		formIcon: convertImageToHostedSrc("file.png"),
-		policeCheckIcon: convertImageToHostedSrc("badge.png"),
-		smallCertificateIcon: convertImageToHostedSrc("certificate.png"),
 		playIcon: convertImageToHostedSrc("play_icon.png"),
 		pdfIcon: convertImageToHostedSrc("pdf_icon.png"),
-		checkIcon: convertImageToHostedSrc("check_icon.png")
+		checkIcon: convertImageToHostedSrc("check_icon.png"),
+		websiteLink: dest_environment
 	};
 }
 
@@ -117,4 +131,13 @@ function mergeObjects(target, source){
         result[prop] = target[prop];
     }
     return result;
+}
+
+function mergeTemplateConfig(templateConfig, appointmentTypeData){
+	var data = mergeObjects(templateConfig.data, appointmentTypeData.data);
+	var name = templateConfig.name + appointmentTypeData.name;
+	var mergedConfig = mergeObjects(templateConfig, appointmentTypeData);
+	mergedConfig.data = data;
+	mergedConfig.name = name;
+	return mergedConfig;
 }

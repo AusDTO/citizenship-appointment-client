@@ -22,6 +22,20 @@
                     </tr>
                     <tr>
                       {{> content}}
+                      
+                    </tr>
+                    <tr>
+                     <td align="left">
+                        <div style="border-top:2px black solid;"></div>
+                          <h2>What will happen at your appointment</h2>
+                          <ul style="padding:0px; margin-top:1rem; marging-bottom:1rem;list-style: disc inside;" padding="0">
+                            <li>We will check the original documents for all applicants within your application (including children) and any extra documentation that you have been requested to provide. We will assess the documents against the information held by the department. We will take your photograph and collect your signature.</li>
+                            {{#hasTest}}
+                              <li>Once we have verified your identity, you will be able to sit the citizenship test.</li>
+                            {{/hasTest}}
+                            <li>If you have included children in your application they are not required to attend this appointment. There are no childcare facilities so you will need to make alternative childcare arrangements for your children.</li>
+                          </ul>
+                      </td>
                     </tr>
                     <tr>
                       <td align="left">
@@ -35,194 +49,57 @@
                             </tr>
                             <tr>
                               <td>
-                                <h3>
-                                  Evidence of when you first arrived in Australia and your present country of citizenship
-                                </h3>
+                                <ul style="padding:0px; margin-top:1rem; marging-bottom:1rem;list-style: disc inside;" padding="0">
+                                  <li>The originals of all the identity documents that you submitted with your application, for all applicants including children; and</li>
+                                  <li>Any other documents that you have been requested to provide.</li>
+                                  <li>If you lodged your application online, please bring your completed Form 1195 Identity declaration, with an endorsed recent passport sized photo for all applicants including children.</li>
+                                  <li>If you do not bring the required original documents or provide the completed Form 1195 and an endorsed photo (if lodged online), we will not be able to verify your identity and proceed with your application.</li>
+                                </ul>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </td>
+                    </tr>
+                    {{> appointmentInformation}}
+                    {{#hasArriveInfo}}
+                    <tr>
+                      <td align="left">
+                        <div style="border-top:2px black solid;"></div>
+                        <table>
+                          <tbody>
+                            <tr>
+                              <td>
+                                <h2>When you arrive</h2>
                               </td>
                             </tr>
                             <tr>
                               <td>
-                                <table style="table-layout:fixed;font-weight:200;font-family:Helvetica,Arial,sans-serif;border:2px solid rgb(232, 232, 232);" align="left" border="0" cellpadding="4px" cellspacing="0" width="100%">
-                                  <tbody>
-                                    <tr>
-                                      <td valign="top" align="center" width="40px" style="vertical-align: top; width: 40px">
-                                        <img height="35px" width="35px" style="height:35px;width:35px"src="{{passportIcon}}" alt="Passport icon" />
-                                      </td>
-                                      <td align="left">
-                                        <table>
-                                          <tbody>
-                                            <tr>
-                                              <td>
-                                                Current and/or previous passports <strong>and</strong> travel documents with visas (if applicable).
-                                              </td>
-                                            </tr>
-                                            <tr>
-                                              <td>
-                                                <em>E.g. Document for Travel to Australia (DFTTA), PLO56 (M56), Titre de Voyage</em>
-                                              </td>
-                                            </tr>
-                                          </tbody>
-                                        </table>
-                                      </td>
-                                    </tr>
-                                  </tbody>
-                                </table>
+                                <ul style="padding:0px; margin-top:1rem; marging-bottom:1rem;list-style: disc inside;" padding="0">
+                                  <li>Please arrive at least 5 mins prior to your appointment.</li>
+                                  <li>Collect a ticket at the citizenship kiosk by entering your Client ID or scanning the barcode from your letter.</li>
+                                  <li>Wait until your number is called at the assigned counter.</li>
+                                </ul>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </td>
+                    </tr>
+                    {{/hasArriveInfo}}
+                    <tr>
+                      <td align="left">
+                        <div style="border-top:2px black solid;"></div>
+                        <table>
+                          <tbody>
+                            <tr>
+                              <td>
+                                <h2>What happens to your application after your appointment?</h2>
                               </td>
                             </tr>
                             <tr>
-                              <td align="left">
-                                <h3>Evidence of your identity</h3>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td align="left">
-                                <table style="table-layout:fixed;font-weight:200;font-family:Helvetica,Arial,sans-serif;border:2px solid rgb(232, 232, 232);" align="left" border="0" cellpadding="4px" cellspacing="0" width="100%">
-                                  <tbody>
-                                    <tr>
-                                      <td valign="top" align="center" width="40px" style="vertical-align: top; width: 40px;border-bottom:2px solid rgb(232, 232, 232);">
-                                        <img height="35px" width="35px" style="height:35px;width:35px" src="{{birthCertificateIcon}}" alt="Birth certificate icon" />
-                                      </td>
-                                      <td align="left" style="border-bottom:2px solid rgb(232, 232, 232);">
-                                        Birth certificate, <strong>and</strong>
-                                      </td>
-                                    </tr>
-                                    <tr>
-                                      <td valign="top" align="center" width="40px" style="vertical-align: top; width: 40px;border-bottom:2px solid rgb(232, 232, 232);">
-                                        <img height="35px" width="35px" style="height:35px;width:35px"src="{{documentWithPhotoIcon}}" alt="Document with photo icon" />
-                                      </td>
-                                      <td align="left" style="border-bottom:2px solid rgb(232, 232, 232);">
-                                        <table>
-                                          <tbody>
-                                            <tr>
-                                              <td>
-                                                A document with your photo and signature, <strong>and</strong>
-                                              </td>
-                                            </tr>
-                                            <tr>
-                                              <td>
-                                                <em>E.g. Australian driver licence, National identity card, current passport, an air crew identity document, seafarer identity document, military identity document, Student Card, Australian Proof of Age card, Australian Keypass card, Working with Children Check card.</em>
-                                              </td>
-                                            </tr>
-                                          </tbody>
-                                        </table>
-                                      </td>
-                                    </tr>
-                                    <tr>
-                                      <td valign="top" align="center" width="40px" style="vertical-align: top; width: 40px">
-                                        <img height="35px" width="35px" style="height:35px;width:35px"src="{{residentialAddressIcon}}" alt="Residential address icon" />
-                                      </td>
-                                      <td align="left">
-                                        <table>
-                                          <tbody>
-                                            <tr>
-                                              <td>
-                                                A proof of your current residential address
-                                              </td>
-                                            </tr>
-                                            <tr>
-                                              <td>
-                                                <em>E.g. Utilities notice (such as electricity, gas or water bill), bank notice, rental contract or rates notice.</em>
-                                              </td>
-                                            </tr>
-                                          </tbody>
-                                        </table>
-                                      </td>
-                                    </tr>
-                                  </tbody>
-                                </table>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td align="left">
-                                <h3>If you have changed your name or been known by any other names</h3>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td align="left">
-                                <table style="table-layout:fixed;font-weight:200;font-family:Helvetica,Arial,sans-serif;border:2px solid rgb(232, 232, 232);" align="left" border="0" cellpadding="4px" cellspacing="0" width="100%">
-                                  <tbody>
-                                    <tr>
-                                      <td valign="top" align="center" width="40px" style="vertical-align: top; width: 40px">
-                                        <img height="35px" width="35px" style="height:35px;width:35px"src="{{certificateIcon}}" alt="Certificate icon" />
-                                      </td>
-                                      <td align="left">
-                                        <table>
-                                          <tbody>
-                                            <tr>
-                                              <td>
-                                                If you have changed your name or been known by any other names since bith, you must provide official evidence of links between present and previous names.
-                                              </td>
-                                            </tr>
-                                            <tr>
-                                              <td>
-                                                <em>E.g. Marriage or divorce certificate, Name Change Certificate from the Australian Registry of Births, Deaths and Marriages (RBDM) or an official overseas authority.</em>
-                                              </td>
-                                            </tr>
-                                          </tbody>
-                                        </table>
-                                      </td>
-                                    </tr>
-                                  </tbody>
-                                </table>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td align="left">
-                                <h3>Good character documents</h3>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td align="left">
-                                <table style="table-layout:fixed;font-weight:200;font-family:Helvetica,Arial,sans-serif;border:2px solid rgb(232, 232, 232);" align="left" border="0" cellpadding="4px" cellspacing="0" width="100%">
-                                  <tbody>
-                                    <tr>
-                                      <td valign="top" align="center" width="40px" style="vertical-align: top; width: 40px">
-                                        <img height="35px" width="35px" style="height:35px;width:35px"src="{{policeCheckIcon}}" alt="Police check icon" />
-                                      </td>
-                                      <td align="left">
-                                        <table>
-                                          <tbody>
-                                            <tr>
-                                              <td>
-                                                Overseas penal clearance
-                                              </td>
-                                            </tr>
-                                            <tr>
-                                              <td>
-                                                <em>You will need to provide <a href="https://www.border.gov.au/Trav/Citi/Appl/What-documents-do-you-need/good-character-and-offences" target="_blank">original penal clearance</a> certificates from overseas countries if, since the grant of your first permanent Australian visa:
-                                                  <ul padding="0" style="padding:0px; margin-top:1rem; marging-bottom:1rem;">
-                                                    <li>
-                                                      You have lived or travelled overseas since the age of 18 or over, <strong>and</strong>
-                                                    </li>
-                                                    <li>
-                                                      The total time spent overseas added up to 12 months or more, <strong>and</strong>
-                                                    </li>
-                                                    <li>
-                                                      The time you spent in any one country was more than 90 days, <strong>or</strong>
-                                                    </li>
-                                                    <li>
-                                                      You are requested to do so by the department.
-                                                    </li>
-                                                  </ul>
-                                                </em>
-                                              </td>
-                                            </tr>
-                                            <tr>
-                                              <td>
-                                                <em>If you are applying outside Australia, then Australia should be considered an overseas country. <a href="https://www.border.gov.au/Trav/Visa/Char" alt="Character requirements details">www.border.gov.au/Trav/Visa/Char</a>
-                                              </td>
-                                            </tr>
-                                          </tbody>
-                                        </table>
-                                      </td>
-                                    </tr>
-                                  </tbody>
-                                </table>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td align="left">
-                                <em>In some cases further documents might be requested.</em>
+                              <td>
+                                After you have attended your appointment, assessment of your application will continue. You may be asked to provide additional information such as other overseas penal clearances and/or you may be asked to attend another interview. The department will advise you in writing of the outcome of your application.
                               </td>
                             </tr>
                           </tbody>
@@ -236,308 +113,32 @@
                           <tbody>
                             <tr>
                               <td>
-                                <h2>Documents for children</h2>
+                                <h2>Personal identifiers</h2>
                               </td>
                             </tr>
                             <tr>
                               <td>
-                                <h3>
-                                  The following documents are required for all children under 16 years of age
-                                </h3>
+                                Your photograph and signature are called personal identifiers. I am authorised under section 40 of the Australian Citizenship Act 2007 to request personal identifiers from you. Please consider this a formal request for your personal identifiers.
                               </td>
                             </tr>
                             <tr>
                               <td>
-                                <table style="table-layout:fixed;font-weight:200;font-family:Helvetica,Arial,sans-serif;border:2px solid rgb(232, 232, 232);" align="left" border="0" cellpadding="4px" cellspacing="0" width="100%">
-                                  <tbody>
-                                    <tr>
-                                      <td valign="top" align="center" width="40px" style="vertical-align: top; width: 40px;border-bottom:2px solid rgb(232, 232, 232);">
-                                        <img height="35px" width="35px" style="height:35px;width:35px"src="{{birthCertificateIcon}}" alt="Birth certificate icon" />
-                                      </td>
-                                      <td style="border-bottom:2px solid rgb(232, 232, 232);">
-                                        <table>
-                                          <tbody>
-                                            <tr>
-                                              <td>
-                                                A full birth certificate of family register containing parent's details
-                                              </td>
-                                            </tr>
-                                          </tbody>
-                                        </table>
-                                      </td>
-                                    </tr>
-                                    <tr>
-                                      <td valign="top" align="center" width="40px" style="vertical-align: top; width: 40px;border-bottom:2px solid rgb(232, 232, 232);">
-                                        <img height="35px" width="35px" style="height:35px;width:35px"src="{{passportIcon}}" alt="Passport icon" />
-                                      </td>
-                                      <td style="border-bottom:2px solid rgb(232, 232, 232);">
-                                        <table>
-                                          <tbody>
-                                            <tr>
-                                              <td>
-                                                A Passport or travel document used to enter Australia, if not on your passport
-                                              </td>
-                                            </tr>
-                                          </tbody>
-                                        </table>
-                                      </td>
-                                    </tr>
-                                    <tr>
-                                      <td valign="top" align="center" width="40px" style="vertical-align: top; width: 40px;border-bottom:2px solid rgb(232, 232, 232);">
-                                        <img height="35px" width="35px" style="height:35px;width:35px"src="{{smallCertificateIcon}}" alt="Name change certificate icon" />
-                                      </td>
-                                      <td align="left" style="border-bottom:2px solid rgb(232, 232, 232);">
-                                        <table>
-                                          <tbody>
-                                            <tr>
-                                              <td>
-                                                Evidence of any name change between birth and and current name, if applicable
-                                              </td>
-                                            </tr>
-                                          </tbody>
-                                        </table>
-                                      </td>
-                                    </tr>
-                                    <tr>
-                                      <td valign="top" align="center" width="40px" style="vertical-align: top; width: 40px;border-bottom:2px solid rgb(232, 232, 232);">
-                                        <img height="35px" width="35px" style="height:35px;width:35px"src="{{certificateIcon}}" alt="Certificate icon" />
-                                      </td>
-                                      <td style="border-bottom:2px solid rgb(232, 232, 232);">
-                                        <table>
-                                          <tbody>
-                                            <tr>
-                                              <td>
-                                                If you have been granted custody and/or guardianship of the child, bring the relevant court orders.
-                                              </td>
-                                            </tr>
-                                          </tbody>
-                                        </table>
-                                      </td>
-                                    </tr>
-                                    <tr>
-                                      <td valign="top" align="center" width="40px" style="vertical-align: top; width: 40px">
-                                        <img height="35px" width="35px" style="height:35px;width:35px"src="{{smallCertificateIcon}}" alt="Adoption certificate icon" />
-                                      </td>
-                                      <td>
-                                        <table>
-                                          <tbody>
-                                            <tr>
-                                              <td>
-                                                If the child is adopted, bring the decision papers
-                                              </td>
-                                            </tr>
-                                          </tbody>
-                                        </table>
-                                      </td>
-                                    </tr>
-                                  </tbody>
-                                </table>
+                                &nbsp;
                               </td>
                             </tr>
                             <tr>
                               <td>
-                                <em>If you have included children in your application they are not required to attend this appointment. There are no childcare facilities so you will need to make alternative childcare arrangements for your children.</em>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td align="left">
-                        <div style="border-top:2px black solid;"></div>
-                        <table>
-                          <tbody>
-                            <tr>
-                              <td>
-                                <h2>If you have applied online</h2>
+                                Your personal identifiers will be stored electronically in the department's computer system and may be shared with the Department of Foreign Affairs and Trade under an agreement we have with them to assist in administering the Australian Passports Act 2005. Your personal identifiers may also be produced in evidence in a court or tribunal in proceedings concerning you.
                               </td>
                             </tr>
                             <tr>
                               <td>
-                                <table style="table-layout:fixed;font-weight:200;font-family:Helvetica,Arial,sans-serif;border:2px solid rgb(232, 232, 232);" align="left" border="0" cellpadding="4px" cellspacing="0" width="100%">
-                                  <tbody>
-                                    <tr>
-                                      <td valign="top" align="center" width="40px" style="vertical-align: top; width: 40px">
-                                        <img height="35px" width="35px" style="height:35px;width:35px"src="{{formIcon}}" alt="Form icon" />
-                                      </td>
-                                      <td>
-                                        <table>
-                                          <tbody>
-                                            <tr>
-                                              <td>
-                                                <a href="https://www.border.gov.au/FormsAndDocuments/Documents/1195.pdf" alt="" target="_blank">
-                                                  Form 1195 - Identity declaration
-                                                </a>
-                                              </td>
-                                            </tr>
-                                            <tr>
-                                              <td>
-                                                <em>Provide Form 1195 for you and all children included in your application.</em>
-                                              </td>
-                                            </tr>
-                                          </tbody>
-                                        </table>
-                                      </td>
-                                    </tr>
-                                  </tbody>
-                                </table>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td align="left">
-                        <div style="border-top:2px black solid;"></div>
-                        <table>
-                          <tbody>
-                            <tr>
-                              <td>
-                                <h2>Translating your documents</h2>
+                                &nbsp;
                               </td>
                             </tr>
                             <tr>
                               <td>
-                                If required documents are not in English, you will also need to provide a translation with the original document.
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                If you are in Australia when applying, use translators accredited by the National Accreditation Authority of Translatiors and Interpreters (NAATI). For more information see <a href="https://www.naati.com.au" target="_blank" alt="">www.naati.com.au</a>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                If you are outside of Australia when applying, the English translation must be completed by a qualified translator and must be endorsed by the translator with their full name, address, telephone number and details of their qualifications and experience in the language being translated.
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td align="left">
-                        <div style="border-top:2px black solid;"></div>
-                        <table>
-                          <tbody>
-                            <tr>
-                              <td>
-                                <h2>Interview for 60 years and over</h2>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                During the interview we will ensure that you understand the nature of your citizenship application, unless you are applying on the grounds that you have a physical or mental disability. If you need an interpreter, you can bring a family member or friend to assist you during the interview. You will not need to sit the test.
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td align="left">
-                        <div style="border-top:2px black solid;"></div>
-                        <table>
-                          <tbody>
-                            <tr>
-                              <td>
-                                <h2>Interview for 16 and 17 year olds</h2>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                During the interview, we will ensure that you understand the nature of your citizenship application, unless you are applying on the grounds that you have a physical or mental incapacity.
-                              </td>
-                            </tr>
-                             <tr>
-                              <td>
-                                If you are 16 or 17 years of age we will asses your English language ability and your knowledge of the responsibilities and priviledges of Australian citizenship. You do not need to sit the citizenship test. Please refer to the secion 'How to prepare for the test' which provides the information you need for your assesment.
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td align="left">
-                        <div style="border-top:2px black solid;"></div>
-                        <table>
-                          <tbody>
-                            <tr>
-                              <td>
-                                <h2>How to prepare for the test</h2>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                The citizenship test is computer-based and conducted in English and cosists of 20 mutiple choice questions.
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <a href="https://www.border.gov.au/Trav/Citi/Lear/Citizenship-test/Australian-citizenship-test-resource" target="_blank" alt="">Australian Citizenship: Our Common Bond</a> is your Study Guide, which is <strong>available in 37 languages</strong> and has all the information you need to help you pass the citizenship test.
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <table>
-                                  <tbody>
-                                    <tr>
-                                      <td>
-                                        <a href="https://www.border.gov.au/Trav/Citi/Lear/Citizenship-test/Australian-citizenship-test-resource" style="white-space:nowrap;display:block;text-decoration:none" target="_blank">
-                                          <table style="font-weight:200;font-family:Helvetica,Arial,sans-serif" border="0" cellpadding="0" cellspacing="0" width="100%">
-                                            <tbody>
-                                              <tr>
-                                                <td style="border-radius:2px;background-color:rgb(0, 140, 201);padding:6px 16px;font-size:16px;border-color:rgb(0, 140, 201);border-width:1px;border-style:solid" bgcolor="008CC9">
-                                                  <a href="https://www.border.gov.au/Trav/Citi/Lear/Citizenship-test/Australian-citizenship-test-resource" style="color:rgb(255, 255, 255);white-space:nowrap;display:block;text-decoration:none" target="_blank">
-                                                    <img src="{{playIcon}}"></img>&nbsp;Watch
-                                                  </a>
-                                                </td>
-                                              </tr>
-                                            </tbody>
-                                          </table>
-                                        </a>
-                                      </td>
-                                      <td>
-                                        <a href="https://www.border.gov.au/Citizenship/Documents/our-common-bond-2014.pdf" style="white-space:nowrap;display:block;text-decoration:none" target="_blank">
-                                          <table style="font-weight:200;font-family:Helvetica,Arial,sans-serif" border="0" cellpadding="0" cellspacing="0" width="100%">
-                                            <tbody>
-                                              <tr>
-                                                <td style="border-radius:2px;background-color:rgb(0, 140, 201);padding:6px 16px;font-size:16px;border-color:rgb(0, 140, 201);border-width:1px;border-style:solid" bgcolor="008CC9">
-                                                  <a href="https://www.border.gov.au/Citizenship/Documents/our-common-bond-2014.pdf" style="color:rgb(255, 255, 255);white-space:nowrap;display:block;text-decoration:none" target="_blank">
-                                                    <img src="{{pdfIcon}}"></img>&nbsp;Download (6.5MB PDF)
-                                                  </a>
-                                                </td>
-                                              </tr>
-                                            </tbody>
-                                          </table>
-                                        </a>
-                                      </td>
-                                      <td>
-                                        <a href="https://www.border.gov.au/Trav/Citi/Lear/Citizenship-test/Australian-citizenship-test-resource/Australian-citizenship-practice-test" style="white-space:nowrap;display:block;text-decoration:none" target="_blank">
-                                          <table style="font-weight:200;font-family:Helvetica,Arial,sans-serif" border="0" cellpadding="0" cellspacing="0" width="100%">
-                                            <tbody>
-                                              <tr>
-                                                <td style="border-radius:2px;background-color:rgb(0, 140, 201);padding:6px 16px;font-size:16px;border-color:rgb(0, 140, 201);border-width:1px;border-style:solid" bgcolor="008CC9">
-                                                  <a href="https://www.border.gov.au/Trav/Citi/Lear/Citizenship-test/Australian-citizenship-test-resource/Australian-citizenship-practice-test" style="color:rgb(255, 255, 255);white-space:nowrap;display:block;text-decoration:none" target="_blank">
-                                                    <img src="{{checkIcon}}"></img>&nbsp;Practice
-                                                  </a>
-                                                </td>
-                                              </tr>
-                                            </tbody>
-                                          </table>
-                                        </a>
-                                      </td>
-                                    </tr>
-                                  </tbody>
-                                </table>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <a href="https://www.border.gov.au/Trav/Citi/Lear/Citizenship-test/About-the-citizenship-test" target="_blank" alt="">More information about the citizenship test</a>
+                                Please note that the Privacy Act 1988 applies to a personal identifier. You have the right to make a complaint to the Australian Information Commissioner about the handling of personal information. Please also note that the Freedom of Information Act 1982 gives you access to certain information and documents held by the Australian Government and its agencies. You have a right under that Act to seek access to that information or documents, and to seek amendment of records containing personal information that is incomplete, incorrect, out of date or misleading.
                               </td>
                             </tr>
                           </tbody>
@@ -556,7 +157,7 @@
                             </tr>
                             <tr>
                               <td>
-                                It is important that you tell us about any changes to your circumstances including your name, contact details, address or children included in this application as soon as possible. If you applied online, you can update your details through immi-account. Alternatively, use <a href="https://www.border.gov.au/Forms/Documents/929.pdf" target="_blank" alt="">Form 929 Change of address and/or passport details</a> or contact the Citizenship information line.
+                                It is important that you tell us about any changes to your circumstances including changing your name, contact details, address or information about children included in your application. If you applied online, you can update your details through Immi-account. Alternatively, use <a href="https://www.border.gov.au/Forms/Documents/929.pdf" target="_blank" alt="">Form 929 Change of address and/or passport details</a> or contact the Citizenship Information Line.
                               </td>
                             </tr>
                           </tbody>
@@ -576,13 +177,18 @@
                             <tr>
                               <td>
                                 <strong>General enquires</strong><br/>
-                                Citizenship Information Line. Call 131 880 Monday to Friday 8.30am - 4.30pm.
+                                Citizenship Information Line. Call 131 880 between Monday to Friday 8.30am - 4.30pm.
+                              </td>
+                            </tr> 
+                            <tr>
+                              <td>
+                                &nbsp;
                               </td>
                             </tr>
                             <tr>
                               <td>
                                 <strong>Compliments and complaints</strong><br/>
-                                Global Feedback Unit. Call 133 177 Monday to Friday 8.30am - 4.30pm.
+                                Global Feedback Unit. Call 133 177 between Monday to Friday: 8.30am - 4.30pm
                               </td>
                             </tr>
                           </tbody>

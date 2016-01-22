@@ -2,7 +2,7 @@
     <table>
       <tbody>
         <tr>
-          <td>
+          <td align="left">
             <h1>{{headerText}}</h1>
           </td>
         </tr>
@@ -11,50 +11,55 @@
             <table>
               <tbody>
                 <tr>
-                  <td>
-                    <table>
-                      <tr>
-                        <td style="width: 18px;">
-                          Location:
-                        </td>
-                        <td>
-                          <!--DO NOT REMOVE: #UnitName -->
-                          #UnitAddress  <a href="https://www.google.com.au/maps?daddr=#UnitAddress ">Directions</a>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td style="width: 18px;">
-                         Client ID:
-                        </td>
-                        <td>
-                          #CustomerExtRef
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                         &nbsp;
-                        </td>
-                        <td>
-                          <a href="{{websiteLink}}login?id=#CustomerExtRef" style="white-space:nowrap;display:block;text-decoration:none" target="_blank">
-                            <table style="font-weight:200;font-family:Helvetica,Arial,sans-serif" width="90px" border="0" cellpadding="0" cellspacing="0" width="100%">
-                              <tbody>
-                                <tr>
-                                  <td style="border-radius:2px;background-color:rgb(0,140,201);padding:6px 16px;font-size:16px;border-color:rgb(0,140,201);border-width:1px;border-style:solid" bgcolor="008CC9">
-                                    <a href="{{websiteLink}}login?id=#CustomerExtRef" style="color:rgb(255,255,255);white-space:nowrap;display:block;text-decoration:none" target="_blank">
-                                      Book Now <img src="{{angleIcon}}" alt="" />
-                                    </a>
-                                  </td>
-                                </tr>
-                              </tbody>
-                            </table>
-                          </a>
-                        </td>
-                      </tr>
-                    </table>
+                  <td style="width: 135px;">
+                    Name:
                   </td>
-                  <td width="130px">
-                    <a href="https://www.google.com.au/maps?daddr=#UnitAddress " alt="Go to Google Maps to see directions" target="_blank">
-                      <img src="https://maps.googleapis.com/maps/api/staticmap?center=#UnitAddress &size=190x120&maptype=roadmap&zoom=13&markers=color:redC%7C#UnitAddress "/>
+                  <td>
+                    <strong>#FirstName #LastName</strong>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="width: 135px;">
+                    Client ID:
+                  </td>
+                  <td>
+                    <strong>#PersonalId</strong>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="width: 135px;">
+                    Location:
+                  </td>
+                  <td>
+                    <!--DO NOT REMOVE: #UnitName -->
+                    <strong><a href="https://www.google.com.au/maps?daddr=#UnitAddress ">#UnitAddress</a></strong>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="width: 135px;">
+                    Appointment type:
+                  </td>
+                  <td>
+                    <strong>{{appointmentType}}</strong>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="width: 135px;">
+                     &nbsp;
+                  </td>
+                  <td>
+                    <a href="{{websiteLink}}login?id=#PersonalId" style="white-space:nowrap;display:block;text-decoration:none" target="_blank">
+                      <table style="font-weight:200;font-family:Helvetica,Arial,sans-serif" width="90px" border="0" cellpadding="0" cellspacing="0" width="100%">
+                        <tbody>
+                          <tr>
+                            <td style="border-radius:2px;background-color:rgb(0,140,201);padding:6px 16px;font-size:16px;border-color:rgb(0,140,201);border-width:1px;border-style:solid" bgcolor="008CC9">
+                              <a href="{{websiteLink}}login?id=#PersonalId" style="color:rgb(255,255,255);white-space:nowrap;display:block;text-decoration:none" target="_blank">
+                                Book Now
+                              </a>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
                     </a>
                   </td>
                 </tr>
@@ -67,18 +72,13 @@
   </td>
 </tr>
 <tr>
-    <td align="left">
-      <em>This is a new service. If you need any help using it, please call us on 1300 729 080 between 8.30am and 4.30pm Monday to Friday.</em>
-    </td>
-</tr>
-<tr>
  <td align="left">
     <div style="border-top:2px black solid;"></div>
-      <h2>Important notes about attending your citizenship appointment</h2>
+      <h2>Important notes about your citizenship appointment</h2>
       <ul style="padding:0px; margin-top:1rem; marging-bottom:1rem;list-style: disc inside;" padding="0">
+        <li>It is very important that you attend this appointment as this is your opportunity to demonstrate that you meet the legal requirements for citizenship.</li>
         <li>Please select the soonest available appointment that suits you.</li>
-        <li>You are required to schedule an appointment within 2 weeks of receiving this information.</li>
-        <li>Please allow up to 2 hours for your appointment.</li>
-        <li>If you do not attend 3 appointments in total, a decision may be made on your application.</li>
+        <li>You are required to schedule an appointment within <strong>2 weeks</strong> of receiving this information.</li>
+        <li>Appointments run for approximately 2 hours.</li>
       </ul>
   </td>

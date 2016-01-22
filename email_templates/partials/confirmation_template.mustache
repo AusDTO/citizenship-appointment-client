@@ -3,7 +3,7 @@
       <tbody>
         <tr>
           <td align="left">
-            <h1>Your appointment is confirmed</h1>
+            <h1>Your citizenship appointment has been scheduled</h1>
           </td>
         </tr>
         <tr>
@@ -11,39 +11,64 @@
             <table>
               <tbody>
                 <tr>
-                  <td>
-                    <table>
-                      <tr>
-                        <td style="width: 18px;">
-                          <img src="{{locationIcon}}" alt=""/>
-                        </td>
-                        <td>
-                          <!--DO NOT REMOVE: #UnitName -->
-                          #UnitAddress  <a href="https://www.google.com.au/maps?daddr=#UnitAddress ">Directions</a>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td style="width: 18px;">
-                         <img src="{{calendarIcon}}" alt=""/>
-                        </td>
-                        <td>
-                          @FormatDate(#ReferenceDate, dddd dd MMMM hh:mm tt)
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                         &nbsp;
-                        </td>
-                        <td>
-                          <a href="{{websiteLink}}login?id=#CustomerExtRef">Reschedule</a>
-                        </td>
-                      </tr>
-                    </table>
+                  <td style="width: 70px">
+                    Name:
                   </td>
-                  <td width="130px">
-                    <a href="https://www.google.com.au/maps?daddr=#UnitAddress " alt="Go to Google Maps to see directions" target="_blank">
-                      <img src="https://maps.googleapis.com/maps/api/staticmap?center=#UnitAddress &size=190x120&maptype=roadmap&zoom=13&markers=color:redC%7C#UnitAddress "/>
-                    </a>
+                  <td>
+                    <strong>#FirstName #LastName</strong>
+                  </td>
+                  <td rowspan="4" align="top" width="140px" style="vertical-align:top">
+                    <img src="{{websiteLink}}barcode/pdf417/#PersonalId" alt="Barcode to scan on your arrival"/>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    Client ID:
+                  </td>
+                  <td>
+                    <strong>#PersonalId</strong>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    Date:
+                  </td>
+                  <td>
+                    <strong>@FormatDate(#ReferenceDate, dddd dd MMMM yyyy)</strong>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    Time:
+                  </td>
+                  <td>
+                    <strong>@FormatDate(#ReferenceDate, hh:mm tt)</strong>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    Location:
+                  </td>
+                  <td colspan="2">
+                    <!--DO NOT REMOVE: #UnitName -->
+                     <strong>#UnitAddress</strong>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    Appointment type:
+                  </td>
+                  <td colspan="2">
+                    <strong>{{appointmentType}}</strong>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                     &nbsp;
+                  </td>
+                  <td colspan="2">
+                    <a href="https://www.google.com.au/maps?daddr=#UnitAddress ">Directions</a>
+                    <a href="{{websiteLink}}login?id=#PersonalId">Reschedule</a>
                   </td>
                 </tr>
               </tbody>
@@ -55,39 +80,12 @@
   </td>
 </tr>
 <tr>
-  <td align="left">
+ <td align="left">
     <div style="border-top:2px black solid;"></div>
-    <h2>Prepare for your appointment</h2>
-    <ul style="padding:0px; margin-top:1rem; marging-bottom:1rem;list-style: disc inside;" padding="0">
-      <li>Collect all originals of the <a href="https://www.border.gov.au/Trav/Citi/Appl/What-documents-do-you-need" target="_blank">required documents</a></li>
-      <li>Translate non-english documents</li>
-      <li>Study for the <a href="https://www.border.gov.au/Trav/Citi/Lear/Citizenship-test" target="_blank">citizenship test</a></li>
-    </ul>
-  </td>
-</tr>
-<tr>
-  <td align="left">
-    <div style="border-top:2px black solid;"></div>
-    <table>
-      <tbody>
-        <tr>
-          <td align="left">
-            <h2>When you arrive</h2>
-             <ul style="padding:0px; margin-top:1rem; marging-bottom:1rem;list-style: disc inside;" padding="0">
-              <li>Please allow enough <a href="https://www.google.com.au/maps?daddr=#UnitAddress " target="_blank">travel time</a> to arrive at least 5 minutes prior to your appointment</li>
-              <li>The appointment will take place at #UnitAddress . If you need special assistance, please <a href="https://www.border.gov.au/about/contact/make-enquiry" target="_blank">let us know</a></li>
-              <li>Collect a ticket at the Citizenship kiosk by entering your Client ID or scanning the barcode</li>
-              <li>Wait until your number is called at the assigned counter</li>
-            </ul>
-          </td>
-          <td align="center">
-            <div>
-              <img src="{{websiteLink}}barcode/pdf417/#PersonalId" alt="Barcode to scan on your arrival"/>
-            </div>
-            <br />
-            <em>For faster check-in, scan this barcode at the reception on your arrival</em>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+      <h2>Important notes about your citizenship appointment</h2>
+      <ul style="padding:0px; margin-top:1rem; marging-bottom:1rem;list-style: disc inside;" padding="0">
+        <li>It is very important that you attend this appointment as this is your opportunity to demonstrate that you meet the legal requirements for citizenship.</li>
+        <li>If you do not attend your appointment, a decision may be made on your appointment.</li>
+        <li>Appointments run for approximately 2 hours.</li>
+      </ul>
   </td>
