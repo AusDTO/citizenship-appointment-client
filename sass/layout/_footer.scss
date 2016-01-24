@@ -43,6 +43,7 @@
   }
 
   div.footerlinks {
+    padding-left: 12rem;
     position: absolute;
     bottom: 0.5rem;
     right: 0;
@@ -63,7 +64,8 @@
     }
 
     div.footerlinks {
-      position: static;
+        padding-left: 0;
+        position: static;
     }
 
     .desktop {

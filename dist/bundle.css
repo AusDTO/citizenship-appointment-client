@@ -810,6 +810,7 @@ ul li {
     padding: 10px;
     white-space: nowrap; }
   .footer div.footerlinks {
+    padding-left: 12rem;
     position: absolute;
     bottom: 0.5rem;
     right: 0; }
@@ -821,6 +822,7 @@ ul li {
     .footer div.footerlink {
       display: block; }
     .footer div.footerlinks {
+      padding-left: 0;
       position: static; }
     .footer .desktop {
       display: none; }
