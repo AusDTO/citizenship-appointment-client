@@ -1,9 +1,13 @@
-.ClientIdHelp {
+.ClientId--show,
+.ClientId--hide {
     margin-bottom: 1rem;
 }
 
-.ClientIdHelp-image {
+.ClientId--hide {
     display: none;
+}
+
+.ClientIdHelp-image {
     max-width: 60rem;
     margin-top: 2rem;
 }

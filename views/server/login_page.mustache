@@ -72,12 +72,15 @@
                     <label for="clientId">Client ID</label>
                     <input class="LoginForm-input--clientId" id="clientId" maxlength="11" type="text" name="username" {{#clientId}}value="{{clientId}}"{{/clientId}}/>
 
-                    <div class="row">
+                    <div class="row ClientId--show">
                         <div class="eleven columns">
-                            <div class="ClientIdHelp">
-                                <a href="#" class="ClientIdHelp-link">How to find your Client ID</a>
-                                <img src="images/client_id_help.png" class="ClientIdHelp-image" alt="Find the ID in your letter"/>
-                            </div>
+                            <a href="#help" class="ClientIdHelp-link">How to find your Client ID</a>
+                        </div>
+                    </div>
+                    <div class="row ClientId--hide">
+                        <div class="eleven columns">
+                            <a href="#" class="ClientIdHelp-link">Hide how to find your Client ID</a>
+                            <img src="images/client_id_help.png" class="ClientIdHelp-image" alt="Find the ID in your letter"/>
                         </div>
                     </div>
                 </div>
