@@ -795,7 +795,7 @@ ul li {
 
 .footer {
   background-color: #222C35;
-  padding: 2rem; }
+  padding: 2rem 0; }
   .footer img {
     height: 7rem;
     vertical-align: middle; }
@@ -835,15 +835,24 @@ ul li {
     .footer .Feedback-survey--callout {
       display: block; } }
 
-.ClientId-show,
-.ClientId-hide {
+.ClientIdHelp-show,
+.ClientIdHelp-hide {
   margin-bottom: 1rem; }
 
-.ClientId-hide {
+.ClientIdHelp-mobile {
+  display: none; }
+
+.ClientIdHelp-desktop {
+  display: block; }
+
+.ClientIdHelp-show {
+  display: block; }
+
+.ClientIdHelp-hide {
   display: none; }
 
 .ClientIdHelp-image {
-  max-width: 60rem;
+  max-width: 50rem;
   margin-top: 2rem; }
 
 .LoginForm-elements {
@@ -853,8 +862,8 @@ ul li {
   display: inline-block;
   margin-right: 2rem; }
 
-.LoginForm-input--clientId {
-  margin-bottom: 5px; }
+.LoginForm-input > * {
+  margin-bottom: .5rem; }
 
 @media (max-width: 550px) {
   .ClientIdHelp-image {
@@ -863,6 +872,16 @@ ul li {
     display: block; }
   .LoginForm-input {
     display: block; } }
+
+@media (max-width: 844px) {
+  .ClientIdHelp-mobile {
+    display: block; }
+  .ClientIdHelp-desktop {
+    display: none; }
+  .LoginForm-input > * {
+    margin-bottom: 1.5rem; }
+  .LoginForm-input--clientId {
+    margin-bottom: .5rem; } }
 
 .warning-link {
   text-decoration: none; }

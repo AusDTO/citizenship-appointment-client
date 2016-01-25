@@ -69,15 +69,17 @@
                 <label for="clientId">Client ID</label>
                 <input class="LoginForm-input--clientId" id="clientId" maxlength="11" type="text" name="username" {{#clientId}}value="{{clientId}}"{{/clientId}}/>
 
-                <div class="row ClientId-show">
-                    <div class="eleven columns">
-                        <a href="#help" class="ClientIdHelp-show--link">How to find your Client ID</a>
+                <div class="ClientIdHelp-mobile">
+                    <div class="row ClientIdHelp-show">
+                        <div class="eleven columns">
+                            <a href="#help" class="ClientIdHelp-show--link">How to find your Client ID</a>
+                        </div>
                     </div>
-                </div>
-                <div class="row ClientId-hide">
-                    <div class="eleven columns">
-                        <a href="#" class="ClientIdHelp-hide--link">Hide how to find your Client ID</a>
-                        <img src="images/client_id_help.png" class="ClientIdHelp-image" alt="Find the ID in your letter"/>
+                    <div class="row ClientIdHelp-hide">
+                        <div class="eleven columns">
+                            <a href="#nohelp" class="ClientIdHelp-hide--link">Hide how to find your Client ID</a>
+                            <img src="images/client_id_help.png" class="ClientIdHelp-image" alt="Find the ID in your letter"/>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -94,6 +96,22 @@
                 </button>
             </div>
             </span>
+                <div class="ClientIdHelp-desktop">
+                    <div class="row ClientIdHelp-show">
+                        <div class="eleven columns">
+                            <a href="#help" class="ClientIdHelp-show--link">How to find your Client ID</a>
+                        </div>
+                    </div>
+                    <div class="row ClientIdHelp-hide">
+                        <div class="eleven columns">
+                            <a href="#nohelp" class="ClientIdHelp-hide--link">Hide how to find your Client ID</a>
+                            </br>
+                            <img src="images/client_id_help.png" class="ClientIdHelp-image" alt="Find the ID in your letter"/>
+                        </div>
+                    </div>
+                </div>
+
+
         </form>
 
     </div>

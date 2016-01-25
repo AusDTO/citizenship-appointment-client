@@ -20,7 +20,7 @@
 
 .footer {
   background-color: $govau-slate;
-  padding: 2rem;
+  padding: 2rem 0;
 
   img {
     height: 7rem;
@@ -62,7 +62,6 @@
   }
 
   @media (max-width: 550px) {
-
      div.footerlink {
       display: block;
     }
