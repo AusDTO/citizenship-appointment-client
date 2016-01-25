@@ -31,14 +31,14 @@
           {{#hasEmail}}
             <h2 class="subtitle">We have sent this confirmation to your email address</h2>
           {{/hasEmail}}
-          <div>
+            <div>
+                <img src="images/calendar.svg" class="icon" alt ="Calendar icon"/>
+                &nbsp;<strong>{{selected_appointment}}</strong>
+            </div>
+
+            <div>
             <img src="images/map-marker.svg" class="icon" alt ="Location icon"/>
             &nbsp;<a href="https://www.google.com.au/maps?daddr={{location}}" target="_blank">{{ location }}</a>
-          </div>
-
-          <div>
-            <img src="images/calendar-o.svg" class="icon" alt ="Calendar icon"/>
-            &nbsp;{{selected_appointment}}
           </div>
 
           <br/>

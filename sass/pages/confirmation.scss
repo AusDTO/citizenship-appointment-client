@@ -80,7 +80,7 @@
 
 .dropdown ul {
     list-style: none;
-    width: 100%;
+    min-width: 23.6rem;
     background-color: white;
     border: 1px solid #d7d8de;
     position: absolute;
@@ -156,6 +156,10 @@
 
 //END: Add to calendar dropdown
 
+.button#addToCalendar,
+.button#print-page {
+    min-width: 23.6rem;
+}
 
 // BEGIN: mobile media query
 
@@ -173,6 +177,9 @@
         width: 100%;
     }
 
+    .dropdown ul {
+        width: 100%;
+    }
 }
 
 //END: mobile change

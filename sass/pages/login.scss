@@ -70,7 +70,6 @@
     .LoginForm-input--clientId {
         margin-bottom: .5rem;
     }
-
 }
 
 .warning-banner {
@@ -105,4 +104,8 @@
 button.with-icon > img,
 button.with-icon > span {
   vertical-align: middle;
+}
+
+button.with-icon {
+    padding: 0 1.5rem 0 2rem;
 }

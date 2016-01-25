@@ -650,7 +650,7 @@ input[type="email"], input[type="number"], input[type="search"], input[type="tex
   border-radius: 0;
   text-transform: none;
   margin-right: 1rem;
-  padding: 0 1.5rem 0 2rem;
+  padding: 0 2rem;
   background: #0060BD;
   color: white;
   font-size: 1.6rem;
@@ -908,6 +908,9 @@ button.with-icon > img,
 button.with-icon > span {
   vertical-align: middle; }
 
+button.with-icon {
+  padding: 0 1.5rem 0 2rem; }
+
 .steps-and-close-div {
   margin-top: 2rem;
   margin-bottom: 2rem; }
@@ -974,7 +977,7 @@ button.with-icon > span {
 
 .dropdown ul {
   list-style: none;
-  width: 100%;
+  min-width: 23.6rem;
   background-color: white;
   border: 1px solid #d7d8de;
   position: absolute;
@@ -1038,6 +1041,10 @@ button.with-icon > span {
 .dropdown li i {
   margin-right: 5px; }
 
+.button#addToCalendar,
+.button#print-page {
+  min-width: 23.6rem; }
+
 @media (max-width: 550px) {
   .barcode {
     font-size: 7rem;
@@ -1045,6 +1052,8 @@ button.with-icon > span {
   .min-left-margin {
     margin-left: 0rem; }
   .dropdown {
+    width: 100%; }
+  .dropdown ul {
     width: 100%; } }
 
 .Calendar-info {
