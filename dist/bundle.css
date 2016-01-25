@@ -1248,7 +1248,8 @@ button.with-icon > span {
   margin-top: 1rem; }
 
 .SelectionConfirmation-label {
-  padding-right: 1rem; }
+  padding-right: 1rem;
+  display: inline-block; }
 
 @media (max-width: 640px) {
   .Calendar-header--dayLabel:after {
@@ -1271,6 +1272,9 @@ button.with-icon > span {
     font-size: 0.3em;
     font-weight: bold;
     min-width: 100%;
-    padding: 0; } }
+    padding: 0; }
+  .SelectionConfirmation-label {
+    padding-bottom: 1rem;
+    display: block; } }
 
 /*# sourceMappingURL=bundle.css.map */

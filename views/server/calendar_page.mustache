@@ -32,11 +32,10 @@
         <h1>Select time and date</h1>
 
         <div class="Calendar-info">
-            <div class="Calendar-info--field">
-                <img src="images/map-marker.svg" class="icon" alt =""/>
-                <strong class="icon-label">&nbsp;Location:</strong>
-                &nbsp;<a href="https://www.google.com.au/maps?daddr={{location}}" target="_blank">{{ location }}</a>
-            </div>
+            <img src="images/map-marker.svg" class="icon" alt =""/>
+            <strong class="icon-label">&nbsp;Location:</strong>
+            &nbsp;<a href="https://www.google.com.au/maps?daddr={{location}}" target="_blank">{{ location }}</a>
+            </br>
             {{#current_appointment }}
             <div class="Calendar-info--field">
                 <img src="images/calendar-o.svg" class="icon" alt =""/>

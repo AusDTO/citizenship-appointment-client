@@ -303,6 +303,7 @@
 
 .SelectionConfirmation-label {
     padding-right: 1rem;
+    display: inline-block;
 }
 
 // Responsive Styles (Mobile)
@@ -340,6 +341,11 @@
         font-weight: bold;
         min-width: 100%;
         padding: 0;
+    }
+
+    .SelectionConfirmation-label {
+        padding-bottom: 1rem;
+        display: block;
     }
 
 }
