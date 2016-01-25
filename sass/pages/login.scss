@@ -1,5 +1,5 @@
 .ClientIdHelp {
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
 }
 
 .ClientIdHelp-image {
@@ -8,9 +8,17 @@
     margin-top: 2rem;
 }
 
+.LoginForm-elements {
+    display: inline-block;
+}
+
 .LoginForm-input {
     display: inline-block;
     margin-right: 2rem;
+}
+
+.LoginForm-input--clientId {
+    margin-bottom: 5px;
 }
 
 // Responsive Styles (Mobile)
@@ -19,6 +27,10 @@
 @media (max-width: 550px) {
     .ClientIdHelp-image {
         width: 100%;
+    }
+
+    .LoginForm-elements {
+        display: block;
     }
 
     .LoginForm-input {

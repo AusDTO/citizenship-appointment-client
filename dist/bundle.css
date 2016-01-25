@@ -620,7 +620,7 @@ form {
 
 body {
   color: #333333;
-  font-size: 14px;
+  font-size: 16px;
   font-family: "Open Sans", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: normal;
   line-height: 24px; }
@@ -653,8 +653,8 @@ input[type="email"], input[type="number"], input[type="search"], input[type="tex
   padding: 0 1.5rem 0 2rem;
   background: #0060BD;
   color: white;
-  font-size: 1.5rem;
-  height: 4rem; }
+  font-size: 1.6rem;
+  letter-spacing: 0.18px; }
 
 .button:focus, .button:hover,
 input.button:focus, input.button:hover {
@@ -767,7 +767,7 @@ ul li {
 
 @media (max-width: 550px) {
   .MainContainer {
-    padding-bottom: 335px;
+    padding-bottom: 380px;
     /* height of your footer */ }
   .container {
     width: 100%;
@@ -831,20 +831,28 @@ ul li {
       margin-top: 1rem; } }
 
 .ClientIdHelp {
-  margin-bottom: 2rem; }
+  margin-bottom: 1rem; }
 
 .ClientIdHelp-image {
   display: none;
   max-width: 60rem;
   margin-top: 2rem; }
 
+.LoginForm-elements {
+  display: inline-block; }
+
 .LoginForm-input {
   display: inline-block;
   margin-right: 2rem; }
 
+.LoginForm-input--clientId {
+  margin-bottom: 5px; }
+
 @media (max-width: 550px) {
   .ClientIdHelp-image {
     width: 100%; }
+  .LoginForm-elements {
+    display: block; }
   .LoginForm-input {
     display: block; } }
 
@@ -1116,10 +1124,11 @@ button.with-icon > span {
 
 .DateCell-content--day {
   margin: 0;
-  padding: 2rem 0 0 0;
+  padding: 2rem 0 1rem 0;
   font-weight: bold; }
 
 .DateCell-content--availableTimesCount {
+  line-height: 1.1em;
   font-size: 0.5em; }
 
 .today::before {
@@ -1245,10 +1254,12 @@ button.with-icon > span {
     left: 0;
     width: 100%;
     height: 100%; }
+  .DateCell {
+    font-size: 1.5em; }
   .DateCell-content {
     max-height: 4.5rem; }
   .DateCell-content--day {
-    padding: 1rem; }
+    padding: 1rem 0; }
   .DateCell-content--availableTimesCount {
     display: none; }
   .today::before {
