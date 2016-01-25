@@ -141,11 +141,12 @@
 
 .DateCell-content--day {
     margin: 0;
-    padding: 2rem 0 0 0;
+    padding: 2rem 0 1rem 0;
     font-weight: bold;
 }
 
 .DateCell-content--availableTimesCount {
+    line-height: 1.1em;
     font-size: 0.5em;
 }
 
@@ -318,12 +319,16 @@
         height: 100%;
     }
 
+    .DateCell {
+        font-size: 1.5em;
+    }
+
     .DateCell-content {
         max-height: 4.5rem;
     }
 
     .DateCell-content--day {
-        padding: 1rem;
+        padding: 1rem 0;
     }
 
     .DateCell-content--availableTimesCount {
