@@ -15,12 +15,12 @@ test('should successfully login and book appointment', (assert) => {
       .then((title) => {
         assert.equal(title, 'Citizenship Appointment Booking');
       })
-      .click('.ClientIdHelp-link')
+      .click('.ClientIdHelp-show--link')
       .isVisible('.ClientIdHelp-image')
       .then((foo) => {
         assert.equal(true, foo );
       })
-      .click('.ClientIdHelp-link')
+      .click('.ClientIdHelp-hide--link')
       .isVisible('.ClientIdHelp-image')
       .then((foundElement) => {
         assert.equal(false, foundElement );

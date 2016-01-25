@@ -64,39 +64,36 @@
         {{/expired}}
 
         <form class="LoginForm" action="login" method="post" autocomplete="off">
-            <input name="{{ _csrf.parameterName }}" type="hidden" value="{{ _csrf.token }}"/>
+            <span class="LoginForm-elements">
+            <div class="LoginForm-input">
+                <label for="clientId">Client ID</label>
+                <input class="LoginForm-input--clientId" id="clientId" maxlength="11" type="text" name="username" {{#clientId}}value="{{clientId}}"{{/clientId}}/>
 
-
-                <span class="LoginForm-elements">
-                <div class="LoginForm-input">
-                    <label for="clientId">Client ID</label>
-                    <input class="LoginForm-input--clientId" id="clientId" maxlength="11" type="text" name="username" {{#clientId}}value="{{clientId}}"{{/clientId}}/>
-
-                    <div class="row ClientId--show">
-                        <div class="eleven columns">
-                            <a href="#help" class="ClientIdHelp-link">How to find your Client ID</a>
-                        </div>
-                    </div>
-                    <div class="row ClientId--hide">
-                        <div class="eleven columns">
-                            <a href="#" class="ClientIdHelp-link">Hide how to find your Client ID</a>
-                            <img src="images/client_id_help.png" class="ClientIdHelp-image" alt="Find the ID in your letter"/>
-                        </div>
+                <div class="row ClientId-show">
+                    <div class="eleven columns">
+                        <a href="#help" class="ClientIdHelp-show--link">How to find your Client ID</a>
                     </div>
                 </div>
-                </span>
+                <div class="row ClientId-hide">
+                    <div class="eleven columns">
+                        <a href="#" class="ClientIdHelp-hide--link">Hide how to find your Client ID</a>
+                        <img src="images/client_id_help.png" class="ClientIdHelp-image" alt="Find the ID in your letter"/>
+                    </div>
+                </div>
+            </div>
+            </span>
 
-                <span class="LoginForm-elements">
-                    <div class="LoginForm-input">
-                    <label for="familyName">Family Name</label>
-                    <input id="familyName" type="text" name="familyName"/>
-                </div>
+            <span class="LoginForm-elements">
                 <div class="LoginForm-input">
-                    <button type="submit" class="button with-icon" id="submitLogin">
-                        <span>Next</span><img src="images/angle-right-white.svg" class="button-icon" alt =""/>
-                    </button>
-                </div>
-                </span>
+                <label for="familyName">Family Name</label>
+                <input id="familyName" type="text" name="familyName"/>
+            </div>
+            <div class="LoginForm-input">
+                <button type="submit" class="button with-icon" id="submitLogin">
+                    <span>Next</span><img src="images/angle-right-white.svg" class="button-icon" alt =""/>
+                </button>
+            </div>
+            </span>
         </form>
 
     </div>

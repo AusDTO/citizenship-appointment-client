@@ -835,11 +835,11 @@ ul li {
     .footer .Feedback-survey--callout {
       display: block; } }
 
-.ClientId--show,
-.ClientId--hide {
+.ClientId-show,
+.ClientId-hide {
   margin-bottom: 1rem; }
 
-.ClientId--hide {
+.ClientId-hide {
   display: none; }
 
 .ClientIdHelp-image {
