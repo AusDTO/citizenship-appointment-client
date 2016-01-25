@@ -14,6 +14,10 @@
     bottom: 0;
 }
 
+.Feedback-survey--callout {
+    display: inline-block;
+}
+
 .footer {
   background-color: $govau-slate;
   padding: 2rem;
@@ -77,5 +81,8 @@
       margin-top: 1rem;
     }
 
+    .Feedback-survey--callout {
+      display: block;
+    }
   }
 }

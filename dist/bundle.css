@@ -790,6 +790,9 @@ ul li {
   position: absolute;
   bottom: 0; }
 
+.Feedback-survey--callout {
+  display: inline-block; }
+
 .footer {
   background-color: #222C35;
   padding: 2rem; }
@@ -828,7 +831,9 @@ ul li {
       display: none; }
     .footer .mobile {
       display: inherit;
-      margin-top: 1rem; } }
+      margin-top: 1rem; }
+    .footer .Feedback-survey--callout {
+      display: block; } }
 
 .ClientIdHelp {
   margin-bottom: 1rem; }
