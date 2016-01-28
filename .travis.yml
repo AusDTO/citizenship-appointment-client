@@ -1,7 +1,7 @@
 language: node_js
 # Controlled by .nvmrc
 #node_js:
-#  - "4.2"
+#  - "5.5"
 
 sudo: false
 
@@ -26,3 +26,11 @@ script:
 
 notifications:
   email: false
+
+deploy:
+  provider: heroku
+  api_key:
+    secure: DN4qKnc3XIv7iDvDepmMXql49yVJUcxV4LQ6q4GfclM8JTq/jn369xXS7ZuHtX8qzJ3EpCT0l535nWBnU5vYaGEASavv4Zz7kKtApx/rPq0+lwvZP21NCysMFJjbWivTKOQeXpGl2uLDtwmD3PNkrZuFnYDCMYkGUln5mqHUp9+GkuE/+eZ2td0J4dp29dgm+hPPFYg764NVTIovi89VuC+TNHxoqSCV/YAQccMs/l6YAys0Caq1qC0Wr0nlUToaUDdUfyfaMr6JquCvmtYmi2Q6WT10QymUCnUhxFkgceIG4j2b3FbjP6FGlxOC5he6vW3bS82xF2Xchm1AvS9M1BocEHmMTgDRFP0FEH042PKHbA3aFyR/eAAyK0JRg3WFpTAtZcxDBDiRxPBtb1QmjtNRhVQYmBpstOSDqKpRl0Q/mfN1WMw1bXPLae6O7W4cp6NDW1rCrMubs1LA1V6RFnexYsg1MEPrGrSp2/QMBMiLDnW0jrB3h/Qw79IMU1CM3RwFFGH8svFPMyKgJI8o4SVo7X7+FoZDamkiM4p2tZBCUw0ADK1+SgHQlgK0lrBOJWyfPjGgG1tB4E1+O+Yu6coLAXnVKeKzalsZn0+L1L2ADnbeV4HSU79NXB35RWcQqBWt4KoUYKVcBYqVo1YGNUHQ6NJK8MN9uCTI5NkKFfc=
+  app: citizenship-appointment-beta
+  on:
+    repo: AusDTO/citizenship-appointment-client
