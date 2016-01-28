@@ -40,12 +40,13 @@ if (process.env.NODE_ENV !== "production") {
     sourceMap: path.join(__dirname, 'dist', 'bundle.css.map'),
     prefix: publicPath
   }));
+
+  app.use(require('connect-livereload')());  // runs livereload server and serves livereload.js
+  require('express-livereload')(app, {watchDir: path.join(__dirname), exts: ['mustache']});  // inserts <script> reference to livereload.js
 }
 
 app.use(publicPath, express.static(path.join(__dirname, 'dist')));
 app.use('/', express.static(path.join(__dirname, 'test_data')));
-app.use(require('connect-livereload')());  // runs livereload server and serves livereload.js
-require('express-livereload')(app, {watchDir: path.join(__dirname), exts: ['mustache']});  // inserts <script> reference to livereload.js
 
 app.use('/images', express.static(path.join(__dirname, 'images')));
 
