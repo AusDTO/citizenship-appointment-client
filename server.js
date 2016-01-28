@@ -2,9 +2,6 @@
 
 const express = require('express'),
     consolidate = require('consolidate'),
-    sassMiddleware = require('node-sass-middleware'),
-    webpack = require('webpack'),
-    webpackMiddleware = require('webpack-dev-middleware'),
     bodyParser = require('body-parser'),
     urlencodedParser = bodyParser.urlencoded({extended: false}),
     uuid = require('node-uuid'),
@@ -21,6 +18,10 @@ app.engine('mustache', consolidate.hogan);
 app.set('views', path.join(__dirname, 'views', 'server'));
 
 if (process.env.NODE_ENV !== "production") {
+  const sassMiddleware = require('node-sass-middleware'),
+    webpack = require('webpack'),
+    webpackMiddleware = require('webpack-dev-middleware');
+
   app.use(webpackMiddleware(webpack(require('./webpack.config')), {
     noInfo: false,
     quiet: false,
