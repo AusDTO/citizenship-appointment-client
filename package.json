@@ -20,16 +20,12 @@
     "babel-core": "^6.2.1",
     "babel-loader": "^6.2.0",
     "babel-preset-es2015": "^6.3.13",
-    "body-parser": "^1.14.2",
     "connect-livereload": "^0.5.4",
-    "consolidate": "^0.13.1",
-    "express": "^4.13.3",
     "express-livereload": "0.0.24",
     "faucet": "0.0.1",
     "mime": "^1.3.4",
     "mkdirp": "^0.5.1",
     "mustache-loader": "^0.3.0",
-    "node-uuid": "^1.4.7",
     "node-sass": "^3.4.2",
     "node-sass-middleware": "^0.9.7",
     "sauce-connect-launcher": "^0.14.0",
@@ -42,10 +38,13 @@
   },
   "dependencies": {
     "babel-polyfill": "^6.3.14",
+    "body-parser": "^1.14.2",
     "bwip-js": "^0.15.1",
+    "consolidate": "^0.13.1",
+    "express": "^4.13.3",
     "hogan.js": "^3.0.2",
-    "jquery": "^2.1.4",
     "moment": "^2.10.6",
+    "node-uuid": "^1.4.7",
     "skeleton-scss": "^2.0.4"
   }
 }
