@@ -17,7 +17,19 @@ app.set('view engine', 'mustache');
 app.engine('mustache', consolidate.hogan);
 app.set('views', path.join(__dirname, 'views', 'server'));
 
-if (process.env.NODE_ENV !== "production") {
+app.set('trust proxy', true);
+app.set('x-powered-by', false);
+
+if (process.env.FORCE_SSL) {
+  app.use((req, res, next) => {
+    if (!req.secure) {
+      return res.redirect(['https://', req.hostname, req.url].join(''));
+    }
+    return next();
+  });
+}
+
+if (process.env.NODE_ENV !== 'production') {
   const sassMiddleware = require('node-sass-middleware'),
     webpack = require('webpack'),
     webpackMiddleware = require('webpack-dev-middleware');
@@ -92,9 +104,6 @@ app.get('/get_available_times', (req, res) => {
       ]
     };
   }
-  //res.status(500);
-  //res.status(401);
-  //process.exit();
   res.json(json);
 });
 
@@ -222,7 +231,7 @@ app.get('/googlecalendar', function(req, res) {
     'details': 'For details please refer to your citizenship appointment email/letter.',
     'trp': 'false'
   });
-  res.redirect('http://www.google.com/calendar/event?' + calendar_event);
+  res.redirect('https://www.google.com/calendar/event?' + calendar_event);
 });
 
 app.get('/yahoocalendar', function(req, res) {
@@ -234,7 +243,7 @@ app.get('/yahoocalendar', function(req, res) {
     'in_loc': '2 Lonsdale Street, Melbourne VIC 3000, Australia',
     'DESC': 'For details please refer to your citizenship appointment email/letter.'
   });
-  res.redirect('http://calendar.yahoo.com/?' + calendar_event);
+  res.redirect('https://calendar.yahoo.com/?' + calendar_event);
 });
 
 app.get('/outlookonline', function(req, res) {
@@ -246,7 +255,7 @@ app.get('/outlookonline', function(req, res) {
     'location': '2 Lonsdale Street, Melbourne VIC 3000, Australia',
     'description': 'For details please refer to your citizenship appointment email/letter.',
   });
-  res.redirect('http://calendar.live.com/calendar/calendar.aspx?' + calendar_event);
+  res.redirect('https://calendar.live.com/calendar/calendar.aspx?' + calendar_event);
 });
 
 let server = app.listen(default_port, () => {
