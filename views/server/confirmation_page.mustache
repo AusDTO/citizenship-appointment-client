@@ -23,16 +23,23 @@
     </div>
     <div class="container">
       <div class="row">
-        <div class="eight columns">
+        <div class="nine columns">
 
           <h1 class="title">Your appointment is scheduled</h1>
 
           {{#hasEmail}}
-            <h2 class="subtitle">We have sent this confirmation to your email address</h2>
+            <h2 class="subtitle small-bottom-margin">We have sent this confirmation to your email address.</h2>
           {{/hasEmail}}
-            <div>
+          {{#hasMobile}}
+            <h2 class="subtitle">You will receive a free SMS reminder 24 hrs prior to your appointment.</h2>
+          {{/hasMobile}}
+            <div class="small-bottom-margin">
                 <img src="images/calendar.svg" class="icon" alt ="Calendar icon"/>
-                &nbsp;<strong>{{selected_appointment}}</strong>
+                &nbsp;<strong>{{appointment_date}}</strong>
+            </div>
+            <div class="small-bottom-margin">
+                <img src="images/clock-o.svg" class="icon" alt ="Clock icon"/>
+                &nbsp;<strong>{{appointment_time}}</strong>
             </div>
 
             <div>

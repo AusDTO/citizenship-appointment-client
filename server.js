@@ -175,10 +175,12 @@ app.get('/confirmation', (req, res) => {
       analytics: 'partials/analytics'
     },
     trackingId,
-    selected_appointment: "Thursday 21 January, 1:30 PM",
+    appointment_date: "Thursday 21 March 2015",
+    appointment_time: "1:30 PM",
     location: "2 Lonsdale Street, Melbourne VIC 3000",
     clientId: "12345678901",
-    hasEmail: true
+    hasEmail: true,
+    hasMobile: true
   });
 });
 

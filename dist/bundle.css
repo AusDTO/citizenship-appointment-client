@@ -931,8 +931,10 @@ button.with-icon {
 .subtitle {
   letter-spacing: 0.05rem;
   font-size: 2rem;
-  font-weight: bold;
   text-align: left; }
+
+.small-bottom-margin {
+  margin-bottom: 0.5rem; }
 
 .section-title {
   margin-top: 2rem;
