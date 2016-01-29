@@ -1,25 +1,25 @@
 {{#months}}
-    <div class="Calendar month-{{month}}">
+    <div class="Calendar month-{{month}}" role="region" aria-label="Calendar with available dates and times">
         <!-- Calendar title and navigation -->
         <div class="Calendar-nav">
             {{#prevMonth}}
-                <a href="#month/{{prevMonth}}" class="Calendar-nav--prev" aria-label="Previous Month" name="month/{{prevMonth}}" name="month/{{prevMonth}}">
-                    <img src="images/angle-left.svg" class="Calendar-nav--label" alt ="Navigate to Previous Month"/>
+                <a href="#month/{{prevMonth}}" class="Calendar-nav--prev" name="month/{{prevMonth}}" name="month/{{prevMonth}}" aria-label="Navigate to Previous Month">
+                    <img src="images/angle-left.svg" class="Calendar-nav--label" alt ="" role="presentation"/>
                 </a>
             {{/prevMonth}}
-            <strong class="Calendar-nav--month">{{monthName}}</strong>
+            <strong class="Calendar-nav--month"><span aria-label="Currently displaying month: {{monthName}}">{{monthName}}</span></strong>
             {{#nextMonth}}
-                <a href="#month/{{nextMonth}}" class="Calendar-nav--next" aria-label="Next Month" name="month/{{nextMonth}}">
-                    <img src="images/angle-right.svg" class="Calendar-nav--label" alt="Navigate to Next Month"/>
+                <a href="#month/{{nextMonth}}" class="Calendar-nav--next" name="month/{{nextMonth}}" aria-label="Navigate to Next Month">
+                    <img src="images/angle-right.svg" class="Calendar-nav--label" alt="" role="presentation"/>
                 </a>
             {{/nextMonth}}
         </div>
 
         <!-- Calendar table -->
 
-        <table class="Calendar-dates">
+        <table class="Calendar-dates" role="presentation">
             <thead class="Calendar-dates--header">
-            <tr>
+            <tr aria-hidden="true">
                 <th class="Calendar-header--dayLabel" data-state="M" scope="col">Mon</th>
                 <th class="Calendar-header--dayLabel" data-state="T" scope="col">Tue</th>
                 <th class="Calendar-header--dayLabel" data-state="W" scope="col">Wed</th>

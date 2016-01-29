@@ -58,6 +58,17 @@ ul li {
   top: 0.6rem;
 }
 
+.visuallyhidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
 @media (max-width: 550px) {
     .MainContainer {
         padding-bottom: 380px; /* height of your footer */

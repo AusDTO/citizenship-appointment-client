@@ -18,12 +18,12 @@
         <div class="steps-info">Step 2 of 3</div>
 
         {{#error}}
-            <div class="error-div">
+            <div class="error-div" role="alert">
                 There was an error processing your request. Your appointment was not booked. Please try again.
             </div>
         {{/error}}
         {{#unavailable}}
-            <div class="error-div">
+            <div class="error-div" role="alert">
                 Sorry your slot has been taken in the meantime or the department availability has changed. Please select other slot and try again.
             </div>
         {{/unavailable}}
@@ -31,26 +31,28 @@
         <h1>Select time and date</h1>
 
         <div class="Calendar-info">
-            <img src="images/map-marker.svg" class="icon" alt =""/>
+            <img src="images/map-marker.svg" class="icon" alt ="" role="presentation"/>
             <strong class="icon-label">&nbsp;Location:</strong>
-            &nbsp;<a href="https://www.google.com.au/maps?daddr={{location}}" target="_blank">{{ location }}</a>
+            &nbsp;<a href="https://www.google.com.au/maps?daddr={{location}}" target="_blank" aria-label="{{ location }} Press to open google maps to see directions">{{ location }}</a>
             <br/>
             {{#current_appointment }}
             <div class="Calendar-info--field">
-                <img src="images/calendar-o.svg" class="icon" alt =""/>
+                <img src="images/calendar-o.svg" class="icon" alt ="" role="presentation"/>
                 <strong class="icon-label">&nbsp;Current appointment:</strong>
                 &nbsp;{{ current_appointment }}</a>
             </div>
             {{/current_appointment }}
-            <div class="Calendar-info--field">
-                <span class="Legend-box"></span>
-                <span class="Legend-label">&nbsp;Available&nbsp;&nbsp;</span>
-                <span class="Legend-box Legend-box--unavailable"></span>
-                <span class="Legend-label">&nbsp;Not available</span>
+            <div class="Calendar-info--field" role="region" aria-label="Legend. Blue background marks dates that have appointments available. Grey background marks dates that have no appointments available">
+                <div>
+                    <span class="Legend-box"></span>
+                    <span class="Legend-label">&nbsp;Available&nbsp;&nbsp;</span>
+                    <span class="Legend-box Legend-box--unavailable"></span>
+                    <span class="Legend-label">&nbsp;Not available</span>
+                </div>
             </div>
         </div>
-
         <form action="book_appointment" method="post">
+        <!--aria-live="assertive"-->
             <input name="{{ _csrf.parameterName }}" type="hidden" value="{{ _csrf.token }}"/>
             <div class="Calendars" data-today="{{today_date}}">
                 <div class="Loading-message">
