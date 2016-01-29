@@ -35,31 +35,31 @@
           {{/hasMobile}}
             <div class="subtitle">&nbsp;</div>
             <div class="small-bottom-margin">
-                <img src="images/calendar.svg" class="icon" alt ="Calendar icon"/>
+                <img src="images/calendar.svg" class="icon" alt ="Date"/>
                 &nbsp;<strong>{{appointment_date}}</strong>
             </div>
             <div class="small-bottom-margin">
-                <img src="images/clock-o.svg" class="icon" alt ="Clock icon"/>
+                <img src="images/clock-o.svg" class="icon" alt ="Time"/>
                 &nbsp;<strong>{{appointment_time}}</strong>
             </div>
 
             <div>
-            <img src="images/map-marker.svg" class="icon" alt ="Location icon"/>
-            &nbsp;<a href="https://www.google.com.au/maps?daddr={{location}}" target="_blank">{{ location }}</a>
+            <img src="images/map-marker.svg" class="icon" alt ="Location"/>
+            &nbsp;<a href="https://www.google.com.au/maps?daddr={{location}}" target="_blank" aria-label="{{ location }} Press to open google maps to see directions">{{ location }}</a>
           </div>
 
           <br/>
           <div class="dropdown">
             <button type="button" class="button" id="addToCalendar" aria-haspopup="true">
               <img src="images/plus-white.svg" class="icon" alt =""/>&nbsp;Add to my calendar&nbsp;
-              <img src="images/caret-down-white.svg" class="icon" alt ="Show available calendars">
+              <img src="images/caret-down-white.svg" class="icon" alt ="">
             </button>
-            <ul role="listbox" id="calendarOptions" aria-label="submenu">
-              <li role="listitem" class="cal_option"><a class="cal_option" href="/calendar.ics" target="blank"><img src="images/apple.svg" class="icon" alt =""/>&nbsp;Apple Calendar</a></li>
-              <li role="listitem" class="cal_option"><a class="cal_option" href="/googlecalendar" target="blank"><img src="images/google.png" class="icon" alt =""/>&nbsp;Google</a></li>
-              <li role="listitem" class="cal_option"><a class="cal_option" href="/calendar.ics" target="blank"><img src="images/windows.svg" class="icon" alt =""/>&nbsp;Outlook</a></li>
-              <li role="listitem" class="cal_option"><a class="cal_option" href="/outlookonline" target="blank"><img src="images/windows.svg" class="icon" alt =""/>&nbsp;Outlook Online</a></li>
-              <li role="listitem" class="cal_option"><a class="cal_option" href="/yahoocalendar" target="blank"><img src="images/yahoo.svg" class="icon" alt =""/>&nbsp;Yahoo</a></li>
+            <ul role="listbox" id="calendarOptions">
+              <li role="listitem" class="cal_option"><a class="cal_option" href="/calendar.ics" target="blank" aria-label="Add to apple calendar"><img src="images/apple.svg" class="icon" alt =""/>&nbsp;Apple Calendar</a></li>
+              <li role="listitem" class="cal_option"><a class="cal_option" href="/googlecalendar" target="blank" aria-label="Add to google calendar"><img src="images/google.png" class="icon" alt =""/>&nbsp;Google</a></li>
+              <li role="listitem" class="cal_option"><a class="cal_option" href="/calendar.ics" target="blank" aria-label="Add to outlook calendar"><img src="images/windows.svg" class="icon" alt =""/>&nbsp;Outlook</a></li>
+              <li role="listitem" class="cal_option"><a class="cal_option" href="/outlookonline" target="blank" aria-label="Add to outlook online calendar"><img src="images/windows.svg" class="icon" alt =""/>&nbsp;Outlook Online</a></li>
+              <li role="listitem" class="cal_option"><a class="cal_option" href="/yahoocalendar" target="blank" aria-label="Add to yahoo calendar"><img src="images/yahoo.svg" class="icon" alt =""/>&nbsp;Yahoo</a></li>
             </ul>
           </div>
           <button type="button" class="button" id="print-page">
