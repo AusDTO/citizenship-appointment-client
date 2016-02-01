@@ -26,11 +26,17 @@
 
 .LoginForm-elements {
     display: inline-block;
+    vertical-align: top;
+}
+
+.LoginForm-elements input.invalid { 
+    border: 2px solid red;
 }
 
 .LoginForm-input {
     display: inline-block;
     margin-right: 2rem;
+    vertical-align: top;
 }
 
 .LoginForm-input > * {
@@ -108,4 +114,12 @@ button.with-icon > span {
 
 button.with-icon {
     padding: 0 1.5rem 0 2rem;
+}
+
+.validation-error{
+    color: red;
+}
+
+.inactive {
+    display: none;
 }
