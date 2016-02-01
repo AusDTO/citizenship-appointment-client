@@ -30,6 +30,7 @@
     "node-sass-middleware": "^0.9.7",
     "sauce-connect-launcher": "^0.14.0",
     "selenium-standalone": "^4.8.0",
+    "skeleton-scss": "^2.0.4",
     "supervisor": "^0.9.1",
     "tape": "^4.4.0",
     "webdriverio": "^3.4.0",
@@ -44,7 +45,6 @@
     "express": "^4.13.3",
     "hogan.js": "^3.0.2",
     "moment": "^2.10.6",
-    "node-uuid": "^1.4.7",
-    "skeleton-scss": "^2.0.4"
+    "node-uuid": "^1.4.7"
   }
 }
