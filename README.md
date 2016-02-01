@@ -1,5 +1,8 @@
 # citizenship-appointment-client [![Travis CI Build Status](https://travis-ci.org/AusDTO/citizenship-appointment-client.svg?branch=master)](https://travis-ci.org/AusDTO/citizenship-appointment-client)
 
+This is the client code (JavaScript, CSS, client and server-side templates) for the citizenship appointment service.
+
+The server code can be found in this repository: [AusDTO/citizenship-appointment-server](https://github.com/AusDTO/citizenship-appointment-server)
 
 ## Instructions
 
@@ -75,4 +78,3 @@ This will start the application automatically on localhost port 3001 and then ru
 Use another web browser for testing by supplying an environment variable:
 
     USE_SAUCE=true BROWSER=firefox npm run uitest
-
