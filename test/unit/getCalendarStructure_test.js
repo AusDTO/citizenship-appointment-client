@@ -38,7 +38,8 @@ test('get calendar structure', (assert) => {
                 "ariaDay": "Monday 30th November",
                 "today": false,
                 "available_times_count": 0,
-                "bookable": false
+                "bookable": false,
+                "dateTabIndex": 60
               },
               {
                 "date": "2015-12-01",
@@ -46,7 +47,8 @@ test('get calendar structure', (assert) => {
                 "ariaDay": "Tuesday 1st December",
                 "today": false,
                 "available_times_count": 0,
-                "bookable": true
+                "bookable": true,
+                "dateTabIndex": 90
               },
               {
                 "date": "2015-12-02",
@@ -54,7 +56,8 @@ test('get calendar structure', (assert) => {
                 "ariaDay": "Wednesday 2nd December",
                 "today": false,
                 "available_times_count": 0,
-                "bookable": true
+                "bookable": true,
+                "dateTabIndex": 120
               },
               {
                 "date": "2015-12-03",
@@ -62,7 +65,8 @@ test('get calendar structure', (assert) => {
                 "ariaDay": "Thursday 3rd December",
                 "today": false,
                 "available_times_count": 0,
-                "bookable": true
+                "bookable": true,
+                "dateTabIndex": 150
               },
               {
                 "date": "2015-12-04",
@@ -70,7 +74,8 @@ test('get calendar structure', (assert) => {
                 "ariaDay": "Friday 4th December",
                 "today": false,
                 "available_times_count": 0,
-                "bookable": true
+                "bookable": true,
+                "dateTabIndex": 180
               },
               {
                 "date": "2015-12-05",
@@ -78,7 +83,8 @@ test('get calendar structure', (assert) => {
                 "ariaDay": "Saturday 5th December",
                 "today": false,
                 "available_times_count": 0,
-                "bookable": true
+                "bookable": true,
+                "dateTabIndex": 210
               },
               {
                 "date": "2015-12-06",
@@ -86,7 +92,8 @@ test('get calendar structure', (assert) => {
                 "ariaDay": "Sunday 6th December",
                 "today": false,
                 "available_times_count": 0,
-                "bookable": true
+                "bookable": true,
+                "dateTabIndex": 240
               }
             ]
           },
@@ -98,7 +105,8 @@ test('get calendar structure', (assert) => {
                 "ariaDay": "Monday 7th December",
                 "today": false,
                 "available_times_count": 0,
-                "bookable": true
+                "bookable": true,
+                "dateTabIndex": 270
               },
               {
                 "date": "2015-12-08",
@@ -106,7 +114,8 @@ test('get calendar structure', (assert) => {
                 "ariaDay": "Tuesday 8th December",
                 "today": false,
                 "available_times_count": 0,
-                "bookable": true
+                "bookable": true,
+                "dateTabIndex": 300
               },
               {
                 "date": "2015-12-09",
@@ -114,7 +123,8 @@ test('get calendar structure', (assert) => {
                 "ariaDay": "Wednesday 9th December",
                 "today": false,
                 "available_times_count": 0,
-                "bookable": true
+                "bookable": true,
+                "dateTabIndex": 330
               },
               {
                 "date": "2015-12-10",
@@ -122,7 +132,8 @@ test('get calendar structure', (assert) => {
                 "ariaDay": "Thursday 10th December",
                 "today": false,
                 "available_times_count": 0,
-                "bookable": true
+                "bookable": true,
+                "dateTabIndex": 360
               },
               {
                 "date": "2015-12-11",
@@ -130,7 +141,8 @@ test('get calendar structure', (assert) => {
                 "ariaDay": "Friday 11th December",
                 "today": false,
                 "available_times_count": 0,
-                "bookable": true
+                "bookable": true,
+                "dateTabIndex": 390
               },
               {
                 "date": "2015-12-12",
@@ -138,7 +150,8 @@ test('get calendar structure', (assert) => {
                 "ariaDay": "Saturday 12th December",
                 "today": true,
                 "available_times_count": 0,
-                "bookable": true
+                "bookable": true,
+                "dateTabIndex": 420
               },
               {
                 "date": "2015-12-13",
@@ -146,7 +159,8 @@ test('get calendar structure', (assert) => {
                 "ariaDay": "Sunday 13th December",
                 "today": false,
                 "available_times_count": 0,
-                "bookable": true
+                "bookable": true,
+                "dateTabIndex": 450
               }
             ]
           },
@@ -158,7 +172,8 @@ test('get calendar structure', (assert) => {
                 "ariaDay": "Monday 14th December",
                 "today": false,
                 "available_times_count": 0,
-                "bookable": true
+                "bookable": true,
+                "dateTabIndex": 480
               },
               {
                 "date": "2015-12-15",
@@ -166,7 +181,8 @@ test('get calendar structure', (assert) => {
                 "ariaDay": "Tuesday 15th December",
                 "today": false,
                 "available_times_count": 0,
-                "bookable": true
+                "bookable": true,
+                "dateTabIndex": 510
               },
               {
                 "date": "2015-12-16",
@@ -174,7 +190,8 @@ test('get calendar structure', (assert) => {
                 "ariaDay": "Wednesday 16th December",
                 "today": false,
                 "available_times_count": 0,
-                "bookable": true
+                "bookable": true,
+                "dateTabIndex": 540
               },
               {
                 "date": "2015-12-17",
@@ -182,7 +199,8 @@ test('get calendar structure', (assert) => {
                 "ariaDay": "Thursday 17th December",
                 "today": false,
                 "available_times_count": 0,
-                "bookable": true
+                "bookable": true,
+                "dateTabIndex": 570
               },
               {
                 "date": "2015-12-18",
@@ -190,7 +208,8 @@ test('get calendar structure', (assert) => {
                 "ariaDay": "Friday 18th December",
                 "today": false,
                 "available_times_count": 0,
-                "bookable": true
+                "bookable": true,
+                "dateTabIndex": 600
               },
               {
                 "date": "2015-12-19",
@@ -198,7 +217,8 @@ test('get calendar structure', (assert) => {
                 "ariaDay": "Saturday 19th December",
                 "today": false,
                 "available_times_count": 0,
-                "bookable": true
+                "bookable": true,
+                "dateTabIndex": 630
               },
               {
                 "date": "2015-12-20",
@@ -206,7 +226,8 @@ test('get calendar structure', (assert) => {
                 "ariaDay": "Sunday 20th December",
                 "today": false,
                 "available_times_count": 0,
-                "bookable": true
+                "bookable": true,
+                "dateTabIndex": 660
               }
             ]
           },
@@ -218,7 +239,8 @@ test('get calendar structure', (assert) => {
                 "ariaDay": "Monday 21st December",
                 "today": false,
                 "available_times_count": 0,
-                "bookable": true
+                "bookable": true,
+                "dateTabIndex": 690
               },
               {
                 "date": "2015-12-22",
@@ -226,7 +248,8 @@ test('get calendar structure', (assert) => {
                 "ariaDay": "Tuesday 22nd December",
                 "today": false,
                 "available_times_count": 0,
-                "bookable": true
+                "bookable": true,
+                "dateTabIndex": 720
               },
               {
                 "date": "2015-12-23",
@@ -234,7 +257,8 @@ test('get calendar structure', (assert) => {
                 "ariaDay": "Wednesday 23rd December",
                 "today": false,
                 "available_times_count": 0,
-                "bookable": true
+                "bookable": true,
+                "dateTabIndex": 750
               },
               {
                 "date": "2015-12-24",
@@ -242,7 +266,8 @@ test('get calendar structure', (assert) => {
                 "ariaDay": "Thursday 24th December",
                 "today": false,
                 "available_times_count": 0,
-                "bookable": true
+                "bookable": true,
+                "dateTabIndex": 780
               },
               {
                 "date": "2015-12-25",
@@ -250,7 +275,8 @@ test('get calendar structure', (assert) => {
                 "ariaDay": "Friday 25th December",
                 "today": false,
                 "available_times_count": 0,
-                "bookable": true
+                "bookable": true,
+                "dateTabIndex": 810
               },
               {
                 "date": "2015-12-26",
@@ -258,7 +284,8 @@ test('get calendar structure', (assert) => {
                 "ariaDay": "Saturday 26th December",
                 "today": false,
                 "available_times_count": 0,
-                "bookable": true
+                "bookable": true,
+                "dateTabIndex": 840
               },
               {
                 "date": "2015-12-27",
@@ -266,7 +293,8 @@ test('get calendar structure', (assert) => {
                 "ariaDay": "Sunday 27th December",
                 "today": false,
                 "available_times_count": 0,
-                "bookable": true
+                "bookable": true,
+                "dateTabIndex": 870
               }
             ]
           },
@@ -278,7 +306,9 @@ test('get calendar structure', (assert) => {
                 "ariaDay": "Monday 28th December",
                 "today": false,
                 "available_times_count": 6,
-                "bookable": true
+                "bookable": true,
+                "dateTabIndex": 1,
+                "dateTabIndex": 900
               },
               {
                 "date": "2015-12-29",
@@ -286,7 +316,8 @@ test('get calendar structure', (assert) => {
                 "ariaDay": "Tuesday 29th December",
                 "today": false,
                 "available_times_count": 0,
-                "bookable": true
+                "bookable": true,
+                "dateTabIndex": 930
               },
               {
                 "date": "2015-12-30",
@@ -294,7 +325,8 @@ test('get calendar structure', (assert) => {
                 "ariaDay": "Wednesday 30th December",
                 "today": false,
                 "available_times_count": 0,
-                "bookable": true
+                "bookable": true,
+                "dateTabIndex": 960
               },
               {
                 "date": "2015-12-31",
@@ -302,7 +334,8 @@ test('get calendar structure', (assert) => {
                 "ariaDay": "Thursday 31st December",
                 "today": false,
                 "available_times_count": 0,
-                "bookable": true
+                "bookable": true,
+                "dateTabIndex": 990
               },
               {
                 "date": "2016-01-01",
@@ -310,7 +343,8 @@ test('get calendar structure', (assert) => {
                 "ariaDay": "Friday 1st January",
                 "today": false,
                 "available_times_count": 0,
-                "bookable": false
+                "bookable": false,
+                "dateTabIndex": 1020
               },
               {
                 "date": "2016-01-02",
@@ -318,7 +352,8 @@ test('get calendar structure', (assert) => {
                 "ariaDay": "Saturday 2nd January",
                 "today": false,
                 "available_times_count": 0,
-                "bookable": false
+                "bookable": false,
+                "dateTabIndex": 1050
               },
               {
                 "date": "2016-01-03",
@@ -326,7 +361,8 @@ test('get calendar structure', (assert) => {
                 "ariaDay": "Sunday 3rd January",
                 "today": false,
                 "available_times_count": 0,
-                "bookable": false
+                "bookable": false,
+                "dateTabIndex": 1080
               }
             ]
           }

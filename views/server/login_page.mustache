@@ -67,7 +67,7 @@
             <span class="LoginForm-elements">
             <div class="LoginForm-input">
                 <label for="clientId">Client ID</label>
-                <input class="LoginForm-input--clientId" id="clientId" maxlength="11" type="text" name="username" {{#clientId}}value="{{clientId}}"{{/clientId}} aria-required="true" required pattern="[0-9]{11}" placeholder="11 digits"/>
+                <input class="LoginForm-input--clientId" id="clientId" maxlength="11" type="text" name="username" {{#clientId}}value="{{clientId}}"{{/clientId}} aria-required="true" required pattern="[0-9]{11}" placeholder="11 digits" tabindex="1"/>
                 <div>
                     <span class="validation-error inactive" id="clientId-required" aria-live="polite" role="alert">Client Id is required</span>
                     <span class="validation-error inactive" id="clientId-pattern" aria-live="polite"role="alert">Client Id should contain 11 digits only</span>
@@ -75,12 +75,12 @@
                 <div class="ClientIdHelp-mobile">
                     <div class="row ClientIdHelp-show">
                         <div class="eleven columns">
-                            <a href="#help" class="ClientIdHelp-show--link">How to find your Client ID</a>
+                            <a href="#help" class="ClientIdHelp-show--link" tabindex="2">How to find your Client ID</a>
                         </div>
                     </div>
                     <div class="row ClientIdHelp-hide">
                         <div class="eleven columns">
-                            <a href="#nohelp" class="ClientIdHelp-hide--link">Hide how to find your Client ID</a>
+                            <a href="#nohelp" class="ClientIdHelp-hide--link" tabindex="2">Hide how to find your Client ID</a>
                             <img src="images/client_id_help.png" class="ClientIdHelp-image" alt="Find the ID in your letter"/>
                         </div>
                     </div>
@@ -91,14 +91,14 @@
             <span class="LoginForm-elements">
                 <div class="LoginForm-input">
                 <label for="familyName">Family Name</label>
-                <input id="familyName" type="text" name="familyName" aria-required="true" required maxlength="50" />
+                <input id="familyName" type="text" name="familyName" aria-required="true" required maxlength="50" tabindex="3"/>
                 <div>
                     <span class="validation-error inactive" id="familyName-required" aria-live="polite" role="alert">Family name is required</span>
                 </div>
             </div>
             <div class="LoginForm-input">
                 <label tabindex="-1">&nbsp;</label>
-                <button type="submit" class="button with-icon" id="submitLogin" aria-label="Press to log in to the booking system">
+                <button type="submit" class="button with-icon" id="submitLogin" aria-label="Press to log in to the booking system" tabindex="4">
                     <span>Next</span><img src="images/angle-right-white.svg" class="button-icon" alt =""/>
                 </button>
             </div>
@@ -106,12 +106,12 @@
                 <div class="ClientIdHelp-desktop">
                     <div class="row ClientIdHelp-show">
                         <div class="eleven columns">
-                            <a href="#help" aria-label="Please find your Client ID number in the correspondence from the Department" class="ClientIdHelp-show--link">How to find your Client ID</a>
+                            <a href="#help" aria-label="Please find your Client ID number in the correspondence from the Department" class="ClientIdHelp-show--link" tabindex="2">How to find your Client ID</a>
                         </div>
                     </div>
                     <div class="row ClientIdHelp-hide">
                         <div class="eleven columns">
-                            <a href="#nohelp" class="ClientIdHelp-hide--link">Hide how to find your Client ID</a>
+                            <a href="#nohelp" class="ClientIdHelp-hide--link" tabindex="2">Hide how to find your Client ID</a>
                             </br>
                             <img src="images/client_id_help.png" id="clientId-image" class="ClientIdHelp-image" alt="Please find your Client ID number in the correspondence from the Department"/>
                         </div>

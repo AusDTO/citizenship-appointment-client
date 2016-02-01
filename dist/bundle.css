@@ -661,6 +661,11 @@ input.button:focus, input.button:hover {
   background-color: #003296;
   color: white; }
 
+.button:focus, .button:hover,
+input.button:focus, input.button:hover,
+a:focus, a:hover {
+  outline: medium solid #c6e4fb; }
+
 input.button {
   font-size: 20px;
   font-style: normal; }

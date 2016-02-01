@@ -18,6 +18,12 @@ input.button:focus, input.button:hover {
     color: white;
 }
 
+.button:focus, .button:hover,
+input.button:focus, input.button:hover,
+a:focus, a:hover {
+    outline: medium solid #c6e4fb;
+}
+
 input.button {
     @extend .button;
     font-size: 20px;
