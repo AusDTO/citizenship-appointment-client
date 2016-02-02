@@ -740,7 +740,7 @@ body {
   /* height of your footer */ }
 
 .steps-info {
-  padding: 2rem 0;
+  padding: 3rem 0 2rem;
   font-size: 1.5em;
   font-weight: lighter; }
 
@@ -940,7 +940,7 @@ button.with-icon {
   display: none; }
 
 .steps-and-close-div {
-  margin-top: 2rem;
+  margin-top: 3rem;
   margin-bottom: 2rem; }
 
 .steps-info.inline {
