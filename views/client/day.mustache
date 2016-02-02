@@ -1,4 +1,5 @@
-<td class="DateCell Calendar-date--bookable {{^available_times_count}}Calendar-date--unavailable{{/available_times_count}} {{^bookable}}Calendar-date--hide{{/bookable}} date-{{date}}">
+<td class="DateCell Calendar-date--bookable {{^available_times_count}}Calendar-date--unavailable{{/available_times_count}} {{^bookable}}Calendar-date--hide{{/bookable}} {{#bookable}}date-{{date}}{{/bookable}}">
+  {{#bookable}}
   <div class="DateCell-content {{#today}}today{{/today}}"  {{^available_times_count}}aria-hidden="true"{{/available_times_count}}>
 
     <a class="DateCell-content--datelink {{#today}}today{{/today}} date-{{date}} " 
@@ -11,4 +12,5 @@
 	{{/available_times_count}}
     </a>
   </div>
+  {{/bookable}}
 </td>

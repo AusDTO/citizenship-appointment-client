@@ -4,13 +4,15 @@
   {{/days}}
 </tr>
 {{#days}}
-<tr class="AvailableTimes date-{{date}}">
- <td class="AvailableTimesCell date-{{date}}" colspan="7">
-    {{> times_template}}
- </td>
-</tr>
-<tr class="SelectionConfirmation date-{{date}}" role="status" aria-live="polite">
-    <td class="SelectionConfirmationCell date-{{date}}" colspan="7">
-    </td>
-</tr>
+	{{#bookable}}
+		<tr class="AvailableTimes date-{{date}}">
+		 <td class="AvailableTimesCell date-{{date}}" colspan="7">
+		    {{> times_template}}
+		 </td>
+		</tr>
+		<tr class="SelectionConfirmation date-{{date}}" role="status" aria-live="polite">
+		    <td class="SelectionConfirmationCell date-{{date}}" colspan="7">
+		    </td>
+		</tr>
+	{{/bookable}}
 {{/days}}
