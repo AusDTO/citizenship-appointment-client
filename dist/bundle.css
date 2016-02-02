@@ -761,14 +761,11 @@ ul li {
   border: 1px #000000 solid;
   font-weight: bold;
   position: relative;
-  padding-left: 30px; }
-
-.error-div:after {
-  content: '\f071';
-  font-family: fontAwesome;
-  position: absolute;
-  left: 1rem;
-  top: 0.6rem; }
+  padding-left: 30px;
+  background: #F7D5D6 url("/images/warning.svg") no-repeat;
+  background-size: 1.5rem;
+  background-position-x: 1rem;
+  background-position-y: 1rem; }
 
 .visuallyhidden {
   border: 0;
@@ -885,13 +882,18 @@ ul li {
 .LoginForm-input > * {
   margin-bottom: .5rem; }
 
+.desktop-only {
+  display: block; }
+
 @media (max-width: 550px) {
   .ClientIdHelp-image {
     width: 100%; }
   .LoginForm-elements {
     display: block; }
   .LoginForm-input {
-    display: block; } }
+    display: block; }
+  .desktop-only {
+    display: none; } }
 
 @media (max-width: 844px) {
   .ClientIdHelp-mobile {

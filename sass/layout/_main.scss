@@ -48,14 +48,10 @@ ul li {
   font-weight: bold;
   position: relative;
   padding-left: 30px;
-}
-
-.error-div:after {
-  content: '\f071';
-  font-family: fontAwesome;
-  position: absolute;
-  left: 1rem;
-  top: 0.6rem;
+  background:#F7D5D6 url('/images/warning.svg') no-repeat;
+  background-size: 1.5rem;
+  background-position-x: 1rem;
+  background-position-y: 1rem;
 }
 
 .visuallyhidden {
