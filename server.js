@@ -10,7 +10,6 @@ const express = require('express'),
     path = require('path'),
     fs = require('fs'),
     app = express(),
-    default_port = (process.env.PORT || 3000),
     publicPath = '/static';
 
 app.set('view engine', 'mustache');
@@ -62,7 +61,7 @@ app.use('/', express.static(path.join(__dirname, 'test_data')));
 
 app.use('/images', express.static(path.join(__dirname, 'images')));
 
-const trackingId = 'UA-XXXXX-Y';
+const trackingId = process.env.ANALYTICS_TRACKING_ID || 'UA-XXXXX-Y';
 
 app.get('/get_available_times', (req, res) => {
   let json = {};
@@ -258,7 +257,7 @@ app.get('/outlookonline', function(req, res) {
   res.redirect('https://calendar.live.com/calendar/calendar.aspx?' + calendar_event);
 });
 
-let server = app.listen(default_port, () => {
+let server = app.listen(process.env.PORT || 3000, () => {
   let port = server.address().port;
   console.log('Listening on port ' + port);
 });
