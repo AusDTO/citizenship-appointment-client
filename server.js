@@ -194,6 +194,19 @@ app.get('/confirmation', (req, res) => {
   });
 });
 
+app.get('/session_timeout', (req, res) => {
+  res.render('session_timeout', {
+    partials: {
+      header: 'partials/header',
+      footer: 'partials/footer',
+      beta: 'partials/beta',
+      feedback: 'partials/feedback',
+      analytics: 'partials/analytics'
+    },
+    trackingId
+  });
+});
+
 app.get('/barcode/pdf417/:id', (req, res) => {
   bwipjs.toBuffer({
     bcid: 'pdf417compact',
