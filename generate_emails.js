@@ -13,7 +13,7 @@ const templateDir = path.join(baseDir, 'partials');
 const outputDir = path.join(baseDir, 'generated');
 const imagesDir = path.join(__dirname, 'images', 'email_templates');
 const dest_environment = "https://appointments.border.gov.au/";
-const google_analitics_trackingId = "UA-72722909-2";
+const google_analitics_trackingId = "UA-72722909-1";
 
 const appointment_types = [
 	{
@@ -77,7 +77,7 @@ const email_templates = [
 		"name": "noshow",
 		"template_name": "invitation_template",
 		"data": {
-			headerText: "You have missed your appointment",
+			headerText: "You have missed your appointment. Please book your next citizenship appointment.",
 			hasArriveInfo: false,
 			campaignSource: "noshow_email"
 		}
