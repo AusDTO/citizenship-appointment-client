@@ -65,9 +65,15 @@ ul li {
   width: 1px;
 }
 
-@media (max-width: 550px) {
+@media (max-width: 410px) {
     .MainContainer {
-        padding-bottom: 380px; /* height of your footer */
+        padding-bottom: 420px; /* height of your footer */
+    }
+}
+
+@media  (min-width: 410px) and (max-width: 550px) {
+    .MainContainer {
+        padding-bottom: 410px; /* height of your footer */
     }
 
     .container {
