@@ -15,6 +15,9 @@ module.exports = {
     path: path.join(__dirname, 'dist'),
     filename: '[name].js'
   },
+  externals: {
+    'ga': 'ga'  // require('ga') is external and available on the global variable ga
+  },
   devtool: 'source-map',
   target: 'web',
   module: {
