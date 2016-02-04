@@ -73,6 +73,14 @@
 	font-style: italic;
 }
 
+.container.last{
+	margin-bottom: 3rem;
+}
+
+.last-appt-details {
+	margin-bottom: 2.5rem;
+}
+
 //BEGIN: Add to calendar dropdown
 
 .dropdown {
@@ -93,6 +101,7 @@
 	z-index:100;
 	margin-top: -1rem;
 	padding-left: 0rem;
+	margin-left: 0rem;
 }
 
 .dropdown li > a {

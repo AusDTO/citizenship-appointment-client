@@ -1,0 +1,70 @@
+@media print {
+	body {
+		font: 12pt;
+	}
+
+	.MainContainer {
+		padding-bottom: 0px;
+		position: fixed;
+	}
+
+	.container.Beta {
+		font-size: 10pt;
+		margin-bottom: 12pt;
+
+		.Beta-message:before {
+			background: black;
+		}
+	}
+
+	.Footer-section {
+		display: none;
+	}
+
+	.steps-and-close-div {
+		display: none;
+	}
+
+	.button {
+		display: none;
+	}
+
+	#calendarOptions {
+		display: none;
+	}
+
+	.container.last{
+		margin-bottom:0rem;
+	}
+
+	.subtitle {
+		font-size: 1.5rem
+	}
+
+	a:link:after, a:visited:after { 
+		content:" (" attr(href) ") "; 
+		text-decoration: underline;
+		color: blue;
+	}
+
+	a.print-not-expand:link:after, a:visited:after { 
+		content:""; 
+	}
+
+	a {
+		text-decoration: none;
+		color: black;
+	}
+
+	.last-appt-details {
+		margin-bottom: 0rem;
+	}
+
+	.nine.columns {
+	    width: 65.33333%;
+	}
+
+	.three.columns {
+	    width: 30.66667%;
+	}
+}

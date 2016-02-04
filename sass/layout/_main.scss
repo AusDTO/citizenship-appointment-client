@@ -32,9 +32,10 @@ h1 {
 }
 
 ul {
-	list-style: disc inside;
-    padding-left: 1rem;
-    margin-bottom: 0px;
+	list-style: disc outside;
+  padding-left: 1rem;
+  margin-bottom: 0px;
+  margin-left: 2rem;
 }
 
 ul li {

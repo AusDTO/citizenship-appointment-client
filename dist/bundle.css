@@ -748,9 +748,10 @@ h1 {
   font-weight: bold; }
 
 ul {
-  list-style: disc inside;
+  list-style: disc outside;
   padding-left: 1rem;
-  margin-bottom: 0px; }
+  margin-bottom: 0px;
+  margin-left: 2rem; }
 
 ul li {
   margin-bottom: 0.2rem; }
@@ -1005,6 +1006,12 @@ button.with-icon {
 .disclaimer {
   font-style: italic; }
 
+.container.last {
+  margin-bottom: 3rem; }
+
+.last-appt-details {
+  margin-bottom: 2.5rem; }
+
 .dropdown {
   display: inline;
   float: left;
@@ -1021,7 +1028,8 @@ button.with-icon {
   transition: 0.1s linear opacity;
   z-index: 100;
   margin-top: -1rem;
-  padding-left: 0rem; }
+  padding-left: 0rem;
+  margin-left: 0rem; }
 
 .dropdown li > a {
   float: left;
@@ -1342,5 +1350,44 @@ button.with-icon {
   .SelectionConfirmation-label {
     padding-bottom: 1rem;
     display: block; } }
+
+@media print {
+  body {
+    font: 12pt; }
+  .MainContainer {
+    padding-bottom: 0px;
+    position: fixed; }
+  .container.Beta {
+    font-size: 10pt;
+    margin-bottom: 12pt; }
+    .container.Beta .Beta-message:before {
+      background: black; }
+  .Footer-section {
+    display: none; }
+  .steps-and-close-div {
+    display: none; }
+  .button, input.button {
+    display: none; }
+  #calendarOptions {
+    display: none; }
+  .container.last {
+    margin-bottom: 0rem; }
+  .subtitle {
+    font-size: 1.5rem; }
+  a:link:after, a:visited:after {
+    content: " (" attr(href) ") ";
+    text-decoration: underline;
+    color: blue; }
+  a.print-not-expand:link:after, a:visited:after {
+    content: ""; }
+  a {
+    text-decoration: none;
+    color: black; }
+  .last-appt-details {
+    margin-bottom: 0rem; }
+  .nine.columns {
+    width: 65.33333%; }
+  .three.columns {
+    width: 30.66667%; } }
 
 /*# sourceMappingURL=bundle.css.map */
