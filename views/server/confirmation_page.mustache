@@ -5,8 +5,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Citizenship Appointment Booking Confirmation</title>
-  <link rel="icon" type="image/png" href="images/coat-of-arms-black-on-white-32x32.png" sizes="32x32">
-  <link rel="stylesheet" type="text/css" href="static/bundle.css">
+  <link rel="icon" type="image/png" href="/images/coat-of-arms-black-on-white-32x32.png" sizes="32x32">
+  <link rel="stylesheet" type="text/css" href="/static/bundle.css">
   {{> analytics }}
 </head>
 <body>
@@ -19,7 +19,7 @@
     <div class="container  steps-and-close-div">
         <div class="steps-info inline">Step 3 of 3</div>
         <div class="Logout">
-          <a href="logout" class="Logout-link">Log out</a>
+          <a href="/logout" class="Logout-link">Log out</a>
         </div>
     </div>
     <div class="container">
@@ -36,41 +36,41 @@
           {{/hasMobile}}
             <div class="subtitle">&nbsp;</div>
             <div class="small-bottom-margin">
-                <img src="images/calendar.svg" class="icon" alt ="Date"/>
+                <img src="/images/calendar.svg" class="icon" alt ="Date"/>
                 &nbsp;<strong>{{appointment_date}}</strong>
             </div>
             <div class="small-bottom-margin">
-                <img src="images/clock-o.svg" class="icon" alt ="Time"/>
+                <img src="/images/clock-o.svg" class="icon" alt ="Time"/>
                 &nbsp;<strong>{{appointment_time}}</strong>
             </div>
 
             <div class="last-appt-details">
-              <img src="images/map-marker.svg" class="icon" alt ="Location"/>
+              <img src="/images/map-marker.svg" class="icon" alt ="Location"/>
               &nbsp;<a href="https://www.google.com.au/maps?daddr={{location}}" target="_blank" aria-label="{{ location }} Press to open google maps to see directions" class="print-not-expand">{{ location }}</a>
             </div>
 
           <div class="dropdown" id="addToCalendarDropdown">
             <button type="button" class="button" id="addToCalendar" aria-haspopup="true">
-              <img src="images/plus-white.svg" class="icon" alt =""/>&nbsp;Add to my calendar&nbsp;
-              <img src="images/caret-down-white.svg" class="icon" alt ="">
+              <img src="/images/plus-white.svg" class="icon" alt =""/>&nbsp;Add to my calendar&nbsp;
+              <img src="/images/caret-down-white.svg" class="icon" alt ="">
             </button>
             <ul role="listbox" id="calendarOptions">
-              <li role="listitem" class="cal_option"><a class="cal_option" href="/calendar.ics" target="blank" aria-label="Add to apple calendar"><img src="images/apple.svg" class="icon" alt =""/>&nbsp;Apple Calendar</a></li>
-              <li role="listitem" class="cal_option"><a class="cal_option" href="/googlecalendar" target="blank" aria-label="Add to google calendar"><img src="images/google.png" class="icon" alt =""/>&nbsp;Google</a></li>
-              <li role="listitem" class="cal_option"><a class="cal_option" href="/calendar.ics" target="blank" aria-label="Add to outlook calendar"><img src="images/windows.svg" class="icon" alt =""/>&nbsp;Outlook</a></li>
-              <li role="listitem" class="cal_option"><a class="cal_option" href="/outlookonline" target="blank" aria-label="Add to outlook online calendar"><img src="images/windows.svg" class="icon" alt =""/>&nbsp;Outlook Online</a></li>
-              <li role="listitem" class="cal_option"><a class="cal_option" href="/yahoocalendar" target="blank" aria-label="Add to yahoo calendar"><img src="images/yahoo.svg" class="icon" alt =""/>&nbsp;Yahoo</a></li>
+              <li role="listitem" class="cal_option"><a class="cal_option" href="/calendar.ics" target="blank" aria-label="Add to apple calendar"><img src="/images/apple.svg" class="icon" alt =""/>&nbsp;Apple Calendar</a></li>
+              <li role="listitem" class="cal_option"><a class="cal_option" href="/googlecalendar" target="blank" aria-label="Add to google calendar"><img src="/images/google.png" class="icon" alt =""/>&nbsp;Google</a></li>
+              <li role="listitem" class="cal_option"><a class="cal_option" href="/calendar.ics" target="blank" aria-label="Add to outlook calendar"><img src="/images/windows.svg" class="icon" alt =""/>&nbsp;Outlook</a></li>
+              <li role="listitem" class="cal_option"><a class="cal_option" href="/outlookonline" target="blank" aria-label="Add to outlook online calendar"><img src="/images/windows.svg" class="icon" alt =""/>&nbsp;Outlook Online</a></li>
+              <li role="listitem" class="cal_option"><a class="cal_option" href="/yahoocalendar" target="blank" aria-label="Add to yahoo calendar"><img src="/images/yahoo.svg" class="icon" alt =""/>&nbsp;Yahoo</a></li>
             </ul>
           </div>
           <button type="button" class="button" id="print-page">
-            <img src="images/print-white.svg" class="icon" alt =""/>&nbsp;Print this page
+            <img src="/images/print-white.svg" class="icon" alt =""/>&nbsp;Print this page
           </button>
 
         </div>
         <div class="three columns">
           <div class="barcode-frame">
             <div class="barcode">
-                <img src="barcode/pdf417/{{clientId}}" alt="Barcode to scan on your arrival" />
+                <img src="/barcode/pdf417/{{clientId}}" alt="Barcode to scan on your arrival" />
             </div>
           </div>
           <div class="barcode-text">
@@ -102,7 +102,7 @@
  {{> footer}}
 </div>
 
-<script src="static/confirmation.js" charset="utf-8"></script>
+<script src="/static/confirmation.js" charset="utf-8"></script>
 
 </body>
 </html>

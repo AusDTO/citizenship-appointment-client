@@ -5,8 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Citizenship Appointment Booking Calendar</title>
-    <link rel="icon" type="image/png" href="images/coat-of-arms-black-on-white-32x32.png" sizes="32x32">
-    <link rel="stylesheet" type="text/css" href="static/bundle.css">
+    <link rel="icon" type="image/png" href="/images/coat-of-arms-black-on-white-32x32.png" sizes="32x32">
+    <link rel="stylesheet" type="text/css" href="/static/bundle.css">
     {{> analytics }}
 </head>
 <body>
@@ -32,13 +32,13 @@
         <h1>Select date, then time</h1>
 
         <div class="Calendar-info">
-            <img src="images/map-marker.svg" class="icon" alt ="" role="presentation"/>
+            <img src="/images/map-marker.svg" class="icon" alt ="" role="presentation"/>
             <strong class="icon-label">&nbsp;Location:</strong>
             &nbsp;<a href="https://www.google.com.au/maps?daddr={{location}}" target="_blank" aria-label="{{ location }} Press to open google maps to see directions" tabindex="1">{{ location }}</a>
             <br/>
             {{#current_appointment }}
             <div class="Calendar-info--field">
-                <img src="images/calendar-o.svg" class="icon" alt ="" role="presentation"/>
+                <img src="/images/calendar-o.svg" class="icon" alt ="" role="presentation"/>
                 <strong class="icon-label">&nbsp;Current appointment:</strong>
                 &nbsp;{{ current_appointment }}</a>
             </div>
@@ -52,7 +52,7 @@
                 </div>
             </div>
         </div>
-        <form action="book_appointment" method="post">
+        <form action="/book_appointment" method="post">
         <!--aria-live="assertive"-->
             <input name="{{ _csrf.parameterName }}" type="hidden" value="{{ _csrf.token }}"/>
             <div class="Calendars" data-today="{{today_date}}">
@@ -68,7 +68,7 @@
 
 {{> footer }}
 </div>
-<script src="static/calendar_page.js" charset="utf-8"></script>
+<script src="/static/calendar_page.js" charset="utf-8"></script>
 
 </body>
 </html>

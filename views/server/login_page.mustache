@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Citizenship Appointment Booking</title>
-    <link rel="icon" type="image/png" href="images/coat-of-arms-black-on-white-32x32.png" sizes="32x32">
-    <link rel="stylesheet" type="text/css" href="static/bundle.css">
+    <link rel="icon" type="image/png" href="/images/coat-of-arms-black-on-white-32x32.png" sizes="32x32">
+    <link rel="stylesheet" type="text/css" href="/static/bundle.css">
     {{> analytics }}
 </head>
 <body>
@@ -63,7 +63,7 @@
         </div>
         {{/expired}}
 
-        <form class="LoginForm" action="login" method="post" autocomplete="off" id="loginForm">
+        <form class="LoginForm" action="/login" method="post" autocomplete="off" id="loginForm">
             <span class="LoginForm-elements">
             <div class="LoginForm-input">
                 <label for="clientId">Client ID</label>
@@ -81,7 +81,7 @@
                     <div class="row ClientIdHelp-hide">
                         <div class="eleven columns">
                             <a href="#nohelp" class="ClientIdHelp-hide--link" tabindex="2">Hide how to find your Client ID</a>
-                            <img src="images/client_id_help.png" class="ClientIdHelp-image" alt="Find the ID in your letter"/>
+                            <img src="/images/client_id_help.png" class="ClientIdHelp-image" alt="Find the ID in your letter"/>
                         </div>
                     </div>
                 </div>
@@ -99,7 +99,7 @@
             <div class="LoginForm-input">
                 <label tabindex="-1" class="desktop-only">&nbsp;</label>
                 <button type="submit" class="button with-icon" id="submitLogin" aria-label="Press to log in to the booking system" tabindex="4">
-                    <span>Next</span><img src="images/angle-right-white.svg" class="button-icon" alt =""/>
+                    <span>Next</span><img src="/images/angle-right-white.svg" class="button-icon" alt =""/>
                 </button>
             </div>
             </span>
@@ -113,7 +113,7 @@
                         <div class="eleven columns">
                             <a href="#nohelp" class="ClientIdHelp-hide--link" tabindex="2">Hide how to find your Client ID</a>
                             </br>
-                            <img src="images/client_id_help.png" id="clientId-image" class="ClientIdHelp-image" alt="Please find your Client ID number in the correspondence from the Department"/>
+                            <img src="/images/client_id_help.png" id="clientId-image" class="ClientIdHelp-image" alt="Please find your Client ID number in the correspondence from the Department"/>
                         </div>
                     </div>
                 </div>
@@ -128,7 +128,7 @@
 
 </div>
 
-<script src="static/login.js" charset="utf-8"></script>
+<script src="/static/login.js" charset="utf-8"></script>
 
 </body>
 </html>
