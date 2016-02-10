@@ -963,9 +963,11 @@ button.with-icon {
   font-size: 3.5rem; }
 
 .subtitle {
+  line-height: 1.25;
   letter-spacing: 0.05rem;
   font-size: 2rem;
-  text-align: left; }
+  text-align: left;
+  font-weight: 300; }
 
 .small-bottom-margin {
   margin-bottom: 0.5rem; }
@@ -1137,7 +1139,9 @@ button.with-icon {
   font-size: 1.6em;
   line-height: normal;
   padding: 0.5em 0;
-  text-align: center; }
+  text-align: center;
+  margin: 0rem;
+  letter-spacing: normal; }
 
 .Calendar-nav--next,
 .Calendar-nav--prev {

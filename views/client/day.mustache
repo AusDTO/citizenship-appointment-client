@@ -4,8 +4,8 @@
 
     <a class="DateCell-content--datelink {{#today}}today{{/today}} date-{{date}} " 
     href="#date/{{ date }}" name="date/{{ date }}"  
-    {{^available_times_count}}tabindex="-1"{{/available_times_count}}
-    {{#available_times_count}}tabindex="{{dateTabIndex}}"{{/available_times_count}}>
+    {{^available_times_count}}tabindex="-1" aria-label="{{ ariaDay }}, no timeslots available"{{/available_times_count}}
+    {{#available_times_count}}tabindex="{{dateTabIndex}}" aria-label="{{ ariaDay }}, {{available_times_count}} available timeslots"{{/available_times_count}}>
     	<p class="DateCell-content--day" aria-label="{{ ariaDay }}">{{ day }}</p>
 	{{#available_times_count}}
 		<p class="DateCell-content--availableTimesCount" aria-label="{{available_times_count}} available timeslots">{{available_times_count}} available</p>
