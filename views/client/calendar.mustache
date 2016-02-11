@@ -1,15 +1,15 @@
 {{#months}}
-    <div class="Calendar month-{{month}}" role="region" aria-label="Calendar with available dates and times">
+    <div class="Calendar month-{{month}}" role="region" aria-label="Calendar with available dates and times. Please use Tab button to navigate it.">
         <!-- Calendar title and navigation -->
         <div class="Calendar-nav">
             {{#prevMonth}}
-                <a href="#month/{{prevMonth}}" class="Calendar-nav--prev" name="month/{{prevMonth}}" name="month/{{prevMonth}}" aria-label="Navigate to Previous Month">
+                <a href="#month/{{prevMonth}}" class="Calendar-nav--prev" name="month/{{prevMonth}}" name="month/{{prevMonth}}"  aria-label="Go to {{prevMonthName}} availability">
                     <img src="/images/angle-left.svg" class="Calendar-nav--label" alt ="" role="presentation"/>
                 </a>
             {{/prevMonth}}
             <h2 class="Calendar-nav--month"><strong><span aria-label="Currently displaying month: {{monthName}}">{{monthName}}</span></strong></h2>
             {{#nextMonth}}
-                <a href="#month/{{nextMonth}}" class="Calendar-nav--next" name="month/{{nextMonth}}" aria-label="Navigate to Next Month">
+                <a href="#month/{{nextMonth}}" class="Calendar-nav--next" name="month/{{nextMonth}}" aria-label="Go to {{nextMonthName}} availability">
                     <img src="/images/angle-right.svg" class="Calendar-nav--label" alt="" role="presentation"/>
                 </a>
             {{/nextMonth}}

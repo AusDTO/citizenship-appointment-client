@@ -4,7 +4,7 @@
 <div class="AppointmentTimes-table" role="group">
     {{#times}}
     <div class="AppointmentTimes-list--item datetime-{{timeClass}}">
-        <a class="AppointmentLink" href="#time/{{datetime}}" name="time/{{datetime}}" tabindex="{{tabindex}}">
+        <a class="AppointmentLink" href="#time/{{datetime}}" name="time/{{datetime}}" tabindex="{{tabindex}}" aria-label="select {{aria_display_time}}">
             <span class="AppointmentLink-time">{{display_time}}</span>
             <span class="AppointmentLink-ampm">{{ampm}}</span>
         </a>
