@@ -18,7 +18,7 @@ script:
   - USE_SAUCE=true BROWSER=firefox npm run uitest
   - USE_SAUCE=true BROWSER='internet explorer' BROWSER_VERSION=11 npm run uitest
   - USE_SAUCE=true BROWSER='internet explorer' BROWSER_VERSION=9 npm run uitest
-  - USE_SAUCE=true BROWSER=safari PLATFORM=MAC npm run uitest
+  - USE_SAUCE=true BROWSER=safari PLATFORM=MAC BROWSER_VERSION=8 npm run uitest
 
 notifications:
   email: false
