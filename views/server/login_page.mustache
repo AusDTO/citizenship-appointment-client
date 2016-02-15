@@ -64,7 +64,7 @@
         {{/expired}}
 
         <form class="LoginForm" action="/login" method="post" autocomplete="off" id="loginForm">
-            <span class="LoginForm-elements">
+            <div class="LoginForm-elements">
             <div class="LoginForm-input">
                 <label for="clientId">Client ID</label>
                 <input class="LoginForm-input--clientId" id="clientId" maxlength="11" type="text" name="username" {{#clientId}}value="{{clientId}}"{{/clientId}} aria-required="true" required pattern="[0-9]{11}" placeholder="Enter your 11 digit client ID" tabindex="1"/>
@@ -86,9 +86,9 @@
                     </div>
                 </div>
             </div>
-            </span>
+            </div>
 
-            <span class="LoginForm-elements">
+            <div class="LoginForm-elements">
                 <div class="LoginForm-input">
                 <label for="familyName">Family Name</label>
                 <input id="familyName" type="text" name="familyName" aria-required="true" required maxlength="50" tabindex="3"/>
@@ -102,7 +102,7 @@
                     <span>Next</span><img src="/images/angle-right-white.svg" class="button-icon" alt =""/>
                 </button>
             </div>
-            </span>
+            </div>
                 <div class="ClientIdHelp-desktop">
                     <div class="row ClientIdHelp-show">
                         <div class="eleven columns">
@@ -112,7 +112,7 @@
                     <div class="row ClientIdHelp-hide">
                         <div class="eleven columns">
                             <a href="#nohelp" class="ClientIdHelp-hide--link" tabindex="2">Hide how to find your Client ID</a>
-                            </br>
+                            <br/>
                             <img src="/images/client_id_help.png" id="clientId-image" class="ClientIdHelp-image" alt="Please find your Client ID number in the correspondence from the Department"/>
                         </div>
                     </div>
