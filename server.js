@@ -147,7 +147,7 @@ app.get('/calendar', (req, res) => {
     trackingId,
     clientId,
     location: "2 Lonsdale Street, Melbourne VIC 3000",
-    locationURL: "2%20Lonsdale%20Street,%20Melbourne%20VIC%203000",
+    locationURL: "2+Lonsdale+Street,+Melbourne+VIC+3000",
     current_appointment: "Thursday, 12 December, 1:30PM",
     today_date: "2016-01-05T11:20:00",
     _csrf: {
@@ -189,7 +189,7 @@ app.get('/confirmation', (req, res) => {
     appointment_date: "Thursday 21 March 2015",
     appointment_time: "1:30 PM",
     location: "2 Lonsdale Street, Melbourne VIC 3000",
-    locationURL: "2%20Lonsdale%20Street,%20Melbourne%20VIC%203000",
+    locationURL: "2+Lonsdale+Street,+Melbourne+VIC+3000",
     clientId: "12345678901",
     hasEmail: true,
     hasMobile: true
