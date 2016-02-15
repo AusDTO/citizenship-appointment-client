@@ -130,8 +130,8 @@ app.get('/login', (req, res) => {
   });
 });
 
-app.post('/login', urlencodedParser, (req, res) => {
-  res.redirect('/calendar?' + querystring.stringify({ id: req.body.username }));
+app.post('/login', (req, res) => {
+  res.redirect('/calendar');
 });
 
 app.get('/calendar', (req, res) => {
@@ -172,7 +172,7 @@ app.get('/error', (req, res) => {
 
 app.post('/book_appointment', urlencodedParser, (req, res) => {
   if (!req.body) return res.sendStatus(400)
-  res.redirect('/confirmation?');
+  res.redirect('/confirmation');
 });
 
 app.get('/confirmation', (req, res) => {
