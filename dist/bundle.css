@@ -917,7 +917,7 @@ ul li {
   vertical-align: top; }
 
 .LoginForm-elements input.invalid {
-  border: 2px solid; }
+  border: 2px solid #C30016; }
 
 .LoginForm-input {
   display: inline-block;
@@ -977,6 +977,9 @@ button.with-icon > span {
 
 button.with-icon {
   padding: 0 1.5rem 0 2rem; }
+
+.validation-error {
+  color: #C30016; }
 
 .inactive {
   display: none; }
