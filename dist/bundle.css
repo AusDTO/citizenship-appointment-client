@@ -854,7 +854,8 @@ ul li {
 
 .footer {
   background-color: #222C35;
-  padding: 2rem 0; }
+  padding: 2rem 0;
+  color: #FFFFFF; }
   .footer img {
     height: 7rem;
     vertical-align: middle; }
