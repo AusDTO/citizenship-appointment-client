@@ -815,12 +815,12 @@ ul li {
 
 @media (max-width: 410px) {
   .MainContainer {
-    padding-bottom: 420px;
+    padding-bottom: 41rem;
     /* height of your footer */ } }
 
 @media (min-width: 410px) and (max-width: 550px) {
   .MainContainer {
-    padding-bottom: 410px;
+    padding-bottom: 41rem;
     /* height of your footer */ }
   .container {
     width: 100%;
@@ -832,7 +832,9 @@ ul li {
 
 @media (min-width: 550px) {
   .container {
-    padding: 0.5rem; } }
+    padding: 0.5rem; }
+  .MainContainer {
+    padding-bottom: 16rem; } }
 
 .Footer-section {
   position: absolute;
