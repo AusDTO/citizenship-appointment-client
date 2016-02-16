@@ -651,25 +651,25 @@ input[type="password"]:focus {
 
 ::-webkit-input-placeholder {
   /* WebKit, Blink, Edge */
-  color: #8D8D8D; }
+  color: #777777; }
 
 :-moz-placeholder {
   /* Mozilla Firefox 4 to 18 */
-  color: #8D8D8D;
+  color: #777777;
   opacity: 1; }
 
 ::-moz-placeholder {
   /* Mozilla Firefox 19+ */
-  color: #8D8D8D;
+  color: #777777;
   opacity: 1; }
 
 :-ms-input-placeholder {
   /* Internet Explorer 10-11 */
-  color: #8D8D8D; }
+  color: #777777; }
 
 :placeholder-shown {
   /* Standard (https://drafts.csswg.org/selectors-4/#placeholder) */
-  color: #8D8D8D; }
+  color: #777777; }
 
 @media (max-width: 550px) {
   input[type="email"], input[type="number"], input[type="search"], input[type="text"], input[type="tel"], input[type="url"], input[type="password"] {
@@ -830,6 +830,10 @@ ul li {
   .icon-label {
     display: none; } }
 
+@media (min-width: 550px) {
+  .container {
+    padding: 0.5rem; } }
+
 .Footer-section {
   position: absolute;
   bottom: 0; }
@@ -913,7 +917,7 @@ ul li {
   vertical-align: top; }
 
 .LoginForm-elements input.invalid {
-  border: 2px solid #C30016; }
+  border: 2px solid; }
 
 .LoginForm-input {
   display: inline-block;
@@ -973,9 +977,6 @@ button.with-icon > span {
 
 button.with-icon {
   padding: 0 1.5rem 0 2rem; }
-
-.validation-error {
-  color: red; }
 
 .inactive {
   display: none; }

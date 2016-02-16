@@ -90,3 +90,9 @@ ul li {
         display: none;
     }
 }
+
+@media (min-width: 550px){
+  .container {
+      padding: 0.5rem;
+  }
+}
