@@ -763,7 +763,9 @@ a:hover, a:focus, a:active {
 html,
 body {
   height: 100%;
-  position: relative; }
+  position: relative;
+  color: #000000;
+  background-color: #FFFFFF; }
 
 .MainContainer {
   min-height: 100vh;
