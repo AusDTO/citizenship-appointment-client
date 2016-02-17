@@ -1,7 +1,34 @@
 <script>
 window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
 ga('create', '{{trackingId}}', 'auto'{{#clientId}}, { 'userId': '{{clientId}}' }{{/clientId}});
+
+
+ga(function(tracker) {
+	var search = location.search;
+
+	var unId1 = search.match('cd1=([a-zA-Z0-9]*)');
+	if(unId1){
+		var uni = unId1[1];
+	    ga('set', 'dimension1', uni);
+	}
+
+	var unId2 = search.match('cd2=([a-zA-Z0-9]*)');
+	if(unId2){
+		var uni = unId2[1];
+	    ga('set', 'dimension2', uni);
+	}
+});
+
+{{#clientId}}
+ga('set', 'dimension1', {{clientId}});
+{{/clientId}}
+
+{{#unitId}}
+ga('set', 'dimension2', {{unitId}});
+{{/unitId}}
+
 ga('set', 'anonymizeIp', true);
 ga('send', 'pageview');
+
 </script>
 <script async src='//www.google-analytics.com/analytics.js'></script>
