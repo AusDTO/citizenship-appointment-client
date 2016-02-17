@@ -30,7 +30,7 @@
 }
 
 .LoginForm-elements input.invalid { 
-    border: 2px solid red;
+    border: 2px solid $error-color;
 }
 
 .LoginForm-input {
@@ -125,7 +125,7 @@ button.with-icon {
 }
 
 .validation-error{
-    color: red;
+    color: $error-color;
 }
 
 .inactive {

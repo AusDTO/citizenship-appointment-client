@@ -640,6 +640,37 @@ input[type="email"], input[type="number"], input[type="search"], input[type="tex
   height: 4.8rem;
   width: 25rem; }
 
+input[type="email"]:focus,
+input[type="number"]:focus,
+input[type="search"]:focus,
+input[type="text"]:focus,
+input[type="tel"]:focus,
+input[type="url"]:focus,
+input[type="password"]:focus {
+  border: 1px solid #004AA4; }
+
+::-webkit-input-placeholder {
+  /* WebKit, Blink, Edge */
+  color: #777777; }
+
+:-moz-placeholder {
+  /* Mozilla Firefox 4 to 18 */
+  color: #777777;
+  opacity: 1; }
+
+::-moz-placeholder {
+  /* Mozilla Firefox 19+ */
+  color: #777777;
+  opacity: 1; }
+
+:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: #777777; }
+
+:placeholder-shown {
+  /* Standard (https://drafts.csswg.org/selectors-4/#placeholder) */
+  color: #777777; }
+
 @media (max-width: 550px) {
   input[type="email"], input[type="number"], input[type="search"], input[type="text"], input[type="tel"], input[type="url"], input[type="password"] {
     width: 100%; } }
@@ -663,8 +694,9 @@ input.button:focus, input.button:hover {
 
 .button:focus, .button:hover,
 input.button:focus, input.button:hover,
+input:focus, input:hover, input:active,
 a:focus, a:hover {
-  outline: medium solid #c6e4fb; }
+  outline: medium solid #FDB42B; }
 
 input.button {
   font-size: 20px;
@@ -680,7 +712,10 @@ input.button {
   vertical-align: baseline; }
 
 a {
-  color: #0060BD; }
+  color: #0c62b9; }
+
+a:hover, a:focus, a:active {
+  color: #004AA4; }
 
 .header {
   background-color: #E8E8E8;
@@ -780,12 +815,12 @@ ul li {
 
 @media (max-width: 410px) {
   .MainContainer {
-    padding-bottom: 420px;
+    padding-bottom: 41rem;
     /* height of your footer */ } }
 
 @media (min-width: 410px) and (max-width: 550px) {
   .MainContainer {
-    padding-bottom: 410px;
+    padding-bottom: 41rem;
     /* height of your footer */ }
   .container {
     width: 100%;
@@ -794,6 +829,12 @@ ul li {
     padding: 0.5rem; }
   .icon-label {
     display: none; } }
+
+@media (min-width: 550px) {
+  .container {
+    padding: 0.5rem; }
+  .MainContainer {
+    padding-bottom: 16rem; } }
 
 .Footer-section {
   position: absolute;
@@ -813,7 +854,8 @@ ul li {
 
 .footer {
   background-color: #222C35;
-  padding: 2rem 0; }
+  padding: 2rem 0;
+  color: #FFFFFF; }
   .footer img {
     height: 7rem;
     vertical-align: middle; }
@@ -878,7 +920,7 @@ ul li {
   vertical-align: top; }
 
 .LoginForm-elements input.invalid {
-  border: 2px solid red; }
+  border: 2px solid #C30016; }
 
 .LoginForm-input {
   display: inline-block;
@@ -940,7 +982,7 @@ button.with-icon {
   padding: 0 1.5rem 0 2rem; }
 
 .validation-error {
-  color: red; }
+  color: #C30016; }
 
 .inactive {
   display: none; }

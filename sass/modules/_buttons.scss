@@ -18,10 +18,11 @@ input.button:focus, input.button:hover {
     color: white;
 }
 
-.button:focus, .button:hover,
+.button:focus, .button:hover,   
 input.button:focus, input.button:hover,
+input:focus, input:hover, input:active,
 a:focus, a:hover {
-    outline: medium solid #c6e4fb;
+    outline: medium solid $hover-outline;
 }
 
 input.button {

@@ -34,21 +34,21 @@
         <div class="Calendar-info">
             <img src="/images/map-marker.svg" class="icon" alt ="" role="presentation"/>
             <strong class="icon-label">&nbsp;Location:</strong>
-            &nbsp;<a href="https://www.google.com.au/maps?daddr={{location}}" target="_blank" aria-label="{{ location }} Press to open google maps to see directions" tabindex="1">{{ location }}</a>
+            &nbsp;<a href="https://www.google.com.au/maps?daddr={{locationURL}}" target="_blank" aria-label="{{ location }} Press to open google maps to see directions" tabindex="1">{{ location }}</a>
             <br/>
             {{#current_appointment }}
             <div class="Calendar-info--field">
                 <img src="/images/calendar-o.svg" class="icon" alt ="" role="presentation"/>
                 <strong class="icon-label">&nbsp;Current appointment:</strong>
-                &nbsp;{{ current_appointment }}</a>
+                &nbsp;{{ current_appointment }}
             </div>
             {{/current_appointment }}
-            <div class="Calendar-info--field" aria-label="Legend. Plain blue background marks dates that have appointments available. Grey striped background marks dates that have no appointments available.">
+            <div class="Calendar-info--field" role="presentation" aria-hidden="true" aria-label="Legend. Plain blue background marks dates that have appointments available. Grey striped background marks dates that have no appointments available.">
                 <div>
                     <span class="Legend-box"></span>
-                    <span class="Legend-label">&nbsp;Available&nbsp;&nbsp;</span>
+                    <span class="Legend-label" aria-hidden="true">&nbsp;Available&nbsp;&nbsp;</span>
                     <span class="Legend-box Legend-box--unavailable"></span>
-                    <span class="Legend-label">&nbsp;Not available</span>
+                    <span class="Legend-label" aria-hidden="true">&nbsp;Not available</span>
                 </div>
             </div>
         </div>

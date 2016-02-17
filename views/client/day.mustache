@@ -1,6 +1,6 @@
 <td class="DateCell Calendar-date--bookable {{^available_times_count}}Calendar-date--unavailable{{/available_times_count}} {{^bookable}}Calendar-date--hide{{/bookable}} {{#bookable}}date-{{date}}{{/bookable}}">
   {{#bookable}}
-  <div class="DateCell-content {{#today}}today{{/today}}"  {{^available_times_count}}aria-hidden="true"{{/available_times_count}}  {{#available_times_count}}tabindex="{{dateTabIndex}}" aria-label="{{ ariaDay }} and {{available_times_count}} available timeslots"{{/available_times_count}}>
+  <div class="DateCell-content {{#today}}today{{/today}}"  {{^available_times_count}}aria-hidden="true"{{/available_times_count}}  {{#available_times_count}} aria-label="{{ ariaDay }} and {{available_times_count}} available timeslots"{{/available_times_count}}>
 
     <a class="DateCell-content--datelink {{#today}}today{{/today}} date-{{date}} " 
     href="#date/{{ date }}" name="date/{{ date }}"  
