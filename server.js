@@ -214,7 +214,7 @@ app.get('/session_timeout', (req, res) => {
 app.get('/barcode/pdf417/:id', (req, res) => {
   bwipjs.toBuffer({
     bcid: 'pdf417compact',
-    text: req.params.id
+    text: req.params.id.substring(0, 11)
   }, function (err, pngBuffer) {
     if (err) {
       console.log(err);
