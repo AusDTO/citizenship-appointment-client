@@ -106,6 +106,11 @@ app.get('/get_available_times', (req, res) => {
   res.json(json);
 });
 
+app.get('/extend_session', (req, res) => {
+  let json = {};
+  res.json(json);
+});
+
 app.get('/', (req, res) => {
   res.redirect('/login');
 });
