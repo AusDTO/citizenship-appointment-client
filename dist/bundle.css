@@ -815,6 +815,9 @@ ul li {
   position: absolute;
   width: 1px; }
 
+.small-left-padding {
+  padding-left: 0.5rem; }
+
 @media (max-width: 410px) {
   .MainContainer {
     padding-bottom: 41rem;
@@ -1016,6 +1019,9 @@ button.with-icon {
 .small-bottom-margin {
   margin-bottom: 0.5rem; }
 
+.top-large-padding {
+  padding-top: 2.5rem; }
+
 .section-title {
   margin-top: 2rem;
   font-size: 2rem;
@@ -1167,7 +1173,8 @@ button.with-icon {
   height: 2rem; }
 
 .Legend-box--unavailable {
-  background: url("../images/unavailable_tile.png"); }
+  background: url("../images/unavailable_tile.png");
+  margin-left: 1.5rem; }
 
 .Loading-message {
   text-align: center;
