@@ -647,7 +647,7 @@ input[type="text"]:focus,
 input[type="tel"]:focus,
 input[type="url"]:focus,
 input[type="password"]:focus {
-  border: 1px solid #004AA4; }
+  outline: medium solid #FDB42B; }
 
 ::-webkit-input-placeholder {
   /* WebKit, Blink, Edge */
@@ -692,11 +692,16 @@ input.button:focus, input.button:hover {
   background-color: #003296;
   color: white; }
 
-.button:focus, .button:hover,
-input.button:focus, input.button:hover,
-input:focus, input:hover, input:active,
-a:focus, a:hover {
+.button:focus,
+.button:focus:hover,
+input.button:focus,
+input:focus, input:active,
+a:focus, a:focus:hover {
   outline: medium solid #FDB42B; }
+
+.button:hover, input.button:hover,
+input:hover, a:hover {
+  outline: thin solid #004AA4; }
 
 input.button {
   font-size: 20px;
@@ -1099,14 +1104,28 @@ button.with-icon {
 .dropdown button:focus > a,
 .dropdown button:hover > a,
 .dropdown button:active > a {
-  background: #BBBBBB; }
+  background: #F1F1F1; }
 
 .dropdown > a:hover,
 .dropdown > a:focus,
 .dropdown:focus > a,
 .dropdown:hover > a,
 .dropdown:active > a {
-  background: #BBBBBB; }
+  background: #F1F1F1; }
+
+.dropdown li > a:hover,
+.dropdown li:hover > a,
+.dropdown button:hover > a,
+.dropdown > a:hover,
+.dropdown:hover > a {
+  outline: none; }
+
+.dropdown li > a:hover:focus,
+.dropdown li:hover:focus > a,
+.dropdown button:hover:focus > a,
+.dropdown > a:hover:focus,
+.dropdown:hover:focus > a {
+  outline: medium solid #FDB42B; }
 
 .dropdown:hover ul,
 .dropdown:focus ul,
@@ -1362,6 +1381,12 @@ button.with-icon {
   text-decoration: none;
   color: #333333;
   font-weight: bold; }
+
+.AppointmentLink:hover, .AppointmentLink:focus, .AppointmentLink:active {
+  color: #333333; }
+
+.AppointmentLink:hover, .DateCell-content--datelink:hover {
+  outline: none; }
 
 .AppointmentLink-ampm {
   font-size: .75em;

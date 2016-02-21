@@ -127,7 +127,7 @@
 .dropdown button:focus > a,
 .dropdown button:hover > a,
 .dropdown button:active > a {
-	background: #BBBBBB;
+	background: #F1F1F1;
 }
 
 .dropdown > a:hover,
@@ -135,7 +135,23 @@
 .dropdown:focus > a,
 .dropdown:hover > a,
 .dropdown:active > a{
-	background: #BBBBBB;
+	background: #F1F1F1;
+}
+
+.dropdown li > a:hover,
+.dropdown li:hover > a,
+.dropdown button:hover > a,
+.dropdown > a:hover,
+.dropdown:hover > a{
+	outline: none;
+}
+
+.dropdown li > a:hover:focus,
+.dropdown li:hover:focus > a,
+.dropdown button:hover:focus > a,
+.dropdown > a:hover:focus,
+.dropdown:hover:focus > a{
+	outline: medium solid $focus-outline;
 }
 
 .dropdown:hover ul,

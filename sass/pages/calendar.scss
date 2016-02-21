@@ -285,6 +285,14 @@
     font-weight: bold;
 }
 
+.AppointmentLink:hover, .AppointmentLink:focus, .AppointmentLink:active {
+    color: $font-color;
+}
+
+.AppointmentLink:hover, .DateCell-content--datelink:hover {
+    outline: none;
+}
+
 .AppointmentLink-ampm {
     font-size: .75em;
     font-weight: lighter;
