@@ -21,7 +21,7 @@
 .footer {
   background-color: $govau-slate;
   padding: 2rem 0;
-  color: #FFFFFF;
+  color: $footer-font-color;
 
   img {
     height: 7rem;
@@ -29,7 +29,7 @@
   }
 
   a.footerlink {
-    color: #FFFFFF;
+    color: $footer-font-color;
     text-decoration: none;
     font-size: 1.2rem;
   }
@@ -37,7 +37,7 @@
   a:hover,
   a:focus,
   a:active{
-    color: #E5E5E5;
+    color: $footer-link-hover;
     text-decoration: underline;
   }
 

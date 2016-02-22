@@ -180,7 +180,7 @@
 
 .Calendar-date--bookable .DateCell-content--datelink:hover {
     text-decoration: none;
-    background: $hover-color;
+    background: $available-hover-color;
 }
 
 .Calendar-date--bookable.is-active {
@@ -246,7 +246,7 @@
 //––––––––––––––––––––––––––––––––––––––––––––––––––
 
 .AvailableTimesCell {
-    border-bottom: 1px solid $light-grey;
+    border-bottom: 1px solid $background-grey;
     padding: 0;
 }
 

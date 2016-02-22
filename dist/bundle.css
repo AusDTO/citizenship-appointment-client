@@ -619,11 +619,25 @@ form {
   margin-bottom: 2.5rem; }
 
 body {
-  color: #333333;
+  color: #000000;
   font-size: 16px;
   font-family: "Open Sans", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: normal;
   line-height: 24px; }
+
+h1 {
+  font-size: 3.5rem;
+  line-height: 1.2;
+  letter-spacing: -.1rem;
+  margin-top: 1rem;
+  margin-bottom: 3rem;
+  font-weight: bold; }
+
+h2 {
+  margin-top: 2rem;
+  font-size: 2rem;
+  font-weight: bold;
+  letter-spacing: 0.05rem; }
 
 @media (max-width: 550px) {
   h1 {
@@ -682,14 +696,14 @@ input[type="password"]:focus {
   text-transform: none;
   margin-right: 1rem;
   padding: 0 2rem;
-  background: #0060BD;
+  background: #0078C6;
   color: white;
   font-size: 1.6rem;
   letter-spacing: 0.18px; }
 
 .button:focus, .button:hover,
 input.button:focus, input.button:hover {
-  background-color: #003296;
+  background-color: #004AA4;
   color: white; }
 
 .button:focus,
@@ -717,7 +731,7 @@ input.button {
   vertical-align: baseline; }
 
 a {
-  color: #0c62b9; }
+  color: #0078C6; }
 
 a:hover, a:focus, a:active {
   color: #004AA4; }
@@ -786,9 +800,6 @@ body {
   font-size: 1.5em;
   font-weight: lighter; }
 
-h1 {
-  font-weight: bold; }
-
 ul {
   list-style: disc outside;
   padding-left: 1rem;
@@ -799,16 +810,17 @@ ul li {
   margin-bottom: 0.2rem; }
 
 .error-div {
-  background-color: #F7D5D6;
+  background-color: #F9DEDE;
   padding: 0.5rem;
-  border: 1px #000000 solid;
+  border: 1px #E31C3D solid;
   font-weight: bold;
   position: relative;
   padding-left: 30px;
-  background: #F7D5D6 url("/images/warning.svg") no-repeat;
+  background: #F9DEDE url("/images/warning.svg") no-repeat;
   background-size: 1.5rem;
   background-position-x: 1rem;
-  background-position-y: 1rem; }
+  background-position-y: 1rem;
+  margin-bottom: 2rem; }
 
 .visuallyhidden {
   border: 0;
@@ -863,7 +875,7 @@ ul li {
   display: inline-block; }
 
 .footer {
-  background-color: #222C35;
+  background-color: #232D35;
   padding: 2rem 0;
   color: #FFFFFF; }
   .footer img {
@@ -930,7 +942,7 @@ ul li {
   vertical-align: top; }
 
 .LoginForm-elements input.invalid {
-  border: 2px solid #C30016; }
+  border: 2px solid #E31C3D; }
 
 .LoginForm-input {
   display: inline-block;
@@ -967,13 +979,13 @@ ul li {
   text-decoration: none; }
 
 .warning-header {
-  background-color: #222C35;
+  background-color: #232D35;
   color: white;
   display: table-cell;
   padding: 10px 16px; }
 
 .warning-message {
-  color: #222C35;
+  color: #232D35;
   display: table-cell;
   padding: 10px 10px; }
 
@@ -992,7 +1004,7 @@ button.with-icon {
   padding: 0 1.5rem 0 2rem; }
 
 .validation-error {
-  color: #C30016; }
+  color: #E31C3D; }
 
 .inactive {
   display: none; }
@@ -1011,9 +1023,6 @@ button.with-icon {
   float: right;
   display: inline; }
 
-.title {
-  font-size: 3.5rem; }
-
 .subtitle {
   line-height: 1.25;
   letter-spacing: 0.05rem;
@@ -1026,12 +1035,6 @@ button.with-icon {
 
 .top-large-padding {
   padding-top: 2.5rem; }
-
-.section-title {
-  margin-top: 2rem;
-  font-size: 2rem;
-  font-weight: bold;
-  letter-spacing: 0.05rem; }
 
 .barcode-frame {
   text-align: center;
@@ -1047,13 +1050,13 @@ button.with-icon {
   line-height: 1.5rem; }
 
 .strong-top-line {
-  border-top: 2px solid #232D35;
+  border-top: 2px solid #000000;
   padding-top: 2rem;
   margin-top: 2rem; }
 
 .grey-div {
   padding: 0.1rem 1.5rem 1.5rem 1.5rem;
-  background-color: #ECF0F3;
+  background-color: #F0F3F5;
   margin-top: 0rem;
   margin-bottom: 2rem; }
 
@@ -1078,7 +1081,7 @@ button.with-icon {
   list-style: none;
   min-width: 23.6rem;
   background-color: white;
-  border: 1px solid #d7d8de;
+  border: 1px solid #232D35;
   position: absolute;
   left: -9999px;
   opacity: 0;
@@ -1092,8 +1095,8 @@ button.with-icon {
   float: left;
   padding: 0.2em 0.8em;
   text-decoration: none;
-  background: #ffffff;
-  color: #333333; }
+  background: #FFFFFF;
+  color: #000000; }
 
 .dropdown li > a:hover,
 .dropdown li > a:focus,
@@ -1295,28 +1298,28 @@ button.with-icon {
   text-align: center;
   font-size: 0.45em;
   color: white;
-  background: #222C35; }
+  background: #232D35; }
 
 .Calendar-date--bookable {
   background: #D1EAFB; }
 
 .Calendar-date--bookable .DateCell-content--datelink {
-  color: #333333; }
+  color: #000000; }
 
 .Calendar-date--bookable .DateCell-content--datelink:hover {
   text-decoration: none;
   background: #DCEEFF; }
 
 .Calendar-date--bookable.is-active {
-  border-color: #222C35;
-  background: #222C35; }
+  border-color: #232D35;
+  background: #232D35; }
 
 .Calendar-date--bookable.is-active {
-  background: #222C35; }
+  background: #232D35; }
 
 .Calendar-date--bookable.is-active .DateCell-content--datelink {
   color: white;
-  background: #222C35; }
+  background: #232D35; }
 
 .Calendar-date--bookable.is-active .DateCell-content--datelink:after {
   content: '';
@@ -1327,7 +1330,7 @@ button.with-icon {
   margin: 0 auto;
   width: 0;
   height: 0;
-  border-top: solid 0.7rem #222C35;
+  border-top: solid 0.7rem #232D35;
   border-left: solid 0.7rem transparent;
   border-right: solid 0.7rem transparent; }
 
@@ -1337,7 +1340,7 @@ button.with-icon {
   background: url("../images/unavailable_tile.png"); }
 
 .Calendar-date--unavailable .DateCell-content--datelink {
-  color: #6D6D6D; }
+  color: #7B8186; }
 
 .Calendar-date--unavailable .DateCell-content--day {
   font-weight: lighter; }
@@ -1369,21 +1372,21 @@ button.with-icon {
   min-width: 117px; }
 
 .AppointmentTimes-list--item.is-active {
-  border-color: #222C35;
-  background: #222C35; }
+  border-color: #232D35;
+  background: #232D35; }
 
 .AppointmentTimes-list--item.is-active .AppointmentLink {
   color: white;
-  background: #222C35; }
+  background: #232D35; }
 
 .AppointmentLink {
   font-size: 1.2em;
   text-decoration: none;
-  color: #333333;
+  color: #000000;
   font-weight: bold; }
 
 .AppointmentLink:hover, .AppointmentLink:focus, .AppointmentLink:active {
-  color: #333333; }
+  color: #000000; }
 
 .AppointmentLink:hover, .DateCell-content--datelink:hover {
   outline: none; }
@@ -1434,6 +1437,8 @@ button.with-icon {
 @media print {
   body {
     font: 12pt; }
+  h1 {
+    font-size: 3rem; }
   .MainContainer {
     padding-bottom: 0px;
     position: fixed; }

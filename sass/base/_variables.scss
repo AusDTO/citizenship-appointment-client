@@ -11,24 +11,36 @@ $au-gov-font-family: 'Times New Roman', Times, serif;
 $au-gov-font-weight: bold;
 
 // Colors
-$font-color: #333333;
-$govau-slate: #222C35;
-$dibp-blue: #0178C6;
-$light-grey: #E8E8E8;
-$highlight-grey: #9A9B9C;
+$govau-slate: #232D35;
+
+$body-bgcolor: #FFFFFF;
+$font-color: #000000;
+$background-grey: #E8E8E8;
+$input-border: #232D35;
+$grey-div-bgcolor: #F0F3F5;
+
 $available-color: #D1EAFB;
-$hover-color: #DCEEFF;
-$selected-color: #222C35;
-$unavailable-font-color: #6D6D6D;
+$available-hover-color: #DCEEFF;
+$selected-color: #232D35;
+$unavailable-font-color: #7B8186;
+
 $placeholder-color: #777777;
-$error-color: #C30016;
+$error-color: #E31C3D;
+$error-bgcolor: #F9DEDE;
 
-$primary: #0060BD;
-$primary-hover: #003296;
+//Button default state, focus, link color
+$primary: #0078C6;
+$link-text: #0078C6;
 
-$focus-outline: #FDB42B;
+//Button hover, hover outline
+$primary-hover: #004AA4;
 $hover-outline: #004AA4;
 $hover-link-text: #004AA4;
-$link-text: #0c62b9;
+
+$focus-outline: #FDB42B;
+$hover-li-color: #F1F1F1;
 
 $beta-tag: #F16A22;
+
+$footer-font-color: #FFFFFF;
+$footer-link-hover: #E5E5E5;
