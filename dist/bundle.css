@@ -637,11 +637,13 @@ h2 {
   margin-top: 2rem;
   font-size: 2rem;
   font-weight: bold;
-  letter-spacing: 0.05rem; }
+  letter-spacing: normal; }
 
 @media (max-width: 550px) {
   h1 {
-    font-size: 2.5em; } }
+    font-size: 2.5em; }
+  h2 {
+    font-size: 1.5em; } }
 
 form {
   margin-bottom: 0; }
@@ -1209,12 +1211,9 @@ button.with-icon {
 
 .Calendar-nav--month {
   display: block;
-  font-size: 1.6em;
-  line-height: normal;
   padding: 0.5em 0;
   text-align: center;
-  margin: 0rem;
-  letter-spacing: normal; }
+  margin: 0rem; }
 
 .Calendar-nav--next,
 .Calendar-nav--prev {
