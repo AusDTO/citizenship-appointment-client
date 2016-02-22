@@ -977,22 +977,16 @@ ul li {
   .LoginForm-input--clientId {
     margin-bottom: .5rem; } }
 
-.warning-link {
-  text-decoration: none; }
-
 .warning-header {
   background-color: #232D35;
   color: white;
-  display: table-cell;
+  display: inline-block;
   padding: 10px 16px; }
 
 .warning-message {
   color: #232D35;
-  display: table-cell;
+  display: inline-block;
   padding: 10px 10px; }
-
-.warning-action-text {
-  text-decoration: underline; }
 
 .button-icon {
   width: 2.5rem;

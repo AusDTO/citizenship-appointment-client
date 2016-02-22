@@ -86,25 +86,17 @@
     }
 }
 
-.warning-link {
-    text-decoration: none;
-}
-
 .warning-header {
     background-color: $govau-slate;
     color: white;
-    display: table-cell;
+    display: inline-block;
     padding: 10px 16px;
 }
 
 .warning-message {
     color: $govau-slate;
-    display: table-cell;
+    display: inline-block;
     padding: 10px 10px;
-}
-
-.warning-action-text {
-    text-decoration: underline;
 }
 
 .button-icon {
