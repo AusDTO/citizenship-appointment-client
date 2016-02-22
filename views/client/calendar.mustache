@@ -17,17 +17,26 @@
 
         <!-- Calendar table -->
 
-        <table class="Calendar-dates" role="presentation">
-            <tr aria-hidden="true">
-                <td class="Calendar-header--dayLabel" data-state="M" scope="col" role="presentation">Mon</th>
-                <td class="Calendar-header--dayLabel" data-state="T" scope="col" role="presentation">Tue</th>
-                <td class="Calendar-header--dayLabel" data-state="W" scope="col" role="presentation">Wed</th>
-                <td class="Calendar-header--dayLabel" data-state="T" scope="col" role="presentation">Thu</th>
-                <td class="Calendar-header--dayLabel" data-state="F" scope="col" role="presentation">Fri</th>
-                <td class="Calendar-header--dayLabel" data-state="S" scope="col" role="presentation">Sat</th>
-                <td class="Calendar-header--dayLabel" data-state="S" scope="col" role="presentation">Sun</th>
-            </tr>
+        <div class="Calendar-dates">
+            <div class="week-row">
+              <!-- Desktop headers -->
+                <div class="Calendar-header--dayLabel" role="presentation">Mon</div>
+                <div class="Calendar-header--dayLabel" role="presentation">Tue</div>
+                <div class="Calendar-header--dayLabel" role="presentation">Wed</div>
+                <div class="Calendar-header--dayLabel" role="presentation">Thu</div>
+                <div class="Calendar-header--dayLabel" role="presentation">Fri</div>
+                <div class="Calendar-header--dayLabel" role="presentation">Sat</div>
+                <div class="Calendar-header--dayLabel" role="presentation">Sun</div>
+              <!-- Mobile headers  -->
+                <div class="Calendar-header--dayLabel-mobile" role="presentation">M</div>
+                <div class="Calendar-header--dayLabel-mobile" role="presentation">T</div>
+                <div class="Calendar-header--dayLabel-mobile" role="presentation">W</div>
+                <div class="Calendar-header--dayLabel-mobile" role="presentation">T</div>
+                <div class="Calendar-header--dayLabel-mobile" role="presentation">F</div>
+                <div class="Calendar-header--dayLabel-mobile" role="presentation">S</div>
+                <div class="Calendar-header--dayLabel-mobile" role="presentation">S</div>
+            </div>
             {{> month_template}}
-        </table>
+        </div>
     </div>
 {{/months}}

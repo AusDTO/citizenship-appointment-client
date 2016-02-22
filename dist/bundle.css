@@ -1169,6 +1169,18 @@ button.with-icon {
   .dropdown ul {
     width: 100%; } }
 
+.week-row {
+  font-size: 0; }
+  .week-row > div {
+    font-size: 16px; }
+  .week-row .DateCell {
+    display: inline-block; }
+    .week-row .DateCell .DateCell-content {
+      font-size: 3rem; }
+  .week-row .AvailableTimes, .week-row .SelectionConfirmation {
+    float: left;
+    width: 100%; }
+
 .Calendar-info {
   text-align: justify; }
 
@@ -1232,26 +1244,28 @@ button.with-icon {
 .hidden {
   display: none; }
 
-.Calendar-header--dayLabel {
-  position: relative;
+.Calendar-header--dayLabel, .Calendar-header--dayLabel-mobile {
   text-align: center;
   border: 0;
   padding: 0;
   font-size: 1em; }
 
-.Calendar-header--dayLabel:after {
-  content: attr(data-state);
+.Calendar-header--dayLabel {
+  display: inline-block; }
+
+.Calendar-header--dayLabel-mobile {
   display: none; }
 
 .Calendar-dates {
   width: 100%;
-  border-spacing: 0.5rem 0.50rem;
-  border-collapse: separate;
   background: white; }
 
 .Calendar-header--dayLabel,
-.DateCell {
-  width: 14.28571%; }
+.Calendar-header--dayLabel-mobile,
+.week-row .DateCell {
+  width: 13.7%;
+  margin-left: 0.25%;
+  margin-right: 0.25%; }
 
 .DateCell {
   font-size: 1.9em;
@@ -1402,14 +1416,10 @@ button.with-icon {
   display: inline-block; }
 
 @media (max-width: 640px) {
-  .Calendar-header--dayLabel:after {
-    display: block;
-    background: white;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%; }
+  .Calendar-header--dayLabel {
+    display: none; }
+  .Calendar-header--dayLabel-mobile {
+    display: inline-block; }
   .DateCell {
     font-size: 1.5em; }
   .DateCell-content {
