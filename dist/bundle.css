@@ -619,15 +619,31 @@ form {
   margin-bottom: 2.5rem; }
 
 body {
-  color: #333333;
+  color: #000000;
   font-size: 16px;
   font-family: "Open Sans", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: normal;
   line-height: 24px; }
 
+h1 {
+  font-size: 3.5rem;
+  line-height: 1.2;
+  letter-spacing: -.1rem;
+  margin-top: 1rem;
+  margin-bottom: 3rem;
+  font-weight: bold; }
+
+h2 {
+  margin-top: 2rem;
+  font-size: 2rem;
+  font-weight: bold;
+  letter-spacing: normal; }
+
 @media (max-width: 550px) {
   h1 {
-    font-size: 2.5em; } }
+    font-size: 2.5em; }
+  h2 {
+    font-size: 1.5em; } }
 
 form {
   margin-bottom: 0; }
@@ -640,6 +656,37 @@ input[type="email"], input[type="number"], input[type="search"], input[type="tex
   height: 4.8rem;
   width: 25rem; }
 
+input[type="email"]:focus,
+input[type="number"]:focus,
+input[type="search"]:focus,
+input[type="text"]:focus,
+input[type="tel"]:focus,
+input[type="url"]:focus,
+input[type="password"]:focus {
+  outline: medium solid #FDB42B; }
+
+::-webkit-input-placeholder {
+  /* WebKit, Blink, Edge */
+  color: #777777; }
+
+:-moz-placeholder {
+  /* Mozilla Firefox 4 to 18 */
+  color: #777777;
+  opacity: 1; }
+
+::-moz-placeholder {
+  /* Mozilla Firefox 19+ */
+  color: #777777;
+  opacity: 1; }
+
+:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: #777777; }
+
+:placeholder-shown {
+  /* Standard (https://drafts.csswg.org/selectors-4/#placeholder) */
+  color: #777777; }
+
 @media (max-width: 550px) {
   input[type="email"], input[type="number"], input[type="search"], input[type="text"], input[type="tel"], input[type="url"], input[type="password"] {
     width: 100%; } }
@@ -651,20 +698,26 @@ input[type="email"], input[type="number"], input[type="search"], input[type="tex
   text-transform: none;
   margin-right: 1rem;
   padding: 0.5rem 2rem;
-  background: #0060BD;
+  background: #0078C6;
   color: white;
   font-size: 1.6rem;
   letter-spacing: 0.18px; }
 
 .button:focus, .button:hover,
 input.button:focus, input.button:hover {
-  background-color: #003296;
+  background-color: #004AA4;
   color: white; }
 
-.button:focus, .button:hover,
-input.button:focus, input.button:hover,
-a:focus, a:hover {
-  outline: medium solid #c6e4fb; }
+.button:focus,
+.button:focus:hover,
+input.button:focus,
+input:focus, input:active,
+a:focus, a:focus:hover {
+  outline: medium solid #FDB42B; }
+
+.button:hover, input.button:hover,
+input:hover, a:hover {
+  outline: thin solid #004AA4; }
 
 input.button {
   font-size: 20px;
@@ -680,7 +733,10 @@ input.button {
   vertical-align: baseline; }
 
 a {
-  color: #0060BD; }
+  color: #0078C6; }
+
+a:hover, a:focus, a:active {
+  color: #004AA4; }
 
 .modalDialog {
   position: fixed;
@@ -775,7 +831,9 @@ a {
 html,
 body {
   height: 100%;
-  position: relative; }
+  position: relative;
+  color: #000000;
+  background-color: #FFFFFF; }
 
 .MainContainer {
   min-height: 100vh;
@@ -791,9 +849,6 @@ body {
   font-size: 1.5em;
   font-weight: lighter; }
 
-h1 {
-  font-weight: bold; }
-
 ul {
   list-style: disc outside;
   padding-left: 1rem;
@@ -804,16 +859,17 @@ ul li {
   margin-bottom: 0.2rem; }
 
 .error-div {
-  background-color: #F7D5D6;
+  background-color: #F9DEDE;
   padding: 0.5rem;
-  border: 1px #000000 solid;
+  border: 1px #E31C3D solid;
   font-weight: bold;
   position: relative;
   padding-left: 30px;
-  background: #F7D5D6 url("/images/warning.svg") no-repeat;
+  background: #F9DEDE url("/images/warning.svg") no-repeat;
   background-size: 1.5rem;
   background-position-x: 1rem;
-  background-position-y: 1rem; }
+  background-position-y: 1rem;
+  margin-bottom: 2rem; }
 
 .visuallyhidden {
   border: 0;
@@ -825,14 +881,17 @@ ul li {
   position: absolute;
   width: 1px; }
 
+.small-left-padding {
+  padding-left: 0.5rem; }
+
 @media (max-width: 410px) {
   .MainContainer {
-    padding-bottom: 420px;
+    padding-bottom: 41rem;
     /* height of your footer */ } }
 
 @media (min-width: 410px) and (max-width: 550px) {
   .MainContainer {
-    padding-bottom: 410px;
+    padding-bottom: 41rem;
     /* height of your footer */ }
   .container {
     width: 100%;
@@ -841,6 +900,12 @@ ul li {
     padding: 0.5rem; }
   .icon-label {
     display: none; } }
+
+@media (min-width: 550px) {
+  .container {
+    padding: 0.5rem; }
+  .MainContainer {
+    padding-bottom: 16rem; } }
 
 .Footer-section {
   position: absolute;
@@ -859,8 +924,9 @@ ul li {
   display: inline-block; }
 
 .footer {
-  background-color: #222C35;
-  padding: 2rem 0; }
+  background-color: #232D35;
+  padding: 2rem 0;
+  color: #FFFFFF; }
   .footer img {
     height: 7rem;
     vertical-align: middle; }
@@ -925,7 +991,7 @@ ul li {
   vertical-align: top; }
 
 .LoginForm-elements input.invalid {
-  border: 2px solid red; }
+  border: 2px solid #E31C3D; }
 
 .LoginForm-input {
   display: inline-block;
@@ -958,22 +1024,16 @@ ul li {
   .LoginForm-input--clientId {
     margin-bottom: .5rem; } }
 
-.warning-link {
-  text-decoration: none; }
-
 .warning-header {
-  background-color: #222C35;
+  background-color: #232D35;
   color: white;
-  display: table-cell;
+  display: inline-block;
   padding: 10px 16px; }
 
 .warning-message {
-  color: #222C35;
-  display: table-cell;
+  color: #232D35;
+  display: inline-block;
   padding: 10px 10px; }
-
-.warning-action-text {
-  text-decoration: underline; }
 
 .button-icon {
   width: 2.5rem;
@@ -987,7 +1047,7 @@ button.with-icon {
   padding: 0 1.5rem 0 2rem; }
 
 .validation-error {
-  color: red; }
+  color: #E31C3D; }
 
 .inactive {
   display: none; }
@@ -1006,9 +1066,6 @@ button.with-icon {
   float: right;
   display: inline; }
 
-.title {
-  font-size: 3.5rem; }
-
 .subtitle {
   line-height: 1.25;
   letter-spacing: 0.05rem;
@@ -1019,11 +1076,8 @@ button.with-icon {
 .small-bottom-margin {
   margin-bottom: 0.5rem; }
 
-.section-title {
-  margin-top: 2rem;
-  font-size: 2rem;
-  font-weight: bold;
-  letter-spacing: 0.05rem; }
+.top-large-padding {
+  padding-top: 2.5rem; }
 
 .barcode-frame {
   text-align: center;
@@ -1039,13 +1093,13 @@ button.with-icon {
   line-height: 1.5rem; }
 
 .strong-top-line {
-  border-top: 2px solid #232D35;
+  border-top: 2px solid #000000;
   padding-top: 2rem;
   margin-top: 2rem; }
 
 .grey-div {
   padding: 0.1rem 1.5rem 1.5rem 1.5rem;
-  background-color: #ECF0F3;
+  background-color: #F0F3F5;
   margin-top: 0rem;
   margin-bottom: 2rem; }
 
@@ -1070,7 +1124,7 @@ button.with-icon {
   list-style: none;
   min-width: 23.6rem;
   background-color: white;
-  border: 1px solid #d7d8de;
+  border: 1px solid #232D35;
   position: absolute;
   left: -9999px;
   opacity: 0;
@@ -1084,8 +1138,8 @@ button.with-icon {
   float: left;
   padding: 0.2em 0.8em;
   text-decoration: none;
-  background: #ffffff;
-  color: #333333; }
+  background: #FFFFFF;
+  color: #000000; }
 
 .dropdown li > a:hover,
 .dropdown li > a:focus,
@@ -1096,14 +1150,28 @@ button.with-icon {
 .dropdown button:focus > a,
 .dropdown button:hover > a,
 .dropdown button:active > a {
-  background: #BBBBBB; }
+  background: #F1F1F1; }
 
 .dropdown > a:hover,
 .dropdown > a:focus,
 .dropdown:focus > a,
 .dropdown:hover > a,
 .dropdown:active > a {
-  background: #BBBBBB; }
+  background: #F1F1F1; }
+
+.dropdown li > a:hover,
+.dropdown li:hover > a,
+.dropdown button:hover > a,
+.dropdown > a:hover,
+.dropdown:hover > a {
+  outline: none; }
+
+.dropdown li > a:hover:focus,
+.dropdown li:hover:focus > a,
+.dropdown button:hover:focus > a,
+.dropdown > a:hover:focus,
+.dropdown:hover:focus > a {
+  outline: medium solid #FDB42B; }
 
 .dropdown:hover ul,
 .dropdown:focus ul,
@@ -1148,6 +1216,20 @@ button.with-icon {
   .dropdown ul {
     width: 100%; } }
 
+.week-row {
+  font-size: 0;
+  line-height: 0; }
+  .week-row > div {
+    font-size: 16px;
+    line-height: 24px; }
+  .week-row .DateCell {
+    display: inline-block; }
+    .week-row .DateCell .DateCell-content {
+      font-size: 3rem; }
+  .week-row .AvailableTimes, .week-row .SelectionConfirmation {
+    float: left;
+    width: 100%; }
+
 .Calendar-info {
   text-align: justify; }
 
@@ -1170,7 +1252,8 @@ button.with-icon {
   height: 2rem; }
 
 .Legend-box--unavailable {
-  background: url("../images/unavailable_tile.png"); }
+  background: url("../images/unavailable_tile.png");
+  margin-left: 1.5rem; }
 
 .Loading-message {
   text-align: center;
@@ -1183,12 +1266,9 @@ button.with-icon {
 
 .Calendar-nav--month {
   display: block;
-  font-size: 1.6em;
-  line-height: normal;
   padding: 0.5em 0;
   text-align: center;
-  margin: 0rem;
-  letter-spacing: normal; }
+  margin: 0rem; }
 
 .Calendar-nav--next,
 .Calendar-nav--prev {
@@ -1213,26 +1293,29 @@ button.with-icon {
 .hidden {
   display: none; }
 
-.Calendar-header--dayLabel {
-  position: relative;
+.Calendar-header--dayLabel, .Calendar-header--dayLabel-mobile {
   text-align: center;
   border: 0;
   padding: 0;
   font-size: 1em; }
 
-.Calendar-header--dayLabel:after {
-  content: attr(data-state);
+.Calendar-header--dayLabel {
+  display: inline-block; }
+
+.Calendar-header--dayLabel-mobile {
   display: none; }
 
 .Calendar-dates {
   width: 100%;
-  border-spacing: 0.5rem 0.50rem;
-  border-collapse: separate;
   background: white; }
 
 .Calendar-header--dayLabel,
-.DateCell {
-  width: 14.28571%; }
+.Calendar-header--dayLabel-mobile,
+.week-row .DateCell {
+  width: 13.7%;
+  margin-left: 0.25%;
+  margin-right: 0.25%;
+  margin-top: 0.5rem; }
 
 .DateCell {
   font-size: 1.9em;
@@ -1272,28 +1355,28 @@ button.with-icon {
   text-align: center;
   font-size: 0.45em;
   color: white;
-  background: #222C35; }
+  background: #232D35; }
 
 .Calendar-date--bookable {
   background: #D1EAFB; }
 
 .Calendar-date--bookable .DateCell-content--datelink {
-  color: #333333; }
+  color: #000000; }
 
 .Calendar-date--bookable .DateCell-content--datelink:hover {
   text-decoration: none;
   background: #DCEEFF; }
 
 .Calendar-date--bookable.is-active {
-  border-color: #222C35;
-  background: #222C35; }
+  border-color: #232D35;
+  background: #232D35; }
 
 .Calendar-date--bookable.is-active {
-  background: #222C35; }
+  background: #232D35; }
 
 .Calendar-date--bookable.is-active .DateCell-content--datelink {
   color: white;
-  background: #222C35; }
+  background: #232D35; }
 
 .Calendar-date--bookable.is-active .DateCell-content--datelink:after {
   content: '';
@@ -1304,7 +1387,7 @@ button.with-icon {
   margin: 0 auto;
   width: 0;
   height: 0;
-  border-top: solid 0.7rem #222C35;
+  border-top: solid 0.7rem #232D35;
   border-left: solid 0.7rem transparent;
   border-right: solid 0.7rem transparent; }
 
@@ -1314,7 +1397,7 @@ button.with-icon {
   background: url("../images/unavailable_tile.png"); }
 
 .Calendar-date--unavailable .DateCell-content--datelink {
-  color: #6D6D6D; }
+  color: #7B8186; }
 
 .Calendar-date--unavailable .DateCell-content--day {
   font-weight: lighter; }
@@ -1346,18 +1429,24 @@ button.with-icon {
   min-width: 117px; }
 
 .AppointmentTimes-list--item.is-active {
-  border-color: #222C35;
-  background: #222C35; }
+  border-color: #232D35;
+  background: #232D35; }
 
 .AppointmentTimes-list--item.is-active .AppointmentLink {
   color: white;
-  background: #222C35; }
+  background: #232D35; }
 
 .AppointmentLink {
   font-size: 1.2em;
   text-decoration: none;
-  color: #333333;
+  color: #000000;
   font-weight: bold; }
+
+.AppointmentLink:hover, .AppointmentLink:focus, .AppointmentLink:active {
+  color: #000000; }
+
+.AppointmentLink:hover, .DateCell-content--datelink:hover {
+  outline: none; }
 
 .AppointmentLink-ampm {
   font-size: .75em;
@@ -1377,14 +1466,10 @@ button.with-icon {
   display: inline-block; }
 
 @media (max-width: 640px) {
-  .Calendar-header--dayLabel:after {
-    display: block;
-    background: white;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%; }
+  .Calendar-header--dayLabel {
+    display: none; }
+  .Calendar-header--dayLabel-mobile {
+    display: inline-block; }
   .DateCell {
     font-size: 1.5em; }
   .DateCell-content {
@@ -1405,6 +1490,8 @@ button.with-icon {
 @media print {
   body {
     font: 12pt; }
+  h1 {
+    font-size: 3rem; }
   .MainContainer {
     padding-bottom: 0px;
     position: fixed; }

@@ -1,18 +1,15 @@
-<tr>
+<div class="week-row">
   {{#days}}
-    {{> day_template}}
+    	{{> day_template}}
+    	{{#available_times_count}}
+			<div class="AvailableTimes date-{{date}}">
+			 <div class="AvailableTimesCell date-{{date}}" colspan="7">
+			    {{> times_template}}
+			 </div>
+			</div>
+			<div class="SelectionConfirmation date-{{date}}" role="status" aria-live="assertive">
+			    <div class="SelectionConfirmationCell date-{{date}}"></div>
+			</div>
+		{{/available_times_count}}
   {{/days}}
-</tr>
-{{#days}}
-	{{#bookable}}
-		<tr class="AvailableTimes date-{{date}}">
-		 <td class="AvailableTimesCell date-{{date}}" colspan="7">
-		    {{> times_template}}
-		 </td>
-		</tr>
-		<tr class="SelectionConfirmation date-{{date}}" role="status" aria-live="polite">
-		    <td class="SelectionConfirmationCell date-{{date}}" colspan="7">
-		    </td>
-		</tr>
-	{{/bookable}}
-{{/days}}
+</div>

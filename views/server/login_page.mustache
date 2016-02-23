@@ -23,18 +23,14 @@
 
 <noscript aria-hidden="true">
     <div class="warning-banner warning-javascript">
-        <a href="." class="warning-link">
-            <span class="warning-header">JavaScript is disabled!</span>
-            <span class="warning-message">JavaScript is required to use this site. Please enable JavaScript and <span class="warning-action-text">reload this page</span>.</span>
-        </a>
+        <span class="warning-header">JavaScript is disabled!</span>
+        <span class="warning-message">JavaScript is required to use this site. Please enable JavaScript and <a href="." class="warning-link">reload this page</a>.</span>
     </div>
 </noscript>
 
 <div class="warning-banner warning-cookies" style="display: none;">
-    <a href="." class="warning-link">
-        <span class="warning-header">Cookies are disabled!</span>
-        <span class="warning-message">Cookies are required to use this site. Please enable cookies and <span class="warning-action-text">reload this page</span>.</span>
-    </a>
+    <span class="warning-header">Cookies are disabled!</span>
+    <span class="warning-message">Cookies are required to use this site. Please enable cookies and <a href="." class="warning-link">reload this page</a>.</span>
 </div>
 
 <div class="MainContainer">
@@ -64,31 +60,31 @@
         {{/expired}}
 
         <form class="LoginForm" action="/login" method="post" autocomplete="off" id="loginForm">
-            <span class="LoginForm-elements">
+            <div class="LoginForm-elements">
             <div class="LoginForm-input">
                 <label for="clientId">Client ID</label>
                 <input class="LoginForm-input--clientId" id="clientId" maxlength="11" type="text" name="username" {{#clientId}}value="{{clientId}}"{{/clientId}} aria-required="true" required pattern="[0-9]{11}" placeholder="Enter your 11 digit client ID" tabindex="1"/>
                 <div>
                     <span class="validation-error inactive" id="clientId-required" aria-live="polite" role="alert">Client Id is required</span>
-                    <span class="validation-error inactive" id="clientId-pattern" aria-live="polite"role="alert">Client Id should contain 11 digits only</span>
+                    <span class="validation-error inactive" id="clientId-pattern" aria-live="polite" role="alert">Client Id should contain 11 digits only</span>
                 </div>
                 <div class="ClientIdHelp-mobile">
                     <div class="row ClientIdHelp-show">
                         <div class="eleven columns">
-                            <a href="#help" class="ClientIdHelp-show--link" tabindex="2" aria-label="To find your ClientID number please refer to the correspondence from the Department" >How to find your Client ID</a>
+                            <a href="#help" name="nohelp" class="ClientIdHelp-show--link" tabindex="2" aria-label="To find your ClientID number please refer to the correspondence from the Department" >How to find your Client ID</a>
                         </div>
                     </div>
                     <div class="row ClientIdHelp-hide">
                         <div class="eleven columns">
-                            <a href="#nohelp" class="ClientIdHelp-hide--link" tabindex="2">Hide how to find your Client ID</a>
+                            <a href="#nohelp" name="help" class="ClientIdHelp-hide--link" tabindex="2">Hide how to find your Client ID</a>
                             <img src="/images/client_id_help.png" class="ClientIdHelp-image" alt="Please find your Client ID number in the correspondence from the Department"/>
                         </div>
                     </div>
                 </div>
             </div>
-            </span>
+            </div>
 
-            <span class="LoginForm-elements">
+            <div class="LoginForm-elements">
                 <div class="LoginForm-input">
                 <label for="familyName">Family Name</label>
                 <input id="familyName" type="text" name="familyName" aria-required="true" required maxlength="200" tabindex="3"/>
@@ -97,22 +93,22 @@
                 </div>
             </div>
             <div class="LoginForm-input">
-                <label tabindex="-1" class="desktop-only">&nbsp;</label>
+                <span class="desktop-only" aria-hidden="true">&nbsp;</span>
                 <button type="submit" class="button with-icon" id="submitLogin" aria-label="Press to log in to the booking system" tabindex="4">
                     <span>Next</span><img src="/images/angle-right-white.svg" class="button-icon" alt =""/>
                 </button>
             </div>
-            </span>
+            </div>
                 <div class="ClientIdHelp-desktop">
                     <div class="row ClientIdHelp-show">
                         <div class="eleven columns">
-                            <a href="#help" aria-label="To find your ClientID number please refer to the correspondence from the Department" class="ClientIdHelp-show--link" tabindex="2">How to find your Client ID</a>
+                            <a href="#help" name="nohelp" aria-label="To find your ClientID number please refer to the correspondence from the Department" class="ClientIdHelp-show--link" tabindex="2">How to find your Client ID</a>
                         </div>
                     </div>
                     <div class="row ClientIdHelp-hide">
                         <div class="eleven columns">
-                            <a href="#nohelp" class="ClientIdHelp-hide--link" tabindex="2">Hide how to find your Client ID</a>
-                            </br>
+                            <a href="#nohelp" name="help" class="ClientIdHelp-hide--link" tabindex="2">Hide how to find your Client ID</a>
+                            <br/>
                             <img src="/images/client_id_help.png" id="clientId-image" class="ClientIdHelp-image" alt="Please find your Client ID number in the correspondence from the Department"/>
                         </div>
                     </div>

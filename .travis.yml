@@ -14,15 +14,11 @@ addons:
 
 script:
   - npm test
-  - npm run selenium-install
-  - npm run selenium-start &
-  - sleep 1
-  - BROWSER=phantomjs npm run uitest
   - USE_SAUCE=true BROWSER=chrome npm run uitest
   - USE_SAUCE=true BROWSER=firefox npm run uitest
   - USE_SAUCE=true BROWSER='internet explorer' BROWSER_VERSION=11 npm run uitest
   - USE_SAUCE=true BROWSER='internet explorer' BROWSER_VERSION=9 npm run uitest
-  - USE_SAUCE=true BROWSER=safari PLATFORM=MAC npm run uitest
+  - USE_SAUCE=true BROWSER=safari PLATFORM=MAC BROWSER_VERSION=8 npm run uitest
 
 notifications:
   email: false

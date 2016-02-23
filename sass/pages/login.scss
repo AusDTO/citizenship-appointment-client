@@ -30,7 +30,7 @@
 }
 
 .LoginForm-elements input.invalid { 
-    border: 2px solid red;
+    border: 2px solid $error-color;
 }
 
 .LoginForm-input {
@@ -86,28 +86,17 @@
     }
 }
 
-.warning-banner {
-}
-
-.warning-link {
-    text-decoration: none;
-}
-
 .warning-header {
     background-color: $govau-slate;
     color: white;
-    display: table-cell;
+    display: inline-block;
     padding: 10px 16px;
 }
 
 .warning-message {
     color: $govau-slate;
-    display: table-cell;
+    display: inline-block;
     padding: 10px 10px;
-}
-
-.warning-action-text {
-    text-decoration: underline;
 }
 
 .button-icon {
@@ -125,7 +114,7 @@ button.with-icon {
 }
 
 .validation-error{
-    color: red;
+    color: $error-color;
 }
 
 .inactive {

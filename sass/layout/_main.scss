@@ -11,6 +11,10 @@ html,
 body {
     height: 100%;
     position: relative;
+    color: $font-color;
+    background-color: $body-bgcolor;
+    // TODO: we should add this and change all the styles
+    // font-size: $base-font-size;
 }
 
 .MainContainer {
@@ -27,10 +31,6 @@ body {
   font-weight: lighter;
 }
 
-h1 {
-  font-weight: bold;
-}
-
 ul {
 	list-style: disc outside;
   padding-left: 1rem;
@@ -43,16 +43,17 @@ ul li {
 }
 
 .error-div{
-  background-color: #F7D5D6;
+  background-color: $error-bgcolor;
   padding: 0.5rem;
-  border: 1px #000000 solid;
+  border: 1px $error-color solid;
   font-weight: bold;
   position: relative;
   padding-left: 30px;
-  background:#F7D5D6 url('/images/warning.svg') no-repeat;
+  background: $error-bgcolor url('/images/warning.svg') no-repeat;
   background-size: 1.5rem;
   background-position-x: 1rem;
   background-position-y: 1rem;
+  margin-bottom: 2rem;
 }
 
 .visuallyhidden {
@@ -66,15 +67,19 @@ ul li {
   width: 1px;
 }
 
+.small-left-padding {
+    padding-left: 0.5rem;
+}
+
 @media (max-width: 410px) {
     .MainContainer {
-        padding-bottom: 420px; /* height of your footer */
+        padding-bottom: 41rem; /* height of your footer */
     }
 }
 
 @media  (min-width: 410px) and (max-width: 550px) {
     .MainContainer {
-        padding-bottom: 410px; /* height of your footer */
+        padding-bottom: 41rem; /* height of your footer */
     }
 
     .container {
@@ -88,5 +93,15 @@ ul li {
 
     .icon-label {
         display: none;
+    }
+}
+
+@media (min-width: 550px){
+  .container {
+      padding: 0.5rem;
+  }
+
+  .MainContainer {
+        padding-bottom: 16rem;
     }
 }

@@ -135,8 +135,8 @@ app.get('/login', (req, res) => {
   });
 });
 
-app.post('/login', urlencodedParser, (req, res) => {
-  res.redirect('/calendar?' + querystring.stringify({ id: req.body.username }));
+app.post('/login', (req, res) => {
+  res.redirect('/calendar');
 });
 
 app.get('/calendar', (req, res) => {
@@ -151,7 +151,9 @@ app.get('/calendar', (req, res) => {
     },
     trackingId,
     clientId,
+    unitId: "1212",
     location: "2 Lonsdale Street, Melbourne VIC 3000",
+    locationURL: "2+Lonsdale+Street,+Melbourne+VIC+3000",
     current_appointment: "Thursday, 12 December, 1:30PM",
     today_date: "2016-01-05T11:20:00",
     _csrf: {
@@ -177,7 +179,7 @@ app.get('/error', (req, res) => {
 
 app.post('/book_appointment', urlencodedParser, (req, res) => {
   if (!req.body) return res.sendStatus(400)
-  res.redirect('/confirmation?');
+  res.redirect('/confirmation');
 });
 
 app.get('/confirmation', (req, res) => {
@@ -193,7 +195,9 @@ app.get('/confirmation', (req, res) => {
     appointment_date: "Thursday 21 March 2015",
     appointment_time: "1:30 PM",
     location: "2 Lonsdale Street, Melbourne VIC 3000",
+    locationURL: "2+Lonsdale+Street,+Melbourne+VIC+3000",
     clientId: "12345678901",
+    unitId: "1212",
     hasEmail: true,
     hasMobile: true
   });
@@ -215,7 +219,7 @@ app.get('/session_timeout', (req, res) => {
 app.get('/barcode/pdf417/:id', (req, res) => {
   bwipjs.toBuffer({
     bcid: 'pdf417compact',
-    text: req.params.id
+    text: req.params.id.substring(0, 11)
   }, function (err, pngBuffer) {
     if (err) {
       console.log(err);

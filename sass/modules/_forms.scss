@@ -20,6 +20,35 @@ input {
     }
 }
 
+input[type="email"]:focus, 
+input[type="number"]:focus, 
+input[type="search"]:focus, 
+input[type="text"]:focus, 
+input[type="tel"]:focus, 
+input[type="url"]:focus, 
+input[type="password"]:focus {
+    outline: medium solid $focus-outline;
+}
+
+::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color:   $placeholder-color;
+}
+
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+   color:    $placeholder-color;
+   opacity:  1;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+   color:    $placeholder-color;
+   opacity:  1;
+}
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+   color:    $placeholder-color;
+}
+:placeholder-shown { /* Standard (https://drafts.csswg.org/selectors-4/#placeholder) */
+  color:    $placeholder-color;
+}
+
 @media (max-width: 550px) {
     input {
         &[type="email"],

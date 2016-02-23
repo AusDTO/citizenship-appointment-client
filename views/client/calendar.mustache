@@ -4,32 +4,39 @@
         <div class="Calendar-nav">
             {{#prevMonth}}
                 <a href="#month/{{prevMonth}}" class="Calendar-nav--prev" name="month/{{prevMonth}}" name="month/{{prevMonth}}"  aria-label="Go to {{prevMonthName}} availability">
-                    <img src="/images/angle-left.svg" class="Calendar-nav--label" alt ="" role="presentation"/>
+                    <img src="/images/angle-left.svg" class="Calendar-nav--label" alt="Previous"  role="presentation"/>
                 </a>
             {{/prevMonth}}
             <h2 class="Calendar-nav--month"><strong><span aria-label="Currently displaying month: {{monthName}}">{{monthName}}</span></strong></h2>
             {{#nextMonth}}
                 <a href="#month/{{nextMonth}}" class="Calendar-nav--next" name="month/{{nextMonth}}" aria-label="Go to {{nextMonthName}} availability">
-                    <img src="/images/angle-right.svg" class="Calendar-nav--label" alt="" role="presentation"/>
+                    <img src="/images/angle-right.svg" class="Calendar-nav--label" alt="Next" role="presentation"/>
                 </a>
             {{/nextMonth}}
         </div>
 
         <!-- Calendar table -->
 
-        <table class="Calendar-dates" role="presentation">
-            <thead class="Calendar-dates--header">
-            <tr aria-hidden="true">
-                <th class="Calendar-header--dayLabel" data-state="M" scope="col">Mon</th>
-                <th class="Calendar-header--dayLabel" data-state="T" scope="col">Tue</th>
-                <th class="Calendar-header--dayLabel" data-state="W" scope="col">Wed</th>
-                <th class="Calendar-header--dayLabel" data-state="T" scope="col">Thu</th>
-                <th class="Calendar-header--dayLabel" data-state="F" scope="col">Fri</th>
-                <th class="Calendar-header--dayLabel" data-state="S" scope="col">Sat</th>
-                <th class="Calendar-header--dayLabel" data-state="S" scope="col">Sun</th>
-            </tr>
-            </thead>
+        <div class="Calendar-dates">
+            <div class="week-row" aria-hidden="true" role="presentation">
+              <!-- Desktop headers -->
+                <div class="Calendar-header--dayLabel" role="presentation">Mon</div>
+                <div class="Calendar-header--dayLabel" role="presentation">Tue</div>
+                <div class="Calendar-header--dayLabel" role="presentation">Wed</div>
+                <div class="Calendar-header--dayLabel" role="presentation">Thu</div>
+                <div class="Calendar-header--dayLabel" role="presentation">Fri</div>
+                <div class="Calendar-header--dayLabel" role="presentation">Sat</div>
+                <div class="Calendar-header--dayLabel" role="presentation">Sun</div>
+              <!-- Mobile headers  -->
+                <div class="Calendar-header--dayLabel-mobile" role="presentation">M</div>
+                <div class="Calendar-header--dayLabel-mobile" role="presentation">T</div>
+                <div class="Calendar-header--dayLabel-mobile" role="presentation">W</div>
+                <div class="Calendar-header--dayLabel-mobile" role="presentation">T</div>
+                <div class="Calendar-header--dayLabel-mobile" role="presentation">F</div>
+                <div class="Calendar-header--dayLabel-mobile" role="presentation">S</div>
+                <div class="Calendar-header--dayLabel-mobile" role="presentation">S</div>
+            </div>
             {{> month_template}}
-        </table>
+        </div>
     </div>
 {{/months}}
