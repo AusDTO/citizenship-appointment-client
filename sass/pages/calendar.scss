@@ -2,8 +2,11 @@
 //––––––––––––––––––––––––––––––––––––––––––––––––––
 .week-row {
     font-size: 0;
+    line-height: 0;
+
     > div {
         font-size: $base-font-size;
+        line-height: $base-line-height;
     }
 
      .DateCell {
@@ -138,6 +141,7 @@
     width: 13.7%;
     margin-left: 0.25%;
     margin-right: 0.25%;
+    margin-top: 0.5rem;
 }
 
 // Calendar Date Cells

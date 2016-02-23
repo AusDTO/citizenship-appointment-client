@@ -1,16 +1,21 @@
 <div class="DateCell Calendar-date--bookable {{^available_times_count}}Calendar-date--unavailable{{/available_times_count}} {{^bookable}}Calendar-date--hide{{/bookable}} {{#bookable}}date-{{date}}{{/bookable}}">
   {{#bookable}}
-  <div class="DateCell-content {{#today}}today{{/today}}"  {{^available_times_count}}aria-hidden="true"{{/available_times_count}}  {{#available_times_count}} aria-label="{{ ariaDay }} and {{available_times_count}} available timeslots"{{/available_times_count}}>
+  <div class="DateCell-content {{#today}}today{{/today}}"  {{^available_times_count}}aria-hidden="true"{{/available_times_count}}>
 
+{{#available_times_count}}
     <a class="DateCell-content--datelink {{#today}}today{{/today}} date-{{date}} " 
-    href="#date/{{ date }}" name="date/{{ date }}"  
-    {{^available_times_count}}tabindex="-1" aria-label="{{ ariaDay }}, no timeslots available"{{/available_times_count}}
-    {{#available_times_count}}tabindex="{{dateTabIndex}}" aria-label="{{ ariaDay }}, {{available_times_count}} available timeslots"{{/available_times_count}}>
+    href="#date/{{ date }}" name="date/{{ date }}" tabindex="{{dateTabIndex}}" aria-label="{{ ariaDay }}, {{available_times_count}} available timeslots">
     	<p class="DateCell-content--day" aria-label="{{ ariaDay }}" role="presentation" >{{ day }}</p>
-	{{#available_times_count}}
 		<p class="DateCell-content--availableTimesCount" role="presentation" aria-label="{{available_times_count}} available timeslots">{{available_times_count}} available</p>
-	{{/available_times_count}}
     </a>
+{{/available_times_count}}
+
+{{^available_times_count}}
+    <div class="DateCell-content--datelink {{#today}}today{{/today}} date-{{date}}" tabindex="-1" aria-label="{{ ariaDay }}, no timeslots available">
+      <p class="DateCell-content--day" aria-label="{{ ariaDay }}" role="presentation" >{{ day }}</p>
+    </div>
+{{/available_times_count}}
+
   </div>
   {{/bookable}}
 </div>

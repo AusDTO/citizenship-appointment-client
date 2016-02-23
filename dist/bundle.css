@@ -1170,9 +1170,11 @@ button.with-icon {
     width: 100%; } }
 
 .week-row {
-  font-size: 0; }
+  font-size: 0;
+  line-height: 0; }
   .week-row > div {
-    font-size: 16px; }
+    font-size: 16px;
+    line-height: 24px; }
   .week-row .DateCell {
     display: inline-block; }
     .week-row .DateCell .DateCell-content {
@@ -1265,7 +1267,8 @@ button.with-icon {
 .week-row .DateCell {
   width: 13.7%;
   margin-left: 0.25%;
-  margin-right: 0.25%; }
+  margin-right: 0.25%;
+  margin-top: 0.5rem; }
 
 .DateCell {
   font-size: 1.9em;
