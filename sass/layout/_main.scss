@@ -31,6 +31,23 @@ body {
   font-weight: lighter;
 }
 
+.steps-and-close-div {
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+}
+
+.steps-info.inline {
+  display: inline;
+  margin: 0;
+}
+
+.logout-link {
+  margin: 0;
+  font-weight: lighter;
+  float: right;
+}
+
+
 ul {
 	list-style: disc outside;
   padding-left: 1rem;

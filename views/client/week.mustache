@@ -2,6 +2,7 @@
   {{#days}}
     	{{> day_template}}
     	{{#available_times_count}}
+    		{{#bookable}}
 			<div class="AvailableTimes date-{{date}}">
 			 <div class="AvailableTimesCell date-{{date}}" colspan="7">
 			    {{> times_template}}
@@ -10,6 +11,7 @@
 			<div class="SelectionConfirmation date-{{date}}" role="status" aria-live="assertive">
 			    <div class="SelectionConfirmationCell date-{{date}}"></div>
 			</div>
+			{{/bookable}}
 		{{/available_times_count}}
   {{/days}}
 </div>
