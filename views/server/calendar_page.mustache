@@ -10,6 +10,7 @@
     {{> analytics }}
 </head>
 <body>
+
 <div class="MainContainer">
 
 {{> header }}
@@ -67,24 +68,13 @@
         </form>
     </div>
 
-    <div id="open-modal" class="modalDialog">
-    	<div class="modalDialog-content">
-    		<a href="#close" id="close-modal" title="Close" class="close" tabindex="9999">X</a>
-    		<h1>Your session is expiring</h1>
-    		<p>Do you want to stay logged in?</p>
-        <a href="/logout" id="log-out" title="Log out" class="button" aria-label="" tabindex="9998">
-          No, log me out
-        </a>
-        <button type="button" class="button" id="extend-session" tabindex="9997">
-          Yes, keep me logged in
-        </button>
-    	</div>
-    </div>
+    {{> extend_session_modal }}
 
 </main>
-
 {{> footer }}
+
 </div>
+
 <script src="/static/calendar_page.js" charset="utf-8"></script>
 
 </body>

@@ -47,6 +47,9 @@ body {
   float: right;
 }
 
+.scroll-disabled {
+  overflow: hidden;
+}
 
 ul {
 	list-style: disc outside;

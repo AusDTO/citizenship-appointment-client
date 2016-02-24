@@ -147,7 +147,8 @@ app.get('/calendar', (req, res) => {
       footer: 'partials/footer',
       beta: 'partials/beta',
       feedback: 'partials/feedback',
-      analytics: 'partials/analytics'
+      analytics: 'partials/analytics',
+      extend_session_modal: 'partials/extend_session_modal'
     },
     trackingId,
     clientId,
