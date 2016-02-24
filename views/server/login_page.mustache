@@ -21,16 +21,18 @@
 </div>
 <![endif]-->
 
-<noscript aria-hidden="true">
-    <div class="warning-banner warning-javascript">
+<noscript>
+    <div class="warning-banner warning-javascript" role="alert">
         <span class="warning-header">JavaScript is disabled!</span>
-        <span class="warning-message">JavaScript is required to use this site. Please enable JavaScript and <a href="." class="warning-link">reload this page</a>.</span>
+        <a href="." class="warning-link" tabindex="1"><span class="warning-message">JavaScript is required to use this site. Please enable JavaScript and </span>click here to reload this page.</a>
     </div>
 </noscript>
 
 <div class="warning-banner warning-cookies" style="display: none;">
-    <span class="warning-header">Cookies are disabled!</span>
-    <span class="warning-message">Cookies are required to use this site. Please enable cookies and <a href="." class="warning-link">reload this page</a>.</span>
+    <div role="alert">
+        <span class="warning-header">Cookies are disabled!</span>
+         <a href="." class="warning-link" tabindex="1"><span class="warning-message">Cookies are required to use this site. Please enable cookies and </span>click here to reload this page.</a>
+    </div>
 </div>
 
 <div class="MainContainer">
@@ -43,7 +45,7 @@
         <h1>Book your citizenship appointment</h1>
 
         {{#error}}
-        <div class="error-div">
+        <div class="error-div" role="alert">
             Incorrect Client ID and/or Family Name provided.
             Please check your details and try again.
             If the issue persists, please call 1300 792 080
@@ -51,7 +53,7 @@
         {{/error}}
 
         {{#expired}}
-        <div class="error-div">
+        <div class="error-div" role="alert">
             Your session has expired.<br/>
             This happens when a page has been left open for over 30 minutes.<br/>
             All the details you entered have been cleared to keep your information safe.<br/>
