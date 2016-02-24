@@ -33,7 +33,7 @@ test('should successfully login and book appointment', (assert) => {
       .then((title) => {
         assert.equal(title, 'Citizenship Appointment Booking Confirmation');
       })
-      .click('.Logout-link')
+      .click('.logout-link')
       .timeouts('page load',10000)
       .getTitle()
       .then((title) => {
