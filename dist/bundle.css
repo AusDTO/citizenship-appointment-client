@@ -967,6 +967,9 @@ ul li {
 .LoginForm-input > * {
   margin-bottom: .5rem; }
 
+.warning-cookies {
+  display: none; }
+
 .desktop-only {
   display: block; }
 
@@ -1436,6 +1439,16 @@ button.with-icon {
   .SelectionConfirmation-label {
     padding-bottom: 1rem;
     display: block; } }
+
+.logout-frame {
+  visibility: hidden;
+  display: none; }
+
+.login-again {
+  padding-top: 0.5rem; }
+
+.error-message {
+  margin: 2rem 0 2rem 0; }
 
 @media print {
   body {

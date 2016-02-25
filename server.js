@@ -61,6 +61,15 @@ app.use('/', express.static(path.join(__dirname, 'test_data')));
 
 app.use('/images', express.static(path.join(__dirname, 'images')));
 
+app.use(function(req, res, next) {
+    res.setHeader("Content-Security-Policy", 
+      "default-src 'self'; "+ 
+      "script-src 'self' http://localhost:35729/livereload.js www.google-analytics.com; "+
+      "img-src 'self' http://localhost www.google-analytics.com; "+
+      "connect-src 'self' ws://localhost:35729/livereload; ");
+    return next();
+});
+
 const trackingId = process.env.ANALYTICS_TRACKING_ID || 'UA-XXXXX-Y';
 
 app.get('/get_available_times', (req, res) => {
@@ -121,11 +130,8 @@ app.get('/login', (req, res) => {
       header: 'partials/header',
       footer: 'partials/footer',
       beta: 'partials/beta',
-      feedback: 'partials/feedback',
-      analytics: 'partials/analytics'
+      feedback: 'partials/feedback'
     },
-    trackingId,
-    clientId,
     error: req.query.error,
     expired: req.query.expired
   });
@@ -146,14 +152,11 @@ app.get('/calendar', (req, res) => {
       header: 'partials/header',
       footer: 'partials/footer',
       beta: 'partials/beta',
-      feedback: 'partials/feedback',
-      analytics: 'partials/analytics'
+      feedback: 'partials/feedback'
     },
-    trackingId,
-    clientId,
+    unitId: "1212",
     error: req.query.error,
     unavailable: req.query.unavailable,
-    unitId: "1212",
     location: "2 Lonsdale Street, Melbourne VIC 3000",
     locationURL: "2+Lonsdale+Street,+Melbourne+VIC+3000",
     current_appointment: "Thursday, 12 December, 1:30PM",
@@ -171,10 +174,8 @@ app.get('/error', (req, res) => {
       header: 'partials/header',
       footer: 'partials/footer',
       beta: 'partials/beta',
-      feedback: 'partials/feedback',
-      analytics: 'partials/analytics'
+      feedback: 'partials/feedback'
     },
-    trackingId,
     expired: req.query.expired
   });
 });
@@ -201,10 +202,8 @@ app.get('/confirmation', (req, res) => {
       header: 'partials/header',
       footer: 'partials/footer',
       beta: 'partials/beta',
-      feedback: 'partials/feedback',
-      analytics: 'partials/analytics'
+      feedback: 'partials/feedback'
     },
-    trackingId,
     appointment_date: "Thursday 21 March 2015",
     appointment_time: "1:30 PM",
     location: "2 Lonsdale Street, Melbourne VIC 3000",
@@ -222,11 +221,16 @@ app.get('/session_timeout', (req, res) => {
       header: 'partials/header',
       footer: 'partials/footer',
       beta: 'partials/beta',
-      feedback: 'partials/feedback',
-      analytics: 'partials/analytics'
-    },
-    trackingId
+      feedback: 'partials/feedback'
+    }
   });
+});
+
+app.get('/analytics', function(req, res) {
+  res.type('text/plain');
+  res.render('partials/analytics', {
+    trackingId: trackingId
+  })
 });
 
 app.get('/barcode/pdf417/:id', (req, res) => {
