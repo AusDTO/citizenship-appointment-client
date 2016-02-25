@@ -126,12 +126,17 @@ app.get('/login', (req, res) => {
     },
     trackingId,
     clientId,
+    error: req.query.error,
     expired: req.query.expired
   });
 });
 
-app.post('/login', (req, res) => {
-  res.redirect('/calendar');
+app.post('/login', urlencodedParser, (req, res) => {
+    if(req.body.username === '00000000000'){
+      res.redirect('/login?error=true');
+    }else {
+      res.redirect('/calendar');
+    }
 });
 
 app.get('/calendar', (req, res) => {
@@ -146,6 +151,8 @@ app.get('/calendar', (req, res) => {
     },
     trackingId,
     clientId,
+    error: req.query.error,
+    unavailable: req.query.unavailable,
     unitId: "1212",
     location: "2 Lonsdale Street, Melbourne VIC 3000",
     locationURL: "2+Lonsdale+Street,+Melbourne+VIC+3000",
@@ -173,8 +180,19 @@ app.get('/error', (req, res) => {
 });
 
 app.post('/book_appointment', urlencodedParser, (req, res) => {
-  if (!req.body) return res.sendStatus(400)
-  res.redirect('/confirmation');
+  if (!req.body) 
+    return res.sendStatus(400);
+  var date = req.body.selected_appointment;
+
+  if(date.endsWith("10:20:00")){
+    res.redirect('/calendar?error=true');
+  }
+  if(date.endsWith("10:00:00")){
+    res.redirect('/calendar?unavailable=true');
+  }
+  else{
+    res.redirect('/confirmation');
+  }
 });
 
 app.get('/confirmation', (req, res) => {
@@ -272,6 +290,10 @@ app.get('/outlookonline', function(req, res) {
     'description': 'For details please refer to your citizenship appointment email/letter.',
   });
   res.redirect('https://calendar.live.com/calendar/calendar.aspx?' + calendar_event);
+});
+
+app.get('*', function(req, res){
+  res.redirect('/error');
 });
 
 let server = app.listen(process.env.PORT || 3000, () => {
