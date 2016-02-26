@@ -61,14 +61,14 @@ app.use('/', express.static(path.join(__dirname, 'test_data')));
 
 app.use('/images', express.static(path.join(__dirname, 'images')));
 
-// app.use(function(req, res, next) {
-//     res.setHeader("Content-Security-Policy",
-//       "default-src 'self'; "+
-//       "script-src 'self' http://localhost:35729/livereload.js www.google-analytics.com; "+
-//       "img-src 'self' http://localhost www.google-analytics.com; "+
-//       "connect-src 'self' ws://localhost:35729/livereload; ");
-//     return next();
-// });
+app.use(function(req, res, next) {
+    res.setHeader("Content-Security-Policy", 
+      "default-src 'self'; "+ 
+      "script-src 'self' http://localhost:35729/livereload.js www.google-analytics.com 'unsafe-inline' 'unsafe-eval';"+
+      "img-src 'self' www.google-analytics.com; "+
+      "connect-src 'self' ws://localhost:35729/livereload; ");
+    return next();
+});
 
 const trackingId = process.env.ANALYTICS_TRACKING_ID || 'UA-XXXXX-Y';
 
