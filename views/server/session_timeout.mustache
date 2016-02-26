@@ -8,7 +8,8 @@
     <title>Citizenship Appointment Booking - Session Timeout</title>
     <link rel="icon" type="image/png" href="/images/coat-of-arms-black-on-white-32x32.png" sizes="32x32">
     <link rel="stylesheet" type="text/css" href="/static/bundle.css">
-    {{> analytics }}
+    <script src='/analytics'></script>
+    <script async src='//www.google-analytics.com/analytics.js'></script>
 </head>
 <body>
 
@@ -18,15 +19,14 @@
 
 <main>
     <div class="container">
-        <iframe src="/logout" height="0" width="0" title="logout" style="visibility:hidden;display:none"></iframe>
+        <iframe src="/logout" height="0" width="0" title="logout" class="logout-frame"></iframe>
     	<div class="steps-info"></div>
         <h1>Your appointment has not been scheduled</h1>
 
         <p>All the details you have entered have been cleared to keep your information safe.<br/>
         This happens when a page has been left open for over 30 minutes.</p>
 
-        <a href="/login" title="Go to the login page" class="button">Log in again</a>
-
+        <a href="/login" title="Go to the login page" class="button login-again">Log in again</a>
     </div>
 </main>
 

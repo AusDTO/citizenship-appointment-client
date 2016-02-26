@@ -61,6 +61,15 @@ app.use('/', express.static(path.join(__dirname, 'test_data')));
 
 app.use('/images', express.static(path.join(__dirname, 'images')));
 
+app.use(function(req, res, next) {
+    res.setHeader("Content-Security-Policy",
+      "default-src 'self'; "+
+      "script-src 'self' http://localhost:35729/livereload.js www.google-analytics.com; "+
+      "img-src 'self' http://localhost www.google-analytics.com; "+
+      "connect-src 'self' ws://localhost:35729/livereload; ");
+    return next();
+});
+
 const trackingId = process.env.ANALYTICS_TRACKING_ID || 'UA-XXXXX-Y';
 
 app.get('/get_available_times', (req, res) => {
@@ -126,17 +135,19 @@ app.get('/login', (req, res) => {
       header: 'partials/header',
       footer: 'partials/footer',
       beta: 'partials/beta',
-      feedback: 'partials/feedback',
-      analytics: 'partials/analytics'
+      feedback: 'partials/feedback'
     },
-    trackingId,
-    clientId,
+    error: req.query.error,
     expired: req.query.expired
   });
 });
 
-app.post('/login', (req, res) => {
-  res.redirect('/calendar');
+app.post('/login', urlencodedParser, (req, res) => {
+    if(req.body.username === '00000000000'){
+      res.redirect('/login?error=true');
+    }else {
+      res.redirect('/calendar');
+    }
 });
 
 app.get('/calendar', (req, res) => {
@@ -146,13 +157,12 @@ app.get('/calendar', (req, res) => {
       header: 'partials/header',
       footer: 'partials/footer',
       beta: 'partials/beta',
-      feedback: 'partials/feedback',
-      analytics: 'partials/analytics',
-      extend_session_modal: 'partials/extend_session_modal'
+      extend_session_modal: 'partials/extend_session_modal',
+      feedback: 'partials/feedback'
     },
-    trackingId,
-    clientId,
     unitId: "1212",
+    error: req.query.error,
+    unavailable: req.query.unavailable,
     location: "2 Lonsdale Street, Melbourne VIC 3000",
     locationURL: "2+Lonsdale+Street,+Melbourne+VIC+3000",
     current_appointment: "Thursday, 12 December, 1:30PM",
@@ -170,17 +180,26 @@ app.get('/error', (req, res) => {
       header: 'partials/header',
       footer: 'partials/footer',
       beta: 'partials/beta',
-      feedback: 'partials/feedback',
-      analytics: 'partials/analytics'
+      feedback: 'partials/feedback'
     },
-    trackingId,
     expired: req.query.expired
   });
 });
 
 app.post('/book_appointment', urlencodedParser, (req, res) => {
-  if (!req.body) return res.sendStatus(400)
-  res.redirect('/confirmation');
+  if (!req.body)
+    return res.sendStatus(400);
+  var date = req.body.selected_appointment;
+
+  if(date.endsWith("10:20:00")){
+    res.redirect('/calendar?error=true');
+  }
+  if(date.endsWith("10:00:00")){
+    res.redirect('/calendar?unavailable=true');
+  }
+  else{
+    res.redirect('/confirmation');
+  }
 });
 
 app.get('/confirmation', (req, res) => {
@@ -189,10 +208,8 @@ app.get('/confirmation', (req, res) => {
       header: 'partials/header',
       footer: 'partials/footer',
       beta: 'partials/beta',
-      feedback: 'partials/feedback',
-      analytics: 'partials/analytics'
+      feedback: 'partials/feedback'
     },
-    trackingId,
     appointment_date: "Thursday 21 March 2015",
     appointment_time: "1:30 PM",
     location: "2 Lonsdale Street, Melbourne VIC 3000",
@@ -210,11 +227,16 @@ app.get('/session_timeout', (req, res) => {
       header: 'partials/header',
       footer: 'partials/footer',
       beta: 'partials/beta',
-      feedback: 'partials/feedback',
-      analytics: 'partials/analytics'
-    },
-    trackingId
+      feedback: 'partials/feedback'
+    }
   });
+});
+
+app.get('/analytics', function(req, res) {
+  res.type('text/plain');
+  res.render('partials/analytics', {
+    trackingId: trackingId
+  })
 });
 
 app.get('/barcode/pdf417/:id', (req, res) => {
@@ -278,6 +300,10 @@ app.get('/outlookonline', function(req, res) {
     'description': 'For details please refer to your citizenship appointment email/letter.',
   });
   res.redirect('https://calendar.live.com/calendar/calendar.aspx?' + calendar_event);
+});
+
+app.get('*', function(req, res){
+  res.redirect('/error');
 });
 
 let server = app.listen(process.env.PORT || 3000, () => {
