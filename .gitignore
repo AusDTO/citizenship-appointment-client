@@ -38,3 +38,7 @@ node_modules
 
 # IntelliJ IDEA
 .idea
+
+# Screenshots from monitoring scripts
+test/monitor/*.png
+
