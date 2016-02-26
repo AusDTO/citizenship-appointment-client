@@ -5,6 +5,7 @@ const express = require('express'),
     bodyParser = require('body-parser'),
     urlencodedParser = bodyParser.urlencoded({extended: false}),
     uuid = require('node-uuid'),
+    moment = require('moment'),
     bwipjs = require('bwip-js'),
     querystring = require('querystring'),
     path = require('path'),
@@ -64,46 +65,45 @@ app.use('/images', express.static(path.join(__dirname, 'images')));
 const trackingId = process.env.ANALYTICS_TRACKING_ID || 'UA-XXXXX-Y';
 
 app.get('/get_available_times', (req, res) => {
-  let json = {};
-  if (req.query.calendar_id === '1247') {
-    json = {
-      "times": [
-        "09:00",
-        "09:20",
-        "09:40",
-        "10:00",
-        "10:20",
-        "10:40"
-      ]
-    };
-  } else {
-    json = {
-      "times": [
-        "09:00",
-        "09:20",
-        "09:40",
-        "10:00",
-        "10:20",
-        "10:40",
-        "11:00",
-        "11:20",
-        "11:40",
-        "12:00",
-        "12:20",
-        "12:40",
-        "13:00",
-        "13:20",
-        "13:40",
-        "14:00",
-        "14:20",
-        "14:40",
-        "15:00",
-        "15:20",
-        "15:40"
-      ]
-    };
+  res.json({
+    "times": [
+      "09:00",
+      "09:20",
+      "09:40",
+      "10:00",
+      "10:20",
+      "10:40",
+      "11:00",
+      "11:20",
+      "11:40",
+      "12:00",
+      "12:20",
+      "12:40",
+      "13:00",
+      "13:20",
+      "13:40",
+      "14:00",
+      "14:20",
+      "14:40",
+      "15:00",
+      "15:20",
+      "15:40"
+    ]
+  });
+});
+
+app.get('/get_available_dates.json', (req, res) => {
+  const dates = {};
+  for (let i = 0; i < 80; i++) {
+    let dateToAdd = moment().add(i, 'days');
+    if (dateToAdd.day() % 6) {
+      dates[dateToAdd.format('YYYY-MM-DD')] = {
+        calendar_id: 1268 + i,
+        available_times_count: 21
+      };
+    }
   }
-  res.json(json);
+  res.json(dates);
 });
 
 app.get('/', (req, res) => {
@@ -180,7 +180,7 @@ app.get('/error', (req, res) => {
 });
 
 app.post('/book_appointment', urlencodedParser, (req, res) => {
-  if (!req.body) 
+  if (!req.body)
     return res.sendStatus(400);
   var date = req.body.selected_appointment;
 
@@ -191,11 +191,14 @@ app.post('/book_appointment', urlencodedParser, (req, res) => {
     res.redirect('/calendar?unavailable=true');
   }
   else{
-    res.redirect('/confirmation');
+    res.redirect('/confirmation?time=' + req.body.selected_appointment);
   }
 });
 
 app.get('/confirmation', (req, res) => {
+  const time = moment(req.query.time || '2016-03-28T15:40:40', moment.ISO_8601);
+  const appointment_date = time.format('dddd D MMMM YYYY');
+  const appointment_time = time.format('h:mm A');
   res.render('confirmation_page', {
     partials: {
       header: 'partials/header',
@@ -205,8 +208,8 @@ app.get('/confirmation', (req, res) => {
       analytics: 'partials/analytics'
     },
     trackingId,
-    appointment_date: "Thursday 21 March 2015",
-    appointment_time: "1:30 PM",
+    appointment_date,
+    appointment_time,
     location: "2 Lonsdale Street, Melbourne VIC 3000",
     locationURL: "2+Lonsdale+Street,+Melbourne+VIC+3000",
     clientId: "12345678901",
