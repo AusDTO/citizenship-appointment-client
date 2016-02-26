@@ -782,7 +782,7 @@ a:hover, a:focus, a:active {
   float: right; }
 
 @media (max-width: 1024px) {
-  .button, input.button, input.button {
+  .modalDialog .button, .modalDialog input.button {
     width: 100%; } }
 
 .header {

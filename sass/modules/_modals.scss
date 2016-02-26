@@ -52,7 +52,9 @@
 }
 
 @media (max-width: 1024px) {
-		.button, input.button {
-        width: 100%;
-    }
+	.modalDialog {
+			.button, input.button {
+	        width: 100%;
+	    }
+		}
 }
