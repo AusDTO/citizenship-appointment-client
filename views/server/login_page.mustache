@@ -8,7 +8,8 @@
     <title>Citizenship Appointment Booking</title>
     <link rel="icon" type="image/png" href="/images/coat-of-arms-black-on-white-32x32.png" sizes="32x32">
     <link rel="stylesheet" type="text/css" href="/static/bundle.css">
-    {{> analytics }}
+    <script src='/analytics'></script>
+    <script async src='//www.google-analytics.com/analytics.js'></script>
 </head>
 <body>
 
@@ -28,7 +29,7 @@
     </div>
 </noscript>
 
-<div class="warning-banner warning-cookies" style="display: none;">
+<div class="warning-banner warning-cookies">
     <div role="alert">
         <span class="warning-header">Cookies are disabled!</span>
          <a href="." class="warning-link" tabindex="1"><span class="warning-message">Cookies are required to use this site. Please enable cookies and </span>click here to reload this page.</a>
@@ -89,7 +90,7 @@
             <div class="LoginForm-elements">
                 <div class="LoginForm-input">
                 <label for="familyName">Family Name</label>
-                <input id="familyName" type="text" name="familyName" aria-required="true" required maxlength="50" tabindex="3"/>
+                <input id="familyName" type="text" name="familyName" aria-required="true" required maxlength="200" tabindex="3"/>
                 <div>
                     <span class="validation-error inactive" id="familyName-required" aria-live="polite" role="alert">Family name is required</span>
                 </div>

@@ -1,0 +1,20 @@
+<div id="open-modal" class="modalDialog-bg">
+  <div class="modalDialog" role="alertdialog" aria-label="Your session is expiring. Please confirm if you want to stay logged in.">
+    <div class="modalDialog-content">
+      <a href="#close-modal" type="button" id="close-modal" title="Close" aria-label="Close this dialog" class="close" tabindex="3">
+        <img src="/images/times.svg" class="button-icon" alt="Close" role="presentation"/>
+      </a>
+
+      <div class="modalDialog-content--stuff">
+        <h1>Your session is expiring</h1>
+        <p>Do you want to stay logged in?</p>
+        <a href="/logout" id="log-out" class="button" tabindex="1">
+          No, log me out
+        </a>
+        <button type="button" class="button" id="extend-session" tabindex="2">
+          Yes, keep me logged in
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

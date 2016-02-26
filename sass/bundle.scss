@@ -20,6 +20,7 @@
 @import "modules/forms";
 @import "modules/buttons";
 @import "modules/links";
+@import "modules/modals";
 
 @import "layout/header";
 @import "layout/main";
@@ -28,5 +29,7 @@
 @import "pages/login";
 @import "pages/confirmation";
 @import "pages/calendar";
+@import "pages/session_timeout";
+@import "pages/error";
 
 @import "print/confirmation";
