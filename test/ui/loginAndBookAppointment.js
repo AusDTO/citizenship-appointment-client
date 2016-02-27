@@ -6,6 +6,11 @@ const client = require('./client')({
   testSuiteName: path.basename(__filename)
 });
 
+const appointmentDate = moment().add(1, 'months').day() ? moment().add(1, 'months') : moment().add(1, 'months').add(2, 'days');
+const monthLink = appointmentDate.format('YYYY-MM');
+const dateLink = appointmentDate.format('YYYY-MM-DD');
+const timeLink = appointmentDate.format('YYYY-MM-DD') + 'T15:00:00';
+
 test('should successfully login and book appointment', (assert) => {
   assert.plan(4);
   client
@@ -23,10 +28,10 @@ test('should successfully login and book appointment', (assert) => {
       .then((title) => {
         assert.equal(title, 'Citizenship Appointment Booking Calendar');
       })
-      .click('[name="month/2016-02"]')
-      .click('[name="date/2016-02-11"]')
-      .waitForVisible('[name="time/2016-02-11T15:00:00"]', 10000)
-      .click('[name="time/2016-02-11T15:00:00"]')
+      .click(`[name="month/${monthLink}"]`)
+      .click(`[name="date/${dateLink}"]`)
+      .waitForVisible(`[name="time/${timeLink}"]`, 10000)
+      .click(`[name="time/${timeLink}"]`)
       .click('.SelectionConfirmation-button')
       .timeouts('page load',10000)
       .getTitle()
