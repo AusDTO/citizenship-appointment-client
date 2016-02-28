@@ -2,6 +2,7 @@
 
 const test = require('tape');
 const path = require('path');
+const moment = require('moment');
 const client = require('./client')({
   testSuiteName: path.basename(__filename)
 });
