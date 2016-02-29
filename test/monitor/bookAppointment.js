@@ -41,7 +41,11 @@ var hrefTime = 'time/' + targetYear + '-' + targetMonth + '-' + targetDay + 'T15
 var captureDirectory = 'build/monitor/';
 
 casper.start(baseUrl + '/login', function() {
+  this.echo('Start');
   fs.makeTree(captureDirectory);
+});
+
+casper.waitForSelector('form#loginForm', function() {
   this.echo('Login');
   this.fill('form#loginForm', {
     'username': clientId,
