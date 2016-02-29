@@ -39,6 +39,9 @@ node_modules
 # IntelliJ IDEA
 .idea
 
+# Build working directory
+build
+
 # Screenshots from monitoring scripts
 test/monitor/*.png
 

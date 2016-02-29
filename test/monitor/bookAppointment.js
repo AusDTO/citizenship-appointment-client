@@ -9,6 +9,7 @@
 
 var casper = require('casper').create();
 var system = require('system');
+var fs = require('fs');
 
 var baseUrl = casper.cli.args[0] || system.env['BASE_URL'];
 var clientId = casper.cli.args[1] || system.env['CLIENT_ID'];
@@ -37,18 +38,21 @@ var hrefMonth = 'month/' + targetYear + '-' + targetMonth;
 var hrefDate = 'date/' + targetYear + '-' + targetMonth + '-' + targetDay;
 var hrefTime = 'time/' + targetYear + '-' + targetMonth + '-' + targetDay + 'T15:40:00';
 
+var captureDirectory = 'build/monitor/';
+
 casper.start(baseUrl + '/login', function() {
+  fs.makeTree(captureDirectory);
   this.echo('Login');
   this.fill('form#loginForm', {
     'username': clientId,
     'familyName': familyName
   }, true);
-  this.capture('login.png');
+  this.capture(captureDirectory + 'login.png');
 });
 
 casper.waitForUrl(baseUrl + '/calendar', function() {
   this.echo('Calendar');
-  this.capture('calendar-thismonth.png');
+  this.capture(captureDirectory + 'calendar-thismonth.png');
 });
 
 casper.waitForSelector('a[href="#' + hrefMonth + '"]', function() {
@@ -58,31 +62,31 @@ casper.waitForSelector('a[href="#' + hrefMonth + '"]', function() {
 
 casper.waitForSelector('a[href="#' + hrefDate + '"]', function() {
   this.echo('Calendar - date');
-  this.capture('calendar-nextmonth.png');
+  this.capture(captureDirectory + 'calendar-nextmonth.png');
   this.click('a[href="#' + hrefDate + '"]');
 });
 
 casper.waitForSelector('a[href="#' + hrefTime + '"]', function() {
   this.echo('Calendar - time');
-  this.capture('calendar-date.png');
+  this.capture(captureDirectory + 'calendar-date.png');
   this.click('a[href="#' + hrefTime + '"]');
 });
 
 casper.waitForSelector('#submitLogin', function() {
   this.echo('Calendar - submit');
-  this.capture('calendar-time.png');
+  this.capture(captureDirectory + 'calendar-time.png');
   this.click('#submitLogin');
 });
 
 casper.waitForUrl(baseUrl + '/confirmation', function() {
   this.echo('Confirmation');
-  this.capture('confirmation.png');
+  this.capture(captureDirectory + 'confirmation.png');
   this.click('.logout-link');
 });
 
 casper.waitForUrl(baseUrl + '/login', function() {
   this.echo('Logout');
-  this.capture('logout.png');
+  this.capture(captureDirectory + 'logout.png');
 });
 
 casper.run(function() {
