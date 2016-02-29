@@ -68,6 +68,7 @@ app.use(function(req, res, next) {
       "script-src 'self' http://localhost:35729/livereload.js www.google-analytics.com 'unsafe-inline' 'unsafe-eval';"+
       "img-src 'self' www.google-analytics.com; "+
       "connect-src 'self' ws://localhost:35729/livereload; ");
+    res.setHeader("Strict-Transport-Security", "max-age=31536000; includeSubDomains");
     return next();
 });
 
