@@ -68,11 +68,111 @@ app.use(function(req, res, next) {
       "script-src 'self' http://localhost:35729/livereload.js www.google-analytics.com 'unsafe-inline' 'unsafe-eval';"+
       "img-src 'self' www.google-analytics.com; "+
       "connect-src 'self' ws://localhost:35729/livereload; ");
-    res.setHeader("Strict-Transport-Security", "max-age=31536000; includeSubDomains");
     return next();
 });
 
 const trackingId = process.env.ANALYTICS_TRACKING_ID || 'UA-XXXXX-Y';
+
+
+// BEGIN - Pages --------
+
+app.get('/login', (req, res) => {
+  res.render('login_page', {
+    partials: getBaseHtmlPartials(),
+    error: req.query.error,
+    expired: req.query.expired,
+    clientId: req.query.id
+  });
+});
+
+app.get('/calendar', (req, res) => {
+  res.render('calendar_page', {
+    partials: extendObject(
+      {extend_session_modal: 'partials/extend_session_modal'},
+      getBaseHtmlPartials()),
+    unitId: "1212",
+    error: req.query.error,
+    unavailable: req.query.unavailable,
+    location: "2 Lonsdale Street, Melbourne VIC 3000",
+    locationURL: "2+Lonsdale+Street,+Melbourne+VIC+3000",
+    current_appointment: "Thursday, 12 December, 1:30PM",
+    today_date: "2016-01-05T11:20:00",
+    _csrf: {
+      token: "csrf-token",
+      parameterName: "_csrf"
+    }
+  });
+});
+
+app.get('/confirmation', (req, res) => {
+  const time = moment(req.query.time || '2016-03-28T15:40:40', moment.ISO_8601);
+  const appointment_date = time.format('dddd D MMMM YYYY');
+  const appointment_time = time.format('h:mm A');
+
+  res.render('confirmation_page', {
+    partials: getBaseHtmlPartials(),
+    appointment_date,
+    appointment_time,
+    location: "2 Lonsdale Street, Melbourne VIC 3000",
+    locationURL: "2+Lonsdale+Street,+Melbourne+VIC+3000",
+    clientId: "12345678901",
+    unitId: "1212",
+    hasEmail: true,
+    hasMobile: true
+  });
+});
+
+app.get('/error', (req, res) => {
+  res.render('error_page', {
+    partials: getBaseHtmlPartials(),
+    expired: req.query.expired
+  });
+});
+
+app.get('/session_timeout', (req, res) => {
+  res.render('session_timeout', {
+    partials: getBaseHtmlPartials()
+  });
+});
+
+let getBaseHtmlPartials = function(){
+  return {
+    html_base_premain_pretitle: 'partials/html_base_premain_pretitle',
+    html_base_premain_posttitle: 'partials/html_base_premain_posttitle',
+    html_base_postmain: 'partials/html_base_postmain',
+    header: 'partials/header',
+    footer: 'partials/footer',
+    beta: 'partials/beta',
+    feedback: 'partials/feedback'
+  }
+};
+
+let extendObject = function(base, extra){
+  for (var i in extra) {
+        if (extra.hasOwnProperty(i)) {
+         base[i] = extra[i];
+      }
+   }
+   return base;
+};
+
+// END   - Pages --------
+
+// BEGIN - Pages backend calls --------
+
+app.get('/get_available_dates.json', (req, res) => {
+  const dates = {};
+  for (let i = 0; i < 80; i++) {
+    let dateToAdd = moment().add(i, 'days');
+    if (dateToAdd.day() % 6) {
+      dates[dateToAdd.format('YYYY-MM-DD')] = {
+        calendar_id: 1268 + i,
+        available_times_count: 21
+      };
+    }
+  }
+  res.json(dates);
+});
 
 app.get('/get_available_times', (req, res) => {
   res.json({
@@ -102,19 +202,30 @@ app.get('/get_available_times', (req, res) => {
   });
 });
 
-app.get('/get_available_dates.json', (req, res) => {
-  const dates = {};
-  for (let i = 0; i < 80; i++) {
-    let dateToAdd = moment().add(i, 'days');
-    if (dateToAdd.day() % 6) {
-      dates[dateToAdd.format('YYYY-MM-DD')] = {
-        calendar_id: 1268 + i,
-        available_times_count: 21
-      };
+app.post('/login', urlencodedParser, (req, res) => {
+    if(req.body.username === '00000000000'){
+      res.redirect('/login?error=true');
+    }else {
+      res.redirect('/calendar');
     }
-  }
-  res.json(dates);
 });
+
+app.post('/book_appointment', urlencodedParser, (req, res) => {
+  if (!req.body)
+    return res.sendStatus(400);
+  var date = req.body.selected_appointment;
+
+  if(date.endsWith("10:20:00")){
+    res.redirect('/calendar?error=true');
+  } else if(date.endsWith("10:00:00")){
+    res.redirect('/calendar?unavailable=true');
+  }
+  else{
+    res.redirect('/confirmation?time=' + req.body.selected_appointment);
+  }
+});
+
+// END   - Pages backend calls  --------
 
 app.get('/extend_session', (req, res) => {
   let json = {};
@@ -127,114 +238,6 @@ app.get('/', (req, res) => {
 
 app.get('/logout', (req, res) => {
   res.redirect('/login');
-});
-
-app.get('/login', (req, res) => {
-  const clientId = req.query.id;
-  res.render('login_page', {
-    partials: {
-      header: 'partials/header',
-      footer: 'partials/footer',
-      beta: 'partials/beta',
-      feedback: 'partials/feedback'
-    },
-    error: req.query.error,
-    expired: req.query.expired,
-    clientId: clientId
-  });
-});
-
-app.post('/login', urlencodedParser, (req, res) => {
-    if(req.body.username === '00000000000'){
-      res.redirect('/login?error=true');
-    }else {
-      res.redirect('/calendar');
-    }
-});
-
-app.get('/calendar', (req, res) => {
-  const clientId = req.query.id;
-  res.render('calendar_page', {
-    partials: {
-      header: 'partials/header',
-      footer: 'partials/footer',
-      beta: 'partials/beta',
-      extend_session_modal: 'partials/extend_session_modal',
-      feedback: 'partials/feedback'
-    },
-    unitId: "1212",
-    error: req.query.error,
-    unavailable: req.query.unavailable,
-    location: "2 Lonsdale Street, Melbourne VIC 3000",
-    locationURL: "2+Lonsdale+Street,+Melbourne+VIC+3000",
-    current_appointment: "Thursday, 12 December, 1:30PM",
-    today_date: "2016-01-05T11:20:00",
-    _csrf: {
-      token: "csrf-token",
-      parameterName: "_csrf"
-    }
-  });
-});
-
-app.get('/error', (req, res) => {
-  res.render('error_page', {
-    partials: {
-      header: 'partials/header',
-      footer: 'partials/footer',
-      beta: 'partials/beta',
-      feedback: 'partials/feedback'
-    },
-    expired: req.query.expired
-  });
-});
-
-app.post('/book_appointment', urlencodedParser, (req, res) => {
-  if (!req.body)
-    return res.sendStatus(400);
-  var date = req.body.selected_appointment;
-
-  if(date.endsWith("10:20:00")){
-    res.redirect('/calendar?error=true');
-  }
-  if(date.endsWith("10:00:00")){
-    res.redirect('/calendar?unavailable=true');
-  }
-  else{
-    res.redirect('/confirmation?time=' + req.body.selected_appointment);
-  }
-});
-
-app.get('/confirmation', (req, res) => {
-  const time = moment(req.query.time || '2016-03-28T15:40:40', moment.ISO_8601);
-  const appointment_date = time.format('dddd D MMMM YYYY');
-  const appointment_time = time.format('h:mm A');
-  res.render('confirmation_page', {
-    partials: {
-      header: 'partials/header',
-      footer: 'partials/footer',
-      beta: 'partials/beta',
-      feedback: 'partials/feedback'
-    },
-    appointment_date,
-    appointment_time,
-    location: "2 Lonsdale Street, Melbourne VIC 3000",
-    locationURL: "2+Lonsdale+Street,+Melbourne+VIC+3000",
-    clientId: "12345678901",
-    unitId: "1212",
-    hasEmail: true,
-    hasMobile: true
-  });
-});
-
-app.get('/session_timeout', (req, res) => {
-  res.render('session_timeout', {
-    partials: {
-      header: 'partials/header',
-      footer: 'partials/footer',
-      beta: 'partials/beta',
-      feedback: 'partials/feedback'
-    }
-  });
 });
 
 app.get('/analytics.js', function(req, res) {
@@ -259,6 +262,8 @@ app.get('/barcode/pdf417/:id', (req, res) => {
     }
   });
 });
+
+// BEGIN - Calendars --------
 
 app.get('/calendar.ics', function(req, res) {
   res.type('text/calendar');
@@ -306,6 +311,8 @@ app.get('/outlookonline', function(req, res) {
   });
   res.redirect('https://calendar.live.com/calendar/calendar.aspx?' + calendar_event);
 });
+
+// END    - Calendars --------
 
 app.get('*', function(req, res){
   res.redirect('/error');
