@@ -40,7 +40,7 @@ var hrefTime = 'time/' + targetYear + '-' + targetMonth + '-' + targetDay + 'T15
 
 var captureDirectory = 'build/monitor/';
 
-casper.start(baseUrl + '/logi', function() {
+casper.start(baseUrl + '/login', function() {
   this.echo('Start');
   fs.makeTree(captureDirectory);
 });
