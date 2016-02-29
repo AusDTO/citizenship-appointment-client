@@ -1,38 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8"/>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+{{> html_base_premain_pretitle }}
     <title>Citizenship Appointment Booking - Session Timeout</title>
-    <link rel="icon" type="image/png" href="/images/coat-of-arms-black-on-white-32x32.png" sizes="32x32">
-    <link rel="stylesheet" type="text/css" href="/static/bundle.css">
-    <script src='/analytics.js'></script>
-    <script async src='//www.google-analytics.com/analytics.js'></script>
-</head>
-<body>
+{{> html_base_premain_posttitle}}
 
-<div class="MainContainer">
+<div class="container">
+    <iframe src="/logout" height="0" width="0" title="logout" class="logout-frame"></iframe>
+	<div class="steps-info"></div>
+    <h1>Your appointment has not been scheduled</h1>
 
-{{> header }}
+    <p>All the details you have entered have been cleared to keep your information safe.<br/>
+    This happens when a page has been left open for over 30 minutes.</p>
 
-<main>
-    <div class="container">
-        <iframe src="/logout" height="0" width="0" title="logout" class="logout-frame"></iframe>
-    	<div class="steps-info"></div>
-        <h1>Your appointment has not been scheduled</h1>
-
-        <p>All the details you have entered have been cleared to keep your information safe.<br/>
-        This happens when a page has been left open for over 30 minutes.</p>
-
-        <a href="/login" title="Go to the login page" class="button login-again">Log in again</a>
-    </div>
-</main>
-
-    {{> footer }}
-
+    <a href="/login" title="Go to the login page" class="button login-again">Log in again</a>
 </div>
-
-</body>
-</html>
+{{> html_base_postmain}}
