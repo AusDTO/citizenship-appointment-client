@@ -9,6 +9,7 @@
     "dev": "supervisor --watch 'server.js,webpack.config.js' node server.js",
     "generate_emails": "node generate_emails.js",
     "test": "tape test/unit/*.js | faucet",
+    "clean": "rm -r build",
     "selenium-install": "selenium-standalone install",
     "selenium-start": "selenium-standalone start",
     "uitest": "webpack ; NODE_ENV=production PORT=3001 node server.js & PID=$! ; sleep 1 ; PORT=3001 tape test/ui/*.js ; RESULT=$? ; kill $PID ; exit $RESULT",
