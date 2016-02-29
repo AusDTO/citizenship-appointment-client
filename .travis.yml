@@ -1,7 +1,4 @@
 language: node_js
-# Controlled by .nvmrc
-#node_js:
-#  - "5.5"
 
 sudo: false
 
@@ -30,3 +27,6 @@ deploy:
   app: citizenship-appointment-beta
   on:
     repo: AusDTO/citizenship-appointment-client
+
+after_script:
+  - BASE_URL='https://citizenship-appointment-beta.herokuapp.com' CLIENT_ID='01234567890' FAMILY_NAME='Familyname' npm run monitor
