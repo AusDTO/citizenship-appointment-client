@@ -5,16 +5,19 @@ ga('create', '{{trackingId}}', 'auto'{{#clientId}}, { 'userId': '{{clientId}}' }
 ga(function(tracker) {
 	var search = location.search;
 
+	var clId = search.match('id=([0-9]{11})');
+	if(clId){
+	    ga('set', 'userId', clId[1]);
+	}
+
 	var unId1 = search.match('cd1=([a-zA-Z0-9]*)');
 	if(unId1){
-		var uni = unId1[1];
-	    ga('set', 'dimension1', uni);
+	    ga('set', 'dimension1', unId1[1]);
 	}
 
 	var unId2 = search.match('cd2=([a-zA-Z0-9]*)');
 	if(unId2){
-		var uni = unId2[1];
-	    ga('set', 'dimension2', uni);
+	    ga('set', 'dimension2', unId2[1]);
 	}
 });
 

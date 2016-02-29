@@ -138,7 +138,8 @@ app.get('/login', (req, res) => {
       feedback: 'partials/feedback'
     },
     error: req.query.error,
-    expired: req.query.expired
+    expired: req.query.expired,
+    clientId: clientId
   });
 });
 
