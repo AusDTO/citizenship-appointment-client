@@ -235,7 +235,7 @@ app.get('/session_timeout', (req, res) => {
   });
 });
 
-app.get('/analytics', function(req, res) {
+app.get('/analytics.js', function(req, res) {
   res.type('text/plain');
   res.render('partials/analytics', {
     trackingId: trackingId
