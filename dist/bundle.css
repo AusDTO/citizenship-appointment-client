@@ -1206,6 +1206,9 @@ button.with-icon {
 .button#print-page {
   min-width: 23.6rem; }
 
+.button#print-page {
+  display: none; }
+
 @media (max-width: 550px) {
   .barcode {
     font-size: 7rem;
@@ -1514,7 +1517,7 @@ button.with-icon {
   .steps-and-close-div {
     display: none; }
   .button, input.button {
-    display: none; }
+    display: none !important; }
   #calendarOptions {
     display: none; }
   .container.last {

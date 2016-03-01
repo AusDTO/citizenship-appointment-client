@@ -162,6 +162,10 @@
     min-width: 23.6rem;
 }
 
+.button#print-page {
+    display: none;
+}
+
 // BEGIN: mobile media query
 
 @media (max-width: 550px) {
