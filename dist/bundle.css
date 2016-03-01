@@ -1088,10 +1088,6 @@ button.with-icon {
   text-align: center;
   margin-bottom: 1rem; }
 
-.barcode {
-  font-family: Code39AzaleaFont;
-  font-size: 4rem; }
-
 .barcode-text {
   font-style: italic;
   font-size: 1.2rem;

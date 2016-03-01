@@ -1,0 +1,52 @@
+.small-bottom-margin {
+	margin-bottom: 8px;
+}
+
+.top-large-padding {
+	padding-top: 30px;
+}
+
+.barcode-frame {
+	text-align: left;
+	margin-top: 16px;
+	margin-bottom: 0px;
+}
+
+.barcode-text {
+	font-style: italic;
+	font-size: 12px;
+}
+
+.strong-top-line {
+	padding-top: 20px;
+	margin-top: 20px;
+}
+
+.container.last{
+	margin-bottom: 40px;
+}
+
+.last-appt-details {
+	margin-bottom: 40px;
+}
+
+.dropdown img,
+.button#print-page img {
+	vertical-align: middle;
+}
+
+.dropdown ul {
+    width: 200px;
+	margin-top: 0px;
+	padding-left: 0px;
+}
+
+.dropdown li > a {
+    padding: 4px 10px;
+}
+
+.button#addToCalendar,
+.button#print-page {
+    width: 200px;
+    margin-right: 5px;
+}
