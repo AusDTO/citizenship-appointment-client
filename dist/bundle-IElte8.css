@@ -1,0 +1,53 @@
+.MainContainer {
+  padding-bottom: 0px; }
+
+.Footer-section {
+  bottom: 0;
+  left: 0;
+  position: relative; }
+
+.Feedback-survey {
+  margin-top: 30px;
+  position: relative; }
+
+.header {
+  padding: 15px 0; }
+  .header div img {
+    height: 50px;
+    vertical-align: middle; }
+  .header .Beta {
+    margin-top: 20px;
+    padding: 8px 0; }
+
+.error-div {
+  padding: 8px;
+  position: relative;
+  margin-bottom: 30px; }
+
+.steps-info {
+  padding: 20px 0 30px; }
+
+.steps-and-close-div {
+  margin-top: 20px;
+  margin-bottom: 30px; }
+
+.button-icon {
+  width: 40px;
+  height: 20px;
+  vertical-align: middle; }
+
+.footer {
+  margin-top: 20px;
+  padding: 15px 0;
+  position: initial; }
+  .footer div.footerlinks {
+    padding-left: 40px;
+    bottom: 8px; }
+  .footer img {
+    height: 70px; }
+  .footer .Feedback {
+    margin-bottom: 16px; }
+  .footer a.footerlink {
+    font-size: 12px; }
+
+/*# sourceMappingURL=bundle.css.map */
