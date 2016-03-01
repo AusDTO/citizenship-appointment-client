@@ -53,6 +53,13 @@
   .footer a.footerlink {
     font-size: 12px; }
 
+.Legend-box {
+  width: 16px;
+  height: 16px; }
+
+.Legend-box--unavailable {
+  margin-left: 30px; }
+
 .small-bottom-margin {
   margin-bottom: 8px; }
 
