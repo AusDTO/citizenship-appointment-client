@@ -37,11 +37,9 @@ var targetDay = day < 10 ? '0' + day : '' + day;
 
 var hrefMonth = 'month/' + targetYear + '-' + targetMonth;
 var hrefDate = 'date/' + targetYear + '-' + targetMonth + '-' + targetDay;
-var hrefTime = 'time/' + targetYear + '-' + targetMonth + '-' + targetDay + 'T15:40:00';
 
 casper.echo(hrefMonth);
 casper.echo(hrefDate);
-casper.echo(hrefTime);
 
 var captureDirectory = 'build/monitor/';
 
@@ -75,10 +73,11 @@ casper.waitForSelector('a[href="#' + hrefDate + '"]', function() {
   this.click('a[href="#' + hrefDate + '"]');
 });
 
-casper.waitForSelector('a[href="#' + hrefTime + '"]', function() {
+var timeSelector = '.AppointmentLink';
+casper.waitForSelector(timeSelector, function() {
   this.echo('Calendar - time');
   this.capture(captureDirectory + 'calendar-date.png');
-  this.click('a[href="#' + hrefTime + '"]');
+  this.click(timeSelector);
 });
 
 casper.waitForSelector('#submitLogin', function() {
