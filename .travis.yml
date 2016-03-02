@@ -2,20 +2,8 @@ language: node_js
 
 sudo: false
 
-addons:
-  sauce_connect:
-    username:
-      secure: eYbhGRZurl+AAbUUmtggwufkjJUmH3oUhf1ETLretGqRBf0qbuD+x/ILvagbiZVTGT1D2M4d5klFkGg5vH/J68w8pBIxSZNTFMc4wTU1HhgbVNVJWH3vHoYSVzD8RQE98IN1M+sa8pnloaTPLVn2ZT73ElIwpzQMnr6AHLNvsjO1QLp3jVY2WkDUorrPUm/2fjFVAQ5CQIMYAwaJB+sdPVwBHfTSMALheFGWpfmXZxbqpaVfFC3Gei1Moyv0HHorlKi1T88/9S24UEXaJ/jKfRypCqEz8cmfTFCQjV706BRRjP10xV9w7P9EmeCkdXWnlPH4SzhZES8lj8Xdl2olwuI5/OTUDo0ToSRvHaufGAelGc4CY9prLQ+FhuMKmfiE8wtzrvgPsz/I2y9pjfOfBNHv/4UnEU8g4Q1OrnA8YtHMwKoj8flDCvLAuKgfmpoOTMMqlt1fCdJmSa5qxrMymUM+3nfzxDu+NubnkAts5Cgyf+eS2NFL3E4U9Nj4P/kEZjB1L3wyVRMTbULCjPDZXZCkEAEGG23pa99yPt5mMbbJlEQeEuFSnY0rFvarpazOWcn9mRL/1rt6B33mceLVZeorCGoeoUs51x7L6bBftqUvx0LsaH/+f804RiCnQLpyp9t943UqxtNQ/iy6iP0ZmQU7I1fVXf60rnyG5FZy/PE=
-    access_key:
-      secure: juzMERWTD+B2NPUIRepqrwuALUEN7ipdXjX+NfOH3Hgd0qOoLJV1HRc7K8N4a6bFXO0t3cFvPK2DSxRVxluas/iqFJSjk4QJTPmGpNrzaQj6p+k9aHH38Gm117U+KdkZyJ4Phiwg1C6EA4lHmC4oTQqL37sl8iN4EVldpkCk2fQEzAevVkqJuE3NfE4lq7esSxsdbTkMH18Vk7ZyY/feZarE+79DU3bKD//0/tnWPfk7h3vj73j+7PxjoNRa6bYjsJYs8Id/+Vr3v/DiIGO51DtG4NQpSp3ladO6ul2GUDE/ExQrU7yjHnnGFEW8FqdwjSO9N4by7Hm9FLGIZSZ7baDHMBI9AlVgsfa2hUWNKzSRd9mme9pFEnvO5U8aRGqsbp6RO2eT5v9cGACyMQroQoFkDc2yuDJBGqQYcoN9LDLQS4gryaoS8rWdifPiRGhYuJMRvb6d4GLlH7jl0EBEamiggbsD9ZHcJaVNTUCveGYALuXcT+YLqnavsbTcPTMbjNAquq1bjgVbGtYQmFrc1M2DZ2GY0e+ZpaTdHlb0VijxrQ3S9RBarAVQiG0K58DV4yW177bwJQeId1vKw2sZ/LtWZruh6TOjcl5fE8E3vU3Gak+tnRhghVMubHW3fnIWIlhnK+eyT+Y8yDZEZuJPbCTCdK4cnzWxzCfbXobnME8=
-
 script:
   - npm test
-  - USE_SAUCE=true BROWSER=chrome npm run uitest
-  - USE_SAUCE=true BROWSER=firefox npm run uitest
-  - USE_SAUCE=true BROWSER='internet explorer' BROWSER_VERSION=11 npm run uitest
-  - USE_SAUCE=true BROWSER='internet explorer' BROWSER_VERSION=9 npm run uitest
-  - USE_SAUCE=true BROWSER=safari PLATFORM=MAC BROWSER_VERSION=8 npm run uitest
 
 notifications:
   email: false
@@ -28,5 +16,10 @@ deploy:
   on:
     repo: AusDTO/citizenship-appointment-client
 
-after_script:
+after_deploy:
   - BASE_URL='https://citizenship-appointment-beta.herokuapp.com' CLIENT_ID='01234567890' FAMILY_NAME='Familyname' npm run monitor || travis_terminate 1
+  - BROWSER=chrome BASE_URL='https://citizenship-appointment-beta.herokuapp.com' npm run cross-browser-test
+  - BROWSER=firefox BASE_URL='https://citizenship-appointment-beta.herokuapp.com' npm run cross-browser-test
+  - BROWSER='internet explorer' BROWSER_VERSION=11 BASE_URL='https://citizenship-appointment-beta.herokuapp.com' npm run cross-browser-test
+  - BROWSER='internet explorer' BROWSER_VERSION=9 BASE_URL='https://citizenship-appointment-beta.herokuapp.com' npm run cross-browser-test
+  - BROWSER=safari PLATFORM=MAC BROWSER_VERSION=8 BASE_URL='https://citizenship-appointment-beta.herokuapp.com' npm run cross-browser-test
