@@ -24,23 +24,23 @@ test('should successfully login and book appointment', (assert) => {
       .setValue('#clientId', '99999999999')
       .setValue('#familyName', 'Family-Name')
       .click('#submitLogin')
-      .timeouts('page load',10000)
+      .timeouts('page load',30000)
       .getTitle()
       .then((title) => {
         assert.equal(title, 'Citizenship Appointment Booking Calendar');
       })
       .click(`[name="month/${monthLink}"]`)
       .click(`[name="date/${dateLink}"]`)
-      .waitForVisible(`[name="time/${timeLink}"]`, 10000)
+      .waitForVisible(`[name="time/${timeLink}"]`, 30000)
       .click(`[name="time/${timeLink}"]`)
       .click('.SelectionConfirmation-button')
-      .timeouts('page load',10000)
+      .timeouts('page load',30000)
       .getTitle()
       .then((title) => {
         assert.equal(title, 'Citizenship Appointment Booking Confirmation');
       })
       .click('.logout-link')
-      .timeouts('page load',10000)
+      .timeouts('page load',30000)
       .getTitle()
       .then((title) => {
         assert.equal(title, 'Citizenship Appointment Booking');

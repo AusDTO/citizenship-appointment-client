@@ -1088,10 +1088,6 @@ button.with-icon {
   text-align: center;
   margin-bottom: 1rem; }
 
-.barcode {
-  font-family: Code39AzaleaFont;
-  font-size: 4rem; }
-
 .barcode-text {
   font-style: italic;
   font-size: 1.2rem;
@@ -1209,6 +1205,9 @@ button.with-icon {
 .button#addToCalendar,
 .button#print-page {
   min-width: 23.6rem; }
+
+.button#print-page {
+  display: none; }
 
 @media (max-width: 550px) {
   .barcode {
@@ -1518,7 +1517,7 @@ button.with-icon {
   .steps-and-close-div {
     display: none; }
   .button, input.button {
-    display: none; }
+    display: none !important; }
   #calendarOptions {
     display: none; }
   .container.last {

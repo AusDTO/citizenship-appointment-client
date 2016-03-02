@@ -1,82 +1,59 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8"/>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+{{> html_base_premain_pretitle }}
     <title>Citizenship Appointment Booking Calendar</title>
-    <link rel="icon" type="image/png" href="/images/coat-of-arms-black-on-white-32x32.png" sizes="32x32">
-    <link rel="stylesheet" type="text/css" href="/static/bundle.css">
-    <script src='/analytics.js'></script>
-    <script async src='//www.google-analytics.com/analytics.js'></script>
-</head>
-<body>
+{{> html_base_premain_posttitle}}
 
-<div class="MainContainer">
+<div class="container calendar-page--main">
+    <div class="steps-and-close-div">
+        <div class="steps-info inline">Step 2 of 3</div>
+        <a href="/logout" class="logout-link" tabindex="1">Log out</a>
+     </div>
 
-{{> header }}
+    {{#error}}
+        <div class="error-div" role="alert">
+            There was an error processing your request. Your appointment was not booked. Please try again.
+        </div>
+    {{/error}}
+    {{#unavailable}}
+        <div class="error-div" role="alert">
+            Sorry your slot has been taken in the meantime or the department availability has changed. Please select other slot and try again.
+        </div>
+    {{/unavailable}}
 
-<main>
-    <div class="container calendar-page--main">
-        <div class="steps-and-close-div">
-            <div class="steps-info inline">Step 2 of 3</div>
-            <a href="/logout" class="logout-link" tabindex="1">Log out</a>
-         </div>
+    <h1>Select date, then time</h1>
 
-        {{#error}}
-            <div class="error-div" role="alert">
-                There was an error processing your request. Your appointment was not booked. Please try again.
-            </div>
-        {{/error}}
-        {{#unavailable}}
-            <div class="error-div" role="alert">
-                Sorry your slot has been taken in the meantime or the department availability has changed. Please select other slot and try again.
-            </div>
-        {{/unavailable}}
-
-        <h1>Select date, then time</h1>
-
-        <div class="Calendar-info">
-            <img src="/images/map-marker.svg" class="icon" alt ="" role="presentation"/>
-            <span class="small-left-padding"><strong class="icon-label">Location:</strong></span>
-            <span class="small-left-padding"><a href="https://www.google.com.au/maps?daddr={{locationURL}}" target="_blank" aria-label="{{ location }} Press to open google maps to see directions" tabindex="1">{{ location }}</a></span>
-            <br/>
-            {{#current_appointment }}
-            <div class="Calendar-info--field">
-                <img src="/images/calendar-o.svg" class="icon" alt ="" role="presentation"/>
-                <span class="small-left-padding"><strong class="icon-label">Current appointment:</strong></span>
-                <span class="small-left-padding">{{ current_appointment }}</span>
-            </div>
-            {{/current_appointment }}
-            <div class="Calendar-info--field" role="presentation" aria-hidden="true" aria-label="Legend. Plain blue background marks dates that have appointments available. Grey striped background marks dates that have no appointments available.">
-                <div>
-                    <span class="Legend-box"></span>
-                    <span class="Legend-label small-left-padding" aria-hidden="true">Available</span>
-                    <span class="Legend-box Legend-box--unavailable"></span>
-                    <span class="Legend-label small-left-padding" aria-hidden="true">Not available</span>
-                </div>
+    <div class="Calendar-info">
+        <img src="/images/map-marker.svg" onerror="this.src='/images/png/map-marker.png';" class="icon" alt ="" role="presentation"/>
+        <span class="small-left-padding"><strong class="icon-label">Location:</strong></span>
+        <span class="small-left-padding"><a href="https://www.google.com.au/maps?daddr={{locationURL}}" target="_blank" aria-label="{{ location }} Press to open google maps to see directions" tabindex="1">{{ location }}</a></span>
+        <br/>
+        {{#current_appointment }}
+        <div class="Calendar-info--field">
+            <img src="/images/calendar-o.svg" onerror="this.src='/images/png/calendar-o.png';" class="icon" alt ="" role="presentation"/>
+            <span class="small-left-padding"><strong class="icon-label">Current appointment:</strong></span>
+            <span class="small-left-padding">{{ current_appointment }}</span>
+        </div>
+        {{/current_appointment }}
+        <div class="Calendar-info--field" role="presentation" aria-hidden="true" aria-label="Legend. Plain blue background marks dates that have appointments available. Grey striped background marks dates that have no appointments available.">
+            <div>
+                <span class="Legend-box"></span>
+                <span class="Legend-label small-left-padding" aria-hidden="true">Available</span>
+                <span class="Legend-box Legend-box--unavailable"></span>
+                <span class="Legend-label small-left-padding" aria-hidden="true">Not available</span>
             </div>
         </div>
-        <form action="/book_appointment" method="post">
-        <!--aria-live="assertive"-->
-            <input name="{{ _csrf.parameterName }}" type="hidden" value="{{ _csrf.token }}"/>
-            <div class="Calendars" data-today="{{today_date}}">
-                <div class="Loading-message">
-                    Loading calendars
-                </div>
-            </div>
-            <button type="submit" hidden>.</button>
-        </form>
     </div>
-
-    {{> extend_session_modal }}
-
-</main>
-{{> footer }}
-
+    <form action="/book_appointment" method="post">
+    <!--aria-live="assertive"-->
+        <input name="{{ _csrf.parameterName }}" type="hidden" value="{{ _csrf.token }}"/>
+        <div class="Calendars" data-today="{{today_date}}">
+            <div class="Loading-message">
+                Loading calendars
+            </div>
+        </div>
+        <button type="submit" hidden>.</button>
+    </form>
 </div>
 
+{{> extend_session_modal }}
 <script src="/static/calendar_page.js" charset="utf-8"></script>
-
-</body>
-</html>
+{{> html_base_postmain }}

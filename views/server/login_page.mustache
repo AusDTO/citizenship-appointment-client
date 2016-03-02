@@ -1,69 +1,30 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8"/>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+{{> html_base_premain_pretitle }}
     <title>Citizenship Appointment Booking</title>
-    <link rel="icon" type="image/png" href="/images/coat-of-arms-black-on-white-32x32.png" sizes="32x32">
-    <link rel="stylesheet" type="text/css" href="/static/bundle.css">
-    <script src='/analytics.js'></script>
-    <script async src='//www.google-analytics.com/analytics.js'></script>
-</head>
-<body>
+{{> html_base_premain_posttitle}}
 
-<!--[if lt IE 9]>
-<div class="warning-banner warning-ie">
-    <a href="http://windows.microsoft.com/en-au/internet-explorer/download-ie" target="_blank" class="warning-link">
-        <span class="warning-header">Your browser is out of date!</span>
-        <span class="warning-message">You're using an unsupported version of Internet Explorer. For improved security and to use this site, please <span class="warning-action-text">upgrade your browser</span>.</span>
-    </a>
-</div>
-<![endif]-->
+<div class="container">
+    <div class="steps-info">Step 1 of 3</div>
+    <h1>Book your citizenship appointment</h1>
 
-<noscript>
-    <div class="warning-banner warning-javascript" role="alert">
-        <span class="warning-header">JavaScript is disabled!</span>
-        <a href="." class="warning-link" tabindex="1"><span class="warning-message">JavaScript is required to use this site. Please enable JavaScript and </span>click here to reload this page.</a>
+    {{#error}}
+    <div class="error-div" role="alert">
+        Incorrect Client ID and/or Family Name provided.
+        Please check your details and try again.
+        If the issue persists, please call 1300 792 080
     </div>
-</noscript>
+    {{/error}}
 
-<div class="warning-banner warning-cookies">
-    <div role="alert">
-        <span class="warning-header">Cookies are disabled!</span>
-         <a href="." class="warning-link" tabindex="1"><span class="warning-message">Cookies are required to use this site. Please enable cookies and </span>click here to reload this page.</a>
+    {{#expired}}
+    <div class="error-div" role="alert">
+        Your session has expired.<br/>
+        This happens when a page has been left open for over 30 minutes.<br/>
+        All the details you entered have been cleared to keep your information safe.<br/>
+        Please log in again.
     </div>
-</div>
+    {{/expired}}
 
-<div class="MainContainer">
-
-{{> header }}
-
-<main>
-    <div class="container">
-        <div class="steps-info">Step 1 of 3</div>
-        <h1>Book your citizenship appointment</h1>
-
-        {{#error}}
-        <div class="error-div" role="alert">
-            Incorrect Client ID and/or Family Name provided.
-            Please check your details and try again.
-            If the issue persists, please call 1300 792 080
-        </div>
-        {{/error}}
-
-        {{#expired}}
-        <div class="error-div" role="alert">
-            Your session has expired.<br/>
-            This happens when a page has been left open for over 30 minutes.<br/>
-            All the details you entered have been cleared to keep your information safe.<br/>
-            Please log in again.
-        </div>
-        {{/expired}}
-
-        <form class="LoginForm" action="/login" method="post" autocomplete="off" id="loginForm">
-            <div class="LoginForm-elements">
+    <form class="LoginForm" action="/login" method="post" autocomplete="off" id="loginForm">
+        <div class="LoginForm-elements">
             <div class="LoginForm-input">
                 <label for="clientId">Client ID</label>
                 <input class="LoginForm-input--clientId" id="clientId" maxlength="11" type="text" name="username" {{#clientId}}value="{{clientId}}"{{/clientId}} aria-required="true" required pattern="[0-9]{11}" placeholder="Enter your 11 digit client ID" tabindex="1"/>
@@ -85,49 +46,39 @@
                     </div>
                 </div>
             </div>
-            </div>
+        </div>
 
-            <div class="LoginForm-elements">
-                <div class="LoginForm-input">
-                <label for="familyName">Family Name</label>
-                <input id="familyName" type="text" name="familyName" aria-required="true" required maxlength="200" tabindex="3"/>
-                <div>
-                    <span class="validation-error inactive" id="familyName-required" aria-live="polite" role="alert">Family name is required</span>
-                </div>
-            </div>
+        <div class="LoginForm-elements">
             <div class="LoginForm-input">
-                <span class="desktop-only" aria-hidden="true">&nbsp;</span>
-                <button type="submit" class="button with-icon" id="submitLogin" aria-label="Press to log in to the booking system" tabindex="4">
-                    <span>Next</span><img src="/images/angle-right-white.svg" class="button-icon" alt =""/>
-                </button>
+            <label for="familyName">Family Name</label>
+            <input id="familyName" type="text" name="familyName" aria-required="true" required maxlength="200" tabindex="3"/>
+            <div>
+                <span class="validation-error inactive" id="familyName-required" aria-live="polite" role="alert">Family name is required</span>
             </div>
-            </div>
-                <div class="ClientIdHelp-desktop">
-                    <div class="row ClientIdHelp-show">
-                        <div class="eleven columns">
-                            <a href="#help" name="nohelp" aria-label="To find your ClientID number please refer to the correspondence from the Department" class="ClientIdHelp-show--link" tabindex="2">How to find your Client ID</a>
-                        </div>
-                    </div>
-                    <div class="row ClientIdHelp-hide">
-                        <div class="eleven columns">
-                            <a href="#nohelp" name="help" class="ClientIdHelp-hide--link" tabindex="2">Hide how to find your Client ID</a>
-                            <br/>
-                            <img src="/images/client_id_help.png" id="clientId-image" class="ClientIdHelp-image" alt="Please find your Client ID number in the correspondence from the Department"/>
-                        </div>
-                    </div>
+        </div>
+        <div class="LoginForm-input">
+            <span class="desktop-only" aria-hidden="true">&nbsp;</span>
+            <button type="submit" class="button with-icon" id="submitLogin" aria-label="Press to log in to the booking system" tabindex="4">
+                <span>Next</span><img src="/images/angle-right-white.svg" onerror="this.src='/images/png/angle-right-white.png';" class="button-icon" alt =""/>
+            </button>
+        </div>
+        </div>
+        <div class="ClientIdHelp-desktop">
+            <div class="row ClientIdHelp-show">
+                <div class="eleven columns">
+                    <a href="#help" name="nohelp" aria-label="To find your ClientID number please refer to the correspondence from the Department" class="ClientIdHelp-show--link" tabindex="2">How to find your Client ID</a>
                 </div>
-
-
-        </form>
-
-    </div>
-</main>
-
-    {{> footer }}
-
+            </div>
+            <div class="row ClientIdHelp-hide">
+                <div class="eleven columns">
+                    <a href="#nohelp" name="help" class="ClientIdHelp-hide--link" tabindex="2">Hide how to find your Client ID</a>
+                    <br/>
+                    <img src="/images/client_id_help.png" id="clientId-image" class="ClientIdHelp-image" alt="Please find your Client ID number in the correspondence from the Department"/>
+                </div>
+            </div>
+        </div>
+    </form>
 </div>
-
 <script src="/static/login.js" charset="utf-8"></script>
 
-</body>
-</html>
+{{> html_base_postmain}}

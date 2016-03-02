@@ -27,16 +27,19 @@ var year = targetDate.getYear() + 1900;
 var month = targetDate.getMonth() + 1;
 var targetYear = '' + year;
 var targetMonth = month < 10 ? '0' + month : '' + month;
-var targetDay = '';
-if (targetDate.getDay % 6) {
-  targetDay = targetDate.getDate();
+var day = '';
+if (targetDate.getDay() % 6) {
+  day = targetDate.getDate();
 } else {
-  targetDay = targetDate.getDate() + 2;
+  day = targetDate.getDate() + 2;
 }
+var targetDay = day < 10 ? '0' + day : '' + day;
 
 var hrefMonth = 'month/' + targetYear + '-' + targetMonth;
 var hrefDate = 'date/' + targetYear + '-' + targetMonth + '-' + targetDay;
-var hrefTime = 'time/' + targetYear + '-' + targetMonth + '-' + targetDay + 'T15:40:00';
+
+casper.echo(hrefMonth);
+casper.echo(hrefDate);
 
 var captureDirectory = 'build/monitor/';
 
@@ -70,10 +73,11 @@ casper.waitForSelector('a[href="#' + hrefDate + '"]', function() {
   this.click('a[href="#' + hrefDate + '"]');
 });
 
-casper.waitForSelector('a[href="#' + hrefTime + '"]', function() {
+var timeSelector = '.AppointmentLink';
+casper.waitForSelector(timeSelector, function() {
   this.echo('Calendar - time');
   this.capture(captureDirectory + 'calendar-date.png');
-  this.click('a[href="#' + hrefTime + '"]');
+  this.click(timeSelector);
 });
 
 casper.waitForSelector('#submitLogin', function() {

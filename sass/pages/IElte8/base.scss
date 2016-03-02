@@ -1,0 +1,77 @@
+.MainContainer {
+    //height: 100%;
+    padding-bottom: 0px;
+}
+
+.Footer-section {
+    bottom: 0;
+    left: 0;
+    position: relative;
+}
+
+.Feedback-survey {
+    margin-top: 30px;
+    position: relative;
+}
+
+.header {
+  padding: 15px 0;
+  div {
+    img {
+      height: 50px;
+      vertical-align: middle;
+    }
+  }
+
+  .Beta {
+    margin-top: 20px;
+    padding: 8px 0;
+  }
+}
+.icon {
+  height: 20px;
+}
+
+.error-div{
+  padding: 8px;
+  position: relative;
+  margin-bottom: 30px;
+}
+
+.steps-info {
+  padding: 20px 0 30px;
+}
+
+.steps-and-close-div {
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+.button-icon {
+    width: 40px;
+    height: 20px;
+    vertical-align: middle;
+}
+
+.footer{
+  margin-top: 20px;
+  padding: 15px 0;
+  position: initial;
+
+  div.footerlinks {
+    padding-left: 40px;
+    bottom: 8px;
+  }
+
+  img {
+    height: 70px;
+  } 
+
+  .Feedback {
+    margin-bottom: 16px;
+  }
+
+  a.footerlink {
+    font-size: 12px;
+  }
+}
