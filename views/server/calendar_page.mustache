@@ -28,12 +28,12 @@
         <br/>
         {{#current_appointment }}
         <div class="Calendar-info--field">
-            <img src="/images/calendar-o.svg" onerror="this.src='/images/png/calendar-o.png';" class="icon" alt ="" role="presentation"/>
+            <img src="/images/calendar.svg" onerror="this.src='/images/png/calendar.png';" class="icon" alt ="" role="presentation"/>
             <span class="small-left-padding"><strong class="icon-label">Current appointment:</strong></span>
             <span class="small-left-padding">{{ current_appointment }}</span>
         </div>
         {{/current_appointment }}
-        <div class="Calendar-info--field" role="presentation" aria-hidden="true" aria-label="Legend. Plain blue background marks dates that have appointments available. Grey striped background marks dates that have no appointments available.">
+        <div class="Calendar-info--field" role="presentation" aria-hidden="true" aria-label="Calendar legend: Plain blue background indicates selectable dates that have available timeslots. Grey striped background indicates non-selectable dates.">
             <div>
                 <span class="Legend-box"></span>
                 <span class="Legend-label small-left-padding" aria-hidden="true">Available</span>
