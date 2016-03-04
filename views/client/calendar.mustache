@@ -3,13 +3,13 @@
         <!-- Calendar title and navigation -->
         <div class="Calendar-nav">
             {{#prevMonth}}
-                <a href="#month/{{prevMonth}}" class="Calendar-nav--prev" name="month/{{prevMonth}}" name="month/{{prevMonth}}"  aria-label="Go to {{prevMonthName}} availability">
+                <a href="#month/{{prevMonth}}" class="Calendar-nav--prev" name="month/{{prevMonth}}" name="month/{{prevMonth}}"  aria-label="Go to {{prevMonthName}} {{prevMonthYear}} availability">
                     <img src="/images/angle-left.svg" class="Calendar-nav--label" alt=""  role="presentation"/>
                 </a>
             {{/prevMonth}}
-            <h2 class="Calendar-nav--month"><strong><span aria-label="Currently displaying month: {{monthName}}">{{monthName}}</span></strong></h2>
+            <h2 class="Calendar-nav--month"><strong><span aria-label="Currently displaying month: {{monthName}} {{year}}">{{monthName}}</span></strong></h2>
             {{#nextMonth}}
-                <a href="#month/{{nextMonth}}" class="Calendar-nav--next" name="month/{{nextMonth}}" aria-label="Go to {{nextMonthName}} availability">
+                <a href="#month/{{nextMonth}}" class="Calendar-nav--next" name="month/{{nextMonth}}" aria-label="Go to {{nextMonthName}} {{nextMonthYear}} availability">
                     <img src="/images/angle-right.svg" class="Calendar-nav--label" alt="" role="presentation"/>
                 </a>
             {{/nextMonth}}

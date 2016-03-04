@@ -29,6 +29,7 @@ test('get calendar structure', (assert) => {
       {
         "month": "2015-12",
         "monthName": "December",
+        "year": 2015,
         "weeks": [
           {
             "days": [

@@ -843,22 +843,15 @@ body {
   padding-bottom: 150px;
   /* height of your footer */ }
 
-.steps-info {
+.steps-info, .logout-link {
   padding: 3rem 0 2rem;
-  font-size: 1.5em;
+  display: inline-block;
   font-weight: lighter; }
 
-.steps-and-close-div {
-  margin-top: 3rem;
-  margin-bottom: 2rem; }
-
-.steps-info.inline {
-  display: inline;
-  margin: 0; }
+.steps-info {
+  font-size: 1.5em; }
 
 .logout-link {
-  margin: 0;
-  font-weight: lighter;
   float: right; }
 
 .scroll-disabled {
@@ -1510,7 +1503,7 @@ button.with-icon {
       background: black; }
   .Footer-section {
     display: none; }
-  .steps-and-close-div {
+  .steps-info, .logout-link {
     display: none; }
   .button, input.button {
     display: none !important; }
