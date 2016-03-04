@@ -10,7 +10,7 @@ module.exports = {
     login: './login',
     confirmation: './confirmation',
     calendar_page: './calendar_page',
-    error: './error'
+    cookies: './cookies'
   },
   output: {
     path: path.join(__dirname, 'dist'),

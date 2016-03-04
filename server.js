@@ -167,6 +167,107 @@ let extendObject = function(base, extra){
 
 // END   - Pages --------
 
+// BEGIN - Calendar text only  --------
+app.get('/calendar/text', (req, res) => {
+  const dates = [];
+  for (let i = 0; i < 80; i++) {
+    let dateToAdd = moment().add(i, 'days');
+    if (dateToAdd.day() % 6) {
+      dates.push({
+        calendar_id: 1268 + i,
+        available_times_count: 4,
+        display_date: dateToAdd.format('dddd Do MMMM YYYY')
+      });
+    }
+  };
+
+  res.render('no_js_calendar/calendar_nojs', {
+    partials: {
+      html_base_premain_pretitle: '../partials/html_base_premain_pretitle',
+      html_base_premain_posttitle: '../partials/html_base_premain_posttitle',
+      html_base_postmain: '../partials/html_base_postmain',
+      header: '../partials/header',
+      footer: '../partials/footer',
+      beta: '../partials/beta',
+      feedback: '../partials/feedback'
+    },
+    unitId: "1212",
+    error: req.query.error,
+    unavailable: req.query.unavailable,
+    location: "2 Lonsdale Street, Melbourne VIC 3000",
+    locationURL: "2+Lonsdale+Street,+Melbourne+VIC+3000",
+    current_appointment: "Thursday, 12 December, 1:30PM",
+    available_dates: dates
+  });
+});
+
+app.get('/calendar/text/:calendarId', (req, res) => {
+  res.render('no_js_calendar/daytimes_nojs', {
+   partials: {
+      html_base_premain_pretitle: '../partials/html_base_premain_pretitle',
+      html_base_premain_posttitle: '../partials/html_base_premain_posttitle',
+      html_base_postmain: '../partials/html_base_postmain',
+      header: '../partials/header',
+      footer: '../partials/footer',
+      beta: '../partials/beta',
+      feedback: '../partials/feedback'
+    },
+    unitId: "1212",
+    error: req.query.error,
+    unavailable: req.query.unavailable,
+    location: "2 Lonsdale Street, Melbourne VIC 3000",
+    locationURL: "2+Lonsdale+Street,+Melbourne+VIC+3000",
+    current_appointment: "Thursday, 12 December, 1:30PM",
+    display_date: "Wednesday, 12th January 2016",
+    calendar_id: req.params.calendarId,
+    available_times: [ {
+      time: "09:00:00",
+      display_time: "9:00 AM"
+    },
+    {
+      time: "09:40:00",
+      display_time: "9:40 AM"
+    },
+    {
+      time: "12:00:00",
+      display_time: "1:00 PM"
+    },
+    {
+      time: "15:00:00",
+      display_time: "3:00 PM"
+    }
+    ]
+  });
+});
+
+app.get('/calendar/text/:calendarId/:time', (req, res) => {
+  res.render('no_js_calendar/selection_nojs', {
+   partials: {
+      html_base_premain_pretitle: '../partials/html_base_premain_pretitle',
+      html_base_premain_posttitle: '../partials/html_base_premain_posttitle',
+      html_base_postmain: '../partials/html_base_postmain',
+      header: '../partials/header',
+      footer: '../partials/footer',
+      beta: '../partials/beta',
+      feedback: '../partials/feedback'
+    },
+    unitId: "1212",
+    error: req.query.error,
+    unavailable: req.query.unavailable,
+    location: "2 Lonsdale Street, Melbourne VIC 3000",
+    locationURL: "2+Lonsdale+Street,+Melbourne+VIC+3000",
+    current_appointment: "Thursday, 12 December, 1:30PM",
+    display_appointment_datetime: "1:20 PM Wednesday, 12th January 2016",
+    selected_appointment: "2016-01-12TT15:00:00",
+    _csrf: {
+      token: "csrf-token",
+      parameterName: "_csrf"
+    }
+  });
+});
+
+// END   - Calendar text only  --------
+
 // BEGIN - Pages backend calls --------
 
 app.get('/get_available_dates.json', (req, res) => {
@@ -230,7 +331,7 @@ app.post('/book_appointment', urlencodedParser, (req, res) => {
     res.redirect('/calendar?unavailable=true');
   }
   else{
-    res.redirect('/confirmation?time=' + req.body.selected_appointment);
+    res.redirect('/confirmation');
   }
 });
 
