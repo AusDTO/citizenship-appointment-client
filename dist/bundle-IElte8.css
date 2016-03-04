@@ -49,6 +49,10 @@
   .footer a.footerlink {
     font-size: 12px; }
 
+.ClientIdHelp-image {
+  max-width: 400px;
+  margin-top: 30px; }
+
 .Legend-box {
   width: 16px;
   height: 16px; }

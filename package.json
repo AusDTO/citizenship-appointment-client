@@ -12,7 +12,7 @@
     "cover": "istanbul cover -i 'lib/**/*' tape test/unit/*.js",
     "monitor": "casperjs test/monitor/*.js",
     "monitor-test": "webpack ; NODE_ENV=production PORT=3002 node server.js & PID=$! ; sleep 1 ; BASE_URL='http://localhost:3002' CLIENT_ID='01234567891' FAMILY_NAME='Familyname' casperjs test/monitor/*.js ; RESULT=$? ; kill $PID ; exit $RESULT",
-    "a11y": "webpack ; NODE_ENV=production PORT=3003 node server.js & PID=$! ; sleep 1 ; pa11y -e node_modules/.bin/phantomjs http://localhost:3003/login && pa11y -e node_modules/.bin/phantomjs http://localhost:3003/calendar && pa11y -e node_modules/.bin/phantomjs http://localhost:3003/confirmation && pa11y -e node_modules/.bin/phantomjs http://localhost:3003/error && pa11y -e node_modules/.bin/phantomjs http://localhost:3003/session_timeout ; RESULT=$? ; kill $PID ; exit $RESULT",
+    "a11y": "webpack ; NODE_ENV=production PORT=3003 node server.js & PID=$! ; sleep 1 ; pa11y -e node_modules/.bin/phantomjs http://localhost:3003/login && pa11y -e node_modules/.bin/phantomjs http://localhost:3003/calendar && pa11y -e node_modules/.bin/phantomjs http://localhost:3003/confirmation && pa11y -e node_modules/.bin/phantomjs http://localhost:3003/error && pa11y -e node_modules/.bin/phantomjs http://localhost:3003/session_timeout && pa11y -e node_modules/.bin/phantomjs http://localhost:3003/calendar/text && pa11y -e node_modules/.bin/phantomjs http://localhost:3003/calendar/text/1212 && pa11y -e node_modules/.bin/phantomjs http://localhost:3003/calendar/text/1212/09:00:00 ; RESULT=$? ; kill $PID ; exit $RESULT",
     "clean": "rm -r build",
     "selenium-install": "selenium-standalone install",
     "selenium-start": "selenium-standalone start",
