@@ -41,11 +41,13 @@
         </div>
     </div>
     <form action="/book_appointment" method="post">
-    <!--aria-live="assertive"-->
         <input name="{{ _csrf.parameterName }}" type="hidden" value="{{ _csrf.token }}"/>
         <div class="Calendars" data-today="{{today_date}}">
             <div class="Loading-message">
                 Loading calendars
+            </div>
+            <div class="Old-Calendar-Needed-message">
+                It seems you have JavaScript disabled or your version of the browser is not fully supported. <a href="/calendar/text">Go to the text version of the calendar.</a>
             </div>
         </div>
         <button type="submit" hidden>.</button>
@@ -53,5 +55,5 @@
 </div>
 
 {{> extend_session_modal }}
-<script src="/static/calendar_page.js" charset="utf-8"></script>
+<script src="/static/scriptselect/calendar_scriptselect.js" charset="utf-8"></script>
 {{> html_base_postmain }}
