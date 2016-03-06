@@ -83,13 +83,7 @@ ul li {
     padding-left: 0.5rem;
 }
 
-@media (max-width: 410px) {
-    .MainContainer {
-        padding-bottom: 41rem; /* height of your footer */
-    }
-}
-
-@media  (min-width: 410px) and (max-width: 550px) {
+@media (max-width: 550px) {
     .MainContainer {
         padding-bottom: 41rem; /* height of your footer */
     }

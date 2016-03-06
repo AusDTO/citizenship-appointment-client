@@ -751,10 +751,6 @@ a:hover, a:focus, a:active {
   display: block;
   z-index: 1;
   background: rgba(0, 0, 0, 0.2);
-  opacity: 0;
-  -webkit-transition: opacity 400ms ease-in;
-  -moz-transition: opacity 400ms ease-in;
-  transition: opacity 400ms ease-in;
   pointer-events: none; }
 
 .modalDialog-bg:target {
@@ -892,12 +888,7 @@ ul li {
 .small-left-padding {
   padding-left: 0.5rem; }
 
-@media (max-width: 410px) {
-  .MainContainer {
-    padding-bottom: 41rem;
-    /* height of your footer */ } }
-
-@media (min-width: 410px) and (max-width: 550px) {
+@media (max-width: 550px) {
   .MainContainer {
     padding-bottom: 41rem;
     /* height of your footer */ }

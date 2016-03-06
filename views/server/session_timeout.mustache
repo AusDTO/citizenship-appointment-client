@@ -3,14 +3,13 @@
 {{> html_base_premain_posttitle}}
 
 <div class="container">
-    <iframe src="/logout" height="0" width="0" title="logout" class="logout-frame"></iframe>
-	<div class="steps-info"></div>
-    <h1>Your appointment has not been scheduled</h1>
+  <iframe src="/logout" height="0" width="0" title="logout" class="logout-frame"></iframe>
+  <h1>You have been logged off</h1>
 
-    <p>All the details you have entered have been cleared to keep your information safe.<br/>
-    This happens when a page has been left open for over 30 minutes.</p>
+  <p>This happens when a page has been left open for over 30 minutes.<br/>
+  Your appointment has not been scheduled. All the details you have entered have been cleared to keep your information safe.</p>
 
-    <a href="/login" title="Go to the login page" class="button login-again">Log in again</a>
+  <a href="/login" title="Go to the login page" class="button login-again">Log in again</a>
 </div>
 <script src="/static/cookies.js" charset="utf-8"></script>
 {{> html_base_postmain}}

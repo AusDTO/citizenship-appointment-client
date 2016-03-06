@@ -3,14 +3,11 @@
 {{> html_base_premain_posttitle}}
 
 <div class="container">
-  <div class="row">
-    <div class="nine columns">
-    <h1>Error</h1>
-  		<div class="error-message">
-  			There was an error. <a href="/login">Go back to the login page.</a>
-  		</div>
-    </div>
-  </div>
+  <h1>Error</h1>
+
+  <p>An error occurred. Please try again in a few minutes.</p>
+
+  <a href="/login" title="Go to the login page" class="button login-again">Log in again</a>
 </div>
 <script src="/static/cookies.js" charset="utf-8"></script>
 {{> html_base_postmain }}
