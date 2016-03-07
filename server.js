@@ -174,9 +174,9 @@ app.get('/calendar/text', (req, res) => {
     let dateToAdd = moment().add(i, 'days');
     if (dateToAdd.day() % 6) {
       dates.push({
-        calendar_id: 1268 + i,
-        available_times_count: 4,
-        display_date: dateToAdd.format('dddd Do MMMM YYYY')
+        id: 1268 + i,
+        availableTimesCount: 4,
+        displayDate: dateToAdd.format('dddd Do MMMM YYYY')
       });
     }
   };
@@ -219,22 +219,23 @@ app.get('/calendar/text/:calendarId', (req, res) => {
     locationURL: "2+Lonsdale+Street,+Melbourne+VIC+3000",
     current_appointment: "Thursday, 12 December, 1:30PM",
     display_date: "Wednesday, 12th January 2016",
+    date: '2016-01-12',
     calendar_id: req.params.calendarId,
     available_times: [ {
-      time: "09:00:00",
-      display_time: "9:00 AM"
+      time: "09:00",
+      displayTime: "9:00 AM"
     },
     {
-      time: "09:40:00",
-      display_time: "9:40 AM"
+      time: "09:40",
+      displayTime: "9:40 AM"
     },
     {
-      time: "12:00:00",
-      display_time: "1:00 PM"
+      time: "12:00",
+      displayTime: "1:00 PM"
     },
     {
-      time: "15:00:00",
-      display_time: "3:00 PM"
+      time: "15:00",
+      displayTime: "3:00 PM"
     }
     ]
   });
