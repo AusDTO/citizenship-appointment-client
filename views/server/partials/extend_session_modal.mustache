@@ -1,8 +1,8 @@
 <div id="open-modal" class="modalDialog-bg">
   <div class="modalDialog" role="alertdialog" aria-label="Your session is expiring. Please confirm if you want to stay logged in.">
     <div class="modalDialog-content">
-      <a href="#close-modal" type="button" id="close-modal" title="Close" aria-label="Close this dialog" class="close" tabindex="3">
-        <img src="/images/times.svg" class="button-icon" alt="Close" role="presentation"/>
+      <a href="#close-modal" type="button" id="close-modal" title="Close" aria-label="Close this dialog" class="close" tabindex="2">
+        <img src="/images/times.svg" onerror="this.src='/images/png/times.png';" class="button-icon" alt="" role="presentation"/>
       </a>
 
       <div class="modalDialog-content--stuff">
@@ -11,7 +11,7 @@
         <a href="/logout" id="log-out" class="button" tabindex="1">
           No, log me out
         </a>
-        <button type="button" class="button" id="extend-session" tabindex="2">
+        <button type="button" class="button" id="extend-session" tabindex="1">
           Yes, keep me logged in
         </button>
       </div>

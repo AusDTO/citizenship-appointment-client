@@ -1,12 +1,10 @@
 {{> html_base_premain_pretitle }}
-    <title>Citizenship Appointment Booking Calendar</title>
+    <title>Australian Government - Citizenship Appointment Booking Calendar</title>
 {{> html_base_premain_posttitle}}
 
 <div class="container calendar-page--main">
-    <div class="steps-and-close-div">
-        <div class="steps-info inline">Step 2 of 3</div>
-        <a href="/logout" class="logout-link" tabindex="1">Log out</a>
-     </div>
+    <a href="/logout" class="logout-link" tabindex="1">Log out</a>
+    <div class="steps-info">Step 2 of 3</div>
 
     {{#error}}
         <div class="error-div" role="alert">
@@ -22,32 +20,35 @@
     <h1>Select date, then time</h1>
 
     <div class="Calendar-info">
-        <img src="/images/map-marker.svg" class="icon" alt ="" role="presentation"/>
+      {{#current_appointment }}
+      <img src="/images/calendar.svg" onerror="this.src='/images/png/calendar.png';" class="icon" alt ="" role="presentation"/>
+      <span class="small-left-padding"><strong class="icon-label">Current appointment:</strong></span>
+      <span class="small-left-padding">{{ current_appointment }}</span>
+      <br/>
+      {{/current_appointment }}
+      <div class="Calendar-info--field">
+        <img src="/images/map-marker.svg" onerror="this.src='/images/png/map-marker.png';" class="icon" alt ="" role="presentation"/>
         <span class="small-left-padding"><strong class="icon-label">Location:</strong></span>
         <span class="small-left-padding"><a href="https://www.google.com.au/maps?daddr={{locationURL}}" target="_blank" aria-label="{{ location }} Press to open google maps to see directions" tabindex="1">{{ location }}</a></span>
-        <br/>
-        {{#current_appointment }}
-        <div class="Calendar-info--field">
-            <img src="/images/calendar-o.svg" class="icon" alt ="" role="presentation"/>
-            <span class="small-left-padding"><strong class="icon-label">Current appointment:</strong></span>
-            <span class="small-left-padding">{{ current_appointment }}</span>
-        </div>
-        {{/current_appointment }}
-        <div class="Calendar-info--field" role="presentation" aria-hidden="true" aria-label="Legend. Plain blue background marks dates that have appointments available. Grey striped background marks dates that have no appointments available.">
-            <div>
-                <span class="Legend-box"></span>
-                <span class="Legend-label small-left-padding" aria-hidden="true">Available</span>
-                <span class="Legend-box Legend-box--unavailable"></span>
-                <span class="Legend-label small-left-padding" aria-hidden="true">Not available</span>
-            </div>
-        </div>
+
+      </div>
+      <div class="Calendar-info--field" role="presentation" aria-hidden="true" aria-label="Calendar legend: Plain blue background indicates selectable dates that have available timeslots. Grey striped background indicates non-selectable dates.">
+          <div>
+              <span class="Legend-box"></span>
+              <span class="Legend-label small-left-padding" aria-hidden="true">Available</span>
+              <span class="Legend-box Legend-box--unavailable"></span>
+              <span class="Legend-label small-left-padding" aria-hidden="true">Not available</span>
+          </div>
+      </div>
     </div>
     <form action="/book_appointment" method="post">
-    <!--aria-live="assertive"-->
         <input name="{{ _csrf.parameterName }}" type="hidden" value="{{ _csrf.token }}"/>
         <div class="Calendars" data-today="{{today_date}}">
             <div class="Loading-message">
                 Loading calendars
+            </div>
+            <div class="Old-Calendar-Needed-message">
+                It seems you have JavaScript disabled or your version of the browser is not fully supported. <a href="/calendar/text">Go to the text version of the calendar.</a>
             </div>
         </div>
         <button type="submit" hidden>.</button>
@@ -55,5 +56,5 @@
 </div>
 
 {{> extend_session_modal }}
-<script src="/static/calendar_page.js" charset="utf-8"></script>
+<script src="/static/scriptselect/calendar_scriptselect.js" charset="utf-8"></script>
 {{> html_base_postmain }}

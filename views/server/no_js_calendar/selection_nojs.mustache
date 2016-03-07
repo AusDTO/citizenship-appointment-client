@@ -1,0 +1,54 @@
+{{> html_base_premain_pretitle }}
+    <title>Citizenship Appointment Booking Calendar - Confirm selection</title>
+{{> html_base_premain_posttitle}}
+
+<div class="container calendar-page--main">
+    <div class="steps-and-close-div">
+        <div class="steps-info inline">Step 2 of 3</div>
+        <a href="/logout" class="logout-link">Log out</a>
+     </div>
+
+    {{#error}}
+        <div class="error-div" role="alert">
+            There was an error processing your request. Your appointment was not booked. Please try again.
+        </div>
+    {{/error}}
+    {{#unavailable}}
+        <div class="error-div" role="alert">
+            Sorry your slot has been taken in the meantime or the department availability has changed. Please select other slot and try again.
+        </div>
+    {{/unavailable}}
+
+    <h1>Confirm your selection</h1>
+
+    <div class="Calendar-info">
+        <img src="/images/map-marker.svg" onerror="this.src='/images/png/map-marker.png';" class="icon" alt ="" role="presentation"/>
+        <span class="small-left-padding"><strong class="icon-label">Location:</strong></span>
+        <span class="small-left-padding"><a href="https://www.google.com.au/maps?daddr={{locationURL}}" target="_blank" aria-label="{{ location }} Press to open google maps to see directions">{{ location }}</a></span>
+        <br/>
+        {{#current_appointment }}
+        <div class="Calendar-info--field">
+            <img src="/images/calendar.svg" onerror="this.src='/images/png/calendar.png';" class="icon" alt ="" role="presentation"/>
+            <span class="small-left-padding"><strong class="icon-label">Current appointment:</strong></span>
+            <span class="small-left-padding">{{ current_appointment }}</span>
+        </div>
+        {{/current_appointment }}
+    </div>
+    <form action="/book_appointment" method="post">
+        <input name="{{ _csrf.parameterName }}" type="hidden" value="{{ _csrf.token }}"/>
+        <span>You have selected: </span>
+        <span class="SelectionConfirmation-label">{{display_appointment_datetime}}</span>
+        <input type="hidden" name="selected_appointment" value="{{selected_appointment}}"/>
+        <button type="submit" class="button with-icon SelectionConfirmation-button" id="submitLogin" aria-label="Press the button to book an appointment for {{display_appointment_datetime}}">
+            <span>Confirm</span><img  src="/images/angle-right-white.svg" onerror="this.src='/images/png/angle-right-white.png';" class="button-icon" role="presentation"/>
+        </button>
+    </form>
+    <div>
+        <a href="/calendar/text">
+            Select different date
+        </a>
+    </div>
+</div>
+<script src="/static/cookies.js" charset="utf-8"></script>
+<script src="/static/oldJS/calendar_old.js" charset="utf-8"></script>
+{{> html_base_postmain }}

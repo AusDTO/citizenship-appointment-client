@@ -24,12 +24,15 @@
   }
 }
 
+.warning-oldbrowsers {
+  display: none;
+}
+
 .Beta {
     margin-top: 1rem;
 }
 
-.Beta-message:before {
-    content: 'BETA';
+.Beta-tag {
     background: $beta-tag;
     color: white;
     padding: 0.3rem 0.5rem;

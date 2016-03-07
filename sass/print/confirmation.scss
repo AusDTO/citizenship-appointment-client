@@ -25,12 +25,12 @@
 		display: none;
 	}
 
-	.steps-and-close-div {
+	.steps-info, .logout-link {
 		display: none;
 	}
 
 	.button {
-		display: none;
+		display: none !important;
 	}
 
 	#calendarOptions {
@@ -45,14 +45,14 @@
 		font-size: 1.5rem
 	}
 
-	a:link:after, a:visited:after { 
-		content:" (" attr(href) ") "; 
+	a:link:after, a:visited:after {
+		content:" (" attr(href) ") ";
 		text-decoration: underline;
 		color: blue;
 	}
 
-	a.print-not-expand:link:after, a:visited:after { 
-		content:""; 
+	a.print-not-expand:link:after, a:visited:after {
+		content:"";
 	}
 
 	a {

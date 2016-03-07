@@ -2,20 +2,8 @@ language: node_js
 
 sudo: false
 
-addons:
-  sauce_connect:
-    username:
-      secure: eYbhGRZurl+AAbUUmtggwufkjJUmH3oUhf1ETLretGqRBf0qbuD+x/ILvagbiZVTGT1D2M4d5klFkGg5vH/J68w8pBIxSZNTFMc4wTU1HhgbVNVJWH3vHoYSVzD8RQE98IN1M+sa8pnloaTPLVn2ZT73ElIwpzQMnr6AHLNvsjO1QLp3jVY2WkDUorrPUm/2fjFVAQ5CQIMYAwaJB+sdPVwBHfTSMALheFGWpfmXZxbqpaVfFC3Gei1Moyv0HHorlKi1T88/9S24UEXaJ/jKfRypCqEz8cmfTFCQjV706BRRjP10xV9w7P9EmeCkdXWnlPH4SzhZES8lj8Xdl2olwuI5/OTUDo0ToSRvHaufGAelGc4CY9prLQ+FhuMKmfiE8wtzrvgPsz/I2y9pjfOfBNHv/4UnEU8g4Q1OrnA8YtHMwKoj8flDCvLAuKgfmpoOTMMqlt1fCdJmSa5qxrMymUM+3nfzxDu+NubnkAts5Cgyf+eS2NFL3E4U9Nj4P/kEZjB1L3wyVRMTbULCjPDZXZCkEAEGG23pa99yPt5mMbbJlEQeEuFSnY0rFvarpazOWcn9mRL/1rt6B33mceLVZeorCGoeoUs51x7L6bBftqUvx0LsaH/+f804RiCnQLpyp9t943UqxtNQ/iy6iP0ZmQU7I1fVXf60rnyG5FZy/PE=
-    access_key:
-      secure: juzMERWTD+B2NPUIRepqrwuALUEN7ipdXjX+NfOH3Hgd0qOoLJV1HRc7K8N4a6bFXO0t3cFvPK2DSxRVxluas/iqFJSjk4QJTPmGpNrzaQj6p+k9aHH38Gm117U+KdkZyJ4Phiwg1C6EA4lHmC4oTQqL37sl8iN4EVldpkCk2fQEzAevVkqJuE3NfE4lq7esSxsdbTkMH18Vk7ZyY/feZarE+79DU3bKD//0/tnWPfk7h3vj73j+7PxjoNRa6bYjsJYs8Id/+Vr3v/DiIGO51DtG4NQpSp3ladO6ul2GUDE/ExQrU7yjHnnGFEW8FqdwjSO9N4by7Hm9FLGIZSZ7baDHMBI9AlVgsfa2hUWNKzSRd9mme9pFEnvO5U8aRGqsbp6RO2eT5v9cGACyMQroQoFkDc2yuDJBGqQYcoN9LDLQS4gryaoS8rWdifPiRGhYuJMRvb6d4GLlH7jl0EBEamiggbsD9ZHcJaVNTUCveGYALuXcT+YLqnavsbTcPTMbjNAquq1bjgVbGtYQmFrc1M2DZ2GY0e+ZpaTdHlb0VijxrQ3S9RBarAVQiG0K58DV4yW177bwJQeId1vKw2sZ/LtWZruh6TOjcl5fE8E3vU3Gak+tnRhghVMubHW3fnIWIlhnK+eyT+Y8yDZEZuJPbCTCdK4cnzWxzCfbXobnME8=
-
 script:
-  - npm test
-  - USE_SAUCE=true BROWSER=chrome npm run uitest
-  - USE_SAUCE=true BROWSER=firefox npm run uitest
-  - USE_SAUCE=true BROWSER='internet explorer' BROWSER_VERSION=11 npm run uitest
-  - USE_SAUCE=true BROWSER='internet explorer' BROWSER_VERSION=9 npm run uitest
-  - USE_SAUCE=true BROWSER=safari PLATFORM=MAC BROWSER_VERSION=8 npm run uitest
+- npm test
 
 notifications:
   email: false
@@ -28,5 +16,15 @@ deploy:
   on:
     repo: AusDTO/citizenship-appointment-client
 
-after_script:
-  - MONITOR_BASE_URL='https://citizenship-appointment-beta.herokuapp.com' MONITOR_CLIENT_ID='01234567890' MONITOR_FAMILY_NAME='Familyname' npm run monitor || travis_terminate 1
+after_deploy:
+- MONITOR_BASE_URL='https://citizenship-appointment-beta.herokuapp.com' MONITOR_CLIENT_ID='01234567890' MONITOR_FAMILY_NAME='Familyname' npm run monitor || travis_terminate 1
+- BROWSER=chrome SAUCE_ON_DEMAND=true npm run cross-browser-test || travis_terminate 1
+- BROWSER=firefox SAUCE_ON_DEMAND=true npm run cross-browser-test || travis_terminate 1
+- BROWSER='internet explorer' BROWSER_VERSION=11 SAUCE_ON_DEMAND=true npm run cross-browser-test || travis_terminate 1
+- BROWSER='internet explorer' BROWSER_VERSION=9 SAUCE_ON_DEMAND=true npm run cross-browser-test || travis_terminate 1
+- BROWSER=safari PLATFORM=MAC BROWSER_VERSION=8 SAUCE_ON_DEMAND=true npm run cross-browser-test || travis_terminate 1
+
+env:
+  global:
+  - secure: D6BAlg7BmSja83+0OFYAB90QZr1mcAG6EC4FPduF/6MJ17ms64aiPQaXSZW+zypxh3SYPuymjhS5Quh4aLzdg6eBez0wiCPDn+JK8sumpC3Sdl0JdZ86u5Qrzdtw57s6XRkkLiBQXwfKBgGNwTcpngwacN5BeEN9dZYIeyNewp3RlGUGbmDcJ6LolxyNJhCCf0UYVY7+JZVcWMQE9qqv7CVPk+3laym/XSGH2SDNHkNrC4lxLjiFT7FA+Wot3iTQpfxT7A0QxHE39VzDBXdhd8OVZHpWvBw0NFuai62BehGaK+wmA6EjuOxP+8yYHE1qT00RM//UFCqFJek5vdPefdV4D24FrLvA/raBJh37DTSbGuYl/azrSeeTxiEmIzQ0RcmnVpVGedTzYOqdQhPOV/qSxv4OY5OgL+3ZzRNXLCxU3KXPcUHxDOPJ3RJ76Hynq+HgEnRo8qJi2Sn2ovBLBvdtTlyEZWhdB/NrgyeEIKRRyTKN4SoG6T7pIGry3nhu4D8z7nLsVWIlrXdWGTzbFiNTWAkB73Sei6l3U4rweNFhmTjl8qOXqAHnkWrKmman0ozXEI/ekd/O0jR20QOZtHkDCChyXFJhhb2IybYgUMdNNc85bb1ul6w7TtWX8xu/cA8xIvZQHVUnqzhjOsVvokdmCfeFddJul4jGQHeG9Ng= #SAUCE_USERNAME
+  - secure: SB+oZh9eos6OA2D1QYfvlcymj9L5YTmVjDA17vGyFNtWFIcIDpgGoUxKmmneCz24CsCGMPsb9fnh1CNR3g1qPMG9gwWe4j7ysA2BuTBTCQn95aS1prKPh2TXgvz74CoqyePTfobXPQMpKO7k7eFnXEEa2smumvTIkdzBiAiWNVDU7QONsBhBhjxUiAGsO0PbD6huY1WQMKx1T93e9MbOPZDjRMO5oxeDzxGRV99VkoLvA7l9vk/EV1BQcHHde/6GLI5jieXZSqFbFkFsKvStV37vlt8fM1Q94EZ42gQF/g3LdGd3S/76rG/dxr/tmGIbaWQI6DM2+r66FpS4fSnKszydXoY5qjahQ2JpqUTeE4yVz03q4/u50utYq1kfX8aI06uM4WDPRadEqTraaUhWw2URnK6/sigjL9RhEfaNfwLw+9EL8mx/KExsHGiilaVcbIMqHKeNr5sFlKnFQjWdkdifWkJWFNh1UQz6gWYUtehEqfvBNj9yrWGO6hn4BVs9eq20AOG5h7xctEEDqWfiCQdzUBY2iUzoCH6bFaMFcfULrxBqiGwkkQaW1W62buEDvxn3a+3ocvb8al7QIc6es6LSSikRFToqssoBXwalKR6oINyhpzwSmxOWrDOR8QpqVa8Av8h6gTHJ9drO+rJL7Fd+g5xsaJLYqzifSTbjokQ= #SAUCE_ACCESS_KEY

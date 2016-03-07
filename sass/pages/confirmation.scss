@@ -19,11 +19,6 @@
 	margin-bottom: 1rem;
 }
 
-.barcode{
-	font-family: Code39AzaleaFont;
-	font-size: 4rem;
-}
-
 .barcode-text {
 	font-style: italic;
 	font-size: 1.2rem;
@@ -165,6 +160,10 @@
 .button#addToCalendar,
 .button#print-page {
     min-width: 23.6rem;
+}
+
+.button#print-page {
+    display: none;
 }
 
 // BEGIN: mobile media query

@@ -751,10 +751,6 @@ a:hover, a:focus, a:active {
   display: block;
   z-index: 1;
   background: rgba(0, 0, 0, 0.2);
-  opacity: 0;
-  -webkit-transition: opacity 400ms ease-in;
-  -moz-transition: opacity 400ms ease-in;
-  transition: opacity 400ms ease-in;
   pointer-events: none; }
 
 .modalDialog-bg:target {
@@ -802,11 +798,13 @@ a:hover, a:focus, a:active {
       font-size: 1.2em;
       letter-spacing: -0.75px; }
 
+.warning-oldbrowsers {
+  display: none; }
+
 .Beta {
   margin-top: 1rem; }
 
-.Beta-message:before {
-  content: 'BETA';
+.Beta-tag {
   background: #F16A22;
   color: white;
   padding: 0.3rem 0.5rem;
@@ -844,22 +842,15 @@ body {
   padding-bottom: 150px;
   /* height of your footer */ }
 
-.steps-info {
+.steps-info, .logout-link {
   padding: 3rem 0 2rem;
-  font-size: 1.5em;
+  display: inline-block;
   font-weight: lighter; }
 
-.steps-and-close-div {
-  margin-top: 3rem;
-  margin-bottom: 2rem; }
-
-.steps-info.inline {
-  display: inline;
-  margin: 0; }
+.steps-info {
+  font-size: 1.5em; }
 
 .logout-link {
-  margin: 0;
-  font-weight: lighter;
   float: right; }
 
 .scroll-disabled {
@@ -900,12 +891,7 @@ ul li {
 .small-left-padding {
   padding-left: 0.5rem; }
 
-@media (max-width: 410px) {
-  .MainContainer {
-    padding-bottom: 41rem;
-    /* height of your footer */ } }
-
-@media (min-width: 410px) and (max-width: 550px) {
+@media (max-width: 550px) {
   .MainContainer {
     padding-bottom: 41rem;
     /* height of your footer */ }
@@ -1017,9 +1003,6 @@ ul li {
 .LoginForm-input > * {
   margin-bottom: .5rem; }
 
-.warning-cookies {
-  display: none; }
-
 .desktop-only {
   display: block; }
 
@@ -1087,10 +1070,6 @@ button.with-icon {
 .barcode-frame {
   text-align: center;
   margin-bottom: 1rem; }
-
-.barcode {
-  font-family: Code39AzaleaFont;
-  font-size: 4rem; }
 
 .barcode-text {
   font-style: italic;
@@ -1210,6 +1189,9 @@ button.with-icon {
 .button#print-page {
   min-width: 23.6rem; }
 
+.button#print-page {
+  display: none; }
+
 @media (max-width: 550px) {
   .barcode {
     font-size: 7rem;
@@ -1261,6 +1243,7 @@ button.with-icon {
   margin-left: 1.5rem; }
 
 .Loading-message {
+  display: none;
   text-align: center;
   font-style: italic;
   max-height: 30vh;
@@ -1515,10 +1498,10 @@ button.with-icon {
       background: black; }
   .Footer-section {
     display: none; }
-  .steps-and-close-div {
+  .steps-info, .logout-link {
     display: none; }
   .button, input.button {
-    display: none; }
+    display: none !important; }
   #calendarOptions {
     display: none; }
   .container.last {

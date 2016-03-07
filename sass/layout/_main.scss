@@ -25,25 +25,17 @@ body {
     padding-bottom: 150px; /* height of your footer */
 }
 
-.steps-info {
+.steps-info, .logout-link {
   padding: 3rem 0 2rem;
-  font-size: 1.5em;
+  display: inline-block;
   font-weight: lighter;
 }
 
-.steps-and-close-div {
-    margin-top: 3rem;
-    margin-bottom: 2rem;
-}
-
-.steps-info.inline {
-  display: inline;
-  margin: 0;
+.steps-info {
+  font-size: 1.5em;
 }
 
 .logout-link {
-  margin: 0;
-  font-weight: lighter;
   float: right;
 }
 
@@ -91,13 +83,7 @@ ul li {
     padding-left: 0.5rem;
 }
 
-@media (max-width: 410px) {
-    .MainContainer {
-        padding-bottom: 41rem; /* height of your footer */
-    }
-}
-
-@media  (min-width: 410px) and (max-width: 550px) {
+@media (max-width: 550px) {
     .MainContainer {
         padding-bottom: 41rem; /* height of your footer */
     }

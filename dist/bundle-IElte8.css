@@ -1,0 +1,105 @@
+.MainContainer {
+  padding-bottom: 0px; }
+
+.Footer-section {
+  bottom: 0;
+  left: 0;
+  position: relative; }
+
+.Feedback-survey {
+  margin-top: 30px;
+  position: relative; }
+
+.header {
+  padding: 15px 0; }
+  .header div img {
+    height: 50px;
+    vertical-align: middle; }
+  .header .Beta {
+    margin-top: 20px;
+    padding: 8px 0; }
+
+.icon {
+  height: 20px; }
+
+.error-div {
+  padding: 8px;
+  position: relative;
+  margin-bottom: 30px; }
+
+.steps-info {
+  padding: 20px 0 30px; }
+
+.button-icon {
+  width: 40px;
+  height: 20px;
+  vertical-align: middle; }
+
+.footer {
+  margin-top: 20px;
+  padding: 15px 0;
+  position: initial; }
+  .footer div.footerlinks {
+    padding-left: 40px;
+    bottom: 8px; }
+  .footer img {
+    height: 70px; }
+  .footer .Feedback {
+    margin-bottom: 16px; }
+  .footer a.footerlink {
+    font-size: 12px; }
+
+.ClientIdHelp-image {
+  max-width: 400px;
+  margin-top: 30px; }
+
+.Legend-box {
+  width: 16px;
+  height: 16px; }
+
+.Legend-box--unavailable {
+  margin-left: 30px; }
+
+.small-bottom-margin {
+  margin-bottom: 8px; }
+
+.top-large-padding {
+  padding-top: 30px; }
+
+.barcode-frame {
+  text-align: left;
+  margin-top: 16px;
+  margin-bottom: 0px; }
+
+.barcode-text {
+  font-style: italic;
+  font-size: 12px; }
+
+.strong-top-line {
+  padding-top: 20px;
+  margin-top: 20px; }
+
+.container.last {
+  margin-bottom: 40px; }
+
+.last-appt-details {
+  margin-bottom: 40px; }
+
+.dropdown img,
+.button#print-page img {
+  vertical-align: middle; }
+
+.dropdown ul {
+  width: 200px;
+  margin-top: 0px;
+  padding-left: 0px; }
+
+.dropdown li > a {
+  padding: 4px 10px; }
+
+.button#addToCalendar,
+.button#print-page {
+  width: 200px;
+  margin-right: 5px; }
+
+/*# sourceMappingURL=bundle.css.map */
