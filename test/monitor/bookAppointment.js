@@ -11,13 +11,13 @@ var casper = require('casper').create();
 var system = require('system');
 var fs = require('fs');
 
-var baseUrl = casper.cli.args[0] || system.env['BASE_URL'];
-var clientId = casper.cli.args[1] || system.env['CLIENT_ID'];
-var familyName = casper.cli.args[2] || system.env['FAMILY_NAME'];
+var baseUrl = casper.cli.args[0] || system.env['MONITOR_BASE_URL'];
+var clientId = casper.cli.args[1] || system.env['MONITOR_CLIENT_ID'];
+var familyName = casper.cli.args[2] || system.env['MONITOR_FAMILY_NAME'];
 
 if (!baseUrl || !clientId || !familyName) {
   console.log('Usage: casperjs bookAppointment.js <base URL> <client id> <family name>');
-  console.log('       or use environment variables BASE_URL, CLIENT_ID, and FAMILY_NAME');
+  console.log('       or use environment variables MONITOR_BASE_URL, MONITOR_CLIENT_ID, and MONITOR_FAMILY_NAME');
   casper.exit(1);
 }
 
@@ -38,10 +38,8 @@ var targetDay = day < 10 ? '0' + day : '' + day;
 var hrefMonth = 'month/' + targetYear + '-' + targetMonth;
 var hrefDate = 'date/' + targetYear + '-' + targetMonth + '-' + targetDay;
 
-casper.echo(hrefMonth);
-casper.echo(hrefDate);
-
 var captureDirectory = 'build/monitor/';
+casper.options.waitTimeout = 10000;
 
 casper.start(baseUrl + '/login', function() {
   this.echo('Start');
@@ -60,11 +58,13 @@ casper.waitForSelector('form#loginForm', function() {
 casper.waitForUrl(baseUrl + '/calendar', function() {
   this.echo('Calendar');
   this.capture(captureDirectory + 'calendar-thismonth.png');
+  this.echo('Calendar - selecting ' + hrefMonth);
 });
 
 casper.waitForSelector('a[href="#' + hrefMonth + '"]', function() {
   this.echo('Calendar - next month');
   this.click('a[href="#' + hrefMonth + '"]');
+  this.echo('Calendar - selecting ' + hrefDate);
 });
 
 casper.waitForSelector('a[href="#' + hrefDate + '"]', function() {

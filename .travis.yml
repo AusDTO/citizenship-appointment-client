@@ -29,4 +29,4 @@ deploy:
     repo: AusDTO/citizenship-appointment-client
 
 after_script:
-  - BASE_URL='https://citizenship-appointment-beta.herokuapp.com' CLIENT_ID='01234567890' FAMILY_NAME='Familyname' npm run monitor || travis_terminate 1
+  - MONITOR_BASE_URL='https://citizenship-appointment-beta.herokuapp.com' MONITOR_CLIENT_ID='01234567890' MONITOR_FAMILY_NAME='Familyname' npm run monitor || travis_terminate 1
