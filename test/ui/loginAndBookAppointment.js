@@ -19,7 +19,7 @@ test('should successfully login and book appointment', (assert) => {
       .url(client.baseUrl)
       .getTitle()
       .then((title) => {
-        assert.equal(title, 'Citizenship Appointment Booking');
+        assert.equal(title, 'Australian Government - Citizenship Appointment Booking');
       })
       .setValue('#clientId', '99999999999')
       .setValue('#familyName', 'Family-Name')
@@ -27,7 +27,7 @@ test('should successfully login and book appointment', (assert) => {
       .timeouts('page load',30000)
       .getTitle()
       .then((title) => {
-        assert.equal(title, 'Citizenship Appointment Booking Calendar');
+        assert.equal(title, 'Australian Government - Citizenship Appointment Booking Calendar');
       })
       .click(`[name="month/${monthLink}"]`)
       .click(`[name="date/${dateLink}"]`)
@@ -37,13 +37,13 @@ test('should successfully login and book appointment', (assert) => {
       .timeouts('page load',30000)
       .getTitle()
       .then((title) => {
-        assert.equal(title, 'Citizenship Appointment Booking Confirmation');
+        assert.equal(title, 'Australian Government - Citizenship Appointment Booking Confirmation');
       })
       .click('.logout-link')
       .timeouts('page load',30000)
       .getTitle()
       .then((title) => {
-        assert.equal(title, 'Citizenship Appointment Booking');
+        assert.equal(title, 'Australian Government - Citizenship Appointment Booking');
       })
       .end();
 });

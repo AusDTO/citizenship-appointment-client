@@ -1,9 +1,13 @@
 language: node_js
+
 sudo: false
+
 script:
 - npm test
+
 notifications:
   email: false
+
 deploy:
   provider: heroku
   api_key:
@@ -11,19 +15,15 @@ deploy:
   app: citizenship-appointment-beta
   on:
     repo: AusDTO/citizenship-appointment-client
+
 after_deploy:
-- BASE_URL='https://citizenship-appointment-beta.herokuapp.com' CLIENT_ID='01234567890'
-  FAMILY_NAME='Familyname' npm run monitor || travis_terminate 1
-- BROWSER=chrome BASE_URL='https://citizenship-appointment-beta.herokuapp.com' npm
-  run cross-browser-test || travis_terminate 1
-- BROWSER=firefox BASE_URL='https://citizenship-appointment-beta.herokuapp.com' npm
-  run cross-browser-test || travis_terminate 1
-- BROWSER='internet explorer' BROWSER_VERSION=11 BASE_URL='https://citizenship-appointment-beta.herokuapp.com'
-  npm run cross-browser-test || travis_terminate 1
-- BROWSER='internet explorer' BROWSER_VERSION=9 BASE_URL='https://citizenship-appointment-beta.herokuapp.com'
-  npm run cross-browser-test || travis_terminate 1
-- BROWSER=safari PLATFORM=MAC BROWSER_VERSION=8 BASE_URL='https://citizenship-appointment-beta.herokuapp.com'
-  npm run cross-browser-test || travis_terminate 1
+- BASE_URL='https://citizenship-appointment-beta.herokuapp.com' CLIENT_ID='01234567890' FAMILY_NAME='Familyname' npm run monitor || travis_terminate 1
+- BROWSER=chrome SAUCE_ON_DEMAND=true BASE_URL='https://citizenship-appointment-beta.herokuapp.com' npm run cross-browser-test || travis_terminate 1
+- BROWSER=firefox SAUCE_ON_DEMAND=true BASE_URL='https://citizenship-appointment-beta.herokuapp.com' npm run cross-browser-test || travis_terminate 1
+- BROWSER='internet explorer' BROWSER_VERSION=11 SAUCE_ON_DEMAND=true BASE_URL='https://citizenship-appointment-beta.herokuapp.com' npm run cross-browser-test || travis_terminate 1
+- BROWSER='internet explorer' BROWSER_VERSION=9 SAUCE_ON_DEMAND=true BASE_URL='https://citizenship-appointment-beta.herokuapp.com' npm run cross-browser-test || travis_terminate 1
+- BROWSER=safari PLATFORM=MAC BROWSER_VERSION=8 SAUCE_ON_DEMAND=true BASE_URL='https://citizenship-appointment-beta.herokuapp.com' npm run cross-browser-test || travis_terminate 1
+
 env:
   global:
   - secure: D6BAlg7BmSja83+0OFYAB90QZr1mcAG6EC4FPduF/6MJ17ms64aiPQaXSZW+zypxh3SYPuymjhS5Quh4aLzdg6eBez0wiCPDn+JK8sumpC3Sdl0JdZ86u5Qrzdtw57s6XRkkLiBQXwfKBgGNwTcpngwacN5BeEN9dZYIeyNewp3RlGUGbmDcJ6LolxyNJhCCf0UYVY7+JZVcWMQE9qqv7CVPk+3laym/XSGH2SDNHkNrC4lxLjiFT7FA+Wot3iTQpfxT7A0QxHE39VzDBXdhd8OVZHpWvBw0NFuai62BehGaK+wmA6EjuOxP+8yYHE1qT00RM//UFCqFJek5vdPefdV4D24FrLvA/raBJh37DTSbGuYl/azrSeeTxiEmIzQ0RcmnVpVGedTzYOqdQhPOV/qSxv4OY5OgL+3ZzRNXLCxU3KXPcUHxDOPJ3RJ76Hynq+HgEnRo8qJi2Sn2ovBLBvdtTlyEZWhdB/NrgyeEIKRRyTKN4SoG6T7pIGry3nhu4D8z7nLsVWIlrXdWGTzbFiNTWAkB73Sei6l3U4rweNFhmTjl8qOXqAHnkWrKmman0ozXEI/ekd/O0jR20QOZtHkDCChyXFJhhb2IybYgUMdNNc85bb1ul6w7TtWX8xu/cA8xIvZQHVUnqzhjOsVvokdmCfeFddJul4jGQHeG9Ng= #SAUCE_USERNAME
