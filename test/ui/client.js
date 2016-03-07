@@ -28,7 +28,7 @@ module.exports = (options) => {
 
   const client = require('webdriverio').remote(remote_options);
 
-  client.baseUrl = options.baseUrl || process.env.BASE_URL || `http://localhost:${options.port || process.env.PORT || 3000}`;
+  client.baseUrl = options.baseUrl || process.env.BASE_URL || process.env.SAUCE_ON_DEMAND === 'true' ? 'https://citizenship-appointment-beta.herokuapp.com' : `http://localhost:${options.port || process.env.PORT || 3000}`;
 
   console.log(`Testing application on ${client.baseUrl}`);
 
