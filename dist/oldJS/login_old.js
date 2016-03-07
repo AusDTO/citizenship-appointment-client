@@ -1,5 +1,5 @@
 
-
+document.querySelector('.warning-oldbrowsers').style.display='block';
 if (navigator.cookieEnabled) {
   document.querySelector('.warning-cookies').style.display = 'none';
 }
@@ -29,7 +29,7 @@ function handleHashChange(){
   if (hash === '#help' || hash === '#nohelp') {
     //ga('send', 'event', 'Login', hash);
     toggleClientIdHelp();
-  } else if (hash.startsWith('#validation')) {
+  } else if (hash.lastIndexOf('#validation') > -1) {
     form_validation_marking();
   }
 }

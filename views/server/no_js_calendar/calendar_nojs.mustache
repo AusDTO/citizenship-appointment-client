@@ -38,8 +38,8 @@
         <ul>
         {{#available_dates}}
             <li>
-                <a href="/calendar/text/{{calendar_id}}">
-                    {{display_date}}, {{available_times_count}} available appointments
+                <a href="/calendar/text/{{id}}">
+                    {{displayDate}}, {{availableTimesCount}} available appointments
                 </a>
             </li>
         {{/available_dates}}
@@ -47,4 +47,5 @@
     </div>
 </div>
 <script src="/static/cookies.js" charset="utf-8"></script>
+<script src="/static/oldJS/calendar_old.js" charset="utf-8"></script>
 {{> html_base_postmain }}

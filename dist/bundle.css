@@ -798,6 +798,9 @@ a:hover, a:focus, a:active {
       font-size: 1.2em;
       letter-spacing: -0.75px; }
 
+.warning-oldbrowsers {
+  display: none; }
+
 .Beta {
   margin-top: 1rem; }
 
@@ -1240,6 +1243,7 @@ button.with-icon {
   margin-left: 1.5rem; }
 
 .Loading-message {
+  display: none;
   text-align: center;
   font-style: italic;
   max-height: 30vh;
