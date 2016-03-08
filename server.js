@@ -220,7 +220,6 @@ app.get('/calendar/text/:calendarId', (req, res) => {
     current_appointment: "Thursday, 12 December, 1:30PM",
     display_date: "Wednesday, 12th January 2016",
     date: '2016-01-12',
-    calendar_id: req.params.calendarId,
     available_times: [ {
       time: "09:00",
       displayTime: "9:00 AM"
@@ -241,7 +240,7 @@ app.get('/calendar/text/:calendarId', (req, res) => {
   });
 });
 
-app.get('/calendar/text/:calendarId/:time', (req, res) => {
+app.get('/calendar/text/:date/:time', (req, res) => {
   res.render('no_js_calendar/selection_nojs', {
    partials: {
       html_base_premain_pretitle: '../partials/html_base_premain_pretitle',
