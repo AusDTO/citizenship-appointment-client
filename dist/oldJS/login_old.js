@@ -5,16 +5,14 @@ if (navigator.cookieEnabled) {
 }
 
 function toggleClientIdHelp (){
-  var el = document.querySelectorAll('.ClientIdHelp-hide');
-  var el2 = document.querySelectorAll('.ClientIdHelp-show');
-  for(var i = 0; i < el.length; ++i) {
-    if (el[i].style.display === 'block') {
-      el[i].style.display = 'none';
-      el2[i].style.display = 'block';
-    } else {
-      el[i].style.display = 'block';
-      el2[i].style.display = 'none';
-    }
+  var el = document.querySelector('.ClientIdHelp-hide');
+  var el2 = document.querySelector('.ClientIdHelp-show');
+  if (el.style.display === 'block') {
+    el.style.display = 'none';
+    el2.style.display = 'block';
+  } else {
+    el.style.display = 'block';
+    el2.style.display = 'none';
   }
 }
 
