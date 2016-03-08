@@ -983,19 +983,32 @@ ul li {
     .footer .Feedback-survey--callout {
       display: block; } }
 
-.ClientIdHelp {
-  float: left;
-  width: 100%; }
-
 .ClientIdHelp-show,
 .ClientIdHelp-hide {
   margin-bottom: 1rem;
   display: block; }
 
-.ClientIdHelp-show {
+.ClientIdHelp {
+  float: left;
+  width: 100%;
+  margin-bottom: 2rem; }
+
+.ClientIdHelp-collapsed {
   display: none; }
 
-.ClientIdHelp-hide {
+.ClientIdHelp-expanded {
+  display: block; }
+
+.ClientIdHelp.collapsed .ClientIdHelp-collapsed {
+  display: block; }
+
+.ClientIdHelp.collapsed .ClientIdHelp-expanded {
+  display: none; }
+
+.ClientIdHelp.expanded .ClientIdHelp-collapsed {
+  display: none; }
+
+.ClientIdHelp.expanded .ClientIdHelp-expanded {
   display: block; }
 
 .ClientIdHelp-image {
