@@ -1065,7 +1065,8 @@ ul li {
 
 .button-icon {
   width: 2.5rem;
-  height: 2.5rem; }
+  height: 2.5rem;
+  vertical-align: middle; }
 
 button.with-icon > img,
 button.with-icon > span {
