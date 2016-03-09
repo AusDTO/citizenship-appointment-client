@@ -9,7 +9,8 @@
     "dev": "supervisor --watch 'server.js,webpack.config.js' node server.js",
     "generate_emails": "node generate_emails.js",
     "test": "tape \"test/unit/*.js\" | faucet",
-    "cross-browser-test": "tape \"test/ui/*.js\"",
+    "cross-browser-test": "tape \"test/ui/loginAndBookAppointment.js\"",
+    "old-browser-test": "tape \"test/ui/loginAndBookAppointment_oldBrowsers.js\"",
     "cover": "istanbul cover -i 'lib/**/*' tape test/unit/*.js",
     "monitor": "casperjs test/monitor/*.js",
     "monitor-test": "webpack ; NODE_ENV=production PORT=3002 node server.js & PID=$! ; sleep 1 ; BASE_URL='http://localhost:3002' CLIENT_ID='01234567891' FAMILY_NAME='Familyname' casperjs test/monitor/*.js ; RESULT=$? ; kill $PID ; exit $RESULT",
@@ -17,9 +18,11 @@
     "clean": "rm -r build",
     "selenium-install": "selenium-standalone install",
     "selenium-start": "selenium-standalone start",
-    "uitest": "webpack ; NODE_ENV=production PORT=3001 node server.js & PID=$! ; sleep 1 ; PORT=3001 tape \"test/ui/*.js\" ; RESULT=$? ; kill $PID ; exit $RESULT",
+    "uitest": "webpack ; NODE_ENV=production PORT=3001 node server.js & PID=$! ; sleep 1 ; PORT=3001 tape \"test/ui/loginAndBookAppointment.js\" ; RESULT=$? ; kill $PID ; exit $RESULT",
+    "nojs-uitest": "webpack ; NODE_ENV=production PORT=3001 node server.js & PID=$! ; sleep 1 ; PORT=3001 tape \"test/ui/loginAndBookAppointment_oldBrowsers.js\" ; RESULT=$? ; kill $PID ; exit $RESULT",
     "sauce-connect-install": "SAUCE_CONNECT_DOWNLOAD_ON_INSTALL=true node node_modules/sauce-connect-launcher/scripts/install.js",
-    "sauce-connect-start": "./node_modules/sauce-connect-launcher/sc/sc-*/bin/sc --tunnel-identifier $SAUCE_USERNAME"
+    "sauce-connect-start": "./node_modules/sauce-connect-launcher/sc/sc-*/bin/sc --tunnel-identifier $SAUCE_USERNAME",
+    "local-IE8-uitest": "USE_SAUCE=true BROWSER='internet explorer' BROWSER_VERSION=8 npm run nojs-uitest"
   },
   "author": "",
   "license": "MIT",
