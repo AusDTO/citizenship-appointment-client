@@ -857,8 +857,7 @@ body {
   /* height of your footer */ }
 
 .steps-info, .logout-link {
-  display: inline-block;
-  font-weight: lighter; }
+  display: inline-block; }
 
 .steps-info {
   padding: 3rem 0 2rem;
@@ -1413,7 +1412,7 @@ button.with-icon {
   color: #7B8186; }
 
 .Calendar-date--unavailable .DateCell-content--day {
-  font-weight: lighter; }
+  font-weight: normal; }
 
 .DateCell.Calendar-date--hide {
   background: transparent; }
@@ -1463,7 +1462,7 @@ button.with-icon {
 
 .AppointmentLink-ampm {
   font-size: .75em;
-  font-weight: lighter; }
+  font-weight: normal; }
 
 .SelectionConfirmationCell {
   padding: 1rem;
