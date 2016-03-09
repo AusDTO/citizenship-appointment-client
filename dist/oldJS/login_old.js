@@ -22,7 +22,7 @@ window.onhashchange = handleHashChange;
 function handleHashChange(){
   var hash = location.hash;
   if (hash === '#help' || hash === '#nohelp') {
-    //ga('send', 'event', 'Login', hash);
+    ga('send', 'event', 'Login', hash);
     toggleClientIdHelp(hash);
   } else if (hash.lastIndexOf('#validation') > -1) {
     form_validation_marking();
@@ -105,9 +105,6 @@ function form_validation_marking(){
   markFieldValidAndHideMessage("familyName", "familyName-required");
 
   var errors = window.location.hash;
-  // errors.split('/').slice(1).forEach((error) => {
-  //   ga('send', 'event', 'Login', '#validation', error);
-  // });
   if (errors.indexOf("familyNameReq") >=0) {
     markFieldInvalidAndShowMessage("familyName", "familyName-required");
   }
