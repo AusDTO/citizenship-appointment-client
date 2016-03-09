@@ -783,9 +783,9 @@ a:hover, a:focus, a:active {
 
 .header {
   background-color: #E8E8E8;
-  padding: 1.5rem 0; }
+  padding: 1.25rem 0; }
   .header div {
-    height: 6rem; }
+    height: 6.5rem; }
     .header div img {
       height: 100%;
       vertical-align: middle; }
@@ -795,7 +795,7 @@ a:hover, a:focus, a:active {
       font-family: "Times New Roman", Times, serif;
       font-weight: bold;
       color: black;
-      font-size: 1.2em;
+      font-size: 1.1em;
       letter-spacing: -0.75px; }
 
 .warning-oldbrowsers {
