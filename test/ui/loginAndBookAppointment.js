@@ -7,7 +7,7 @@ const client = require('./client')({
   testSuiteName: path.basename(__filename)
 });
 
-const appointmentDate = moment().add(1, 'months').day() ? moment().add(1, 'months') : moment().add(1, 'months').add(2, 'days');
+const appointmentDate = moment().startOf('week').add(1, 'months');
 const monthLink = appointmentDate.format('YYYY-MM');
 const dateLink = appointmentDate.format('YYYY-MM-DD');
 const timeLink = appointmentDate.format('YYYY-MM-DD') + 'T15:00:00';
