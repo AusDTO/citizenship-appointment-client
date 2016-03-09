@@ -9,18 +9,24 @@
 
     {{#error}}
     <div class="error-div" role="alert">
+      <img class="error-icon" src="/images/warning.svg" alt="" onerror="this.src='/images/png/warning.png';">
+      <span class="error-message">
         Incorrect Client ID and/or Family Name provided.
         Please check your details and try again.
         If the issue persists, please call 1300 792 080
+      </span>
     </div>
     {{/error}}
 
     {{#expired}}
     <div class="error-div" role="alert">
-        Your session has expired.<br/>
-        This happens when a page has been left open for over 30 minutes.<br/>
-        All the details you entered have been cleared to keep your information safe.<br/>
+      <img class="error-icon" src="/images/warning.svg" alt="" onerror="this.src='/images/png/warning.png';">
+      <span class="error-message">
+        Your session has expired.
+        This happens when a page has been left open for over 30 minutes.
+        All the details you entered have been cleared to keep your information safe.
         Please log in again.
+      </span>
     </div>
     {{/expired}}
 
