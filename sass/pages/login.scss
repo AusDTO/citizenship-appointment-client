@@ -1,22 +1,41 @@
 .ClientIdHelp-show,
 .ClientIdHelp-hide {
     margin-bottom: 1rem;
-}
-
-.ClientIdHelp-mobile {
-    display: none;
-}
-
-.ClientIdHelp-desktop {
     display: block;
 }
 
-.ClientIdHelp-show {
+.ClientIdHelp {
+    float: left;
+    width: 100%;
+    margin-bottom: 2rem;
+}
+
+.ClientIdHelp-collapsed {
+    display: none;
+}
+
+.ClientIdHelp-expanded {
     display: block;
 }
 
-.ClientIdHelp-hide {
-    display: none;
+.ClientIdHelp.collapsed {
+    .ClientIdHelp-collapsed {
+        display: block;
+    }
+
+    .ClientIdHelp-expanded {
+        display: none;
+    }
+}
+
+.ClientIdHelp.expanded {
+    .ClientIdHelp-collapsed {
+        display: none;
+    }
+
+    .ClientIdHelp-expanded {
+        display: block;
+    }
 }
 
 .ClientIdHelp-image {
@@ -24,12 +43,16 @@
     margin-top: 2rem;
 }
 
-.LoginForm-elements {
+.LoginForm-elements{
+    display: block;
+}
+
+.LoginForm-input {
     display: inline-block;
     vertical-align: top;
 }
 
-.LoginForm-elements input.invalid { 
+.LoginForm-input input.invalid { 
     border: 2px solid $error-color;
 }
 
@@ -41,6 +64,10 @@
 
 .LoginForm-input > * {
     margin-bottom: .5rem;
+}
+
+.LoginForm-Secondrow {
+    display: inline-block;
 }
 
 // Responsive Styles (Mobile)
@@ -66,17 +93,13 @@
     .desktop-only {
         display: none;
     }
+
+    .LoginForm-Secondrow{
+        display: block;
+    }
 }
 
 @media (max-width: 844px) {
-    .ClientIdHelp-mobile {
-        display: block;
-    }
-
-    .ClientIdHelp-desktop {
-        display: none;
-    }
-
     .LoginForm-input > * {
         margin-bottom: 1.5rem;
     }
@@ -84,19 +107,6 @@
     .LoginForm-input--clientId {
         margin-bottom: .5rem;
     }
-}
-
-.warning-header {
-    background-color: $govau-slate;
-    color: white;
-    display: inline-block;
-    padding: 10px 16px;
-}
-
-.warning-message {
-    color: $govau-slate;
-    display: inline-block;
-    padding: 10px 10px;
 }
 
 .button-icon {

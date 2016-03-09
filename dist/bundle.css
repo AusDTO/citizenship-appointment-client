@@ -801,6 +801,20 @@ a:hover, a:focus, a:active {
 .warning-oldbrowsers {
   display: none; }
 
+.warning-header {
+  background-color: #232D35;
+  color: white;
+  display: inline-block;
+  padding: 10px 16px; }
+
+.warning-cookies .warning-header {
+  padding-right: 18px; }
+
+.warning-message {
+  color: #232D35;
+  display: inline-block;
+  padding: 10px 10px; }
+
 .Beta {
   margin-top: 1rem; }
 
@@ -977,29 +991,44 @@ ul li {
 
 .ClientIdHelp-show,
 .ClientIdHelp-hide {
-  margin-bottom: 1rem; }
-
-.ClientIdHelp-mobile {
-  display: none; }
-
-.ClientIdHelp-desktop {
+  margin-bottom: 1rem;
   display: block; }
 
-.ClientIdHelp-show {
+.ClientIdHelp {
+  float: left;
+  width: 100%;
+  margin-bottom: 2rem; }
+
+.ClientIdHelp-collapsed {
+  display: none; }
+
+.ClientIdHelp-expanded {
   display: block; }
 
-.ClientIdHelp-hide {
+.ClientIdHelp.collapsed .ClientIdHelp-collapsed {
+  display: block; }
+
+.ClientIdHelp.collapsed .ClientIdHelp-expanded {
   display: none; }
+
+.ClientIdHelp.expanded .ClientIdHelp-collapsed {
+  display: none; }
+
+.ClientIdHelp.expanded .ClientIdHelp-expanded {
+  display: block; }
 
 .ClientIdHelp-image {
   max-width: 50rem;
   margin-top: 2rem; }
 
 .LoginForm-elements {
+  display: block; }
+
+.LoginForm-input {
   display: inline-block;
   vertical-align: top; }
 
-.LoginForm-elements input.invalid {
+.LoginForm-input input.invalid {
   border: 2px solid #E31C3D; }
 
 .LoginForm-input {
@@ -1009,6 +1038,9 @@ ul li {
 
 .LoginForm-input > * {
   margin-bottom: .5rem; }
+
+.LoginForm-Secondrow {
+  display: inline-block; }
 
 .desktop-only {
   display: block; }
@@ -1021,28 +1053,15 @@ ul li {
   .LoginForm-input {
     display: block; }
   .desktop-only {
-    display: none; } }
+    display: none; }
+  .LoginForm-Secondrow {
+    display: block; } }
 
 @media (max-width: 844px) {
-  .ClientIdHelp-mobile {
-    display: block; }
-  .ClientIdHelp-desktop {
-    display: none; }
   .LoginForm-input > * {
     margin-bottom: 1.5rem; }
   .LoginForm-input--clientId {
     margin-bottom: .5rem; } }
-
-.warning-header {
-  background-color: #232D35;
-  color: white;
-  display: inline-block;
-  padding: 10px 16px; }
-
-.warning-message {
-  color: #232D35;
-  display: inline-block;
-  padding: 10px 10px; }
 
 .button-icon {
   width: 2.5rem;

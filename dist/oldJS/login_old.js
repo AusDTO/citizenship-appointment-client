@@ -1,20 +1,15 @@
-
 document.querySelector('.warning-oldbrowsers').style.display='block';
 if (navigator.cookieEnabled) {
   document.querySelector('.warning-cookies').style.display = 'none';
 }
 
-function toggleClientIdHelp (){
-  var el = document.querySelectorAll('.ClientIdHelp-hide');
-  var el2 = document.querySelectorAll('.ClientIdHelp-show');
-  for(var i = 0; i < el.length; ++i) {
-    if (el[i].style.display === 'block') {
-      el[i].style.display = 'none';
-      el2[i].style.display = 'block';
-    } else {
-      el[i].style.display = 'block';
-      el2[i].style.display = 'none';
-    }
+function toggleClientIdHelp(hash) {
+  var helpDiv = document.querySelector('.ClientIdHelp');
+  
+  if(hash === '#help'){
+    helpDiv.className = "ClientIdHelp expanded";
+  } else {
+    helpDiv.className = "ClientIdHelp collapsed";
   }
 }
 
@@ -28,7 +23,7 @@ function handleHashChange(){
   var hash = location.hash;
   if (hash === '#help' || hash === '#nohelp') {
     //ga('send', 'event', 'Login', hash);
-    toggleClientIdHelp();
+    toggleClientIdHelp(hash);
   } else if (hash.lastIndexOf('#validation') > -1) {
     form_validation_marking();
   }
