@@ -6,10 +6,27 @@ const client = require('./client')({
   testSuiteName: path.basename(__filename)
 });
 
-test('should successfully login and book appointment using the flow with limited JavaScript', (assert) => {
+test('should successfully login and book appointment using the flow without JavaScript', (assert) => {
   assert.plan(6);
+  client.addCommand("disableJavascriptInFirefox", function(customVar) {
+    return this
+      .url("about:config")
+      .waitForEnabled("#warningButton", 20000)
+      .click("#warningButton")
+      .isEnabled('#textbox').then(function() {
+        console.log("Changing Firefox profile settings to not use JS");
+      })
+      .keys("/^javascript.enabled/")
+      .pause(1000)
+      .keys("\u0009")
+      .keys("\u000D").then(function() {
+        console.log("Finished changing Firefox profile settings to not use JS");
+      })
+    });
+
   client
       .init()
+      .disableJavascriptInFirefox()
       .url(client.baseUrl)
       .getTitle()
       .then((title) => {
@@ -18,28 +35,29 @@ test('should successfully login and book appointment using the flow with limited
       .setValue('#clientId', '99999999999')
       .setValue('#familyName', 'Family-Name')
       .click('#submitLogin')
-      // Redirected to Old Calendar by default
-      .waitForExist('[href*="/calendar/text/"]', 30000)
+      //Go to standard calendar page
       .timeouts('page load',30000)
       .getTitle()
       .then((title) => {
-        assert.equal(title, 'Australian Government - Citizenship Appointment Booking Calendar - Select date');
+        assert.equal(title, 'Australian Government - Citizenship Appointment Booking Calendar');
       })
-      // Go to times page
+      //Go to text only Calendar
+      .click('.Old-Calendar-Needed-message a')
+      .timeouts('page load',30000)
       .click('[href*="/calendar/text/"]')
       .timeouts('page load',30000)
       .getTitle()
       .then((title) => {
         assert.equal(title, 'Australian Government - Citizenship Appointment Booking Calendar - Select time');
       })
-      //Go to selection confirmation
+      //Go to times page
       .click('=9:40 AM')
       .timeouts('page load',30000)
       .getTitle()
       .then((title) => {
         assert.equal(title, 'Australian Government - Citizenship Appointment Booking Calendar - Confirm selection');
       })
-      //Go to confirmation page
+      //Go to selection page
       .click('.SelectionConfirmation-button')
       .timeouts('page load',30000)
       .getTitle()
