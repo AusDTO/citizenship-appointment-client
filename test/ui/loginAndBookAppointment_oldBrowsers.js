@@ -7,13 +7,13 @@ const client = require('./client')({
   testSuiteName: path.basename(__filename)
 });
 
-const appointmentDate = moment().startOf('week').add(1, 'months');
-const monthLink = appointmentDate.format('YYYY-MM');
+const appointmentDate = moment();
+const calendarId = 1268;
 const dateLink = appointmentDate.format('YYYY-MM-DD');
-const timeLink = appointmentDate.format('YYYY-MM-DD') + 'T15:00:00';
+const timeLink = '09:40';
 
-test('should successfully login and book appointment', (assert) => {
-  assert.plan(4);
+test('should successfully login and book appointment using the flow with limited JavaScript', (assert) => {
+  assert.plan(6);
   client
       .init()
       .url(client.baseUrl)
@@ -24,15 +24,30 @@ test('should successfully login and book appointment', (assert) => {
       .setValue('#clientId', '99999999999')
       .setValue('#familyName', 'Family-Name')
       .click('#submitLogin')
+      //Use for NoJS browsers
+      // .click('.Old-Calendar-Needed-message a')
+      // .timeouts('page load',30000)
+      .waitForExist('[href*="/calendar/text/"]', 30000)
       .timeouts('page load',30000)
       .getTitle()
       .then((title) => {
-        assert.equal(title, 'Australian Government - Citizenship Appointment Booking Calendar');
+        assert.equal(title, 'Australian Government - Citizenship Appointment Booking Calendar - Select date');
       })
-      .click(`[name="month/${monthLink}"]`)
-      .click(`[name="date/${dateLink}"]`)
-      .waitForVisible(`[name="time/${timeLink}"]`, 30000)
-      .click(`[name="time/${timeLink}"]`)
+      //Go to text only Calendar
+      .click('[href*="/calendar/text/"]')
+      .timeouts('page load',30000)
+      .getTitle()
+      .then((title) => {
+        assert.equal(title, 'Australian Government - Citizenship Appointment Booking Calendar - Select time');
+      })
+      //Go to times page
+      .click('=9:40 AM')
+      .timeouts('page load',30000)
+      .getTitle()
+      .then((title) => {
+        assert.equal(title, 'Australian Government - Citizenship Appointment Booking Calendar - Confirm selection');
+      })
+      //Go to selection page
       .click('.SelectionConfirmation-button')
       .timeouts('page load',30000)
       .getTitle()

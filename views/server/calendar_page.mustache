@@ -1,20 +1,29 @@
 {{> html_base_premain_pretitle }}
     <title>Australian Government - Citizenship Appointment Booking Calendar</title>
 {{> html_base_premain_posttitle}}
+<script src="/static/cookies.js" charset="utf-8"></script>
 
 <div class="container calendar-page--main">
     <a href="/logout" class="logout-link" tabindex="1">Log out</a>
     <div class="steps-info">Step 2 of 3</div>
 
     {{#error}}
-        <div class="error-div" role="alert">
-            There was an error processing your request. Your appointment was not booked. Please try again.
-        </div>
+    <div class="error-div" role="alert">
+      <img class="error-icon" src="/images/warning.svg" alt="" onerror="this.src='/images/png/warning.png';">
+      <span class="error-message">
+        There was an error processing your request.
+        Your appointment was not booked.
+        Please try again.
+      </span>
+    </div>
     {{/error}}
     {{#unavailable}}
-        <div class="error-div" role="alert">
-            Sorry your slot has been taken in the meantime or the department availability has changed. Please select other slot and try again.
-        </div>
+    <div class="error-div" role="alert">
+      <img class="error-icon" src="/images/warning.svg" alt="" onerror="this.src='/images/png/warning.png';">
+      <span class="error-message">
+        Sorry your slot has been taken in the meantime or the department availability has changed. Please select other slot and try again.
+      </span>
+    </div>
     {{/unavailable}}
 
     <h1>Select date, then time</h1>
@@ -51,6 +60,7 @@
                 It seems you have JavaScript disabled or your version of the browser is not fully supported. <a href="/calendar/text">Go to the text version of the calendar.</a>
             </div>
         </div>
+        <script src="/static/scriptselect/calendar_textlink.js" charset="utf-8"></script>
         <button type="submit" hidden>.</button>
     </form>
 </div>

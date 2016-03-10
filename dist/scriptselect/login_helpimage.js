@@ -1,0 +1,1 @@
+document.querySelector('.ClientIdHelp').className = 'ClientIdHelp collapsed';
