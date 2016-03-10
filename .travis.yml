@@ -22,10 +22,11 @@ deploy:
     repo: AusDTO/citizenship-appointment-client
 
 after_deploy:
-- BASE_URL='https://citizenship-appointment-beta.herokuapp.com' CLIENT_ID='01234567890' FAMILY_NAME='Familyname' npm run monitor || travis_terminate 1
+- MONITOR_BASE_URL='https://citizenship-appointment-beta.herokuapp.com' MONITOR_CLIENT_ID='01234567890' MONITOR_FAMILY_NAME='Familyname' npm run monitor || travis_terminate 1
 - BROWSER=chrome SAUCE_ON_DEMAND=true npm run cross-browser-test || travis_terminate 1
 - BROWSER=firefox SAUCE_ON_DEMAND=true npm run cross-browser-test || travis_terminate 1
 - BROWSER='internet explorer' BROWSER_VERSION=11 SAUCE_ON_DEMAND=true npm run cross-browser-test || travis_terminate 1
 - BROWSER='internet explorer' BROWSER_VERSION=9 SAUCE_ON_DEMAND=true npm run cross-browser-test || travis_terminate 1
 - BROWSER=safari PLATFORM=MAC BROWSER_VERSION=8 SAUCE_ON_DEMAND=true npm run cross-browser-test || travis_terminate 1
 - BROWSER='internet explorer' BROWSER_VERSION=8 SAUCE_ON_DEMAND=true npm run old-browser-test || travis_terminate 1
+- BROWSER='firefox' BROWSER_VERSION=44 SAUCE_ON_DEMAND=true npm run nojs-browser-test || travis_terminate 1
