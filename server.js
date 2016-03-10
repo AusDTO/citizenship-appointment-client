@@ -67,7 +67,7 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 app.use(publicPath, express.static(path.join(__dirname, 'dist')));
-app.use('/', express.static(path.join(__dirname, 'test_data')));
+app.use('/favicon.ico', express.static(path.join(__dirname, 'images', 'favicon.ico')));
 
 app.use('/images', express.static(path.join(__dirname, 'images')));
 
