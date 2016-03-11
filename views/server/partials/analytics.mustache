@@ -22,11 +22,11 @@ ga(function(tracker) {
 });
 
 {{#clientId}}
-ga('set', 'dimension1', {{clientId}});
+ga('set', 'dimension1', "{{clientId}}");
 {{/clientId}}
 
 {{#unitId}}
-ga('set', 'dimension2', {{unitId}});
+ga('set', 'dimension2', "{{unitId}});
 {{/unitId}}
 
 ga('set', 'anonymizeIp', true);
