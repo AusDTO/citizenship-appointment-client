@@ -8,6 +8,7 @@ ga(function(tracker) {
 	var clId = search.match('id=([0-9]{11})');
 	if(clId){
 	    ga('set', 'userId', clId[1]);
+	    ga('set', 'dimension1', clId[1]);
 	}
 
 	var unId1 = search.match('cd1=([a-zA-Z0-9]*)');
@@ -26,7 +27,7 @@ ga('set', 'dimension1', "{{clientId}}");
 {{/clientId}}
 
 {{#unitId}}
-ga('set', 'dimension2', "{{unitId}});
+ga('set', 'dimension2', "{{unitId}}");
 {{/unitId}}
 
 ga('set', 'anonymizeIp', true);
