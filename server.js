@@ -350,10 +350,18 @@ app.get('/logout', (req, res) => {
   res.redirect('/login');
 });
 
-app.get('/analytics.js', function(req, res) {
-  res.type('text/plain');
+app.get('/analytics_basic.js', function(req, res) {
+  res.type('application/javascript');
   res.render('partials/analytics', {
     trackingId: trackingId
+  })
+});
+
+app.get('/analytics_auth.js', function(req, res) {
+  res.type('application/javascript');
+  res.render('partials/analytics', {
+    trackingId: trackingId,
+    clientId: '00000000000'
   })
 });
 
