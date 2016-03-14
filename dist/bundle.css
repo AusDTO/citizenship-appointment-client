@@ -626,23 +626,30 @@ body {
   line-height: 24px; }
 
 h1 {
-  font-size: 3.5rem;
-  line-height: 1.2;
   letter-spacing: -.1rem;
-  margin-top: 1rem;
-  margin-bottom: 3rem;
-  font-weight: bold; }
+  font-size: 3.5rem;
+  font-weight: bold;
+  margin: 1rem 0 1rem 0; }
 
 h2 {
-  margin-top: 2rem;
+  letter-spacing: normal;
+  font-size: 2rem;
+  font-weight: normal;
+  margin-top: 0;
+  padding: 0.5rem 0 0.5rem 0; }
+
+h3 {
+  letter-spacing: normal;
   font-size: 2rem;
   font-weight: bold;
-  letter-spacing: normal; }
+  margin-top: 2rem; }
 
 @media (max-width: 550px) {
   h1 {
     font-size: 2.5em; }
-  h2 {
+  h3 {
+    font-size: 1.5em; }
+  h3 {
     font-size: 1.5em; } }
 
 form {
@@ -856,16 +863,11 @@ body {
   padding-bottom: 150px;
   /* height of your footer */ }
 
-.steps-info, .logout-link {
-  display: inline-block; }
-
-.steps-info {
-  padding: 3rem 0 2rem;
-  font-size: 1.5em; }
-
 .logout-link {
-  margin: 3rem 0 2rem;
-  float: right; }
+  margin: 1rem 0 0;
+  padding-left: 1rem;
+  float: right;
+  display: inline-block; }
 
 .scroll-disabled {
   overflow: hidden; }

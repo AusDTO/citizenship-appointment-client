@@ -4,8 +4,8 @@
 <script src="/static/cookies.js" charset="utf-8"></script>
 
 <div class="container">
-  <div class="steps-info">Step 1 of 3</div>
-  <h1>Book your citizenship appointment</h1>
+  <h1>Citizenship appointments</h1>
+  <h2 class="steps-info">Step 1 of 3: Log into booking system</h2>
 
     {{#error}}
     <div class="error-div" role="alert">
@@ -36,8 +36,8 @@
                 <label for="clientId">Client ID</label>
                 <input class="LoginForm-input--clientId" id="clientId" maxlength="11" type="text" name="username" {{#clientId}}value="{{clientId}}"{{/clientId}} aria-required="true" required pattern="[0-9]{11}" placeholder="Enter your 11 digit client ID" tabindex="1"/>
                 <div>
-                    <span class="validation-error inactive" id="clientId-required" aria-live="polite" role="alert">Client Id is required</span>
-                    <span class="validation-error inactive" id="clientId-pattern" aria-live="polite" role="alert">Client Id should contain 11 digits only</span>
+                    <span class="validation-error inactive" id="clientId-required" aria-live="polite" role="alert">Client ID is required</span>
+                    <span class="validation-error inactive" id="clientId-pattern" aria-live="polite" role="alert">Client ID should contain 11 digits only</span>
                 </div>
             </div>
             <div class="ClientIdHelp">
@@ -56,7 +56,7 @@
             <script async src="/static/scriptselect/login_helpimage.js" charset="utf-8"></script>
             <div class="LoginForm-Secondrow">
                 <div class="LoginForm-input">
-                    <label for="familyName">Family Name</label>
+                    <label for="familyName">Family name</label>
                     <input id="familyName" type="text" name="familyName" aria-required="true" required maxlength="200" tabindex="3"/>
                     <div>
                         <span class="validation-error inactive" id="familyName-required" aria-live="polite" role="alert">Family name is required</span>

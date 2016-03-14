@@ -5,7 +5,8 @@
 
 <div class="container calendar-page--main">
     <a href="/logout" class="logout-link" tabindex="1">Log out</a>
-    <div class="steps-info">Step 2 of 3</div>
+    <h1>Available appointments</h1>
+    <h2 class="steps-info">Step 2 of 3: Select date, then time</h2>
 
     {{#error}}
     <div class="error-div" role="alert">
@@ -25,8 +26,6 @@
       </span>
     </div>
     {{/unavailable}}
-
-    <h1>Select date, then time</h1>
 
     <div class="Calendar-info">
       {{#current_appointment }}
