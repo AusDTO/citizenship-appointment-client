@@ -1,3 +1,9 @@
 machine:
   node:
     version: 5.7.1
+
+deployment:
+  beta-dev-heroku:
+    branch: master
+    heroku:
+      appname: citizenship-appointment-beta

@@ -13,20 +13,20 @@ env:
   - secure: D6BAlg7BmSja83+0OFYAB90QZr1mcAG6EC4FPduF/6MJ17ms64aiPQaXSZW+zypxh3SYPuymjhS5Quh4aLzdg6eBez0wiCPDn+JK8sumpC3Sdl0JdZ86u5Qrzdtw57s6XRkkLiBQXwfKBgGNwTcpngwacN5BeEN9dZYIeyNewp3RlGUGbmDcJ6LolxyNJhCCf0UYVY7+JZVcWMQE9qqv7CVPk+3laym/XSGH2SDNHkNrC4lxLjiFT7FA+Wot3iTQpfxT7A0QxHE39VzDBXdhd8OVZHpWvBw0NFuai62BehGaK+wmA6EjuOxP+8yYHE1qT00RM//UFCqFJek5vdPefdV4D24FrLvA/raBJh37DTSbGuYl/azrSeeTxiEmIzQ0RcmnVpVGedTzYOqdQhPOV/qSxv4OY5OgL+3ZzRNXLCxU3KXPcUHxDOPJ3RJ76Hynq+HgEnRo8qJi2Sn2ovBLBvdtTlyEZWhdB/NrgyeEIKRRyTKN4SoG6T7pIGry3nhu4D8z7nLsVWIlrXdWGTzbFiNTWAkB73Sei6l3U4rweNFhmTjl8qOXqAHnkWrKmman0ozXEI/ekd/O0jR20QOZtHkDCChyXFJhhb2IybYgUMdNNc85bb1ul6w7TtWX8xu/cA8xIvZQHVUnqzhjOsVvokdmCfeFddJul4jGQHeG9Ng= #SAUCE_USERNAME
   - secure: SB+oZh9eos6OA2D1QYfvlcymj9L5YTmVjDA17vGyFNtWFIcIDpgGoUxKmmneCz24CsCGMPsb9fnh1CNR3g1qPMG9gwWe4j7ysA2BuTBTCQn95aS1prKPh2TXgvz74CoqyePTfobXPQMpKO7k7eFnXEEa2smumvTIkdzBiAiWNVDU7QONsBhBhjxUiAGsO0PbD6huY1WQMKx1T93e9MbOPZDjRMO5oxeDzxGRV99VkoLvA7l9vk/EV1BQcHHde/6GLI5jieXZSqFbFkFsKvStV37vlt8fM1Q94EZ42gQF/g3LdGd3S/76rG/dxr/tmGIbaWQI6DM2+r66FpS4fSnKszydXoY5qjahQ2JpqUTeE4yVz03q4/u50utYq1kfX8aI06uM4WDPRadEqTraaUhWw2URnK6/sigjL9RhEfaNfwLw+9EL8mx/KExsHGiilaVcbIMqHKeNr5sFlKnFQjWdkdifWkJWFNh1UQz6gWYUtehEqfvBNj9yrWGO6hn4BVs9eq20AOG5h7xctEEDqWfiCQdzUBY2iUzoCH6bFaMFcfULrxBqiGwkkQaW1W62buEDvxn3a+3ocvb8al7QIc6es6LSSikRFToqssoBXwalKR6oINyhpzwSmxOWrDOR8QpqVa8Av8h6gTHJ9drO+rJL7Fd+g5xsaJLYqzifSTbjokQ= #SAUCE_ACCESS_KEY
 
-deploy:
-  provider: heroku
-  api_key:
-    secure: DN4qKnc3XIv7iDvDepmMXql49yVJUcxV4LQ6q4GfclM8JTq/jn369xXS7ZuHtX8qzJ3EpCT0l535nWBnU5vYaGEASavv4Zz7kKtApx/rPq0+lwvZP21NCysMFJjbWivTKOQeXpGl2uLDtwmD3PNkrZuFnYDCMYkGUln5mqHUp9+GkuE/+eZ2td0J4dp29dgm+hPPFYg764NVTIovi89VuC+TNHxoqSCV/YAQccMs/l6YAys0Caq1qC0Wr0nlUToaUDdUfyfaMr6JquCvmtYmi2Q6WT10QymUCnUhxFkgceIG4j2b3FbjP6FGlxOC5he6vW3bS82xF2Xchm1AvS9M1BocEHmMTgDRFP0FEH042PKHbA3aFyR/eAAyK0JRg3WFpTAtZcxDBDiRxPBtb1QmjtNRhVQYmBpstOSDqKpRl0Q/mfN1WMw1bXPLae6O7W4cp6NDW1rCrMubs1LA1V6RFnexYsg1MEPrGrSp2/QMBMiLDnW0jrB3h/Qw79IMU1CM3RwFFGH8svFPMyKgJI8o4SVo7X7+FoZDamkiM4p2tZBCUw0ADK1+SgHQlgK0lrBOJWyfPjGgG1tB4E1+O+Yu6coLAXnVKeKzalsZn0+L1L2ADnbeV4HSU79NXB35RWcQqBWt4KoUYKVcBYqVo1YGNUHQ6NJK8MN9uCTI5NkKFfc=
-  app: citizenship-appointment-beta
-  on:
-    repo: AusDTO/citizenship-appointment-client
-
-after_deploy:
-- MONITOR_BASE_URL='https://citizenship-appointment-beta.herokuapp.com' MONITOR_CLIENT_ID='01234567890' MONITOR_FAMILY_NAME='Familyname' npm run monitor || travis_terminate 1
-- BROWSER=chrome SAUCE_ON_DEMAND=true npm run cross-browser-test || travis_terminate 1
-- BROWSER=firefox SAUCE_ON_DEMAND=true npm run cross-browser-test || travis_terminate 1
-- BROWSER='internet explorer' BROWSER_VERSION=11 SAUCE_ON_DEMAND=true npm run cross-browser-test || travis_terminate 1
-- BROWSER='internet explorer' BROWSER_VERSION=9 SAUCE_ON_DEMAND=true npm run cross-browser-test || travis_terminate 1
-- BROWSER=safari PLATFORM=MAC BROWSER_VERSION=8 SAUCE_ON_DEMAND=true npm run cross-browser-test || travis_terminate 1
-- BROWSER='internet explorer' BROWSER_VERSION=8 SAUCE_ON_DEMAND=true npm run old-browser-test || travis_terminate 1
-- BROWSER='firefox' BROWSER_VERSION=44 SAUCE_ON_DEMAND=true npm run nojs-browser-test || travis_terminate 1
+# deploy:
+#   provider: heroku
+#   api_key:
+#     secure: DN4qKnc3XIv7iDvDepmMXql49yVJUcxV4LQ6q4GfclM8JTq/jn369xXS7ZuHtX8qzJ3EpCT0l535nWBnU5vYaGEASavv4Zz7kKtApx/rPq0+lwvZP21NCysMFJjbWivTKOQeXpGl2uLDtwmD3PNkrZuFnYDCMYkGUln5mqHUp9+GkuE/+eZ2td0J4dp29dgm+hPPFYg764NVTIovi89VuC+TNHxoqSCV/YAQccMs/l6YAys0Caq1qC0Wr0nlUToaUDdUfyfaMr6JquCvmtYmi2Q6WT10QymUCnUhxFkgceIG4j2b3FbjP6FGlxOC5he6vW3bS82xF2Xchm1AvS9M1BocEHmMTgDRFP0FEH042PKHbA3aFyR/eAAyK0JRg3WFpTAtZcxDBDiRxPBtb1QmjtNRhVQYmBpstOSDqKpRl0Q/mfN1WMw1bXPLae6O7W4cp6NDW1rCrMubs1LA1V6RFnexYsg1MEPrGrSp2/QMBMiLDnW0jrB3h/Qw79IMU1CM3RwFFGH8svFPMyKgJI8o4SVo7X7+FoZDamkiM4p2tZBCUw0ADK1+SgHQlgK0lrBOJWyfPjGgG1tB4E1+O+Yu6coLAXnVKeKzalsZn0+L1L2ADnbeV4HSU79NXB35RWcQqBWt4KoUYKVcBYqVo1YGNUHQ6NJK8MN9uCTI5NkKFfc=
+#   app: citizenship-appointment-beta
+#   on:
+#     repo: AusDTO/citizenship-appointment-client
+#
+# after_deploy:
+# - MONITOR_BASE_URL='https://citizenship-appointment-beta.herokuapp.com' MONITOR_CLIENT_ID='01234567890' MONITOR_FAMILY_NAME='Familyname' npm run monitor || travis_terminate 1
+# - BROWSER=chrome SAUCE_ON_DEMAND=true npm run cross-browser-test || travis_terminate 1
+# - BROWSER=firefox SAUCE_ON_DEMAND=true npm run cross-browser-test || travis_terminate 1
+# - BROWSER='internet explorer' BROWSER_VERSION=11 SAUCE_ON_DEMAND=true npm run cross-browser-test || travis_terminate 1
+# - BROWSER='internet explorer' BROWSER_VERSION=9 SAUCE_ON_DEMAND=true npm run cross-browser-test || travis_terminate 1
+# - BROWSER=safari PLATFORM=MAC BROWSER_VERSION=8 SAUCE_ON_DEMAND=true npm run cross-browser-test || travis_terminate 1
+# - BROWSER='internet explorer' BROWSER_VERSION=8 SAUCE_ON_DEMAND=true npm run old-browser-test || travis_terminate 1
+# - BROWSER='firefox' BROWSER_VERSION=44 SAUCE_ON_DEMAND=true npm run nojs-browser-test || travis_terminate 1
