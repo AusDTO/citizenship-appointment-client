@@ -9,6 +9,6 @@ test:
 deployment:
   beta-dev-heroku:
     branch: master
-    heroku:
+    commands:
       - git push git@heroku.com:citizenship-appointment-beta.git $CIRCLE_SHA1:master
       - BROWSER=chrome SAUCE_ON_DEMAND=true npm run cross-browser-test
