@@ -21,8 +21,8 @@ test('should successfully login and book appointment', (assert) => {
       .then((title) => {
         assert.equal(title, 'Australian Government - Citizenship Appointment Booking');
       })
-      .setValue('#clientId', '99999999999')
-      .setValue('#familyName', 'Family-Name')
+      .setValue('#clientId', '01234567890')
+      .setValue('#familyName', 'Familyname')
       .click('#submitLogin')
       .timeouts('page load',30000)
       .getTitle()
@@ -30,6 +30,7 @@ test('should successfully login and book appointment', (assert) => {
         assert.equal(title, 'Australian Government - Citizenship Appointment Booking Calendar');
       })
       .waitForVisible(`[name="month/${monthLink}"]`, 30000)
+      .click(`[name="month/${monthLink}"]`)
       .waitForVisible(`[name="date/${dateLink}"]`, 30000)
       .click(`[name="date/${dateLink}"]`)
       .waitForVisible(`[name="time/${timeLink}"]`, 30000)
