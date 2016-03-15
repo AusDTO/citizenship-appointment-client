@@ -1268,16 +1268,14 @@ button.with-icon {
   margin-left: 1.5rem; }
 
 .Loading-message {
-  display: none; }
-
-.Loading-message-loading {
+  display: none;
   text-align: center;
-  font-style: italic;
-  max-height: 30vh;
-  line-height: 30vh; }
+  height: 30vh; }
 
-.Loading-message-textversion {
-  text-align: right; }
+.Loading-message-spinner {
+  margin-top: 13vh;
+  margin-bottom: 2vh;
+  font-style: italic; }
 
 .Calendar-nav {
   position: relative; }

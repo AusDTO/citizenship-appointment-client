@@ -52,12 +52,11 @@
     <form action="/book_appointment" method="post">
         <input name="{{ _csrf.parameterName }}" type="hidden" value="{{ _csrf.token }}"/>
         <div class="Calendars" data-today="{{today_date}}">
-
             <div class="Loading-message">
-              <div class="Loading-message-loading">
-                  Loading calendars
+              <div class="Loading-message-spinner">
+                  Loading calendars...
               </div>
-              <div class="Loading-message-textversion">
+              <div>
                   If it takes too long, <a href="/calendar/text">go to the text version of the calendar.</a>
               </div>
             </div>
