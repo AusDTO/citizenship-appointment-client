@@ -30,7 +30,6 @@ test('should successfully login and book appointment', (assert) => {
         assert.equal(title, 'Australian Government - Citizenship Appointment Booking Calendar');
       })
       .waitForVisible(`[name="month/${monthLink}"]`, 30000)
-      .click(`[name="month/${monthLink}"]`)
       .waitForVisible(`[name="date/${dateLink}"]`, 30000)
       .click(`[name="date/${dateLink}"]`)
       .waitForVisible(`[name="time/${timeLink}"]`, 30000)
