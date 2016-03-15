@@ -24,25 +24,17 @@
   }
 }
 
+.warning-banner {
+  background-color: $govau-slate;
+  color: white;
+}
+
 .warning-oldbrowsers {
   display: none;
 }
 
 .warning-header {
-    background-color: $govau-slate;
-    color: white;
-    display: inline-block;
-    padding: 10px 16px;
-}
-
-.warning-cookies .warning-header {
-    padding-right: 18px;
-}
-
-.warning-message {
-    color: $govau-slate;
-    display: inline-block;
-    padding: 10px 10px;
+  font-weight: bold;
 }
 
 .Beta {

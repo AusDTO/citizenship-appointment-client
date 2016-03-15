@@ -805,22 +805,15 @@ a:hover, a:focus, a:active {
       font-size: 1.1em;
       letter-spacing: -0.75px; }
 
+.warning-banner {
+  background-color: #232D35;
+  color: white; }
+
 .warning-oldbrowsers {
   display: none; }
 
 .warning-header {
-  background-color: #232D35;
-  color: white;
-  display: inline-block;
-  padding: 10px 16px; }
-
-.warning-cookies .warning-header {
-  padding-right: 18px; }
-
-.warning-message {
-  color: #232D35;
-  display: inline-block;
-  padding: 10px 10px; }
+  font-weight: bold; }
 
 .Beta {
   margin-top: 1rem; }
