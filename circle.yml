@@ -11,3 +11,5 @@ deployment:
     branch: master
     heroku:
       appname: citizenship-appointment-beta
+  post:
+    - BROWSER=chrome SAUCE_ON_DEMAND=true npm run cross-browser-test

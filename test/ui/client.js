@@ -7,7 +7,7 @@ module.exports = (options) => {
       browserName: options.browser || process.env.BROWSER || 'chrome', // android chrome firefox 'internet explorer' iPhone iPad safari
       version: options.browserVersion || process.env.BROWSER_VERSION || '',
       platform: options.platform || process.env.PLATFORM || 'ANY', // ANY WINDOWS XP VISTA MAC LINUX UNIX ANDROID
-      build: process.env.TRAVIS_BUILD_NUMBER || new Date().toISOString(),
+      build: process.env.TRAVIS_BUILD_NUMBER || process.env.CIRCLE_BUILD_NUM || new Date().toISOString(),
       name: options.testSuiteName || 'Default'
     };
 
