@@ -17,33 +17,33 @@
         <p class="subtitle small-bottom-margin">You will receive a free SMS reminder 24 hours prior to your appointment.</p>
       {{/hasMobile}}
         <div class="small-bottom-margin top-large-padding">
-            <img src="/images/calendar.svg" onerror="this.src='/images/png/calendar.png';" class="icon" alt ="Date"/>
+            <img src="/images/calendar.svg" width="15" onerror="this.src='/images/png/calendar.png';" class="icon" alt ="Date"/>
             <span class="small-left-padding"><strong>{{appointment_date}}</strong></span>
         </div>
         <div class="small-bottom-margin">
-            <img src="/images/clock-o.svg" onerror="this.src='/images/png/clock-o.png';" class="icon" alt ="Time"/>
+            <img src="/images/clock-o.svg" width="15" onerror="this.src='/images/png/clock-o.png';" class="icon" alt ="Time"/>
             <span class="small-left-padding"><strong>{{appointment_time}}</strong></span>
         </div>
 
         <div class="last-appt-details">
-          <img src="/images/map-marker.svg" onerror="this.src='/images/png/map-marker.png';" class="icon" alt ="Location"/>
+          <img src="/images/map-marker.svg" width="15" onerror="this.src='/images/png/map-marker.png';" class="icon" alt ="Location"/>
           <span class="small-left-padding"><a href="https://www.google.com.au/maps?daddr={{locationURL}}" target="_blank" aria-label="{{ location }} Press to open google maps to see directions" class="print-not-expand">{{ location }}</a></span>
         </div>
 
       <div class="dropdown" id="addToCalendarDropdown">
         <button type="button" class="button" id="addToCalendar" aria-haspopup="true">
-          Add to my calendar<span class="small-left-padding"><img src="/images/caret-down-white.svg" onerror="this.src='/images/png/caret-down-white.png';" class="button-icon" alt =""></span>
+          Add to my calendar<span class="small-left-padding"><img src="/images/caret-down-white.svg" width="25" onerror="this.src='/images/png/caret-down-white.png';" class="button-icon" alt =""></span>
         </button>
         <ul id="calendarOptions">
-          <li class="cal_option"><a class="cal_option" href="/calendar.ics" target="blank" aria-label="Add to apple calendar"><img src="/images/apple.svg" onerror="this.src='/images/png/apple.png';" class="icon" alt =""/><span class="small-left-padding">Apple Calendar</span></a></li>
+          <li class="cal_option"><a class="cal_option" href="/calendar.ics" target="blank" aria-label="Add to apple calendar"><img src="/images/apple.svg" width="15" onerror="this.src='/images/png/apple.png';" class="icon" alt =""/><span class="small-left-padding">Apple Calendar</span></a></li>
           <li class="cal_option"><a class="cal_option" href="/googlecalendar" target="blank" aria-label="Add to google calendar"><img src="/images/google.png" class="icon" alt =""/><span class="small-left-padding">Google</span></a></li>
-          <li class="cal_option"><a class="cal_option" href="/calendar.ics" target="blank" aria-label="Add to outlook calendar"><img src="/images/windows.svg" onerror="this.src='/images/png/windows.png';" class="icon" alt =""/><span class="small-left-padding">Outlook</span></a></li>
-          <li class="cal_option"><a class="cal_option" href="/outlookonline" target="blank" aria-label="Add to outlook online calendar"><img src="/images/windows.svg" onerror="this.src='/images/png/windows.png';" class="icon" alt =""/><span class="small-left-padding">Outlook Online</span></a></li>
-          <li class="cal_option"><a class="cal_option" href="/yahoocalendar" target="blank" aria-label="Add to yahoo calendar"><img src="/images/yahoo.svg" onerror="this.src='/images/png/yahoo.png';" class="icon" alt =""/><span class="small-left-padding">Yahoo</span></a></li>
+          <li class="cal_option"><a class="cal_option" href="/calendar.ics" target="blank" aria-label="Add to outlook calendar"><img src="/images/windows.svg" width="15" onerror="this.src='/images/png/windows.png';" class="icon" alt =""/><span class="small-left-padding">Outlook</span></a></li>
+          <li class="cal_option"><a class="cal_option" href="/outlookonline" target="blank" aria-label="Add to outlook online calendar"><img src="/images/windows.svg" width="15" onerror="this.src='/images/png/windows.png';" class="icon" alt =""/><span class="small-left-padding">Outlook Online</span></a></li>
+          <li class="cal_option"><a class="cal_option" href="/yahoocalendar" target="blank" aria-label="Add to yahoo calendar"><img src="/images/yahoo.svg" width="15" onerror="this.src='/images/png/yahoo.png';" class="icon" alt =""/><span class="small-left-padding">Yahoo</span></a></li>
         </ul>
       </div>
       <button type="button" class="button" id="print-page">
-        <img src="/images/print-white.svg" onerror="this.src='/images/png/print-white.png';" class="button-icon" alt =""/><span class="small-left-padding">Print this page</span>
+        <img src="/images/print-white.svg" width="25" onerror="this.src='/images/png/print-white.png';" class="button-icon" alt =""/><span class="small-left-padding">Print this page</span>
       </button>
 
     </div>

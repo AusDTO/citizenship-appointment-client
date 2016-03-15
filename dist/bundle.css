@@ -795,6 +795,7 @@ a:hover, a:focus, a:active {
     height: 6.5rem; }
     .header div img {
       height: 100%;
+      width: 8rem;
       vertical-align: middle; }
     .header div a {
       text-decoration: none; }
@@ -830,6 +831,8 @@ a:hover, a:focus, a:active {
     padding: 1rem 0; }
     .header div {
       height: 4rem; }
+      .header div img {
+        width: 6rem; }
       .header div span {
         font-size: 1em; } }
 
@@ -946,6 +949,7 @@ ul li {
   color: #FFFFFF; }
   .footer img {
     height: 7rem;
+    width: 9.5rem;
     vertical-align: middle; }
   .footer a.footerlink {
     color: #FFFFFF;
@@ -1264,11 +1268,16 @@ button.with-icon {
   margin-left: 1.5rem; }
 
 .Loading-message {
-  display: none;
+  display: none; }
+
+.Loading-message-loading {
   text-align: center;
   font-style: italic;
   max-height: 30vh;
   line-height: 30vh; }
+
+.Loading-message-textversion {
+  text-align: right; }
 
 .Calendar-nav {
   position: relative; }

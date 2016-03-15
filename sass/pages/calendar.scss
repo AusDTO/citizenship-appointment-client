@@ -62,12 +62,19 @@
 
 // Calendar Section
 //––––––––––––––––––––––––––––––––––––––––––––––––––
-.Loading-message {
+.Loading-message{
     display: none;
+}
+
+.Loading-message-loading{
     text-align: center;
     font-style: italic;
     max-height: 30vh;
     line-height: 30vh;
+}
+
+.Loading-message-textversion {
+    text-align: right;
 }
 
 // Calendar Navigation
