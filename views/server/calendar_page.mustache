@@ -9,7 +9,7 @@
 
     {{#error}}
     <div class="error-div" role="alert">
-      <img class="error-icon" src="/images/warning.svg" alt="" onerror="this.src='/images/png/warning.png';">
+      <img class="error-icon" src="/images/warning.svg" width="15" alt="" onerror="this.src='/images/png/warning.png';">
       <span class="error-message">
         There was an error processing your request.
         Your appointment was not booked.
@@ -19,7 +19,7 @@
     {{/error}}
     {{#unavailable}}
     <div class="error-div" role="alert">
-      <img class="error-icon" src="/images/warning.svg" alt="" onerror="this.src='/images/png/warning.png';">
+      <img class="error-icon" src="/images/warning.svg" width="15" alt="" onerror="this.src='/images/png/warning.png';">
       <span class="error-message">
         Sorry your slot has been taken in the meantime or the department availability has changed. Please select other slot and try again.
       </span>
@@ -30,13 +30,13 @@
 
     <div class="Calendar-info">
       {{#current_appointment }}
-      <img src="/images/calendar.svg" onerror="this.src='/images/png/calendar.png';" class="icon" alt ="" role="presentation"/>
+      <img src="/images/calendar.svg" width="15" onerror="this.src='/images/png/calendar.png';" class="icon" alt ="" role="presentation"/>
       <span class="small-left-padding"><strong class="icon-label">Current appointment:</strong></span>
       <span class="small-left-padding">{{ current_appointment }}</span>
       <br/>
       {{/current_appointment }}
       <div class="Calendar-info--field">
-        <img src="/images/map-marker.svg" onerror="this.src='/images/png/map-marker.png';" class="icon" alt ="" role="presentation"/>
+        <img src="/images/map-marker.svg" width="15" onerror="this.src='/images/png/map-marker.png';" class="icon" alt ="" role="presentation"/>
         <span class="small-left-padding"><strong class="icon-label">Location:</strong></span>
         <span class="small-left-padding"><a href="https://www.google.com.au/maps?daddr={{locationURL}}" target="_blank" aria-label="{{ location }} Press to open google maps to see directions" tabindex="1">{{ location }}</a></span>
 
@@ -53,8 +53,14 @@
     <form action="/book_appointment" method="post">
         <input name="{{ _csrf.parameterName }}" type="hidden" value="{{ _csrf.token }}"/>
         <div class="Calendars" data-today="{{today_date}}">
+
             <div class="Loading-message">
-                Loading calendars
+              <div class="Loading-message-loading">
+                  Loading calendars
+              </div>
+              <div class="Loading-message-textversion">
+                  If it takes too long, <a href="/calendar/text">go to the text version of the calendar.</a>
+              </div>
             </div>
             <div class="Old-Calendar-Needed-message">
                 It seems you have JavaScript disabled or your version of the browser is not fully supported. <a href="/calendar/text">Go to the text version of the calendar.</a>
