@@ -2,6 +2,10 @@ machine:
   node:
     version: 5.7.1
 
+test:
+  pre:
+    - echo ${FOO}
+
 deployment:
   beta-dev-heroku:
     branch: master
