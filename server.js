@@ -99,7 +99,7 @@ app.get('/calendar', (req, res) => {
     partials: extendObject(
       {
         extend_session_modal: 'partials/extend_session_modal',
-        no_appointments_available_modal: 'partials/no_available_appointments'
+        no_available_appointments_modal: 'partials/no_available_appointments_modal'
       },
       getBaseHtmlPartials()),
     unitId: "1212",
