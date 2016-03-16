@@ -42,6 +42,14 @@
             </li>
         {{/available_dates}}
         </ul>
+        {{^available_dates}}
+          <div>
+            <p>It seems there are no available appointments. The management has been notified. Please try again in 24 hours.</p>
+           <a href="/logout" class="button log-out" tabindex="1">
+              Log out
+            </a>
+            </div>
+        {{/available_dates}}
     </div>
 </div>
 <script src="/static/oldJS/calendar_old.js" charset="utf-8"></script>
