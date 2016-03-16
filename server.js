@@ -97,7 +97,10 @@ app.get('/login', (req, res) => {
 app.get('/calendar', (req, res) => {
   res.render('calendar_page', {
     partials: extendObject(
-      {extend_session_modal: 'partials/extend_session_modal'},
+      {
+        extend_session_modal: 'partials/extend_session_modal',
+        no_appointments_available_modal: 'partials/no_available_appointments'
+      },
       getBaseHtmlPartials()),
     unitId: "1212",
     error: req.query.error,
