@@ -19,9 +19,8 @@ test('should successfully login and book appointment using the flow with limited
       .setValue('#familyName', 'Family-Name')
       .click('#submitLogin')
       // Redirected to Old Calendar by default
-      .waitForExist('[href*="/calendar/text/"]', 30000)
       .timeouts('page load',30000)
-      .waitForEnabled('[href*="/calendar/text/20"]', 30000)
+      .waitForExist('[href*="/calendar/text/"]', 30000)
       .getTitle()
       .then((title) => {
         assert.equal(title, 'Australian Government - Citizenship Appointment Booking Calendar - Select date');
@@ -29,6 +28,7 @@ test('should successfully login and book appointment using the flow with limited
       // Go to times page
       .click('[href*="/calendar/text/"]')
       .timeouts('page load',30000)
+      .waitForExist('[href*="/calendar/text/20"]', 30000)
       .getTitle()
       .then((title) => {
         assert.equal(title, 'Australian Government - Citizenship Appointment Booking Calendar - Select time');
@@ -39,7 +39,7 @@ test('should successfully login and book appointment using the flow with limited
         client.click(`[href*="${timeLink}"]`)
       })
       .timeouts('page load',30000)
-      .waitForEnabled('.SelectionConfirmation-button', 30000)
+      .waitForExist('.SelectionConfirmation-button', 30000)
       .getTitle()
       .then((title) => {
         assert.equal(title, 'Australian Government - Citizenship Appointment Booking Calendar - Confirm selection');

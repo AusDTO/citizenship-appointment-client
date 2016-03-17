@@ -7,7 +7,7 @@ const client = require('./client')({
 });
 
 test('should successfully login and book appointment using the flow without JavaScript', (assert) => {
-  assert.plan(6);
+  assert.plan(7);
   client.addCommand("disableJavascriptInFirefox", function(customVar) {
     return this
       .url("about:config")
@@ -44,9 +44,14 @@ test('should successfully login and book appointment using the flow without Java
       //Go to text only Calendar
       .click('.Old-Calendar-Needed-message a')
       .timeouts('page load',30000)
+      .waitForExist('[href*="/calendar/text/"]', 30000)
+      .getTitle()
+      .then((title) => {
+        assert.equal(title, 'Australian Government - Citizenship Appointment Booking Calendar - Select date');
+      })
       .click('[href*="/calendar/text/"]')
       .timeouts('page load',30000)
-      .waitForEnabled('[href*="/calendar/text/20"]', 30000)
+      .waitForExist('[href*="/calendar/text/20"]', 30000)
       .getTitle()
       .then((title) => {
         assert.equal(title, 'Australian Government - Citizenship Appointment Booking Calendar - Select time');
@@ -57,7 +62,7 @@ test('should successfully login and book appointment using the flow without Java
         client.click(`[href*="${timeLink}"]`)
       })
       .timeouts('page load',30000)
-      .waitForEnabled('.SelectionConfirmation-button', 30000)
+      .waitForExist('.SelectionConfirmation-button', 30000)
       .getTitle()
       .then((title) => {
         assert.equal(title, 'Australian Government - Citizenship Appointment Booking Calendar - Confirm selection');
