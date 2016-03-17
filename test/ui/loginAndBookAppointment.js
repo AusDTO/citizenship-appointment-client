@@ -33,7 +33,7 @@ test('should successfully login and book appointment', (assert) => {
         var bookableDateSelector = '[class*="DateCell Calendar-date--bookable date-' + monthLink + '"]';
 
         client
-          .waitForVisible(`[name="month/${monthLink}"]`, 3000)
+          .waitForVisible(`[name="month/${monthLink}"]`, 30000)
           .click(`[name="month/${monthLink}"]`)
           .waitForVisible(bookableDateSelector, 30000)
           .getAttribute(bookableDateSelector, 'class').then(function(nextMonthCells){

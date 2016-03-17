@@ -46,13 +46,18 @@ test('should successfully login and book appointment using the flow without Java
       .timeouts('page load',30000)
       .click('[href*="/calendar/text/"]')
       .timeouts('page load',30000)
+      .waitForEnabled('[href*="/calendar/text/20"]', 30000)
       .getTitle()
       .then((title) => {
         assert.equal(title, 'Australian Government - Citizenship Appointment Booking Calendar - Select time');
       })
       //Go to times page
-      .click('=9:40 AM')
+      .getAttribute('[href*="/calendar/text/20"]', 'href').then(function(links){
+        var timeLink = links[0].match(/\/calendar\/text\/\d{4}-\d{2}-\d{2}\/\d{2}:\d{2}/);
+        client.click(`[href*="${timeLink}"]`)
+      })
       .timeouts('page load',30000)
+      .waitForEnabled('.SelectionConfirmation-button', 30000)
       .getTitle()
       .then((title) => {
         assert.equal(title, 'Australian Government - Citizenship Appointment Booking Calendar - Confirm selection');
