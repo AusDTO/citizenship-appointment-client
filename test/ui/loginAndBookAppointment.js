@@ -7,11 +7,6 @@ const client = require('./client')({
   testSuiteName: path.basename(__filename)
 });
 
-const appointmentDate = moment().startOf('week').add(1, 'months');
-const monthLink = appointmentDate.format('YYYY-MM');
-const dateLink = appointmentDate.format('YYYY-MM-DD');
-const timeLink = appointmentDate.format('YYYY-MM-DD') + 'T15:00:00';
-
 test('should successfully login and book appointment', (assert) => {
   assert.plan(4);
   client
@@ -29,12 +24,32 @@ test('should successfully login and book appointment', (assert) => {
       .then((title) => {
         assert.equal(title, 'Australian Government - Citizenship Appointment Booking Calendar');
       })
-      .waitForVisible(`[name="month/${monthLink}"]`, 30000)
-      .click(`[name="month/${monthLink}"]`)
-      .waitForVisible(`[name="date/${dateLink}"]`, 30000)
-      .click(`[name="date/${dateLink}"]`)
-      .waitForVisible(`[name="time/${timeLink}"]`, 30000)
-      .click(`[name="time/${timeLink}"]`)
+      .waitForVisible('.Calendar-nav--next', 30000)
+      .getAttribute('[class*="DateCell Calendar-date--unavailable  date-20"]', 'class').then(function(cells){
+        var className = cells[0].match(/\d{4}-\d{2}-\d{2}/);
+        var appointmentDate = moment(className, "YYYY-MM-DD").add(1, 'months');
+        var monthLink = appointmentDate.format('YYYY-MM');
+
+        var bookableDateSelector = '[class*="DateCell Calendar-date--bookable date-' + monthLink + '"]';
+
+        client
+          .waitForVisible(`[name="month/${monthLink}"]`, 3000)
+          .click(`[name="month/${monthLink}"]`)
+          .waitForVisible(bookableDateSelector, 30000)
+          .getAttribute(bookableDateSelector, 'class').then(function(nextMonthCells){
+              var dateLink = nextMonthCells[0].match(/\d{4}-\d{2}-\d{2}/);
+              var availableTimesSelector = '[class="AvailableTimes date-' + dateLink + '"] a.AppointmentLink';
+
+              client
+                .click(`a[class="DateCell-content--datelink date-${dateLink}"]`)
+                .waitForVisible(availableTimesSelector, 30000)
+                .getAttribute(availableTimesSelector, 'name').then(function(timeLinks){
+                    var firstTimeLink = timeLinks[0];
+                    client
+                      .click(`[name="${firstTimeLink}"]`)
+                })
+          })
+      })
       .waitForVisible('.SelectionConfirmation-button', 30000)
       .click('.SelectionConfirmation-button')
       .timeouts('page load',30000)
