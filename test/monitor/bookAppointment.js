@@ -21,22 +21,16 @@ if (!baseUrl || !clientId || !familyName) {
   casper.exit(1);
 }
 
-var targetDate = new Date();
-targetDate.setMonth(targetDate.getMonth() + 1);
-var year = targetDate.getYear() + 1900;
-var month = targetDate.getMonth() + 1;
-var targetYear = '' + year;
-var targetMonth = month < 10 ? '0' + month : '' + month;
-var day = '';
-if (targetDate.getDay() % 6) {
-  day = targetDate.getDate();
-} else {
-  day = targetDate.getDate() + 2;
-}
-var targetDay = day < 10 ? '0' + day : '' + day;
+var  addMonthToDateString = function(dateString) {
+    var appointmentDate = new Date(dateString);
+    appointmentDate.setMonth(appointmentDate.getMonth() + 1);
+    var year = appointmentDate.getYear() + 1900;
+    var month = appointmentDate.getMonth() + 1;
+    var targetYear = '' + year;
+    var targetMonth = month < 10 ? '0' + month : '' + month;
 
-var hrefMonth = 'month/' + targetYear + '-' + targetMonth;
-var hrefDate = 'date/' + targetYear + '-' + targetMonth + '-' + targetDay;
+    return targetYear + '-' + targetMonth;
+};
 
 var captureDirectory = 'build/monitor/';
 casper.options.waitTimeout = 10000;
@@ -58,26 +52,36 @@ casper.waitForSelector('form#loginForm', function() {
 casper.waitForUrl(baseUrl + '/calendar', function() {
   this.echo('Calendar');
   this.capture(captureDirectory + 'calendar-thismonth.png');
-  this.echo('Calendar - selecting ' + hrefMonth);
 });
 
-casper.waitForSelector('a[href="#' + hrefMonth + '"]', function() {
-  this.echo('Calendar - next month');
-  this.click('a[href="#' + hrefMonth + '"]');
-  this.echo('Calendar - selecting ' + hrefDate);
-});
+casper.waitForSelector('[class*="DateCell Calendar-date--unavailable  date-20"]', function() {
+  var cells = casper.getElementsAttribute('[class*="DateCell Calendar-date--unavailable  date-20"]', 'class');
+  var currentDate = cells[0].match(/\d{4}-\d{2}-\d{2}/);
+  var monthLink = addMonthToDateString(currentDate);
 
-casper.waitForSelector('a[href="#' + hrefDate + '"]', function() {
-  this.echo('Calendar - date');
-  this.capture(captureDirectory + 'calendar-nextmonth.png');
-  this.click('a[href="#' + hrefDate + '"]');
-});
+  this.echo('Calendar - navigating to next month ' + monthLink);
+  this.click('a[name="month/' + monthLink + '"]');
+  var bookableDateSelector = '[class*="DateCell Calendar-date--bookable date-' + monthLink + '"]';
 
-var timeSelector = '.AppointmentLink';
-casper.waitForSelector(timeSelector, function() {
-  this.echo('Calendar - time');
-  this.capture(captureDirectory + 'calendar-date.png');
-  this.click(timeSelector);
+  this.waitForSelector(bookableDateSelector, function(){
+    this.echo('Calendar - displaying next month');
+    this.capture(captureDirectory + 'calendar-nextmonth.png');
+
+    var nextMonthCells = casper.getElementsAttribute(bookableDateSelector, 'class');
+    var dateLink = nextMonthCells[0].match(/\d{4}-\d{2}-\d{2}/);
+    this.echo('Calendar - selecting ' + dateLink);
+
+    var availableTimesSelector = '[class="AvailableTimes date-' + dateLink + '"] a.AppointmentLink';
+    this.click('a[class="DateCell-content--datelink date-'+ dateLink + '"]');
+    this.waitForSelector(availableTimesSelector, function(){
+      this.echo('Calendar - available times opened ');
+      this.capture(captureDirectory + 'calendar-times.png');
+
+      var firstTimeLink = casper.getElementsAttribute(availableTimesSelector, 'name')[0];
+      this.echo('Calendar - selecting ' + firstTimeLink);
+      this.click('[name="' + firstTimeLink + '"]')
+    });
+  });
 });
 
 casper.waitForSelector('#submitLogin', function() {
