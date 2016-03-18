@@ -149,13 +149,16 @@ app.get('/session_timeout', (req, res) => {
 
 let getBaseHtmlPartials = function(){
   return {
-    html_base_premain_pretitle: 'partials/html_base_premain_pretitle',
-    html_base_premain_posttitle: 'partials/html_base_premain_posttitle',
-    html_base_postmain: 'partials/html_base_postmain',
-    header: 'partials/header',
-    footer: 'partials/footer',
-    beta: 'partials/beta',
-    feedback: 'partials/feedback'
+    html_base_premain_pretitle: 'partials/header/html_base_premain_pretitle',
+    html_base_premain_posttitle: 'partials/header/html_base_premain_posttitle',
+    html_base_premain_posttitle_with_cookies: 'partials/header/html_base_premain_posttitle_with_cookies',
+    html_base_postmain: 'partials/footer/html_base_postmain',
+    header: 'partials/header/header',
+    footer: 'partials/footer/footer',
+    beta: 'partials/header/beta',
+    feedback: 'partials/footer/feedback',
+    oldbrowser_warning: 'partials/header/oldbrowser_warning',
+    cookies_warning: 'partials/header/cookies_warning'
   }
 };
 
@@ -185,15 +188,7 @@ app.get('/calendar/text', (req, res) => {
   };
 
   res.render('no_js_calendar/calendar_nojs', {
-    partials: {
-      html_base_premain_pretitle: '../partials/html_base_premain_pretitle',
-      html_base_premain_posttitle: '../partials/html_base_premain_posttitle',
-      html_base_postmain: '../partials/html_base_postmain',
-      header: '../partials/header',
-      footer: '../partials/footer',
-      beta: '../partials/beta',
-      feedback: '../partials/feedback'
-    },
+    partials: getNoJSHtmlPartials(),
     unitId: "1212",
     error: req.query.error,
     unavailable: req.query.unavailable,
@@ -206,15 +201,7 @@ app.get('/calendar/text', (req, res) => {
 
 app.get('/calendar/text/:calendarId', (req, res) => {
   res.render('no_js_calendar/daytimes_nojs', {
-   partials: {
-      html_base_premain_pretitle: '../partials/html_base_premain_pretitle',
-      html_base_premain_posttitle: '../partials/html_base_premain_posttitle',
-      html_base_postmain: '../partials/html_base_postmain',
-      header: '../partials/header',
-      footer: '../partials/footer',
-      beta: '../partials/beta',
-      feedback: '../partials/feedback'
-    },
+   partials: getNoJSHtmlPartials(),
     unitId: "1212",
     error: req.query.error,
     unavailable: req.query.unavailable,
@@ -245,15 +232,7 @@ app.get('/calendar/text/:calendarId', (req, res) => {
 
 app.get('/calendar/text/:date/:time', (req, res) => {
   res.render('no_js_calendar/selection_nojs', {
-   partials: {
-      html_base_premain_pretitle: '../partials/html_base_premain_pretitle',
-      html_base_premain_posttitle: '../partials/html_base_premain_posttitle',
-      html_base_postmain: '../partials/html_base_postmain',
-      header: '../partials/header',
-      footer: '../partials/footer',
-      beta: '../partials/beta',
-      feedback: '../partials/feedback'
-    },
+   partials: getNoJSHtmlPartials(),
     unitId: "1212",
     error: req.query.error,
     unavailable: req.query.unavailable,
@@ -268,6 +247,19 @@ app.get('/calendar/text/:date/:time', (req, res) => {
     }
   });
 });
+
+let getNoJSHtmlPartials = function(){
+  return {
+    html_base_premain_pretitle: '../partials/header/html_base_premain_pretitle',
+    html_base_premain_posttitle: '../partials/header/html_base_premain_posttitle',
+    html_base_postmain: '../partials/footer/html_base_postmain',
+    header: '../partials/header/header',
+    footer: '../partials/footer/footer',
+    beta: '../partials/header/beta',
+    feedback: '../partials/footer/feedback'
+  }
+};
+
 
 // END   - Calendar text only  --------
 
