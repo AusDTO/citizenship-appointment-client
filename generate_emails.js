@@ -53,13 +53,14 @@ const email_templates = [
 			headerText: "Invitation to book your citizenship appointment",
 			hasArriveInfo: false,
 			campaignSource: "invitation_email"
-			
+
 		}
 	},
 	{
 		"name": "confirmation",
 		"template_name": "confirmation_template",
 		"data": {
+      headerText: "Your citizenship appointment has been scheduled",
 			hasArriveInfo: true,
 			campaignSource: "confirmation_email"
 		}
@@ -75,11 +76,12 @@ const email_templates = [
 	},
 	{
 		"name": "noshow",
-		"template_name": "invitation_template",
+		"template_name": "noshow_template",
 		"data": {
-			headerText: "You have missed your appointment. Please book your next citizenship appointment.",
+			headerText: "You have missed your appointment",
 			hasArriveInfo: false,
-			campaignSource: "noshow_email"
+			campaignSource: "noshow_email",
+      hideBookingInfo: true
 		}
 	}
 ];
@@ -99,6 +101,13 @@ function generateTemplates(){
 
 			var fullTemplate = mainBodyTemplate.render(templateData, {
 				content: compiledTemplate,
+        what_happens: compileTemplate('what_happens_template.mustache'),
+        what_to_bring: compileTemplate('what_to_bring_template.mustache'),
+        when_you_arrive: compileTemplate('when_you_arrive_template.mustache'),
+        what_happens_after: compileTemplate('what_happens_after_template.mustache'),
+        personal_identifiers: compileTemplate('personal_identifiers_template.mustache'),
+        changes_to_circumstances: compileTemplate('changes_to_circumstances_template.mustache'),
+        contact_us: compileTemplate('contact_us_template.mustache'),
 				appointmentInformation: extendedTemplate.appointmentInformation
 			});
 			fs.writeFileSync(path.join(outputDir, extendedTemplate.name + ".html"), fullTemplate);
