@@ -1,11 +1,8 @@
 document.querySelector('.warning-oldbrowsers').style.display='block';
-if (navigator.cookieEnabled) {
-  document.querySelector('.warning-cookies').style.display = 'none';
-}
 
 function toggleClientIdHelp(hash) {
   var helpDiv = document.querySelector('.ClientIdHelp');
-  
+
   if(hash === '#help'){
     helpDiv.className = "ClientIdHelp expanded";
   } else {

@@ -2,10 +2,6 @@
 
 document.querySelector('.warning-oldbrowsers').style.display='block';
 
-if (navigator.cookieEnabled) {
-  document.querySelector('.warning-cookies').style.display = 'none';
-}
-
 var calendarItems = document.querySelectorAll("cal_option");
 
 for(var i=0; i< calendarItems.length; i++){
@@ -28,7 +24,7 @@ for(var i=0; i< calendarItems.length; i++){
 			document.getElementById("calendarOptions").className = "";
 		});
 	}
-	
+
 }
 
 var printButton = document.getElementById("print-page");
