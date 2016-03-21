@@ -11,10 +11,19 @@
       <span class="error-message">
         Incorrect Client ID and/or Family Name provided.
         Please check your details and try again.
-        If the issue persists, please call 1300 792 080
+        If the issue persists, please call 1300 729 080
       </span>
     </div>
     {{/error}}
+
+    {{#system_error}}
+    <div class="error-div" role="alert">
+      <img class="error-icon" src="/images/warning.svg" width="15" alt="" onerror="this.src='/images/png/warning.png';">
+      <span class="error-message">
+        An error occurred. Please try again in a few minutes.
+      </span>
+    </div>
+    {{/system_error }}
 
     {{#expired}}
     <div class="error-div" role="alert">

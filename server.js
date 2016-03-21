@@ -90,6 +90,7 @@ app.get('/login', (req, res) => {
     partials: getBaseHtmlPartials(),
     error: req.query.error,
     expired: req.query.expired,
+    system_error: req.query.system_error,
     clientId: req.query.id
   });
 });
