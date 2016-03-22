@@ -17,5 +17,6 @@ deployment:
       - BROWSER='internet explorer' BROWSER_VERSION=11 SAUCE_ON_DEMAND=true npm run cross-browser-test
       - BROWSER='internet explorer' BROWSER_VERSION=9 SAUCE_ON_DEMAND=true npm run cross-browser-test
       - BROWSER=safari PLATFORM=MAC BROWSER_VERSION=8 SAUCE_ON_DEMAND=true npm run cross-browser-test
+      - BROWSER='iphone' PLATFORM='OS X 10.10' BROWSER_VERSION='9.2' DEVICE_NAME='iPhone 6' DEVICE_ORIENTATION='portrait' SAUCE_ON_DEMAND=true npm run cross-browser-test
       - BROWSER='internet explorer' BROWSER_VERSION=8 SAUCE_ON_DEMAND=true npm run old-browser-test
       - BROWSER='firefox' BROWSER_VERSION=44 SAUCE_ON_DEMAND=true npm run nojs-browser-test

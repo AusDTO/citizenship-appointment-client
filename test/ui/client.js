@@ -11,6 +11,13 @@ module.exports = (options) => {
       name: options.testSuiteName || 'Default'
     };
 
+    if(options.DEVICE_NAME || process.env.DEVICE_NAME){
+      desiredCapabilities['deviceName'] = options.DEVICE_NAME || process.env.DEVICE_NAME;
+      if(options.DEVICE_ORIENTATION || process.env.DEVICE_ORIENTATION){
+        desiredCapabilities['deviceOrientation'] = options.DEVICE_ORIENTATION || process.env.DEVICE_ORIENTATION;
+      }
+    }
+
   let remote_options = {
     user: process.env.SAUCE_USERNAME,
     key: process.env.SAUCE_ACCESS_KEY,
