@@ -20,6 +20,7 @@ test('should successfully login and book appointment', (assert) => {
       .setValue('#familyName', 'Familyname')
       .click('#submitLogin')
       .timeouts('page load',30000)
+      .waitForVisible('.DateCell',30000)
       .getTitle()
       .then((title) => {
         assert.equal(title, 'Australian Government - Citizenship Appointment Booking Calendar');
@@ -53,12 +54,14 @@ test('should successfully login and book appointment', (assert) => {
       .waitForVisible('.SelectionConfirmation-button', 30000)
       .click('.SelectionConfirmation-button')
       .timeouts('page load',30000)
+      .waitForVisible('#addToCalendarDropdown', 30000)
       .getTitle()
       .then((title) => {
         assert.equal(title, 'Australian Government - Citizenship Appointment Booking Confirmation');
       })
       .click('.logout-link')
       .timeouts('page load',30000)
+      .waitForVisible('#clientId', 30000)
       .getTitle()
       .then((title) => {
         assert.equal(title, 'Australian Government - Citizenship Appointment Booking');
