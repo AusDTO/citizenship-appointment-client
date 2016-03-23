@@ -261,7 +261,6 @@ let getNoJSHtmlPartials = function(){
     html_base_premain_posttitle: '../partials/header/html_base_premain_posttitle',
     html_base_postmain: '../partials/footer/html_base_postmain',
     header: '../partials/header/header',
-    footer: '../partials/footer/footer',
     beta: '../partials/header/beta',
     feedback: '../partials/footer/feedback'
   }
