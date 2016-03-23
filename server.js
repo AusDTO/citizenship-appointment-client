@@ -148,18 +148,24 @@ app.get('/session_timeout', (req, res) => {
   });
 });
 
+app.get('/cookies', (req, res) => {
+  res.render('cookies', {
+    partials: getBaseHtmlPartials()
+  });
+});
+
 let getBaseHtmlPartials = function(){
   return {
     html_base_premain_pretitle: 'partials/header/html_base_premain_pretitle',
     html_base_premain_posttitle: 'partials/header/html_base_premain_posttitle',
-    html_base_premain_posttitle_with_cookies: 'partials/header/html_base_premain_posttitle_with_cookies',
+    html_base_postmain_with_cookies: 'partials/footer/html_base_postmain_with_cookies',
     html_base_postmain: 'partials/footer/html_base_postmain',
     header: 'partials/header/header',
-    footer: 'partials/footer/footer',
     beta: 'partials/header/beta',
     feedback: 'partials/footer/feedback',
+    footer_links: 'partials/footer/footer_links',
     oldbrowser_warning: 'partials/header/oldbrowser_warning',
-    cookies_warning: 'partials/header/cookies_warning'
+    cookies_warning: 'partials/footer/cookies_warning'
   }
 };
 

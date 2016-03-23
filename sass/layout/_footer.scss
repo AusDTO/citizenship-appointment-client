@@ -18,6 +18,14 @@
     display: inline-block;
 }
 
+.warning-cookies {
+  background-color: $cookies-background-color;
+  color: $font-color;
+  a {
+    color: $font-color;
+  }
+}
+
 .footer {
   background-color: $govau-slate;
   padding: 2rem 0;
