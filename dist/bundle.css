@@ -943,6 +943,12 @@ ul li {
 .Feedback-survey--callout {
   display: inline-block; }
 
+.warning-cookies {
+  background-color: #D1EAFB;
+  color: #000000; }
+  .warning-cookies a {
+    color: #000000; }
+
 .footer {
   background-color: #232D35;
   padding: 2rem 0;
@@ -1510,6 +1516,24 @@ button.with-icon {
 
 .error-message {
   margin: 2rem 0 2rem 0; }
+
+.first-cookie-paragraph {
+  margin-top: 3rem; }
+
+.cookies-container ul {
+  margin-bottom: 3rem; }
+
+.no-bottom-margin {
+  margin-bottom: 0; }
+
+.cookies-container table {
+  border-color: grey; }
+
+.cookies-container h2 {
+  margin-top: 3rem; }
+
+.cookies-container h3 {
+  margin-top: 2rem; }
 
 @media print {
   body {
