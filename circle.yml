@@ -3,8 +3,8 @@ machine:
     version: 5.7.1
 
 test:
-  pre:
-    - echo ${FOO}
+  override:
+    - ./go test
 
 deployment:
   beta-dev-heroku:
