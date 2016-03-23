@@ -1,41 +1,38 @@
-version: "2"
+app:
+  image: mhart/alpine-node:5
+  volumes:
+    - ".:/app"
+  ports:
+    - "13000:3000"
+  working_dir: /app
+  environment:
+    - NODE_ENV=production
+  command: node server.js
 
-services:
-  app:
-    image: mhart/alpine-node:5
-    volumes:
-      - ".:/app"
-    ports:
-      - "13000:3000"
-    working_dir: /app
-    environment:
-      - NODE_ENV=production
-    command: node server.js
+selenium:
+  image: selenium/standalone-${BROWSER}:2.52.0
+  links:
+    - app
+  ports:
+    - "14444:4444"
 
-  selenium:
-    image: selenium/standalone-${BROWSER}:2.52.0
-    links:
-      - app
-    ports:
-      - "14444:4444"
+uitest:
+  image: mhart/alpine-node:5
+  environment:
+    - BASE_URL=http://app:3000
+    - SELENIUM_HOST=selenium
+    - SELENIUM_PORT=4444
+    - BROWSER=${BROWSER}
+  links:
+    - selenium
+  volumes:
+    - ".:/uitest"
+  working_dir: /uitest
+  command: ./node_modules/.bin/tape test/ui/loginAndBookAppointment.js
 
-  uitest:
-    image: mhart/alpine-node:5
-    environment:
-      - BASE_URL=http://app:3000
-      - SELENIUM_HOST=selenium
-      - SELENIUM_PORT=4444
-      - BROWSER=${BROWSER}
-    links:
-      - selenium
-    volumes:
-      - ".:/uitest"
-    working_dir: /uitest
-    command: ./node_modules/.bin/tape test/ui/loginAndBookAppointment.js
-
-  test:
-    image: mhart/alpine-node:5
-    volumes:
-      - ".:/test"
-    working_dir: /test
-    command: ./node_modules/.bin/tape test/unit/*.js
+test:
+  image: mhart/alpine-node:5
+  volumes:
+    - ".:/test"
+  working_dir: /test
+  command: ./node_modules/.bin/tape test/unit/*.js
