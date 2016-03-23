@@ -3,6 +3,9 @@ machine:
     version: 5.7.1
 
 test:
+  pre:
+    - docker --version
+    - docker-compose --version
   override:
     - ./go test
 
