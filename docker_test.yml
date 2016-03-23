@@ -1,6 +1,0 @@
-test:
-  image: mhart/alpine-node:5
-  volumes:
-    - ".:/test"
-  working_dir: /test
-  command: ./node_modules/.bin/tape test/unit/*.js 
