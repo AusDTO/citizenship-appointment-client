@@ -1,0 +1,33 @@
+version: "2"
+
+services:
+  app:
+    image: mhart/alpine-node:5
+    volumes:
+      - ".:/app"
+    ports:
+      - "13000:3000"
+    working_dir: /app
+    environment:
+      - NODE_ENV=production
+    command: node server.js
+
+  selenium-chrome:
+    image: selenium/standalone-chrome:2.52.0
+    links:
+      - app
+    ports:
+      - "14444:4444"
+
+  uitest:
+    image: mhart/alpine-node:5
+    environment:
+      - BASE_URL=http://app:3000
+      - SELENIUM_HOST=selenium-chrome
+      - SELENIUM_PORT=4444
+    links:
+      - selenium-chrome
+    volumes:
+      - ".:/uitest"
+    working_dir: /uitest
+    command: ./node_modules/.bin/tape test/ui/loginAndBookAppointment.js

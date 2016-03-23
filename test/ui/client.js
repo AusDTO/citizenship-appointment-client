@@ -30,15 +30,15 @@ module.exports = (options) => {
     });
 
     remote_options = Object.assign(remote_options, {
-      host: options.host || 'localhost',
-      port: options.port || process.env.USE_SAUCE === 'true' ? 4445 : 4444, // port 4445 is used with Sauce Connect
+      host: options.host || process.env.SELENIUM_HOST || 'localhost',
+      port: options.port || process.env.SELENIUM_PORT || (process.env.USE_SAUCE === 'true' ? 4445 : 4444), // port 4445 is used with Sauce Connect
       desiredCapabilities
     });
   }
 
   const client = require('webdriverio').remote(remote_options);
 
-  client.baseUrl = options.baseUrl || process.env.BASE_URL || process.env.SAUCE_ON_DEMAND === 'true' ? 'https://citizenship-appointment-beta.herokuapp.com' : `http://localhost:${options.port || process.env.PORT || 3000}`;
+  client.baseUrl = options.baseUrl || process.env.BASE_URL || (process.env.SAUCE_ON_DEMAND === 'true' ? 'https://citizenship-appointment-beta.herokuapp.com' : `http://localhost:${options.port || process.env.PORT || 3000}`);
 
   console.log(`Testing application on ${client.baseUrl}`);
   return client;
