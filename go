@@ -42,4 +42,7 @@ case "$1" in
         echo $"Usage: $0 {test|uitest|cross_browser_test|kill_all_the_whales}"
         exit 1
 esac
-kill_all_the_whales
+
+if [ -z "$CI" ] || [ "$CI" != "true" ]; then
+    kill_all_the_whales
+fi
