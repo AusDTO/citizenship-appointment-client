@@ -30,6 +30,36 @@ uitest:
   working_dir: /uitest
   command: ./node_modules/.bin/tape test/ui/loginAndBookAppointment.js
 
+sauce-connect:
+  image: ustwo/sauce-connect:4.3
+  environment:
+    - SAUCE_USERNAME=${SAUCE_USERNAME}
+    - SAUCE_ACCESS_KEY=${SAUCE_ACCESS_KEY}
+  links:
+    - app
+  ports:
+    - "14445:4445"
+  command: -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY --tunnel-identifier $SAUCE_USERNAME
+
+cross-browser-test:
+  image: mhart/alpine-node:5
+  environment:
+    - SAUCE_USERNAME=${SAUCE_USERNAME}
+    - SAUCE_ACCESS_KEY=${SAUCE_ACCESS_KEY}
+    - BASE_URL=http://app:3000
+    - SELENIUM_HOST=sauce-connect
+    - SELENIUM_PORT=4445
+    - USE_SAUCE=true
+    - BROWSER=${BROWSER}
+    - BROWSER_VERSION=${BROWSER_VERSION}
+    - PLATFORM=${PLATFORM}
+  links:
+    - sauce-connect
+  volumes:
+    - ".:/uitest"
+  working_dir: /uitest
+  command: sh -c "apk add --update bash && ./wait_for_it.sh sauce-connect:4445 -- ./cross_browser_test.sh"
+
 test:
   image: mhart/alpine-node:5
   volumes:
