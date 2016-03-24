@@ -27,7 +27,7 @@ env:
 # - BROWSER=firefox SAUCE_ON_DEMAND=true npm run cross-browser-test || travis_terminate 1
 # - BROWSER='internet explorer' BROWSER_VERSION=11 SAUCE_ON_DEMAND=true npm run cross-browser-test || travis_terminate 1
 # - BROWSER='internet explorer' BROWSER_VERSION=9 SAUCE_ON_DEMAND=true npm run cross-browser-test || travis_terminate 1
-# - BROWSER=safari PLATFORM=MAC BROWSER_VERSION=9 SAUCE_ON_DEMAND=true npm run cross-browser-test || travis_terminate 1
+# - BROWSER=safari PLATFORM='OS X 10.11' BROWSER_VERSION=9 SAUCE_ON_DEMAND=true npm run cross-browser-test || travis_terminate 1
 # - SAUCE_ON_DEMAND=true BROWSER='iphone' PLATFORM='OS X 10.10' BROWSER_VERSION='9.2' DEVICE_NAME='iPhone 6' DEVICE_ORIENTATION='portrait' npm run cross-browser-test || travis_terminate 1
 # - BROWSER='internet explorer' BROWSER_VERSION=8 SAUCE_ON_DEMAND=true npm run old-browser-test || travis_terminate 1
 # - BROWSER='firefox' BROWSER_VERSION=44 SAUCE_ON_DEMAND=true npm run nojs-browser-test || travis_terminate 1
