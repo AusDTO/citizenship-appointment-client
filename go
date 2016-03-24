@@ -3,10 +3,7 @@
 set -ef -o pipefail
 
 kill_all_the_whales() {
-    docker ps -a | cut -d " " -f 1 | tail -n +2 | while read ID
-    do
-      docker rm -f $ID
-    done
+    docker rm -f $(docker ps -aq)
 }
 
 test() {

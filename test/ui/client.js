@@ -41,5 +41,6 @@ module.exports = (options) => {
   client.baseUrl = options.baseUrl || process.env.BASE_URL || (process.env.SAUCE_ON_DEMAND === 'true' ? 'https://citizenship-appointment-beta.herokuapp.com' : `http://localhost:${options.port || process.env.PORT || 3000}`);
 
   console.log(`Testing application on ${client.baseUrl}`);
+  console.log(`Browser: ${client.desiredCapabilities.browserName} ${client.desiredCapabilities.version} ${client.desiredCapabilities.platform}`);
   return client;
 };
