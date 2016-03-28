@@ -262,7 +262,10 @@ let getNoJSHtmlPartials = function(){
     html_base_postmain: '../partials/footer/html_base_postmain',
     header: '../partials/header/header',
     beta: '../partials/header/beta',
-    feedback: '../partials/footer/feedback'
+    feedback: '../partials/footer/feedback',
+    footer_links: '../partials/footer/footer_links',
+    oldbrowser_warning: '../partials/header/oldbrowser_warning',
+    cookies_warning: '../partials/footer/cookies_warning'
   }
 };
 
