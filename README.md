@@ -78,3 +78,19 @@ This will start the application automatically on localhost port 3001 and then ru
 Use another web browser for testing by supplying an environment variable:
 
     USE_SAUCE=true BROWSER=firefox npm run uitest
+
+#### Running tests using ./go and Docker
+
+First you'll need to [install the Docker Engine](https://docs.docker.com/engine/installation/).
+
+To run the unit test suite:
+
+    ./go test
+
+To run Selenium tests:
+
+    ./go uitest
+
+To run cross-browser tests via Sauce Connect:
+
+    ./go cross_browser_test
