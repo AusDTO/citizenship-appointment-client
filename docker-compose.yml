@@ -7,7 +7,31 @@ app:
   working_dir: /app
   environment:
     - NODE_ENV=production
-  command: node server.js
+  command: sh -c "echo 'Running on host machine at http://192.168.99.100:13000' && node server.js"
+
+dev:
+  build: .
+  container_name: citizenship-appointment-client-dev
+  dockerfile: docker/Dockerfile
+  volumes:
+    - "./dist:/app/dist:rw"
+    - "./images:/app/images:ro"
+    - "./lib:/app/lib:ro"
+    - "./sass:/app/sass:ro"
+    - "./views:/app/views:ro"
+    - "./server.js:/app/server.js:ro"
+    - "./webpack.config.js:/app/webpack.config.js:ro"
+  ports:
+    - "3000:3000"
+    - "35729:35729"
+  working_dir: /app
+
+test:
+  image: mhart/alpine-node:5
+  volumes:
+    - ".:/test"
+  working_dir: /test
+  command: ./node_modules/.bin/tape test/unit/*.js
 
 selenium:
   image: selenium/standalone-${BROWSER}:2.52.0
@@ -59,10 +83,3 @@ cross-browser-test:
     - ".:/uitest"
   working_dir: /uitest
   command: sh -c "apk add --update bash && ./wait_for_it.sh sauce-connect:4445 -- ./cross_browser_test.sh"
-
-test:
-  image: mhart/alpine-node:5
-  volumes:
-    - ".:/test"
-  working_dir: /test
-  command: ./node_modules/.bin/tape test/unit/*.js
