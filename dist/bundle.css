@@ -921,6 +921,11 @@ ul li {
   .icon-label {
     display: none; } }
 
+@media (max-width: 450px) {
+  .MainContainer {
+    padding-bottom: 49rem;
+    /* height of your footer */ } }
+
 @media (min-width: 550px) {
   .container {
     padding: 0.5rem; }
