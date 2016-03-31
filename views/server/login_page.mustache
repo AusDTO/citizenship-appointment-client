@@ -3,13 +3,13 @@
 {{> html_base_premain_posttitle}}
 <div class="container">
   <h1>Citizenship appointments</h1>
-  <h2 class="steps-info">Step 1 of 3: Log into booking system</h2>
+  <h2 class="steps-info">Step 1 of 3: Log in using your client ID and family name</h2>
 
     {{#error}}
     <div class="error-div" role="alert">
       <img class="error-icon" src="/images/warning.svg" width="15" alt="" onerror="this.src='/images/png/warning.png';">
       <span class="error-message">
-        Incorrect Client ID and/or Family Name provided.
+        Incorrect client ID and/or family name provided.
         Please check your details and try again.
         If the issue persists, please call 1300 729 080
       </span>
@@ -50,14 +50,14 @@
             <div class="ClientIdHelp">
                 <div class="ClientIdHelp-collapsed">
                     <div class="ClientIdHelp-link">
-                        <a href="#help" name="nohelp" class="ClientIdHelp-show--link" aria-label="To find your ClientID number please refer to the correspondence from the Department" >How to find your Client ID</a>
+                        <a href="#help" name="nohelp" class="ClientIdHelp-show--link" aria-label="To find your client ID number please refer to the correspondence from the Department" >How to find your client ID</a>
                     </div>
                 </div>
                 <div class="ClientIdHelp-expanded">
                     <div class="ClientIdHelp-link">
-                        <a href="#nohelp" name="help" class="ClientIdHelp-hide--link">Hide how to find your Client ID</a>
+                        <a href="#nohelp" name="help" class="ClientIdHelp-hide--link">Hide how to find your client ID</a>
                     </div>
-                    <img src="/images/client_id_help.png" width="500" class="ClientIdHelp-image" alt="Please find your Client ID number in the correspondence from the Department"/>
+                    <img src="/images/client_id_help.png" width="500" class="ClientIdHelp-image" alt="Please find your client ID number in the correspondence from the Department"/>
                 </div>
             </div>
             <script async src="/static/scriptselect/login_helpimage.js" charset="utf-8"></script>
