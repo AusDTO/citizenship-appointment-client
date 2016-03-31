@@ -49,9 +49,14 @@ casper.waitForSelector('form#loginForm', function() {
   this.capture(captureDirectory + 'login.png');
 });
 
-casper.waitForUrl(baseUrl + '/calendar', function() {
+casper.waitForSelector('.logout-link', function() {
   this.echo('Calendar');
-  this.capture(captureDirectory + 'calendar-thismonth.png');
+  this.capture(captureDirectory + 'calendar.png');
+});
+
+casper.waitForSelector('p.DateCell-content--day', function() {
+  this.echo('Calendar - loaded');
+  this.capture(captureDirectory + 'calendar-thismonth-loaded.png');
 });
 
 casper.waitForSelector('[class*="DateCell Calendar-date--unavailable  date-20"]', function() {
@@ -90,13 +95,13 @@ casper.waitForSelector('#submitLogin', function() {
   this.click('#submitLogin');
 });
 
-casper.waitForUrl(baseUrl + '/confirmation', function() {
+casper.waitForSelectorTextChange('h1', function() {
   this.echo('Confirmation');
   this.capture(captureDirectory + 'confirmation.png');
   this.click('.logout-link');
 });
 
-casper.waitForUrl(baseUrl + '/login', function() {
+casper.waitForSelector('form#loginForm', function() {
   this.echo('Logout');
   this.capture(captureDirectory + 'logout.png');
 });
