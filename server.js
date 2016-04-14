@@ -335,7 +335,7 @@ app.post('/book_appointment', urlencodedParser, (req, res) => {
     res.redirect('/calendar?unavailable=true');
   }
   else{
-    res.redirect('/confirmation');
+    res.redirect('/confirmation?time=' + date);
   }
 });
 
