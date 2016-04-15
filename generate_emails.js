@@ -30,7 +30,8 @@ const appointment_types = [
 		"data": {
 			appointmentType: "Australian citizenship interview and test (assisted)",
 			hasTest: true,
-			campaignName: "assisted"
+			campaignName: "assisted",
+      isAssisted: true
 		},
 		"name": "_assisted"
 	},
