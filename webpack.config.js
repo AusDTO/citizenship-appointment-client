@@ -10,7 +10,8 @@ module.exports = {
     login: './login',
     confirmation: './confirmation',
     calendar_page: './calendar_page',
-    cookies: './cookies'
+    cookies: './cookies',
+    hotjar: './hotjar'
   },
   output: {
     path: path.join(__dirname, 'dist'),

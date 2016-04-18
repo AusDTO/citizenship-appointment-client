@@ -74,9 +74,9 @@ app.use('/images', express.static(path.join(__dirname, 'images')));
 app.use(function(req, res, next) {
     res.setHeader("Content-Security-Policy",
       "default-src 'self'; "+
-      "script-src 'self' http://localhost:35729/livereload.js www.google-analytics.com 'unsafe-inline' 'unsafe-eval';"+
+      "script-src 'self' http://localhost:35729/livereload.js www.google-analytics.com http://*.hotjar.com https://*.hotjar.com https://cdn.jsdelivr.net 'unsafe-inline' 'unsafe-eval';"+
       "img-src 'self' www.google-analytics.com; "+
-      "connect-src 'self' ws://localhost:35729/livereload; ");
+      "connect-src 'self' ws://localhost:35729/livereload http://insights.hotjar.com wss://ins4.hotjar.com; ");
     return next();
 });
 
