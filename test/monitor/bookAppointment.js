@@ -20,6 +20,7 @@ if (!baseUrl || !clientId || !familyName) {
   console.log('       or use environment variables MONITOR_BASE_URL, MONITOR_CLIENT_ID, and MONITOR_FAMILY_NAME');
   casper.exit(1);
 }
+casper.echo("Executing tests on " + baseUrl);
 
 var  addMonthToDateString = function(dateString) {
     var appointmentDate = new Date(dateString);
