@@ -22,7 +22,42 @@
                     </tr>
                     <tr>
                         <td>
-                          <table width="100%">
+                          <script type="application/ld+json">
+                            {
+                              "@context": "http://schema.org",
+                              "@type": "EventReservation",
+                              "reservationNumber" : "#PersonalId",
+                              "reservationFor" : {
+                                "@type" : "Event",
+                                "name" : "Australian citizenship interview and test (standard)",
+                                "startDate" : @FormatDate(#ReferenceDate, yyyy-MM-ddTHH:mm:sszzz),
+                                "location" : {
+                                  "@type" : "Place",
+                                  "address" : {
+                                    "@type" : "PostalAddress",
+                                    "streetAddress" : "Level 8, 51 Pitt Street",  //TODO!!!
+                                    "addressCountry": "AU",
+                                    "addressRegion": "NSW",
+                                    "addressLocality": "Sydney",
+                                    "postalCode": "2000"
+                                  },
+                                  "name": "Department of Immigration and Border Protection"
+                                },
+                                "image": "https://appointments.border.gov.au/images/gov-au-coat-of-arms.png"
+                              },
+                              "underName" : {
+                                 "@type" : "Person",
+                                 "name" : "#FirstName #LastName"
+                              },
+                              "reservationStatus": "http://schema.org/Confirmed",
+                              "modifyReservationUrl" : "https://appointments.border.gov.au/login?id=#PersonalId&utm_source=confirmation_email&utm_medium=email&utm_campaign=standard&cd1=#PersonalId&cd2=#UnitId",
+                              "ticketToken": "https://appointments.border.gov.au/barcode/pdf417/#PersonalId",
+                              "ticketNumber": "#PersonalId",
+                              "modifiedTime": @FormatDate(@Date(), yyyy-MM-ddTHH:mm:sszzz)
+                            }
+                          </script>
+
+                          <table width="100%" style="margin-bottom:10px">
                             <tbody>
                               <tr>
                                 <td align="left">
@@ -31,10 +66,10 @@
                               </tr>
                               <tr>
                                 <td align="left">
-                                  <table width="100%" style="width: 100%" cellspacing="7px">
+                                  <table width="100%" style="width:100%;min-width:400px;font-size:16px" cellspacing="7px">
                                     <tbody>
                                       <tr>
-                                        <td style="width: 130px">
+                                        <td style="width: 100px">
                                           Name:
                                         </td>
                                         <td>
@@ -124,7 +159,7 @@
                               </tr>
                               <tr>
                                 <td>
-                                  <em>This is a new service, if you need any help with using it, please call 1300 729 080 between 9.30am and 4.30pm Monday to Friday.</em>
+                                    <em>This is a new service, if you need any help with using it, please call 1300 729 080 between 9.30am and 4.30pm Monday to Friday.</em>
                                 </td>
                               </tr>
                             </tbody>
@@ -132,17 +167,19 @@
                         </td>
                       </tr>
                       <tr>
-                        <td align="center">
-                           <div style="border-top:2px black solid;margin-bottom:1rem"></div>
+                        <td align="center" style="text-align: center">
+                           <div style="border-top:2px black solid;margin-bottom:16px"></div>
                              <img src="https://appointments.border.gov.au/barcode/pdf417/#PersonalId" alt="Barcode to scan on your arrival" height="100px"/>
-                             <div style="font-size: small"><em>For faster check-in, scan this barcode at the reception kiosk upon your arrival</em></div>
+                             <div style="width: 70%;margin:0 auto;">
+                               <em>For faster check-in, scan this barcode at the reception kiosk upon your arrival</em>
+                             </div>
                         </td>
                        </tr>
                        <tr>
                          <td align="left">
-                            <div style="border-top:2px black solid;"></div>
-                              <h2>Important notes about your citizenship appointment</h2>
-                              <ul style="padding:0px; margin-top:1rem; marging-bottom:1rem;list-style: disc inside;" padding="0">
+                            <div style="border-top:2px black solid;margin-top:16px;margin-bottom:16px;"></div>
+                              <h2 style="margin-top:0px;margin-bottom:16px;">Important notes about your citizenship appointment</h2>
+                              <ul style="padding:0px 0px 0px 16px; margin-top:0px;margin-bottom:0px;list-style: disc outside;" padding="0px 0px 0px 16px">
                                 <li>It is very important that you attend this appointment as this is your opportunity to demonstrate that you meet the legal requirements for citizenship.</li>
                                 <li>Appointments run for approximately 2 hours.</li>
                               </ul>
@@ -151,94 +188,54 @@
                     </tr>
                     <tr>
                       <td align="left">
-                        <div style="border-top:2px black solid;"></div>
-                        <table>
-                          <tbody>
-                            <tr>
-                              <td>
-                                <h2>You must bring the following original documents</h2>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <ul style="padding:0px;margin-top:0px;marging-bottom:1rem;list-style: disc inside;" padding="0">
-                                  <li>The originals of all the identity documents that you submitted with your application, for all applicants including children; and</li>
-                                  <li>Any other documents that you have been requested to provide.</li>
-                                  <li>Any other documents that collectively confirm your identity and establish links between all names you have used (for example, birth certificate).</li>
-                                  <li>If you lodged your application online, please bring your completed Form 1195 Identity declaration with an endorsed recent passport sized photo for each applicant including children. If you do not bring the required original documents or provide the completed Form 1195 and an endorsed photo (if lodged online), we will not be able to verify your identity and proceed with your application.</li>
-                                </ul>
-                                <a href="https://www.border.gov.au/Trav/Citi/Appl/What-documents-do-you-need/identity-documents" target="_blank">Further information about what documents to bring</a>.
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
+                        <div style="border-top:2px black solid;margin-top:16px;margin-bottom:16px;"></div>
+                        <h2 style="margin-top:0px;margin-bottom:16px;">You must bring the following original documents</h2>
+                        <ul style="padding:0px 0px 0px 16px; margin-top:0px;margin-bottom:16px;list-style: disc outside;" padding="0px 0px 0px 16px">
+                          <li>The originals of all the identity documents that you submitted with your application, for all applicants including children; and</li>
+                          <li>Any other documents that you have been requested to provide.</li>
+                          <li>Any other documents that collectively confirm your identity and establish links between all names you have used (for example, birth certificate).</li>
+                          <li>If you lodged your application online, please bring your completed Form 1195 Identity declaration with an endorsed recent passport sized photo for each applicant including children. If you do not bring the required original documents or provide the completed Form 1195 and an endorsed photo (if lodged online), we will not be able to verify your identity and proceed with your application.</li>
+                        </ul>
+                        <a href="https://www.border.gov.au/Trav/Citi/Appl/What-documents-do-you-need/identity-documents" target="_blank">Further information about what documents to bring</a>.
                       </td>
                     </tr>
                     <tr>
                       <td align="left">
-                        <div style="border-top:2px black solid;"></div>
-                        <table>
-                          <tbody>
-                            <tr>
-                              <td>
-                                <h2>What will happen at your appointment</h2>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <ul style="padding:0px;margin-top:0px;marging-bottom:1rem;list-style: disc inside;" padding="0">
-                                  <li>
-                                    At your appointment we will discuss your citizenship application.
-                                  </li>
-                                  <li>
-                                    We will check the original documents for each applicant in your application, including children and any other documentation that you have been requested to provide.
-                                  </li>
-                                  <li>
-                                    We will also collect your signature and take your photograph (you must not wear coloured contact lenses for this photograph).
-                                  </li>
-                                </ul>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <em>If you have included children in your application they are not required to attend this appointment. There are no childcare facilities so you will need to make alternative childcare arrangements for your children.</em>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
+                        <div style="border-top:2px black solid;margin-top:16px;margin-bottom:16px;"></div>
+                        <h2 style="margin-top:0px;margin-bottom:16px;">What will happen at your appointment</h2>
+                        <ul style="padding:0px 0px 0px 16px;margin-top:0px;margin-bottom:16px;list-style: disc outside;" padding="0px 0px 0px 16px">
+                          <li>
+                            At your appointment we will discuss your citizenship application.
+                          </li>
+                          <li>
+                            We will check the original documents for each applicant in your application, including children and any other documentation that you have been requested to provide.
+                          </li>
+                          <li>
+                            We will also collect your signature and take your photograph (you must not wear coloured contact lenses for this photograph).
+                          </li>
+                        </ul>
+                        <em>If you have included children in your application they are not required to attend this appointment. There are no childcare facilities so you will need to make alternative childcare arrangements for your children.</em>
                       </td>
                     </tr>
                     <tr>
                       <td align="left">
-                        <div style="border-top:2px black solid;"></div>
-                        <table>
-                          <tbody>
-                            <tr>
-                              <td>
-                                <h2>When you arrive</h2>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <ul style="padding:0px;margin-top:0px;marging-bottom:1rem;list-style: disc inside;" padding="0">
-                                  <li>Please arrive at least 5 mins prior to your appointment.</li>
-                                  <li>Collect a ticket at the citizenship kiosk by entering your Client ID or scanning the barcode from your letter.</li>
-                                  <li>Wait until your number is called at the assigned counter.</li>
-                                </ul>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
+                        <div style="border-top:2px black solid;margin-top:16px;margin-bottom:16px;"></div>
+                        <h2 style="margin-top:0px;margin-bottom:16px;">When you arrive</h2>
+                        <ul style="padding:0px 0px 0px 16px; margin-top:0px;margin-bottom:0px;list-style: disc outside;" padding="0px 0px 0px 16px">
+                          <li>Please arrive at least 5 mins prior to your appointment.</li>
+                          <li>Collect a ticket at the citizenship kiosk by entering your Client ID or scanning the barcode from your letter.</li>
+                          <li>Wait until your number is called at the assigned counter.</li>
+                        </ul>
                       </td>
                     </tr>
                     <tr>
                       <td align="left">
-                        <div style="border-top:2px black solid;"></div>
+                        <div style="border-top:2px black solid;margin-top:16px;margin-bottom:16px;"></div>
                         <table>
                           <tbody>
                             <tr>
                               <td>
-                                <h2>Citizenship test</h2>
+                                <h2 style="margin-top:0px;margin-bottom:16px;">Citizenship test</h2>
                               </td>
                             </tr>
                             <tr>
@@ -273,12 +270,12 @@
                     </tr>
                     <tr>
                       <td align="left">
-                        <div style="border-top:2px black solid;"></div>
+                        <div style="border-top:2px black solid;margin-top:16px;margin-bottom:16px;"></div>
                         <table>
                           <tbody>
                             <tr>
                               <td>
-                                <h2>Preparing for the citizenship test</h2>
+                                <h2 style="margin-top:0px;margin-bottom:16px;">Preparing for the citizenship test</h2>
                               </td>
                             </tr>
                             <tr>
@@ -372,12 +369,12 @@
                     </tr>
                     <tr>
                       <td align="left">
-                        <div style="border-top:2px black solid;"></div>
+                        <div style="border-top:2px black solid;margin-top:16px;margin-bottom:16px;"></div>
                         <table>
                           <tbody>
                             <tr>
                               <td>
-                                <h2>What happens to your application after your appointment?</h2>
+                                <h2 style="margin-top:0;margin-bottom:16px;">What happens to your application after your appointment?</h2>
                               </td>
                             </tr>
                             <tr>
@@ -391,12 +388,12 @@
                     </tr>
                     <tr>
                       <td align="left">
-                        <div style="border-top:2px black solid;"></div>
+                        <div style="border-top:2px black solid;margin-top:16px;margin-bottom:16px;"></div>
                         <table>
                           <tbody>
                             <tr>
                               <td>
-                                <h2>Personal identifiers</h2>
+                                <h2 style="margin-top:0px;margin-bottom:16px;">Personal identifiers</h2>
                               </td>
                             </tr>
                             <tr>
@@ -420,12 +417,12 @@
                     </tr>
                     <tr>
                       <td align="left">
-                        <div style="border-top:2px black solid;"></div>
+                        <div style="border-top:2px black solid;margin-top:16px;margin-bottom:16px;"></div>
                         <table>
                           <tbody>
                             <tr>
                               <td>
-                                <h2>Your information and your privacy</h2>
+                                <h2 style="margin-top:0px;margin-bottom:16px;">Your information and your privacy</h2>
                               </td>
                             </tr>
                             <tr>
@@ -459,12 +456,12 @@
                     </tr>
                     <tr>
                       <td align="left">
-                        <div style="border-top:2px black solid;"></div>
+                        <div style="border-top:2px black solid;margin-top:16px;margin-bottom:16px;"></div>
                         <table>
                           <tbody>
                             <tr>
                               <td>
-                                <h2>Changes to your circumstances</h2>
+                                <h2 style="margin-top:0px;margin-bottom:16px;">Changes to your circumstances</h2>
                               </td>
                             </tr>
                             <tr>
@@ -478,12 +475,12 @@
                     </tr>
                     <tr>
                       <td align="left">
-                        <div style="border-top:2px black solid;"></div>
+                        <div style="border-top:2px black solid;margin-top:16px;margin-bottom:16px;"></div>
                         <table>
                           <tbody>
                             <tr>
                               <td>
-                                <h2>Contact us</h2>
+                                <h2 style="margin-top:0px;margin-bottom:16px;">Contact us</h2>
                               </td>
                             </tr>
                             <tr>

@@ -1,5 +1,40 @@
   <td>
-    <table width="100%">
+    <script type="application/ld+json">
+      {
+        "@context": "http://schema.org",
+        "@type": "EventReservation",
+        "reservationNumber" : "#PersonalId",
+        "reservationFor" : {
+          "@type" : "Event",
+          "name" : "{{appointmentType}}",
+          "startDate" : @FormatDate(#ReferenceDate, yyyy-MM-ddTHH:mm:sszzz),
+          "location" : {
+            "@type" : "Place",
+            "address" : {
+              "@type" : "PostalAddress",
+              "streetAddress" : "Level 8, 51 Pitt Street",  //TODO!!!
+              "addressCountry": "AU",
+              "addressRegion": "NSW",
+              "addressLocality": "Sydney",
+              "postalCode": "2000"
+            },
+            "name": "Department of Immigration and Border Protection"
+          },
+          "image": "{{websiteLink}}images/gov-au-coat-of-arms.png"
+        },
+        "underName" : {
+           "@type" : "Person",
+           "name" : "#FirstName #LastName"
+        },
+        "reservationStatus": "http://schema.org/Confirmed",
+        "modifyReservationUrl" : "{{websiteLink}}login?id=#PersonalId&utm_source={{campaignSource}}&utm_medium=email&utm_campaign={{campaignName}}&cd1=#PersonalId&cd2=#UnitId",
+        "ticketToken": "{{websiteLink}}barcode/pdf417/#PersonalId",
+        "ticketNumber": "#PersonalId",
+        "modifiedTime": @FormatDate(@Date(), yyyy-MM-ddTHH:mm:sszzz)
+      }
+    </script>
+
+    <table width="100%" style="margin-bottom:10px">
       <tbody>
         <tr>
           <td align="left">
@@ -8,10 +43,10 @@
         </tr>
         <tr>
           <td align="left">
-            <table width="100%" style="width: 100%" cellspacing="7px">
+            <table width="100%" style="width:100%;min-width:400px;font-size:16px" cellspacing="7px">
               <tbody>
                 <tr>
-                  <td style="width: 130px">
+                  <td style="width: 100px">
                     Name:
                   </td>
                   <td>
@@ -101,7 +136,7 @@
         </tr>
         <tr>
           <td>
-            <em>This is a new service, if you need any help with using it, please call 1300 729 080 between 9.30am and 4.30pm Monday to Friday.</em>
+              <em>This is a new service, if you need any help with using it, please call 1300 729 080 between 9.30am and 4.30pm Monday to Friday.</em>
           </td>
         </tr>
       </tbody>
@@ -109,17 +144,19 @@
   </td>
 </tr>
 <tr>
-  <td align="center">
-     <div style="border-top:2px black solid;margin-bottom:1rem"></div>
+  <td align="center" style="text-align: center">
+     <div style="border-top:2px black solid;margin-bottom:16px"></div>
        <img src="{{websiteLink}}barcode/pdf417/#PersonalId" alt="Barcode to scan on your arrival" height="100px"/>
-       <div style="font-size: small"><em>For faster check-in, scan this barcode at the reception kiosk upon your arrival</em></div>
+       <div style="width: 70%;margin:0 auto;">
+         <em>For faster check-in, scan this barcode at the reception kiosk upon your arrival</em>
+       </div>
   </td>
  </tr>
  <tr>
    <td align="left">
-      <div style="border-top:2px black solid;"></div>
-        <h2>Important notes about your citizenship appointment</h2>
-        <ul style="padding:0px; margin-top:1rem; marging-bottom:1rem;list-style: disc inside;" padding="0">
+      <div style="border-top:2px black solid;margin-top:16px;margin-bottom:16px;"></div>
+        <h2 style="margin-top:0px;margin-bottom:16px;">Important notes about your citizenship appointment</h2>
+        <ul style="padding:0px 0px 0px 16px; margin-top:0px;margin-bottom:0px;list-style: disc outside;" padding="0px 0px 0px 16px">
           <li>It is very important that you attend this appointment as this is your opportunity to demonstrate that you meet the legal requirements for citizenship.</li>
           <li>Appointments run for approximately 2 hours.</li>
         </ul>
