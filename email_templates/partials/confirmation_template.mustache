@@ -1,4 +1,5 @@
   <td>
+    <!--DO NOT REMOVE: #UnitName -->
     <script type="application/ld+json">
       {
         "@context": "http://schema.org",
@@ -7,18 +8,18 @@
         "reservationFor" : {
           "@type" : "Event",
           "name" : "{{appointmentType}}",
-          "startDate" : @FormatDate(#ReferenceDate, yyyy-MM-ddTHH:mm:sszzz),
+          "startDate" : "@FormatDate(#ReferenceDate, yyyy-MM-ddTHH:mm:sszzz)",
           "location" : {
             "@type" : "Place",
             "address" : {
               "@type" : "PostalAddress",
-              "streetAddress" : "Level 8, 51 Pitt Street",  //TODO!!!
-              "addressCountry": "AU",
-              "addressRegion": "NSW",
-              "addressLocality": "Sydney",
-              "postalCode": "2000"
+              "streetAddress" : "#UnitAddress",
+              "addressCountry": "",
+              "addressRegion": "",
+              "addressLocality": "",
+              "postalCode": ""
             },
-            "name": "Department of Immigration and Border Protection"
+            "name": "#UnitName Visa and Citizenship Office"
           },
           "image": "{{websiteLink}}images/gov-au-coat-of-arms.png"
         },
@@ -30,7 +31,7 @@
         "modifyReservationUrl" : "{{websiteLink}}login?id=#PersonalId&utm_source={{campaignSource}}&utm_medium=email&utm_campaign={{campaignName}}&cd1=#PersonalId&cd2=#UnitId",
         "ticketToken": "{{websiteLink}}barcode/pdf417/#PersonalId",
         "ticketNumber": "#PersonalId",
-        "modifiedTime": @FormatDate(@Date(), yyyy-MM-ddTHH:mm:sszzz)
+        "modifiedTime": "@FormatDate(@Date(), yyyy-MM-ddTHH:mm:sszzz)"
       }
     </script>
 
@@ -82,8 +83,7 @@
                     Location:
                   </td>
                   <td>
-                    <!--DO NOT REMOVE: #UnitName -->
-                     <strong><a href="https://www.google.com.au/maps?daddr=#UnitAddress">#UnitAddress</a></strong>
+                     <strong><a href="https://www.google.com.au/maps?daddr=#UnitName Visa and Citizenship Office, #UnitAddress">#UnitAddress</a></strong>
                   </td>
                 </tr>
                 <tr>
@@ -145,9 +145,9 @@
 </tr>
 <tr>
   <td align="center" style="text-align: center">
-     <div style="border-top:2px black solid;margin-bottom:16px"></div>
+     <div style="border-top:2px black solid;margin-bottom:16px;text-align: center"></div>
        <img src="{{websiteLink}}barcode/pdf417/#PersonalId" alt="Barcode to scan on your arrival" height="100px"/>
-       <div style="width: 70%;margin:0 auto;">
+       <div style="width: 70%;margin:0 auto;text-align: center">
          <em>For faster check-in, scan this barcode at the reception kiosk upon your arrival</em>
        </div>
   </td>
