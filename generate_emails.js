@@ -132,7 +132,7 @@ function convertImageToHostedSrc(fileName){
 
 function getImagesForMainTemplate(){
 	return {
-		headerLogo: convertImageToHostedSrc("aust-govt-black-on-transparent-247x60.png"),
+		headerLogo: convertImageToHostedSrc("aust-govt-black-on-transparent.png"),
 		playIcon: convertImageToHostedSrc("play_icon.png"),
 		pdfIcon: convertImageToHostedSrc("pdf_icon.png"),
 		checkIcon: convertImageToHostedSrc("check_icon.png"),
