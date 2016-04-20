@@ -34,7 +34,7 @@ var  addMonthToDateString = function(dateString) {
 };
 
 var captureDirectory = 'build/monitor/';
-casper.options.waitTimeout = 10000;
+casper.options.waitTimeout = 30000;
 
 casper.start(baseUrl + '/login', function() {
   this.echo('Start');
