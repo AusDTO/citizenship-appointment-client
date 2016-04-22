@@ -31,7 +31,7 @@
         "modifyReservationUrl" : "{{websiteLink}}login?id=#PersonalId&utm_source={{campaignSource}}&utm_medium=email&utm_campaign={{campaignName}}&cd1=#PersonalId&cd2=#UnitId",
         "ticketToken": "{{websiteLink}}barcode/pdf417/#PersonalId",
         "ticketNumber": "#PersonalId",
-        "modifiedTime": "@FormatDate(@Date(), yyyy-MM-ddTHH:mm:sszzz)"
+        "modifiedTime": "@FormatDate(@Date(), yyyy-MM-dd)T@FormatDate(@Time(), HH:mm:sszzz)"
       }
     </script>
 
@@ -156,7 +156,7 @@
    <td align="left">
       <div style="border-top:2px black solid;margin-top:16px;margin-bottom:16px;"></div>
         <h2 style="margin-top:0px;margin-bottom:16px;">Important notes about your citizenship appointment</h2>
-        <ul style="padding:0px 0px 0px 16px; margin-top:0px;margin-bottom:0px;list-style: disc outside;" padding="0px 0px 0px 16px">
+        <ul style="margin-left:16px;margin-top:0px;margin-bottom:0px;list-style: disc outside;padding-left:0px;" margin="0px 0px 0px 16px">
           <li>It is very important that you attend this appointment as this is your opportunity to demonstrate that you meet the legal requirements for citizenship.</li>
           <li>Appointments run for approximately 2 hours.</li>
         </ul>
