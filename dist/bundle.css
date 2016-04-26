@@ -1477,6 +1477,19 @@ button.with-icon {
   font-size: .75em;
   font-weight: normal; }
 
+.times-pleasewait {
+  margin-top: 1rem;
+  margin-bottom: 1rem; }
+
+.times-spinner {
+  display: inline-block;
+  margin-left: 1rem;
+  margin-right: 1rem; }
+  .times-spinner img {
+    vertical-align: middle;
+    width: 2.5rem;
+    height: 2.5rem; }
+
 .SelectionConfirmationCell {
   padding: 1rem;
   font-size: 1.5em;
