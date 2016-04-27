@@ -106,6 +106,7 @@ app.get('/calendar', (req, res) => {
     unitId: "1212",
     error: req.query.error,
     unavailable: req.query.unavailable,
+    not_eligible: req.query.not_eligible,
     location: "2 Lonsdale Street, Melbourne VIC 3000",
     locationURL: "2+Lonsdale+Street,+Melbourne+VIC+3000",
     current_appointment: "Thursday, 12 December, 1:30PM",
@@ -333,6 +334,8 @@ app.post('/book_appointment', urlencodedParser, (req, res) => {
     res.redirect('/calendar?error=true');
   } else if(date.endsWith("10:00:00")){
     res.redirect('/calendar?unavailable=true');
+  } else if(date.endsWith("10:40:00")){
+    res.redirect('/calendar?not_eligible=true');
   }
   else{
     res.redirect('/confirmation?time=' + date);
