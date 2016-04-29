@@ -8,7 +8,7 @@ RUN \
   apk update && \
   apk add git python make g++ && \
   npm config set progress false && \
-  npm install -d node-sass && \
+  npm install -d && \
   apk del git python make g++ && \
   rm -rf /var/cache/apk/*
 

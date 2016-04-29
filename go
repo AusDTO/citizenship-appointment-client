@@ -11,7 +11,7 @@ start() {
 }
 
 dev() {
-    docker-compose run dev
+    docker-compose up dev
 }
 
 test() {
