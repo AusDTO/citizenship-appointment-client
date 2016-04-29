@@ -8,7 +8,8 @@ module.exports = (options) => {
       version: options.browserVersion || process.env.BROWSER_VERSION || '',
       platform: options.platform || process.env.PLATFORM || 'ANY', // ANY WINDOWS XP VISTA MAC LINUX UNIX ANDROID
       build: process.env.TRAVIS_BUILD_NUMBER || process.env.CIRCLE_BUILD_NUM || new Date().toISOString(),
-      name: options.testSuiteName || 'Default'
+      name: options.testSuiteName || 'Default',
+      seleniumVersion: "2.48.0"
     };
 
     if(options.DEVICE_NAME || process.env.DEVICE_NAME){
