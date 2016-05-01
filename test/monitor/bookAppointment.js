@@ -63,6 +63,7 @@ casper.waitForSelector('p.DateCell-content--day', function() {
 casper.waitForSelector('[class*="DateCell Calendar-date--unavailable  date-20"]', function() {
   var cells = casper.getElementsAttribute('[class*="DateCell Calendar-date--unavailable  date-20"]', 'class');
   var currentDate = cells[0].match(/\d{4}-\d{2}-\d{2}/);
+  this.echo('currentDate ' + currentDate);
   var monthLink = addMonthToDateString(currentDate);
 
   this.echo('Calendar - navigating to next month ' + monthLink);
