@@ -886,7 +886,7 @@ ul li {
 
 .error-icon {
   float: left;
-  height: 2.5rem;
+  width: 2.5rem;
   margin: 1rem; }
 
 .error-message {
@@ -908,6 +908,9 @@ ul li {
 
 .small-left-padding {
   padding-left: 0.5rem; }
+
+.icon-label {
+  font-weight: bold; }
 
 @media (max-width: 550px) {
   .MainContainer {

@@ -21,14 +21,14 @@
     <div class="Calendar-info">
       {{#current_appointment }}
       <img src="/images/calendar.svg" width="15" onerror="this.src='/images/png/calendar.png';" class="icon" alt ="" role="presentation"/>
-      <span class="small-left-padding"><strong class="icon-label">Current appointment:</strong></span>
+      <span class="small-left-padding icon-label">Current appointment</span>
       <span class="small-left-padding">{{ current_appointment }}</span>
       <br/>
       {{/current_appointment }}
       <div class="Calendar-info--field">
         <img src="/images/map-marker.svg" width="15" onerror="this.src='/images/png/map-marker.png';" class="icon" alt ="" role="presentation"/>
-        <span class="small-left-padding"><strong class="icon-label">Location:</strong></span>
-        <span class="small-left-padding"><a href="https://www.google.com.au/maps?daddr={{locationURL}}" target="_blank" aria-label="{{ location }} Press to open google maps to see directions">{{ location }}</a></span>
+        <span class="small-left-padding icon-label">Location:</span>
+        <span class="small-left-padding"><a href="https://www.google.com.au/maps?daddr={{locationURL}}" target="_blank" aria-label="{{ location }} Press to open google maps to see directions">{{ location }} (map)</a></span>
       </div>
     </div>
     <form action="/book_appointment" method="post">
