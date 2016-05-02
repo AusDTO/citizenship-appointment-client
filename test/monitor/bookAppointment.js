@@ -23,15 +23,17 @@ if (!baseUrl || !clientId || !familyName) {
 casper.echo("Executing tests on " + baseUrl);
 
 var addMonthToDateString = function(dateString) {
-    var appointmentDate = new Date(dateString);
-    casper.echo('appointmentDate ' + appointmentDate);
-    var year = appointmentDate.getYear() + 1900;
-    casper.echo('year ' + year);
-    var month = appointmentDate.getMonth() + 2;
-    casper.echo('month ' + month);
+    var dateFields = dateString.split('-');
+    var year = parseInt(dateFields[0], 10);
+    var month = parseInt(dateFields[1], 10) + 1;
+
+    if (month > 12) {
+        month = month % 12;
+        year += 1;
+    }
+
     var targetYear = '' + year;
     var targetMonth = month < 10 ? '0' + month : '' + month;
-    casper.echo('targetMonth ' + targetMonth);
 
     return targetYear + '-' + targetMonth;
 };
@@ -65,7 +67,7 @@ casper.waitForSelector('p.DateCell-content--day', function() {
 
 casper.waitForSelector('[class*="DateCell Calendar-date--unavailable  date-20"]', function() {
   var cells = casper.getElementsAttribute('[class*="DateCell Calendar-date--unavailable  date-20"]', 'class');
-  var currentDate = cells[0].match(/\d{4}-\d{2}-\d{2}/);
+  var currentDate = cells[0].match(/\d{4}-\d{2}-\d{2}/)[0];
   this.echo('currentDate ' + currentDate);
   var monthLink = addMonthToDateString(currentDate);
 
