@@ -24,10 +24,14 @@ casper.echo("Executing tests on " + baseUrl);
 
 var  addMonthToDateString = function(dateString) {
     var appointmentDate = new Date(dateString);
+    this.echo('appointmentDate ' + appointmentDate);
     var year = appointmentDate.getYear() + 1900;
+    this.echo('year ' + year);
     var month = appointmentDate.getMonth() + 2;
+    this.echo('month ' + month);
     var targetYear = '' + year;
     var targetMonth = month < 10 ? '0' + month : '' + month;
+    this.echo('targetMonth ' + targetMonth);
 
     return targetYear + '-' + targetMonth;
 };
