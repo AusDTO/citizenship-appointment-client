@@ -24,9 +24,8 @@ casper.echo("Executing tests on " + baseUrl);
 
 var  addMonthToDateString = function(dateString) {
     var appointmentDate = new Date(dateString);
-    appointmentDate.setMonth(appointmentDate.getMonth() + 1);
     var year = appointmentDate.getYear() + 1900;
-    var month = appointmentDate.getMonth() + 1;
+    var month = appointmentDate.getMonth() + 2;
     var targetYear = '' + year;
     var targetMonth = month < 10 ? '0' + month : '' + month;
 
