@@ -301,16 +301,17 @@
     background: $selected-color;
 }
 
-.AppointmentTimes-list--item.is-active .AppointmentLink {
-    color: white;
-    background: $selected-color;
-}
-
 .AppointmentLink {
     font-size: 1.2em;
     text-decoration: none;
     color: $font-color;
     font-weight: bold;
+    display: block;
+}
+
+.AppointmentTimes-list--item.is-active .AppointmentLink {
+    color: white;
+    background: $selected-color;
 }
 
 .AppointmentLink:hover, .AppointmentLink:focus, .AppointmentLink:active {

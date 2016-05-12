@@ -1459,15 +1459,16 @@ button.with-icon {
   border-color: #232D35;
   background: #232D35; }
 
-.AppointmentTimes-list--item.is-active .AppointmentLink {
-  color: white;
-  background: #232D35; }
-
 .AppointmentLink {
   font-size: 1.2em;
   text-decoration: none;
   color: #000000;
-  font-weight: bold; }
+  font-weight: bold;
+  display: block; }
+
+.AppointmentTimes-list--item.is-active .AppointmentLink {
+  color: white;
+  background: #232D35; }
 
 .AppointmentLink:hover, .AppointmentLink:focus, .AppointmentLink:active {
   color: #000000; }
