@@ -209,7 +209,6 @@
 
 .Calendar-date--bookable .DateCell-content--datelink:hover {
     text-decoration: none;
-    background: $available-hover-color;
 }
 
 .Calendar-date--bookable.is-active {
@@ -319,7 +318,7 @@
 }
 
 .AppointmentLink:hover, .DateCell-content--datelink:hover {
-    outline: none;
+    // outline: none;
 }
 
 .AppointmentLink-ampm {
