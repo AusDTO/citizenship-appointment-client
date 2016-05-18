@@ -27,17 +27,11 @@
 //––––––––––––––––––––––––––––––––––––––––––––––––––
 
 .Calendar-info {
-    text-align: justify;
+    text-align: left;
 }
 
 .Calendar-info--field {
-    display: inline-block;
-}
-
-.Calendar-info:after {
-    content: '';
-    width: 100%;
-    display: inline-block;
+    padding-bottom: 20px;
 }
 
 // Calendar Legend
@@ -51,7 +45,7 @@
     display: inline-block;
     vertical-align: middle;
     background: $available-color;
-    width: 2rem;
+    width: 3rem;
     height: 2rem;
 }
 

@@ -3,8 +3,8 @@
     {{#bookable}}
     <div class="DateCell-content {{#today}}today{{/today}}">
 
-    <a class="DateCell-content--datelink{{#today}} today{{/today}} date-{{date}}" 
-    href="#date/{{ date }}" name="date/{{ date }}" tabindex="{{dateTabIndex}}" aria-label="{{ ariaDay }}, {{available_times_count}} available timeslots">
+    <a class="DateCell-content--datelink{{#today}} today{{/today}} date-{{date}}"
+    href="#date/{{ date }}" tabindex="{{dateTabIndex}}" aria-label="{{ ariaDay }}, {{available_times_count}} available timeslots">
     	<p class="DateCell-content--day" aria-label="{{ ariaDay }}" role="presentation" >{{ day }}</p>
 		<p class="DateCell-content--availableTimesCount" role="presentation" aria-label="{{available_times_count}} available timeslots">{{available_times_count}} available</p>
     </a>

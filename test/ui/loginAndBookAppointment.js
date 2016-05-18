@@ -31,24 +31,19 @@ test('should successfully login and book appointment', (assert) => {
         var appointmentDate = moment(className, "YYYY-MM-DD").add(1, 'months');
         var monthLink = appointmentDate.format('YYYY-MM');
 
-        var bookableDateSelector = '[class*="DateCell Calendar-date--bookable date-' + monthLink + '"]';
+        var bookableDateSelector = `[class*="DateCell Calendar-date--bookable date-${monthLink}"]`;
 
         client
-          .waitForVisible(`[name="month/${monthLink}"]`, 30000)
-          .click(`[name="month/${monthLink}"]`)
+          .waitForVisible(`[href*="#month/${monthLink}"]`, 30000)
+          .click(`[href*="#month/${monthLink}"]`)
           .waitForVisible(bookableDateSelector, 30000)
           .getAttribute(bookableDateSelector, 'class').then(function(nextMonthCells){
               var dateLink = nextMonthCells[0].match(/\d{4}-\d{2}-\d{2}/);
-              var availableTimesSelector = '[class="AvailableTimes date-' + dateLink + '"] a.AppointmentLink';
-
+              var availableTimesSelector = `[class="AvailableTimes date-${dateLink}"] a.AppointmentLink`;
               client
                 .click(`a[class="DateCell-content--datelink date-${dateLink}"]`)
                 .waitForVisible(availableTimesSelector, 30000)
-                .getAttribute(availableTimesSelector, 'name').then(function(timeLinks){
-                    var firstTimeLink = timeLinks[0];
-                    client
-                      .click(`[name="${firstTimeLink}"]`)
-                })
+                .click(availableTimesSelector)
           })
       })
       .waitForVisible('.SelectionConfirmation-button', 30000)

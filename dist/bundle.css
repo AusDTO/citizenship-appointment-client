@@ -855,13 +855,11 @@ body {
   /* will cover the 100% of viewport */
   overflow: hidden;
   display: block;
-  position: relative;
-  padding-bottom: 150px;
-  /* height of your footer */ }
+  position: relative; }
 
 .logout-link {
-  margin: 1rem 0 0;
-  padding-left: 1rem;
+  margin-top: 1rem;
+  margin-left: 1rem;
   float: right;
   display: inline-block; }
 
@@ -910,7 +908,9 @@ ul li {
   padding-left: 0.5rem; }
 
 .icon-label {
-  font-weight: bold; }
+  font-weight: bold;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem; }
 
 @media (max-width: 550px) {
   .MainContainer {
@@ -933,7 +933,7 @@ ul li {
   .container {
     padding: 0.5rem; }
   .MainContainer {
-    padding-bottom: 16rem; } }
+    padding-bottom: 25rem; } }
 
 .Footer-section {
   position: absolute;
@@ -1257,15 +1257,10 @@ button.with-icon {
     width: 100%; }
 
 .Calendar-info {
-  text-align: justify; }
+  text-align: left; }
 
 .Calendar-info--field {
-  display: inline-block; }
-
-.Calendar-info:after {
-  content: '';
-  width: 100%;
-  display: inline-block; }
+  padding-bottom: 20px; }
 
 .Legend-label {
   vertical-align: middle; }
@@ -1274,7 +1269,7 @@ button.with-icon {
   display: inline-block;
   vertical-align: middle;
   background: #D1EAFB;
-  width: 2rem;
+  width: 3rem;
   height: 2rem; }
 
 .Legend-box--unavailable {

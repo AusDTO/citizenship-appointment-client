@@ -1,5 +1,5 @@
 {{> html_base_premain_pretitle }}
-    <title>Australian Government - Citizenship Appointment Booking Calendar</title>
+<title>Australian Government - Citizenship Appointment Booking Calendar</title>
 {{> html_base_premain_posttitle}}
 
 <div class="container calendar-page--main">
@@ -9,66 +9,65 @@
 
     {{#error}}
     <div class="error-div" role="alert">
-      <img class="error-icon" src="/images/warning.svg" width="15" alt="" onerror="this.src='/images/png/warning.png';">
-      <span class="error-message">
-        There was an error processing your request.
-        Your appointment was not booked.
-        Please try again.
-      </span>
+        <img class="error-icon" src="/images/warning.svg" width="15" alt="" onerror="this.src='/images/png/warning.png';">
+        <span class="error-message">
+            There was an error processing your request.
+            Your appointment was not booked.
+            Please try again.
+        </span>
     </div>
     {{/error}}
     {{#unavailable}}
     <div class="error-div" role="alert">
-      <img class="error-icon" src="/images/warning.svg" width="15" alt="" onerror="this.src='/images/png/warning.png';">
-      <span class="error-message">
-        Sorry, the slot is no longer available. Please select a different date and time.
-      </span>
+        <img class="error-icon" src="/images/warning.svg" width="15" alt="" onerror="this.src='/images/png/warning.png';">
+        <span class="error-message">
+            Sorry, the slot is no longer available. Please select a different date and time.
+        </span>
     </div>
     {{/unavailable}}
     {{#not_eligible}}
     <div class="error-div" role="alert">
-      <img class="error-icon" src="/images/warning.svg" width="15" alt="" onerror="this.src='/images/png/warning.png';">
-      <span class="error-message">
-        Sorry, you are not eligible to book an appointment. If you think it is a mistake, please call 1300 729 080.
-      </span>
+        <img class="error-icon" src="/images/warning.svg" width="15" alt="" onerror="this.src='/images/png/warning.png';">
+        <span class="error-message">
+            Sorry, you are not eligible to book an appointment. If you think it is a mistake, please call 1300 729 080.
+        </span>
     </div>
     {{/not_eligible}}
 
     <div class="Calendar-info">
-      {{#current_appointment }}
-      <img src="/images/calendar.svg" width="15" onerror="this.src='/images/png/calendar.png';" class="icon" alt ="" role="presentation"/>
-      <span class="small-left-padding icon-label">Current appointment:</span>
-      <span class="small-left-padding">{{ current_appointment }}</span>
-      <br/>
-      {{/current_appointment }}
-      <div class="Calendar-info--field">
-        <img src="/images/map-marker.svg" width="15" onerror="this.src='/images/png/map-marker.png';" class="icon" alt ="" role="presentation"/>
-        <span class="small-left-padding icon-label">Location:</span>
-        <span class="small-left-padding"><a href="https://www.google.com.au/maps?daddr={{locationURL}}" target="_blank" aria-label="{{ location }} Press to open google maps to see directions" tabindex="1">{{ location }} (map)</a></span>
-
-      </div>
-      <div class="Calendar-info--field" role="presentation" aria-hidden="true" aria-label="Calendar legend: Plain blue background indicates selectable dates that have available timeslots. Grey striped background indicates non-selectable dates.">
-          <div>
-              <span class="Legend-box"></span>
-              <span class="Legend-label small-left-padding" aria-hidden="true">Available</span>
-              <span class="Legend-box Legend-box--unavailable"></span>
-              <span class="Legend-label small-left-padding" aria-hidden="true">Not available</span>
-          </div>
-      </div>
+        <div class="Calendar-info--field">
+            {{#current_appointment }}
+            <img src="/images/calendar.svg" width="15" onerror="this.src='/images/png/calendar.png';" class="icon" alt ="" role="presentation"/>
+            <span class="icon-label">Current appointment:</span>
+            <span>{{ current_appointment }}</span>
+            <br/>
+            {{/current_appointment }}
+        </div>
+        <div class="Calendar-info--field">
+            <img src="/images/map-marker.svg" width="15" onerror="this.src='/images/png/map-marker.png';" class="icon" alt ="" role="presentation"/>
+            <span class="icon-label">Location:</span>
+            <span><a href="https://www.google.com.au/maps?daddr={{locationURL}}" target="_blank" aria-label="{{ location }} Press to open google maps to see directions" tabindex="1">{{ location }} (map)</a></span>
+        </div>
+        <div class="Calendar-info--field" role="presentation" aria-hidden="true" aria-label="Calendar legend: Plain blue background indicates selectable dates that have available timeslots. Grey striped background indicates non-selectable dates.">
+            <span class="Legend-box"></span>
+            <span class="Legend-label small-left-padding" aria-hidden="true">Available</span>
+            <span class="Legend-box Legend-box--unavailable"></span>
+            <span class="Legend-label small-left-padding" aria-hidden="true">Not available</span>
+        </div>
     </div>
     <form action="/book_appointment" method="post">
         <input name="{{ _csrf.parameterName }}" type="hidden" value="{{ _csrf.token }}"/>
         <div class="Calendars" data-today="{{today_date}}">
             <div class="Loading-message">
-              <div class="Loading-message-spinner">
-                <div>
-                  <img src="/images/spinner.gif" alt="Loading spinner" />
+                <div class="Loading-message-spinner">
+                    <div>
+                        <img src="/images/spinner.gif" alt="Loading spinner" />
+                    </div>
+                    Loading calendar
                 </div>
-                  Loading calendar
-              </div>
-              <div>
-                  If it takes too long, <a href="/calendar/text">go to the text version of the calendar.</a>
-              </div>
+                <div>
+                    If it takes too long, <a href="/calendar/text">go to the text version of the calendar.</a>
+                </div>
             </div>
             <div class="Old-Calendar-Needed-message">
                 It seems you have JavaScript disabled or your version of the browser is not fully supported. <a href="/calendar/text">Go to the text version of the calendar.</a>

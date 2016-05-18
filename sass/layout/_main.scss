@@ -22,12 +22,11 @@ body {
     overflow: hidden;
     display: block;
     position: relative;
-    padding-bottom: 150px; /* height of your footer */
 }
 
 .logout-link {
-  margin: 1rem 0 0;
-  padding-left: 1rem;
+  margin-top: 1rem;
+  margin-left: 1rem;
   float: right;
   display: inline-block;
 }
@@ -86,6 +85,8 @@ ul li {
 
 .icon-label {
     font-weight: bold;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
 }
 
 @media (max-width: 550px) {
@@ -119,6 +120,6 @@ ul li {
   }
 
   .MainContainer {
-        padding-bottom: 16rem;
+        padding-bottom: 25rem;
     }
 }
