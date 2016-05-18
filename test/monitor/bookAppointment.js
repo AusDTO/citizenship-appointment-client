@@ -72,7 +72,7 @@ casper.waitForSelector('[class*="DateCell Calendar-date--unavailable  date-20"]'
   var monthLink = addMonthToDateString(currentDate);
 
   this.echo('Calendar - navigating to next month ' + monthLink);
-  this.click('a[name="month/' + monthLink + '"]');
+  this.click('a[href*="#month/' + monthLink + '"]');
   var bookableDateSelector = '[class*="DateCell Calendar-date--bookable date-' + monthLink + '"]';
 
   this.waitForSelector(bookableDateSelector, function(){
@@ -88,10 +88,8 @@ casper.waitForSelector('[class*="DateCell Calendar-date--unavailable  date-20"]'
     this.waitForSelector(availableTimesSelector, function(){
       this.echo('Calendar - available times opened ');
       this.capture(captureDirectory + 'calendar-times.png');
-
-      var firstTimeLink = casper.getElementsAttribute(availableTimesSelector, 'name')[0];
-      this.echo('Calendar - selecting ' + firstTimeLink);
-      this.click('[name="' + firstTimeLink + '"]')
+      this.echo('Calendar - selecting ');
+      this.click(availableTimesSelector)
     });
   });
 });
