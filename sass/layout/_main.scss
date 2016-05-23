@@ -103,8 +103,12 @@ ul li {
         padding: 0.5rem;
     }
 
-    .icon-label {
-        display: none;
+    .field-attribute, .field-value {
+        display: inline-block;
+    }
+
+    .field-value {
+        padding-left: 2.5rem;
     }
 }
 
