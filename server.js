@@ -109,7 +109,6 @@ app.get('/calendar', (req, res) => {
     not_eligible: req.query.not_eligible,
     location: "2 Lonsdale Street, Melbourne VIC 3000",
     locationURL: "2+Lonsdale+Street,+Melbourne+VIC+3000",
-    current_appointment: "Thursday, 12 December, 1:30PM",
     today_date: "2016-01-05T11:20:00",
     _csrf: {
       token: "csrf-token",
@@ -202,7 +201,6 @@ app.get('/calendar/text', (req, res) => {
     unavailable: req.query.unavailable,
     location: "2 Lonsdale Street, Melbourne VIC 3000",
     locationURL: "2+Lonsdale+Street,+Melbourne+VIC+3000",
-    current_appointment: "Thursday, 12 December, 1:30PM",
     available_dates: dates
   });
 });
@@ -215,7 +213,6 @@ app.get('/calendar/text/:calendarId', (req, res) => {
     unavailable: req.query.unavailable,
     location: "2 Lonsdale Street, Melbourne VIC 3000",
     locationURL: "2+Lonsdale+Street,+Melbourne+VIC+3000",
-    current_appointment: "Thursday, 12 December, 1:30PM",
     display_date: "Wednesday, 12th January 2016",
     date: '2016-01-12',
     available_times: [ {
@@ -246,7 +243,6 @@ app.get('/calendar/text/:date/:time', (req, res) => {
     unavailable: req.query.unavailable,
     location: "2 Lonsdale Street, Melbourne VIC 3000",
     locationURL: "2+Lonsdale+Street,+Melbourne+VIC+3000",
-    current_appointment: "Thursday, 12 December, 1:30PM",
     display_appointment_datetime: "1:20 PM Wednesday, 12th January 2016",
     selected_appointment: "2016-01-12TT15:00:00",
     _csrf: {
