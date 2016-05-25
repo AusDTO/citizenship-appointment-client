@@ -1320,6 +1320,10 @@ button.with-icon {
 .hidden {
   display: none; }
 
+.Calendar-header {
+  border-bottom: 1px solid;
+  margin-bottom: 3px; }
+
 .Calendar-header--dayLabel, .Calendar-header--dayLabel-mobile {
   text-align: center;
   border: 0;
@@ -1432,13 +1436,15 @@ button.with-icon {
 .Calendar-date--hide .DateCell-content {
   display: none; }
 
+.AvailableTimesCell, .SelectionConfirmationCell {
+  border-bottom: 1px solid;
+  margin-bottom: 3px; }
+
 .AvailableTimesCell {
-  border-bottom: 1px solid #E8E8E8;
   padding: 0; }
 
 .AppointmentTimes-table {
   margin-top: 1rem;
-  border-top: 1px solid;
   display: table;
   text-align: center;
   width: 100%; }

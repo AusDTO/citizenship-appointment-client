@@ -114,6 +114,11 @@
 // Calendar Table
 //––––––––––––––––––––––––––––––––––––––––––––––––––
 
+.Calendar-header {
+    border-bottom: 1px solid;
+    margin-bottom: 3px;
+}
+
 .Calendar-header--dayLabel, .Calendar-header--dayLabel-mobile {
     text-align: center;
     border: 0;
@@ -266,15 +271,17 @@
 
 // Available Times
 //––––––––––––––––––––––––––––––––––––––––––––––––––
+.AvailableTimesCell, .SelectionConfirmationCell {
+    border-bottom: 1px solid;
+    margin-bottom: 3px;
+}
 
 .AvailableTimesCell {
-    border-bottom: 1px solid $background-grey;
     padding: 0;
 }
 
 .AppointmentTimes-table {
     margin-top: 1rem;
-    border-top: 1px solid;
     display: table;
     text-align: center;
     width: 100%;
