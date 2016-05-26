@@ -136,6 +136,8 @@ function getImagesForMainTemplate(){
 		playIcon: convertImageToHostedSrc("play_icon.png"),
 		pdfIcon: convertImageToHostedSrc("pdf_icon.png"),
 		checkIcon: convertImageToHostedSrc("check_icon.png"),
+    appleWalletButton:  convertImageToHostedSrc("add-to-apple-wallet-button-576x178.png"),
+    appleWalletPassUrl: dest_environment + "wallet/pass",
 		websiteLink: dest_environment,
 		gaTrackingId: google_analitics_trackingId
 	};
