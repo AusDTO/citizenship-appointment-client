@@ -1117,6 +1117,10 @@ button.with-icon {
   font-size: 1.2rem;
   line-height: 1.5rem; }
 
+.add-to-wallet-frame {
+  text-align: center;
+  margin: 1.5rem; }
+
 .strong-top-line {
   border-top: 2px solid #000000;
   padding-top: 2rem;

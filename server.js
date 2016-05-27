@@ -107,7 +107,7 @@ app.get('/calendar', (req, res) => {
     error: req.query.error,
     unavailable: req.query.unavailable,
     not_eligible: req.query.not_eligible,
-    location: "2 Lonsdale Street, Melbourne VIC 3000",
+    location: "Level 2, Casselden Place, 2 Lonsdale Street, Melbourne VIC 3000",
     locationURL: "2+Lonsdale+Street,+Melbourne+VIC+3000",
     today_date: "2016-01-05T11:20:00",
     _csrf: {
@@ -126,12 +126,25 @@ app.get('/confirmation', (req, res) => {
     partials: getBaseHtmlPartials(),
     appointment_date,
     appointment_time,
-    location: "2 Lonsdale Street, Melbourne VIC 3000",
+    location: "Level 2, Casselden Place, 2 Lonsdale Street, Melbourne VIC 3000",
     locationURL: "2+Lonsdale+Street,+Melbourne+VIC+3000",
-    clientId: "12345678901",
+    clientId: "01234567890",
+    customerId: "01234567890",
     unitId: "1212",
     hasEmail: true,
     hasMobile: true
+  });
+});
+
+app.get('/wallet/pass', (req, res) => {
+  res.redirect(`/wallet/pass/barcode?id=${req.query.id}&otherid=${req.query.otherid}`);
+});
+
+app.get('/wallet/pass/barcode', (req, res) => {
+  res.render('wallet_barcode_page', {
+    partials: getBaseHtmlPartials(),
+    'clientId': '01234567890',
+    'customerId': '01234567890'
   });
 });
 
@@ -372,6 +385,22 @@ app.get('/barcode/pdf417/:id', (req, res) => {
   bwipjs.toBuffer({
     bcid: 'pdf417compact',
     text: req.params.id.substring(0, 11)
+  }, function (err, pngBuffer) {
+    if (err) {
+      console.log(err);
+      res.type('text/plain');
+      res.status(500).send('Internal server error');
+    } else {
+      res.type('png');
+      res.status(200).send(pngBuffer);
+    }
+  });
+});
+
+app.get('/wallet/pass/barcode.png', (req, res) => {
+  bwipjs.toBuffer({
+    bcid: 'qrcode',
+    text: req.protocol + '://' + req.get('host') + req.originalUrl
   }, function (err, pngBuffer) {
     if (err) {
       console.log(err);
