@@ -12,8 +12,8 @@ const baseDir = path.join(__dirname, 'email_templates');
 const templateDir = path.join(baseDir, 'partials');
 const outputDir = path.join(baseDir, 'generated');
 const imagesDir = path.join(__dirname, 'images', 'email_templates');
-const dest_environment = "https://appointments.border.gov.au/";
-const google_analitics_trackingId = "UA-72722909-1";
+const dest_environment = 'https://appointments.border.gov.au/';
+const google_analytics_trackingId = 'UA-72722909-1';
 
 const appointment_types = [
 	{
@@ -90,7 +90,7 @@ const email_templates = [
 generateTemplates();
 
 function generateTemplates(){
-	var mainTemplateData = getImagesForMainTemplate(),
+	var mainTemplateData = getMainTemplateData(),
 		mainBodyTemplate = compileTemplate("main_body.mustache");
 
 	email_templates.forEach(function(template) {
@@ -130,7 +130,7 @@ function convertImageToHostedSrc(fileName){
 	return dest_environment + "images/" + fileName;
 }
 
-function getImagesForMainTemplate(){
+function getMainTemplateData(){
 	return {
 		headerLogo: convertImageToHostedSrc("aust-govt-black-on-transparent.png"),
 		playIcon: convertImageToHostedSrc("play_icon.png"),
@@ -139,7 +139,10 @@ function getImagesForMainTemplate(){
     appleWalletButton:  convertImageToHostedSrc("add-to-apple-wallet-button-576x178.png"),
     appleWalletPassUrl: dest_environment + "wallet/pass",
 		websiteLink: dest_environment,
-		gaTrackingId: google_analitics_trackingId
+		gaTrackingId: google_analytics_trackingId,
+    testResourceLink: 'https://www.border.gov.au/Trav/Citi/pathways-processes/Citizenship-test/Australian-citizenship-test-resource',
+    practiceTestLink: 'https://www.border.gov.au/Trav/Citi/pathways-processes/Citizenship-test/Australian-citizenship-test-resource/Australian-citizenship-practice-test',
+    aboutTheTestLink: 'https://www.border.gov.au/Trav/Citi/pathways-processes/Citizenship-test/About-the-citizenship-test'
 	};
 }
 
