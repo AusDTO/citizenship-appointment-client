@@ -7,9 +7,8 @@
 }
 
 .barcode-frame {
-	text-align: left;
+	text-align: center;
 	margin-top: 16px;
-	margin-bottom: 0px;
 }
 
 .barcode-text {
@@ -18,8 +17,19 @@
 }
 
 .add-to-wallet-frame {
-    text-align: center;
-    margin: 1.5rem;
+	text-align: center;
+    margin-top: 24px;
+}
+
+.add-to-wallet-link {
+    vertical-align: middle;
+    outline: none;
+    color: transparent;
+}
+
+.add-to-wallet-link:hover, .add-to-wallet-link:focus, .add-to-wallet-link:active {
+    outline: none;
+	color: transparent;
 }
 
 .strong-top-line {

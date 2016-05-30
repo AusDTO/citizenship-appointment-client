@@ -1119,7 +1119,16 @@ button.with-icon {
 
 .add-to-wallet-frame {
   text-align: center;
-  margin: 1.5rem; }
+  margin-top: 1.5rem; }
+
+.add-to-wallet-link {
+  vertical-align: middle;
+  outline: none;
+  color: transparent; }
+
+.add-to-wallet-link:hover, .add-to-wallet-link:focus, .add-to-wallet-link:active {
+  outline: none;
+  color: transparent; }
 
 .strong-top-line {
   border-top: 2px solid #000000;
