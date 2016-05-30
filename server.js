@@ -4,6 +4,7 @@ const express = require('express'),
     consolidate = require('consolidate'),
     bodyParser = require('body-parser'),
     urlencodedParser = bodyParser.urlencoded({extended: false}),
+    uaParser = require('ua-parser-js'),
     uuid = require('node-uuid'),
     moment = require('moment'),
     bwipjs = require('bwip-js'),
@@ -117,6 +118,19 @@ app.get('/calendar', (req, res) => {
   });
 });
 
+// simplified logic, doesn't handle versions (iOS >= 6, Mac OS X >= 10.8.2)
+let supportsWallet = function(userAgentHeader) {
+  const ua = uaParser(userAgentHeader);
+  // console.log(JSON.stringify(ua, null, '  '));
+  if (ua && ua.device && ua.device.model === 'iPhone') {
+    return true;
+  }
+  if (ua && ua.browser && ua.browser.name === 'Safari') {
+    return true;
+  }
+  return false;
+}
+
 app.get('/confirmation', (req, res) => {
   const time = moment(req.query.time || '2016-03-28T15:40:40', moment.ISO_8601);
   const appointment_date = time.format('dddd D MMMM YYYY');
@@ -132,7 +146,8 @@ app.get('/confirmation', (req, res) => {
     customerId: "01234567890",
     unitId: "1212",
     hasEmail: true,
-    hasMobile: true
+    hasMobile: true,
+    supportsWallet: supportsWallet(req.headers['user-agent'])
   });
 });
 

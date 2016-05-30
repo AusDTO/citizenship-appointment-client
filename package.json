@@ -20,7 +20,7 @@
     "selenium-install": "selenium-standalone install",
     "selenium-start": "selenium-standalone start",
     "uitest": "webpack ; NODE_ENV=production PORT=3001 node server.js & PID=$! ; sleep 1 ; PORT=3001 tape \"test/ui/loginAndBookAppointment.js\" ; RESULT=$? ; kill $PID ; exit $RESULT",
-    "oldbrowser-uitest": "webpack ; NODE_ENV=production PORT=3001 node server.js & PID=$! ; sleep 1 ; PORT=3001 tape \"test/ui/loginAndBookAppointment_oldBrowsers.js\" ; RESULT=$? ; kill $PID ; exit $RESULT", 
+    "oldbrowser-uitest": "webpack ; NODE_ENV=production PORT=3001 node server.js & PID=$! ; sleep 1 ; PORT=3001 tape \"test/ui/loginAndBookAppointment_oldBrowsers.js\" ; RESULT=$? ; kill $PID ; exit $RESULT",
     "nojs-uitest": "webpack ; NODE_ENV=production PORT=3001 node server.js & PID=$! ; sleep 1 ; BROWSER='firefox' BROWSER_VERSION=44 PORT=3001 tape \"test/ui/loginAndBookAppointment_noJSFirefox.js\" ; RESULT=$? ; kill $PID ; exit $RESULT",
     "sauce-connect-install": "SAUCE_CONNECT_DOWNLOAD_ON_INSTALL=true node node_modules/sauce-connect-launcher/scripts/install.js",
     "sauce-connect-start": "./node_modules/sauce-connect-launcher/sc/sc-*/bin/sc --tunnel-identifier $SAUCE_USERNAME",
@@ -62,6 +62,7 @@
     "express": "^4.13.3",
     "hogan.js": "^3.0.2",
     "moment": "^2.10.6",
-    "node-uuid": "^1.4.7"
+    "node-uuid": "^1.4.7",
+    "ua-parser-js": "^0.7.10"
   }
 }
