@@ -48,15 +48,15 @@
     <div class="three columns">
       <div class="barcode-frame">
         <div>
-            <img src="/barcode/pdf417/{{clientId}}" alt="Barcode to scan on your arrival" />
+          <img src="/barcode/pdf417/{{clientId}}" alt="Barcode to scan on your arrival" />
         </div>
       </div>
       <div class="barcode-text">
-          For faster check-in, scan this barcode at the reception on your arrival
+        For faster check-in, scan this barcode at the reception on your arrival
       </div>
       <div class="add-to-wallet-frame">
-        <a href="/wallet/pass?id={{clientId}}&otherid={{customerId}}" target="_blank" class="add-to-wallet-link">
-           <img src="/images/add-to-apple-wallet-button.svg" onerror="this.src='/images/png/add-to-apple-wallet-button-576x178.png';" alt="Add to Apple Wallet" height="55px"/>
+        <a href="/wallet/pass?id={{clientId}}&otherid={{customerId}}" {{^supportsWallet}}target="_blank"{{/supportsWallet}} class="add-to-wallet-link{{^supportsWallet}} add-to-wallet-modal-link{{/supportsWallet}}">
+          <img src="/images/add-to-apple-wallet-button.svg" onerror="this.src='/images/png/add-to-apple-wallet-button-576x178.png';" alt="Add to Apple Wallet" height="55px"/>
         </a>
       </div>
     </div>
@@ -79,6 +79,19 @@
     <li>Collect a ticket at the citizenship kiosk by entering your Client ID or scanning the barcode from your confirmation letter.</li>
     <li>Wait until your number is called at the assigned counter.</li>
   </ul>
+</div>
+
+<div id="add-to-wallet-modal" class="modalDialog-bg">
+  <div class="modalDialog" role="dialog" aria-label="Instructions for adding a pass to Apple Wallet.">
+    <div class="modalDialog-content">
+      <a href="#close-modal" type="button" title="Close" aria-label="Close this dialog" class="close" tabindex="2">
+        <img src="/images/times.svg" width="25" onerror="this.src='/images/png/times.png';" class="button-icon" alt="" role="presentation"/>
+      </a>
+      <div class="modalDialog-content--stuff">
+        {{> add_to_wallet_instructions }}
+      </div>
+    </div>
+  </div>
 </div>
 
 <script src='/analytics_auth.js'></script>

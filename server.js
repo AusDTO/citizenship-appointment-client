@@ -63,7 +63,7 @@ if (process.env.NODE_ENV !== 'production') {
     prefix: publicPath
   }));
 
-  app.use(require('connect-livereload')());  // runs livereload server and serves livereload.js
+  app.use(require('connect-livereload')({ignore: ['.pdf', '/wallet/pass']}));  // runs livereload server and serves livereload.js. It interferes with binary file downloads
   require('express-livereload')(app, {watchDir: path.join(__dirname), exts: ['mustache']});  // inserts <script> reference to livereload.js
 }
 
@@ -137,7 +137,9 @@ app.get('/confirmation', (req, res) => {
   const appointment_time = time.format('h:mm A');
 
   res.render('confirmation_page', {
-    partials: getBaseHtmlPartials(),
+    partials: extendObject({
+      add_to_wallet_instructions: 'partials/add_to_wallet_instructions'
+    }, getBaseHtmlPartials()),
     appointment_date,
     appointment_time,
     location: "Level 2, Casselden Place, 2 Lonsdale Street, Melbourne VIC 3000",
@@ -152,7 +154,12 @@ app.get('/confirmation', (req, res) => {
 });
 
 app.get('/wallet/pass', (req, res) => {
-  res.redirect(`/wallet/pass/barcode?id=${req.query.id}&otherid=${req.query.otherid}`);
+  if (supportsWallet(req.headers['user-agent'])) {
+    res.type('application/vnd.apple.pkpass');
+    res.sendFile(path.join(__dirname, 'appointment.pkpass'));
+  } else {
+    res.redirect(`/wallet/pass/barcode?id=${req.query.id}&otherid=${req.query.otherid}`);
+  }
 });
 
 app.get('/wallet/pass/barcode', (req, res) => {
