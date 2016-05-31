@@ -781,8 +781,17 @@ a:hover, a:focus, a:active {
 .modalDialog-content--stuff {
   padding: 1rem 3.5rem; }
 
+.modalDialog-content--stuff.add-to-wallet-modal-content {
+  text-align: left; }
+
+.add-to-wallet-barcode {
+  text-align: center; }
+
 .close {
   float: right; }
+
+.modalDialog-bg h2 {
+  margin: 0 0 0.5rem 0; }
 
 @media (max-width: 1024px) {
   .modalDialog .button, .modalDialog input.button {
@@ -1610,4 +1619,4 @@ button.with-icon {
   .three.columns {
     width: 30.66667%; } }
 
-/*# sourceMappingURL=bundle.css.map */
+/*# sourceMappingURL=bundle-IElte8.css.map */

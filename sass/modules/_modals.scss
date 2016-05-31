@@ -35,7 +35,7 @@
 
 	padding: 1rem;
 
-  text-align: center;
+  	text-align: center;
 	background: white;
 }
 
@@ -43,8 +43,20 @@
 	padding: 1rem 3.5rem;
 }
 
+.modalDialog-content--stuff.add-to-wallet-modal-content {
+	text-align: left;
+}
+
+.add-to-wallet-barcode {
+	text-align: center;
+}
+
 .close {
 	float: right;
+}
+
+.modalDialog-bg h2 {
+	margin: 0 0 0.5rem 0;
 }
 
 @media (max-width: 1024px) {
