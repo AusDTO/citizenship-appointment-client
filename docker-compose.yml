@@ -7,7 +7,7 @@ app:
   working_dir: /app
   environment:
     - NODE_ENV=production
-  command: sh -c "echo 'Running on host machine at http://192.168.99.100:13000' && node server.js"
+  command: sh -c "echo 'Running on host machine at http://localhost:13000' && node server.js"
 
 dev:
   build: .

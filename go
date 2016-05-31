@@ -7,18 +7,22 @@ kill_all_the_whales() {
 }
 
 start() {
+    prebuild
     docker-compose up app
 }
 
 dev() {
+    prebuild
     docker-compose up dev
 }
 
 test() {
+    prebuild
     docker-compose run test
 }
 
 uitest() {
+    prebuild
     BROWSER=chrome docker-compose run uitest
     BROWSER=chrome docker-compose down
 
@@ -27,7 +31,12 @@ uitest() {
 }
 
 cross_browser_test() {
+    prebuild
     docker-compose run cross-browser-test
+}
+
+prebuild() {
+    npm install
 }
 
 case "$1" in
