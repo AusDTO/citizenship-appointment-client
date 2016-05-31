@@ -121,7 +121,7 @@ app.get('/calendar', (req, res) => {
 // simplified logic, doesn't handle versions (iOS >= 6, Mac OS X >= 10.8.2)
 let supportsWallet = function(userAgentHeader) {
   const ua = uaParser(userAgentHeader);
-  // console.log(JSON.stringify(ua, null, '  '));
+  console.log(JSON.stringify(ua, null, '  '));
   if (ua && ua.device && ua.device.model === 'iPhone') {
     return true;
   }
@@ -129,6 +129,12 @@ let supportsWallet = function(userAgentHeader) {
     return true;
   }
   return false;
+}
+
+let isMobile = function(userAgentHeader) {
+  const ua = uaParser(userAgentHeader);
+  console.log("isMobile: " + (ua && ua.device && ua.device.type === 'mobile'));
+  return (ua && ua.device && ua.device.type === 'mobile');
 }
 
 app.get('/confirmation', (req, res) => {
@@ -149,7 +155,7 @@ app.get('/confirmation', (req, res) => {
     unitId: "1212",
     hasEmail: true,
     hasMobile: true,
-    supportsWallet: supportsWallet(req.headers['user-agent'])
+    useWalletModal: !supportsWallet(req.headers['user-agent']) && !isMobile(req.headers['user-agent'])
   });
 });
 
@@ -164,7 +170,9 @@ app.get('/wallet/pass', (req, res) => {
 
 app.get('/wallet/pass/barcode', (req, res) => {
   res.render('wallet_barcode_page', {
-    partials: getBaseHtmlPartials(),
+    partials: extendObject({
+      add_to_wallet_instructions: 'partials/add_to_wallet_instructions'
+    }, getBaseHtmlPartials()),
     'clientId': '01234567890',
     'customerId': '01234567890'
   });
