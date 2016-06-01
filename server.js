@@ -83,6 +83,8 @@ app.use(function(req, res, next) {
 
 const trackingId = process.env.ANALYTICS_TRACKING_ID || 'UA-XXXXX-Y';
 
+const location = 'Level 2, Casselden Place, 2 Lonsdale Street, Melbourne VIC 3000';
+const locationURL = 'Level+2,+Casselden+Place,+2+Lonsdale+Street,+Melbourne+VIC+3000';
 
 // BEGIN - Pages --------
 
@@ -108,9 +110,9 @@ app.get('/calendar', (req, res) => {
     error: req.query.error,
     unavailable: req.query.unavailable,
     not_eligible: req.query.not_eligible,
-    location: "Level 2, Casselden Place, 2 Lonsdale Street, Melbourne VIC 3000",
-    locationURL: "2+Lonsdale+Street,+Melbourne+VIC+3000",
-    today_date: "2016-01-05T11:20:00",
+    location,
+    locationURL,
+    today_date: moment().format('YYYY-MM-DDTHH:mm:ss'),
     _csrf: {
       token: "csrf-token",
       parameterName: "_csrf"
@@ -136,7 +138,7 @@ let isMobile = function(userAgentHeader) {
 }
 
 app.get('/confirmation', (req, res) => {
-  const time = moment(req.query.time || '2016-03-28T15:40:40', moment.ISO_8601);
+  const time = req.query.time ? moment(req.query.time, moment.ISO_8601) : moment().add(1, 'days');
   const appointment_date = time.format('dddd D MMMM YYYY');
   const appointment_time = time.format('h:mm A');
 
@@ -146,8 +148,8 @@ app.get('/confirmation', (req, res) => {
     }, getBaseHtmlPartials()),
     appointment_date,
     appointment_time,
-    location: "Level 2, Casselden Place, 2 Lonsdale Street, Melbourne VIC 3000",
-    locationURL: "2+Lonsdale+Street,+Melbourne+VIC+3000",
+    location,
+    locationURL,
     clientId: "01234567890",
     customerId: "01234567890",
     unitId: "1212",
@@ -241,8 +243,8 @@ app.get('/calendar/text', (req, res) => {
     unitId: "1212",
     error: req.query.error,
     unavailable: req.query.unavailable,
-    location: "2 Lonsdale Street, Melbourne VIC 3000",
-    locationURL: "2+Lonsdale+Street,+Melbourne+VIC+3000",
+    location,
+    locationURL,
     available_dates: dates
   });
 });
@@ -253,8 +255,8 @@ app.get('/calendar/text/:calendarId', (req, res) => {
     unitId: "1212",
     error: req.query.error,
     unavailable: req.query.unavailable,
-    location: "2 Lonsdale Street, Melbourne VIC 3000",
-    locationURL: "2+Lonsdale+Street,+Melbourne+VIC+3000",
+    location,
+    locationURL,
     display_date: "Wednesday, 12th January 2016",
     date: '2016-01-12',
     available_times: [ {
@@ -283,8 +285,8 @@ app.get('/calendar/text/:date/:time', (req, res) => {
     unitId: "1212",
     error: req.query.error,
     unavailable: req.query.unavailable,
-    location: "2 Lonsdale Street, Melbourne VIC 3000",
-    locationURL: "2+Lonsdale+Street,+Melbourne+VIC+3000",
+    location,
+    locationURL,
     display_appointment_datetime: "1:20 PM Wednesday, 12th January 2016",
     selected_appointment: "2016-01-12TT15:00:00",
     _csrf: {
@@ -451,7 +453,7 @@ app.get('/calendar.ics', function(req, res) {
     timeZone: 'Australia/Melbourne',
     startTime: '20160204T130000',
     endTime: '20160204T150000',
-    location:'2 Lonsdale Street, Melbourne VIC 3000, Australia'
+    location
   })
 });
 
@@ -460,7 +462,7 @@ app.get('/googlecalendar', function(req, res) {
     'action': 'TEMPLATE',
     'text': 'Citizenship appointment',
     'dates': '20160204T130000Z/20160204T150000Z',
-    'location': '2 Lonsdale Street, Melbourne VIC 3000, Australia',
+    'location': location,
     'details': 'For details please refer to your citizenship appointment email/letter.',
     'trp': 'false'
   });
@@ -473,7 +475,7 @@ app.get('/yahoocalendar', function(req, res) {
     'DUR': '0200',
     'TITLE': 'Citizenship appointment',
     'ST': '20160204T130000Z',
-    'in_loc': '2 Lonsdale Street, Melbourne VIC 3000, Australia',
+    'in_loc': location,
     'DESC': 'For details please refer to your citizenship appointment email/letter.'
   });
   res.redirect('https://calendar.yahoo.com/?' + calendar_event);
@@ -485,7 +487,7 @@ app.get('/outlookonline', function(req, res) {
     'summary': 'Citizenship appointment',
     'dtstart': '20160204T130000Z',
     'dtend': '20160204T150000Z',
-    'location': '2 Lonsdale Street, Melbourne VIC 3000, Australia',
+    'location': location,
     'description': 'For details please refer to your citizenship appointment email/letter.',
   });
   res.redirect('https://calendar.live.com/calendar/calendar.aspx?' + calendar_event);
