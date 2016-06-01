@@ -21,7 +21,6 @@ fs.writeFileSync(path.join(__dirname, 'dist', 'bundle.css.map'), result.map);
 let resultIE8 = sass.renderSync({
   file: path.join(__dirname, 'sass', 'bundle-IElte8.scss'),
   outFile: 'bundle.css',
-  sourceMap: true
+  sourceMap: false
 });
 fs.writeFileSync(path.join(__dirname, 'dist', 'bundle-IElte8.css'), resultIE8.css);
-fs.writeFileSync(path.join(__dirname, 'dist', 'bundle-IElte8.css.map'), resultIE8.map);

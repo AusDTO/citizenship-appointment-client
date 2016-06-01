@@ -54,15 +54,6 @@ if (process.env.NODE_ENV !== 'production') {
     prefix: publicPath
   }));
 
-  app.use(sassMiddleware({
-    src: path.join(__dirname, 'sass'),
-    dest: path.join(__dirname, 'dist'),
-    debug: true,
-    outputStyle: 'nested',
-    sourceMap: path.join(__dirname, 'dist', 'bundle-IElte8.css.map'),
-    prefix: publicPath
-  }));
-
   app.use(require('connect-livereload')({ignore: ['.pdf', '/wallet/pass']}));  // runs livereload server and serves livereload.js. It interferes with binary file downloads
   require('express-livereload')(app, {watchDir: path.join(__dirname), exts: ['mustache']});  // inserts <script> reference to livereload.js
 }
