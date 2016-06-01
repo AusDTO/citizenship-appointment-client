@@ -75,7 +75,7 @@ app.use(function(req, res, next) {
 const trackingId = process.env.ANALYTICS_TRACKING_ID || 'UA-XXXXX-Y';
 
 const location = 'Level 2, Casselden Place, 2 Lonsdale Street, Melbourne VIC 3000';
-const locationURL = 'Level+2,+Casselden+Place,+2+Lonsdale+Street,+Melbourne+VIC+3000';
+const locationURL = 'Visa+and+Citizenship+Office%2C+Level+2%2C+Casselden+Place%2C+2+Lonsdale+Street%2C+Melbourne+VIC+3000';
 
 // BEGIN - Pages --------
 
