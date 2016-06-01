@@ -11,7 +11,6 @@ const hogan = require('hogan.js'),
 const baseDir = path.join(__dirname, 'email_templates');
 const templateDir = path.join(baseDir, 'partials');
 const outputDir = path.join(baseDir, 'generated');
-const imagesDir = path.join(__dirname, 'images', 'email_templates');
 const dest_environment = 'https://appointments.border.gov.au/';
 const google_analytics_trackingId = 'UA-72722909-1';
 
@@ -120,12 +119,6 @@ function compileTemplate(templateName){
 	return hogan.compile(fs.readFileSync(path.join(templateDir, templateName), 'utf8'));
 }
 
-function convertImageToBase64(fileName) {
-	var filePath = path.join(imagesDir, fileName);
-    var data = fs.readFileSync(filePath).toString("base64");
-    return util.format("data:%s;base64,%s", mime.lookup(filePath), data);
-}
-
 function convertImageToHostedSrc(fileName){
 	return dest_environment + "images/" + fileName;
 }
@@ -136,7 +129,7 @@ function getMainTemplateData(){
 		playIcon: convertImageToHostedSrc("play_icon.png"),
 		pdfIcon: convertImageToHostedSrc("pdf_icon.png"),
 		checkIcon: convertImageToHostedSrc("check_icon.png"),
-    appleWalletButton:  convertImageToHostedSrc("add-to-apple-wallet-button-576x178.png"),
+    appleWalletButton:  convertImageToHostedSrc("add-to-apple-wallet-button.png"),
     appleWalletPassUrl: dest_environment + "wallet/pass",
 		websiteLink: dest_environment,
 		gaTrackingId: google_analytics_trackingId,
