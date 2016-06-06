@@ -9,6 +9,7 @@
     "dev": "supervisor --watch 'server.js,webpack.config.js' node server.js",
     "generate_emails": "node generate_emails.js",
     "test": "tape \"test/unit/*.js\" | faucet",
+    "webpack": "webpack",
     "cross-browser-test": "tape \"test/ui/loginAndBookAppointment.js\"",
     "old-browser-test": "tape \"test/ui/loginAndBookAppointment_oldBrowsers.js\"",
     "nojs-browser-test": "tape \"test/ui/loginAndBookAppointment_noJSFirefox.js\"",
