@@ -94,10 +94,10 @@ casper.waitForSelector('[class*="DateCell Calendar-date--unavailable  date-20"]'
   });
 });
 
-casper.waitForSelector('#submitLogin', function() {
+casper.waitForSelector('#submitCalendar', function() {
   this.echo('Calendar - submit');
   this.capture(captureDirectory + 'calendar-time.png');
-  this.click('#submitLogin');
+  this.click('#submitCalendar');
 });
 
 casper.waitForSelectorTextChange('h1', function() {

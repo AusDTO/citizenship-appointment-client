@@ -62,13 +62,13 @@ test('should successfully login and book appointment using the flow without Java
         client.click(`[href*="${timeLink}"]`)
       })
       .timeouts('page load',30000)
-      .waitForExist('.SelectionConfirmation-button', 30000)
+      .waitForExist('#submitCalendar', 30000)
       .getTitle()
       .then((title) => {
         assert.equal(title, 'Australian Government - Citizenship Appointment Booking Calendar - Confirm selection');
       })
       //Go to selection page
-      .click('.SelectionConfirmation-button')
+      .click('#submitCalendar')
       .timeouts('page load',30000)
       .getTitle()
       .then((title) => {

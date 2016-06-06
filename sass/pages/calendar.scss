@@ -278,13 +278,17 @@
 
 .AvailableTimesCell {
     padding: 0;
+    text-align: center;
+    padding-bottom: 20px;
 }
 
 .AppointmentTimes-table {
     margin-top: 1rem;
     display: table;
     text-align: center;
-    width: 100%;
+    max-width: 715px;
+    margin-right: auto;
+    margin-left: auto;
 }
 
 .AppointmentTimes-list--item {
@@ -292,9 +296,10 @@
     text-align: center;
     float: left;
     line-height: 40px;
-    width: 14.28571%;
     min-height: 40px;
-    min-width: 117px;
+    min-width: 110px;
+    margin: 4px;
+    border: 1px solid $available-times-border;
 }
 
 .AppointmentTimes-list--item.is-active {
@@ -349,18 +354,17 @@
 //––––––––––––––––––––––––––––––––––––––––––––––––––
 
 .SelectionConfirmationCell {
-    padding: 1rem;
+    padding: 20px 0;
     font-size: 1.5em;
     text-align: center;
     border-bottom: 1px solid;
 }
 
 .SelectionConfirmation-button {
-    margin-top: 1rem;
+    padding-top: 20px;
 }
 
 .SelectionConfirmation-label {
-    padding-right: 1rem;
     display: inline-block;
 }
 

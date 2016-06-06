@@ -1,8 +1,21 @@
-<span class="visuallyhidden">You have selected: </span>
-<span class="SelectionConfirmation-label">{{display_date}}, </span>
-<span class="SelectionConfirmation-label">{{display_time}} {{ampm}}</span>
-<span class="visuallyhidden">{{year}} </span>
-<input type="hidden" name="selected_appointment" value="{{selected_appointment}}"/>
-<button type="submit" class="button with-icon SelectionConfirmation-button" id="submitLogin" aria-label="Press the button to book an appointment for {{display_date}}, {{display_time}} {{ampm}} {{year}}" tabindex="{{tabindex}}">
-    <span>Confirm</span><img src="/images/angle-right-white.svg" width="15" onerror="this.src='/images/angle-right-white.png';"  class="button-icon" alt ="" role="presentation"/>
-</button>
+<span class="visuallyhidden">
+    You have selected:
+</span>
+<span class="SelectionConfirmation-label">
+    {{display_date}},
+</span>
+<span class="SelectionConfirmation-label">
+    {{display_time}} {{ampm}}
+</span>
+<span class="visuallyhidden">
+    {{year}}
+</span>
+<div class="SelectionConfirmation-button">
+    <input type="hidden" name="selected_appointment" value="{{selected_appointment}}"/>
+    <button type="submit" class="button with-icon" id="submitCalendar" aria-label="Press the button to book an appointment for {{display_date}}, {{display_time}} {{ampm}} {{year}}" tabindex="{{tabindex}}">
+        <span>
+            Confirm appointment
+        </span>
+        <img src="/images/angle-right-white.svg" width="15" onerror="this.src='/images/angle-right-white.png';"  class="button-icon" alt ="" role="presentation"/>
+    </button>
+</div>
