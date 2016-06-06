@@ -6,6 +6,10 @@ The server code can be found in this repository: [AusDTO/citizenship-appointment
 
 ## Instructions
 
+### Prerequisites
+
+NodeJS version 5+
+
 ### Running the application
 
 To simply run the application:
