@@ -83,7 +83,7 @@ casper.waitForSelector('[class*="DateCell Calendar-date--unavailable  date-20"]'
     var dateLink = nextMonthCells[0].match(/\d{4}-\d{2}-\d{2}/);
     this.echo('Calendar - selecting ' + dateLink);
 
-    var availableTimesSelector = '[class="AvailableTimes date-' + dateLink + '"] a.AppointmentLink';
+    var availableTimesSelector = '.AvailableTimes.date-' + dateLink + ' a.AppointmentLink';
     this.click('a[class="DateCell-content--datelink date-'+ dateLink + '"]');
     this.waitForSelector(availableTimesSelector, function(){
       this.echo('Calendar - available times opened ');
