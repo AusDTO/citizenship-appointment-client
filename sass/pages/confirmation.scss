@@ -1,3 +1,90 @@
+.Confirmation-check-icon {
+    height: 35px;
+    vertical-align: middle;
+}
+
+.smaller-icon {
+    height: 2rem;
+}
+
+.barcode-image {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    max-width: 250px;
+}
+
+.Confirmation-details--appt-date, .Confirmation-details--appt-time {
+    display: inline-block;
+}
+
+.Confirmation-details--ticket {
+    width: 50%;
+    float: right;
+    text-align: center;
+}
+
+.Confirmation-details--barcode, .Confirmation-details--wallet {
+    background-color: white;
+    width: 100%;
+    border: 1px solid $some-grey;
+}
+
+.Confirmation-details--barcode {
+    padding: 10px 20px;
+}
+
+.Confirmation-details--wallet {
+    border-top: 0;
+    padding: 10px;
+}
+
+.Apple-wallet--link:hover {
+    outline: none;
+}
+
+.Apple-wallet--button {
+    height: 48px;
+    margin: 4.8px;
+}
+
+.Confirmation-message {
+    padding-top: 10px;
+    padding-bottom: 20px;
+}
+
+.Confirmation-details {
+    background-color: $grey-div-bgcolor;
+    padding: 20px;
+}
+
+.Confirmation-details--info {
+    padding: 10px;
+    padding-right: 20px;
+    width: 50%;
+}
+
+.Confirmation-details--info p {
+    padding: 0;
+    margin-bottom: 20px;
+}
+
+.Confirmation-details--appt {
+    font-size: 2.5rem;
+}
+
+.Confirmation-details--appt-label, .Confirmation-details--location-label {
+    font-weight: bold;
+}
+
+.bullet-list li {
+    padding-bottom: 20px;
+}
+
+.Confirmation-details--barcode, .Confirmation-details--info {
+    display: inline-block;
+}
+
+
 .subtitle {
   line-height: 1.25;
   letter-spacing:0.05rem;
@@ -14,31 +101,19 @@
 	padding-top: 2.5rem;
 }
 
-.barcode-frame {
-	text-align: center;
-	margin-bottom: 1rem;
-}
-
 .barcode-text {
-	font-style: italic;
-	font-size: 1.2rem;
-	line-height: 1.5rem;
+	// font-style: italic;
+	// font-size: 1.2rem;
+	// line-height: 1.5rem;
 }
 
-.add-to-wallet-frame {
-    text-align: center;
-    margin-top: 1.5rem;
+.light-bottom-line {
+    border-bottom: 1px solid $some-grey;
 }
 
-.add-to-wallet-link {
-    vertical-align: middle;
-    outline: none;
-    color: transparent;
-}
-
-.add-to-wallet-link:hover, .add-to-wallet-link:focus, .add-to-wallet-link:active {
-    outline: none;
-	color: transparent;
+.Confirmation-more-info {
+    padding: 20px;
+    padding-top: 0;
 }
 
 .strong-top-line {
@@ -82,7 +157,7 @@
     list-style: none;
     min-width: 23.6rem;
     background-color: white;
-    border: 1px solid $input-border;
+    border: 1px solid $some-grey;
     position: absolute;
 	left: -9999px;
 	opacity: 0;
@@ -110,7 +185,7 @@
 .dropdown button:focus > a,
 .dropdown button:hover > a,
 .dropdown button:active > a {
-	background: $hover-li-color;
+	// background: $hover-li-color;
 }
 
 .dropdown > a:hover,
@@ -118,7 +193,7 @@
 .dropdown:focus > a,
 .dropdown:hover > a,
 .dropdown:active > a{
-	background: $hover-li-color;
+	// background: $hover-li-color;
 }
 
 .dropdown li > a:hover,
@@ -126,7 +201,7 @@
 .dropdown button:hover > a,
 .dropdown > a:hover,
 .dropdown:hover > a{
-	outline: none;
+	// outline: none;
 }
 
 .dropdown li > a:hover:focus,
@@ -134,7 +209,7 @@
 .dropdown button:hover:focus > a,
 .dropdown > a:hover:focus,
 .dropdown:hover:focus > a{
-	outline: medium solid $focus-outline;
+	// outline: medium solid $focus-outline;
 }
 
 .dropdown:hover ul,
@@ -173,14 +248,9 @@
 
 //END: Add to calendar dropdown
 
-.button#addToCalendar,
-.button#print-page {
-    min-width: 23.6rem;
-}
-
-.button#print-page {
-    display: none;
-}
+// .button#print-page {
+//     display: none;
+// }
 
 // BEGIN: mobile media query
 
@@ -199,6 +269,21 @@
     }
 
     .dropdown ul {
+        width: 100%;
+    }
+
+    .Confirmation-details--info {
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    .button#print-page {
+        display: none;
+    }
+}
+
+@media (max-width: 775px) {
+    .Confirmation-details--ticket,.Confirmation-details--info {
         width: 100%;
     }
 }

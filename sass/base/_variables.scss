@@ -5,7 +5,7 @@
 $base-font-family: 'Open Sans', 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif !default;
 $base-font-size: 16px;
 $base-font-weight: normal;
-$base-line-height: 24px;
+$base-line-height: 1.5em;
 
 $au-gov-font-family: 'Times New Roman', Times, serif;
 $au-gov-font-weight: bold;
@@ -18,6 +18,7 @@ $font-color: #000000;
 $background-grey: #E8E8E8;
 $input-border: #232D35;
 $grey-div-bgcolor: #F0F3F5;
+$some-grey: #E7E2E2;
 
 $available-color: #D1EAFB;
 $cookies-background-color: #D1EAFB;
@@ -31,13 +32,13 @@ $error-color: #E31C3D;
 $error-bgcolor: #F9DEDE;
 
 //Button default state, focus, link color
-$primary: #0078C6;
-$link-text: #0078C6;
+$primary: #0F65C8;
+$link-text: #0F65C8;
 
 //Button hover, hover outline
-$primary-hover: #004AA4;
-$hover-outline: #004AA4;
-$hover-link-text: #004AA4;
+$primary-hover: #034ea2;
+$hover-outline: #034ea2;
+$hover-link-text: #034ea2;
 
 $focus-outline: #FDB42B;
 $hover-li-color: #F1F1F1;

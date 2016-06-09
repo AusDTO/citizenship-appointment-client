@@ -89,6 +89,11 @@ ul li {
     padding-right: 0.5rem;
 }
 
+.inline-block {
+    display: inline-block;
+    vertical-align: middle;
+}
+
 @media (max-width: 550px) {
     .MainContainer {
         padding-bottom: 41rem; /* height of your footer */

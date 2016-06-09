@@ -29,12 +29,18 @@
 		display: none;
 	}
 
-	.button {
+	.button, #calendarOptions, .Confirmation-details--wallet {
 		display: none !important;
 	}
 
-	#calendarOptions {
-		display: none;
+	.Confirmation-details {
+		padding-top: 0;
+		margin-top: 0;
+	}
+
+	.Confirmation-message {
+		padding-bottom: 0;
+		margin-bottom: 0;
 	}
 
 	.container.last{
