@@ -3,14 +3,14 @@
     {{> day_template}}
     {{#available_times_count}}
     {{#bookable}}
-    <div class="AvailableTimes date-{{date}} hide">
-        <div class="AvailableTimesCell date-{{date}}" colspan="7">
+    <div class="appointment-section date-{{date}} row-section hide">
+        <div class="appointment-content row-content date-{{date}}">
             {{> times_template}}
         </div>
     </div>
-    <div class="SelectionConfirmation date-{{date}} hide" role="status" aria-live="assertive">
-        <div class="SelectionConfirmationCell date-{{date}}"></div>
-        </div>
+    <div class="selected-appointment-section date-{{date}} row-section hide" role="status" aria-live="assertive">
+        <div class="selected-appointment-content row-content date-{{date}}"></div>
+    </div>
     {{/bookable}}
     {{/available_times_count}}
     {{/days}}

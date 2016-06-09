@@ -1,88 +1,100 @@
-{{> html_base_premain_pretitle }}
-    <title>Australian Government - Citizenship Appointment Booking</title>
-{{> html_base_premain_posttitle}}
-<div class="container">
-  <h1>Citizenship appointments</h1>
-  <h2 class="steps-info">Step 1 of 3: Log in using your client ID and family name</h2>
+{{> premain }}
+<main>
+    <div class="container main-container">
+        <h1>Citizenship appointments</h1>
+        <h2 class="steps-info">Step 1 of 3: Log in using your client ID and family name</h2>
 
-    {{#error}}
-    <div class="error-div" role="alert">
-      <img class="error-icon" src="/images/warning.svg" width="15" alt="" onerror="this.src='/images/warning.png';">
-      <span class="error-message">
-        Incorrect client ID and/or family name provided.
-        Please check your details and try again.
-        If the issue persists, please call 1300 729 080
-      </span>
-    </div>
-    {{/error}}
-
-    {{#system_error}}
-    <div class="error-div" role="alert">
-      <img class="error-icon" src="/images/warning.svg" width="15" alt="" onerror="this.src='/images/warning.png';">
-      <span class="error-message">
-        An error occurred. Please try again in a few minutes.
-      </span>
-    </div>
-    {{/system_error }}
-
-    {{#expired}}
-    <div class="error-div" role="alert">
-      <img class="error-icon" src="/images/warning.svg" width="15" alt="" onerror="this.src='/images/warning.png';">
-      <span class="error-message">
-        Your session has expired.
-        This happens when a page has been left open for over 30 minutes.
-        All the details you entered have been cleared to keep your information safe.
-        Please log in again.
-      </span>
-    </div>
-    {{/expired}}
-
-    <form class="LoginForm" action="/login" method="post" autocomplete="off" id="loginForm">
-        <div class="LoginForm-elements">
-            <div class="LoginForm-input">
-                <label for="clientId">Client ID</label>
-                <input class="LoginForm-input--clientId" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" id="clientId" maxlength="11" type="text" name="username" {{#clientId}}value="{{clientId}}"{{/clientId}} aria-required="true" required pattern="[0-9]{11}" placeholder="Enter your 11 digit Client ID"/>
-                <div>
-                    <span class="validation-error inactive" id="clientId-required" aria-live="polite" role="alert">Client ID is required</span>
-                    <span class="validation-error inactive" id="clientId-pattern" aria-live="polite" role="alert">Client ID should contain 11 digits only</span>
-                </div>
-            </div>
-            <div class="ClientIdHelp">
-                <div class="ClientIdHelp-collapsed">
-                    <div class="ClientIdHelp-link">
-                        <a href="#help" name="nohelp" class="ClientIdHelp-show--link">Show how to find your client ID</a>
-                    </div>
-                </div>
-                <div class="ClientIdHelp-expanded">
-                    <div class="ClientIdHelp-link">
-                        <a href="#nohelp" name="help" class="ClientIdHelp-hide--link">Hide how to find your client ID</a>
-                    </div>
-                    <img src="/images/client_id_help.png" width="525" class="ClientIdHelp-image" alt="Example showing where to find your client ID in correspendence from the department.
-
-                    The client ID is an eleven digit number that was assigned to you when you lodged your citizenship application.
-
-                    Your client ID would have been included in any correspondence you would have received from the department regarding your citizenship application."/>
-                </div>
-            </div>
-            <script async src="/static/scriptselect/login_helpimage.js" charset="utf-8"></script>
-            <div class="LoginForm-Secondrow">
-                <div class="LoginForm-input">
-                    <label for="familyName">Family name</label>
-                    <input id="familyName" autocomplete="off" autocorrect="off" spellcheck="false" type="text" name="familyName" aria-required="true" required maxlength="200"/>
-                    <div>
-                        <span class="validation-error inactive" id="familyName-required" aria-live="polite" role="alert">Family name is required</span>
-                    </div>
-                </div>
-                <div class="LoginForm-input">
-                    <span class="desktop-only" aria-hidden="true">&nbsp;</span>
-                    <button type="submit" class="button with-icon" id="submitLogin" aria-label="Press to log in to the booking system">
-                        <span>Log in</span><img src="/images/angle-right-white.svg" width="20" onerror="this.src='/images/angle-right-white.png';" class="button-icon" alt =""/>
-                    </button>
-                </div>
-            </div>
+        {{#error}}
+        <div class="error-div" role="alert">
+            <img class="error-icon" src="/images/warning.svg" alt="" onerror="this.src='/images/warning.png';">
+            <span class="error-message">
+                Incorrect client ID and/or family name provided.
+                Please check your details and try again.
+                If the issue persists, please call 1300 729 080
+            </span>
         </div>
-    </form>
-</div>
+        {{/error}}
+
+        {{#system_error}}
+        <div class="error-div" role="alert">
+            <img class="error-icon" src="/images/warning.svg" alt="" onerror="this.src='/images/warning.png';">
+            <span class="error-message">
+                An error occurred. Please try again in a few minutes.
+            </span>
+        </div>
+        {{/system_error }}
+
+        {{#expired}}
+        <div class="error-div" role="alert">
+            <img class="error-icon" src="/images/warning.svg" alt="" onerror="this.src='/images/warning.png';">
+            <span class="error-message">
+                Your session has expired.
+                This happens when a page has been left open for over 30 minutes.
+                All the details you entered have been cleared to keep your information safe.
+                Please log in again.
+            </span>
+        </div>
+        {{/expired}}
+
+        <form class="login-form" action="/login" method="post" autocomplete="off" id="loginForm">
+            <div class="inline-form-group">
+                <div><label for="clientId">
+                    Client ID
+                </label></div>
+                <input autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" id="clientId" maxlength="11" type="text" name="username" {{#clientId}}value="{{clientId}}"{{/clientId}} aria-required="true" required pattern="[0-9]{11}" placeholder="Enter your 11 digit client ID"/>
+                <div><span class="validation-error inactive" id="clientId-required" aria-live="polite" role="alert">Client ID is required</span></div>
+                <div><span class="validation-error inactive" id="clientId-pattern" aria-live="polite" role="alert">Client ID should contain 11 digits only</span></div>
+            </div>
+
+            <!--[if lte IE 8]>
+            <div class="client-id-help">
+                <div class="client-id-help-text">
+                    <p>
+                        The client ID is an eleven digit number that was assigned to you when you lodged your citizenship application.
+                    </p>
+                    <p>
+                        Your client ID would have been included in any correspondence you would have received from the department regarding your citizenship application.
+                    </p>
+                </div>
+            </div>
+            <![endif]-->
+            <![if !IE]>
+            <div class="client-id-help">
+                <div class="client-id-help-link">
+                    <a href="#help" name="nohelp" class="client-id-help-show--link">Show how to find your client ID</a>
+                </div>
+                <div class="client-id-help-link hidden">
+                    <a href="#nohelp" name="help" class="client-id-help-hide--link">Hide how to find your client ID</a>
+                    <div class="client-id-help-text">
+                        <p>
+                            The client ID is an eleven digit number that was assigned to you when you lodged your citizenship application.
+                        </p>
+                        <p>
+                            Your client ID would have been included in any correspondence you would have received from the department regarding your citizenship application.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <![endif]>
+
+
+            <div class="inline-form-group">
+                <div><label for="familyName">
+                    Family name
+                </label></div>
+                <input id="familyName" autocomplete="off" autocorrect="off" spellcheck="false" type="text" name="familyName" aria-required="true" required maxlength="200"/>
+                <div><span class="validation-error inactive" id="familyName-required" aria-live="polite" role="alert">Family name is required</span></div>
+            </div>
+
+            <div class="inline-form-group">
+                <div><span role="presentation">&nbsp;</span></div>
+                <button type="submit" class="button-with-icon" id="submitLogin" aria-label="Press to log in to the booking system">
+                    <span>Log in</span><img src="/images/angle-right-white.svg" onerror="this.src='/images/angle-right-white.png';" class="icon" alt =""/>
+                </button>
+            </div>
+        </form>
+    </div>
+</main>
 <script src='/analytics_basic.js'></script>
 <script src="/static/scriptselect/login_scriptselect.js" charset="utf-8"></script>
-{{> html_base_postmain_with_cookies }}
+{{> postmain }}

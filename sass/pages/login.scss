@@ -1,133 +1,55 @@
-.ClientIdHelp-show,
-.ClientIdHelp-hide {
-    margin-bottom: 1rem;
-    display: block;
-}
-
-.ClientIdHelp {
-    float: left;
-    width: 100%;
-    margin-bottom: 2rem;
-}
-
-.ClientIdHelp-collapsed {
-    display: none;
-}
-
-.ClientIdHelp-expanded {
-    display: block;
-}
-
-.ClientIdHelp.collapsed {
-    .ClientIdHelp-collapsed {
-        display: block;
-    }
-
-    .ClientIdHelp-expanded {
-        display: none;
-    }
-}
-
-.ClientIdHelp.expanded {
-    .ClientIdHelp-collapsed {
-        display: none;
-    }
-
-    .ClientIdHelp-expanded {
-        display: block;
-    }
-}
-
-.ClientIdHelp-image {
-    max-width: 52.5rem;
-    margin-top: 2rem;
-}
-
-.LoginForm-elements{
-    display: block;
-}
-
-.LoginForm-input {
+.login-form {
+  .inline-form-group {
     display: inline-block;
     vertical-align: top;
-}
+    margin-right: 10px;
 
-.LoginForm-input input.invalid {
-    border: 2px solid $error-color;
-}
-
-.LoginForm-input {
-    display: inline-block;
-    margin-right: 2rem;
-    vertical-align: top;
-}
-
-.LoginForm-input > * {
-    margin-bottom: .5rem;
-}
-
-.LoginForm-Secondrow {
-    display: inline-block;
-}
-
-// Responsive Styles (Mobile)
-//––––––––––––––––––––––––––––––––––––––––––––––––––
-
-.desktop-only {
-    display: block;
-}
-
-@media (max-width: 550px) {
-    .ClientIdHelp-image {
-        width: 100%;
+    &:last-child {
+      margin-right: 0;
     }
 
-    .LoginForm-elements {
-        display: block;
+    @include media($mobile) {
+      @include span-columns(1);
+
+      input, button {
+        margin-top: 20px;
+      }
     }
-
-    .LoginForm-input {
-        display: block;
-    }
-
-    .desktop-only {
-        display: none;
-    }
-
-    .LoginForm-Secondrow{
-        display: block;
-    }
-}
-
-@media (max-width: 844px) {
-    .LoginForm-input > * {
-        margin-bottom: 1.5rem;
-    }
-
-    .LoginForm-input--clientId {
-        margin-bottom: .5rem;
-    }
-}
-
-.button-icon {
-    width: 2.5rem;
-    height: 2.5rem;
-    vertical-align: middle;
-}
-
-button.with-icon > img,
-button.with-icon > span {
-  vertical-align: middle;
-}
-
-button.with-icon {
-    padding: 0 1.5rem 0 2rem;
+  }
 }
 
 .validation-error{
-    color: $error-color;
+  color: $red;
 }
 
+// TODO: reduce duplicated logic, eg .hidden, .inactive
 .inactive {
-    display: none;
+  display: none;
+}
+
+.client-id-help {
+  float: left;
+  width: 100%;
+
+  .client-id-help-link {
+    margin-top: 10px;
+    margin-bottom: 20px;
+  }
+
+  .client-id-help-text {
+    margin-top: 20px;
+  }
+}
+
+.client-id-help-text {
+  background: $light-grey;
+  padding: 0 10px;
+  width: 55ch;
+  border: 1px solid $mid-grey;
+
+  @include media($mobile) {
+    width: 100%;
+    padding-left: 5px;
+    padding-right: 5px;
+  }
 }

@@ -1,50 +1,58 @@
-{{> html_base_premain_pretitle }}
-    <title>Australian Government - Citizenship Appointment Booking Calendar - Select date</title>
-{{> html_base_premain_posttitle}}
+{{> premain }}
+<main>
+    <div class="container main-container">
+        <h1>Available appointments</h1>
+        <h2 class="steps-info">Step 2 of 3: Select date, then time</h2>
+        {{#error}}
+        <div class="error-div" role="alert">
+            <img class="error-icon" src="/images/warning.svg" width="15" alt="" onerror="this.src='/images/warning.png';">
+            <span class="error-message">
+                There was an error processing your request.
+                Your appointment was not booked.
+                Please try again.
+            </span>
+        </div>
+        {{/error}}
+        {{#unavailable}}
+        <div class="error-div" role="alert">
+            <img class="error-icon" src="/images/warning.svg" width="15" alt="" onerror="this.src='/images/warning.png';">
+            <span class="error-message">
+                Sorry, the slot is no longer available. Please select a different date and time.
+            </span>
+        </div>
+        {{/unavailable}}
+        {{#not_eligible}}
+        <div class="error-div" role="alert">
+            <img class="error-icon" src="/images/warning.svg" width="15" alt="" onerror="this.src='/images/warning.png';">
+            <span class="error-message">
+                Sorry, you are not eligible to book an appointment. If you think it is a mistake, please call 1300 729 080.
+            </span>
+        </div>
+        {{/not_eligible}}
 
-<div class="container calendar-page--main">
-    <a href="/logout" class="logout-link">Log out</a>
-    <h1>Available appointments</h1>
-    <h2 class="steps-info">Step 2 of 3: Select date, then time</h2>
+        <div class="appointment-location">
+            <img src="/images/map-marker.svg" onerror="this.src='/images/map-marker.png';" class="inline-icon" alt ="" role="presentation"/><span class="text-label">Appointment location: </span> <a href="https://www.google.com.au/maps?daddr={{locationURL}}" target="_blank" aria-label="{{ location }} Press to open google maps to see directions" tabindex="1">{{ location }} (map)</a>
+        </div>
 
-    {{#error}}
-    <div class="error-div" role="alert">
-        There was an error processing your request. Your appointment was not booked. Please try again.
-    </div>
-    {{/error}}
-    {{#unavailable}}
-    <div class="error-div" role="alert">
-        Sorry, the slot is no longer available. Please select a different date and time.
-    </div>
-    {{/unavailable}}
-
-    <div class="Calendar-info">
-        <div class="Calendar-info--field">
-            <img src="/images/map-marker.svg" width="15" onerror="this.src='/images/map-marker.png';" class="icon" alt ="" role="presentation"/>
-            <span class="field-attribute icon-label">Appointment location:</span>
-            <span class="field-value"><a href="https://www.google.com.au/maps?daddr={{locationURL}}" target="_blank" aria-label="{{ location }} Press to open google maps to see directions" tabindex="1">{{ location }} (map)</a></span>
+        <div class="calendar" id="calendar">
+            <ul>
+                {{#available_dates}}
+                <li>
+                    <a href="/calendar/text/{{id}}">{{displayDate}}, {{availableTimesCount}} available appointments</a>
+                </li>
+                {{/available_dates}}
+            </ul>
+            {{^available_dates}}
+            <div class="no-available-dates">
+                <p>
+                    It seems there are no available appointments. The management has been notified. Please try again in 24 hours.
+                </p>
+                <a href="/logout" class="button log-out" tabindex="1">Log out</a>
+            </div>
+            {{/available_dates}}
         </div>
     </div>
-    <div class="Calendars">
-        <ul>
-        {{#available_dates}}
-            <li>
-                <a href="/calendar/text/{{id}}">
-                    {{displayDate}}, {{availableTimesCount}} available appointments
-                </a>
-            </li>
-        {{/available_dates}}
-        </ul>
-        {{^available_dates}}
-          <div class="no-available-dates">
-            <p>It seems there are no available appointments. The management has been notified. Please try again in 24 hours.</p>
-           <a href="/logout" class="button log-out" tabindex="1">
-              Log out
-            </a>
-            </div>
-        {{/available_dates}}
-    </div>
-</div>
+</main>
 <script src='/analytics_auth.js'></script>
 <script src="/static/oldJS/calendar_old.js" charset="utf-8"></script>
-{{> html_base_postmain }}
+{{> postmain }}

@@ -13,7 +13,7 @@ test('should successfully login and book appointment using the flow with limited
       .url(client.baseUrl)
       .getTitle()
       .then((title) => {
-        assert.equal(title, 'Australian Government - Citizenship Appointment Booking');
+        assert.equal(title, 'Australian Government - Citizenship Appointment Booking - Login');
       })
       .setValue('#clientId', '99999999999')
       .setValue('#familyName', 'Family-Name')
@@ -23,7 +23,7 @@ test('should successfully login and book appointment using the flow with limited
       .waitForExist('[href*="/calendar/text/"]', 30000)
       .getTitle()
       .then((title) => {
-        assert.equal(title, 'Australian Government - Citizenship Appointment Booking Calendar - Select date');
+        assert.equal(title, 'Australian Government - Citizenship Appointment Booking - Select Date');
       })
       // Go to times page
       .click('[href*="/calendar/text/"]')
@@ -31,7 +31,7 @@ test('should successfully login and book appointment using the flow with limited
       .waitForExist('[href*="/calendar/text/20"]', 30000)
       .getTitle()
       .then((title) => {
-        assert.equal(title, 'Australian Government - Citizenship Appointment Booking Calendar - Select time');
+        assert.equal(title, 'Australian Government - Citizenship Appointment Booking - Select Time');
       })
       //Go to selection confirmation
       .getAttribute('[href*="/calendar/text/20"]', 'href').then(function(links){
@@ -42,20 +42,20 @@ test('should successfully login and book appointment using the flow with limited
       .waitForExist('#submitCalendar', 30000)
       .getTitle()
       .then((title) => {
-        assert.equal(title, 'Australian Government - Citizenship Appointment Booking Calendar - Confirm selection');
+        assert.equal(title, 'Australian Government - Citizenship Appointment Booking - Confirm Selection');
       })
       //Go to confirmation page
       .click('#submitCalendar')
       .timeouts('page load',30000)
       .getTitle()
       .then((title) => {
-        assert.equal(title, 'Australian Government - Citizenship Appointment Booking Confirmation');
+        assert.equal(title, 'Australian Government - Citizenship Appointment Booking - Appointment Confirmation');
       })
       .click('.logout-link')
       .timeouts('page load',30000)
       .getTitle()
       .then((title) => {
-        assert.equal(title, 'Australian Government - Citizenship Appointment Booking');
+        assert.equal(title, 'Australian Government - Citizenship Appointment Booking - Login');
       })
       .end();
 });

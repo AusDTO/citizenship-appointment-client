@@ -1,0 +1,25 @@
+// Calendar Legend
+//––––––––––––––––––––––––––––––––––––––––––––––––––
+
+.calendar-legend {
+  * {
+    vertical-align: middle;
+  }
+
+  .legend-label {
+    margin-left: em(5);
+    margin-right: em(10);
+  }
+
+  .legend-available {
+    display: inline-block;
+    background: $sky-blue;
+    width: 3rem;
+    height: 1.5rem;
+  }
+
+  .legend-unavailable {
+    @extend .legend-available;
+    background: url('../images/unavailable_tile.png');
+  }
+}

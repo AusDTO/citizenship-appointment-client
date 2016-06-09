@@ -7,12 +7,12 @@
   Please Wait
 </div>
 {{/times}}
-<div class="AppointmentTimes-table" role="group">
+<div class="appointment-list" role="group">
     {{#times}}
-    <div class="AppointmentTimes-list--item datetime-{{timeClass}}">
-        <a class="AppointmentLink" href="#time/{{datetime}}" tabindex="{{tabindex}}" aria-label="select {{aria_display_time}}">
-            <span class="AppointmentLink-time">{{display_time}}</span>
-            <span class="AppointmentLink-ampm">{{ampm}}</span>
+    <div class="appointment-list-item datetime-{{timeClass}}">
+        <a class="appointment-link" href="#time/{{datetime}}" tabindex="{{tabindex}}" aria-label="select {{aria_display_time}}">
+            <span class="appointment-datetime">{{display_time}}</span>
+            <span class="appointment-ampm">{{ampm}}</span>
         </a>
     </div>
     {{/times}}

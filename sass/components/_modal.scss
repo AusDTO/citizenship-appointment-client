@@ -1,50 +1,58 @@
-.modalDialog-bg {
+.modal-bg {
 	position: absolute;
 	top: 0;
 	right: 0;
 	bottom: 0;
 	left: 0;
-
 	z-index: -1;
+	height: 100%;
+	width: 100%;
 	display: none;
 }
 
-.modalDialog-bg--display {
+.modal-bg--display {
 	display: block;
 	z-index: 1;
 	background: rgba(0,0,0,0.2);
 	pointer-events: none;
+	position: fixed;
+	top: 50vh;
+	left: 50vw;
+	transform: translate(-50%, -50%);
 }
 
-.modalDialog-bg:target {
+.modal-bg:target {
 	opacity: 1;
 	pointer-events: auto;
 }
 
-.modalDialog {
+.modal-div {
 	position: relative;
 	height: 100vh;
 	width: 100vw;
 }
 
-.modalDialog-content {
+.modal-div-content {
 	position: fixed;
 	top: 50vh;
 	left: 50vw;
 	transform: translate(-50%, -50%);
 
 	padding: 1rem;
+	text-align: center;
+	background: $white;
 
-  	text-align: center;
-	background: white;
+	@include media($tablet) {
+		width: 95vw;
+	}
 }
 
-.modalDialog-content--stuff {
-	padding: 1rem 3.5rem;
-}
-
-.modalDialog-content--stuff.add-to-wallet-modal-content {
+.add-to-wallet-modal-content {
 	text-align: left;
+
+	h1 {
+		text-align: center;
+	}
 }
 
 .add-to-wallet-barcode {
@@ -53,16 +61,10 @@
 
 .close {
 	float: right;
-}
 
-.modalDialog-bg h2 {
-	margin: 0 0 0.5rem 0;
-}
-
-@media (max-width: 1024px) {
-	.modalDialog {
-			.button, input.button {
-	        width: 100%;
-	    }
-		}
+	img.icon {
+		padding: em(10);
+		width: em(40);
+		height: em(40);
+	}
 }

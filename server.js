@@ -49,7 +49,7 @@ if (process.env.NODE_ENV !== 'production') {
     src: path.join(__dirname, 'sass'),
     dest: path.join(__dirname, 'dist'),
     debug: true,
-    outputStyle: 'nested',
+    outputStyle: 'compressed',
     sourceMap: path.join(__dirname, 'dist', 'bundle.css.map'),
     prefix: publicPath
   }));
@@ -85,7 +85,9 @@ app.get('/login', (req, res) => {
     error: req.query.error,
     expired: req.query.expired,
     system_error: req.query.system_error,
-    clientId: req.query.id
+    clientId: req.query.id,
+    page_name: 'Login',
+    is_login_page: true
   });
 });
 
@@ -107,7 +109,10 @@ app.get('/calendar', (req, res) => {
     _csrf: {
       token: "csrf-token",
       parameterName: "_csrf"
-    }
+    },
+    page_title: 'Citizenship Appointment Booking Calendar',
+    page_name: 'Calendar',
+    is_logged_in: true
   });
 });
 
@@ -135,6 +140,7 @@ app.get('/confirmation', (req, res) => {
 
   res.render('confirmation_page', {
     partials: extendObject({
+      apple_wallet_modal: 'partials/apple_wallet_modal',
       add_to_wallet_instructions: 'partials/add_to_wallet_instructions'
     }, getBaseHtmlPartials()),
     appointment_date,
@@ -147,7 +153,10 @@ app.get('/confirmation', (req, res) => {
     hasEmail: true,
     hasMobile: true,
     supportsWallet: supportsWallet(req.headers['user-agent']),
-    useWalletModal: !supportsWallet(req.headers['user-agent']) && !isMobile(req.headers['user-agent'])
+    useWalletModal: !supportsWallet(req.headers['user-agent']) && !isMobile(req.headers['user-agent']),
+    page_title: 'Citizenship Appointment Booking Confirmation',
+    page_name: 'Appointment Confirmation',
+    is_logged_in: true
   });
 });
 
@@ -166,39 +175,44 @@ app.get('/wallet/pass/barcode', (req, res) => {
       add_to_wallet_instructions: 'partials/add_to_wallet_instructions'
     }, getBaseHtmlPartials()),
     'clientId': '01234567890',
-    'customerId': '01234567890'
+    'customerId': '01234567890',
+    page_name: 'Add to Apple Wallet'
   });
 });
 
 app.get('/error', (req, res) => {
   res.render('error_page', {
     partials: getBaseHtmlPartials(),
-    expired: req.query.expired
+    expired: req.query.expired,
+    page_name: 'Error',
+    is_logged_in: false
   });
 });
 
 app.get('/session_timeout', (req, res) => {
   res.render('session_timeout', {
-    partials: getBaseHtmlPartials()
+    partials: getBaseHtmlPartials(),
+    page_name: 'Session Timeout',
+    is_logged_in: false
   });
 });
 
 app.get('/cookies', (req, res) => {
   res.render('cookies', {
-    partials: getBaseHtmlPartials()
+    partials: getBaseHtmlPartials(),
+    page_name: 'About Cookies'
   });
 });
 
 let getBaseHtmlPartials = function(){
   return {
-    html_base_premain_pretitle: 'partials/header/html_base_premain_pretitle',
-    html_base_premain_posttitle: 'partials/header/html_base_premain_posttitle',
-    html_base_postmain_with_cookies: 'partials/footer/html_base_postmain_with_cookies',
-    html_base_postmain: 'partials/footer/html_base_postmain',
+    premain: 'partials/header/premain',
+    postmain: 'partials/footer/postmain',
+    postmain: 'partials/footer/postmain',
     header: 'partials/header/header',
     beta: 'partials/header/beta',
     feedback: 'partials/footer/feedback',
-    footer_links: 'partials/footer/footer_links',
+    footer: 'partials/footer/footer',
     oldbrowser_warning: 'partials/header/oldbrowser_warning',
     cookies_warning: 'partials/footer/cookies_warning'
   }
@@ -236,7 +250,9 @@ app.get('/calendar/text', (req, res) => {
     unavailable: req.query.unavailable,
     location,
     locationURL,
-    available_dates: dates
+    available_dates: dates,
+    page_name: 'Select Date',
+    is_logged_in: true
   });
 });
 
@@ -250,6 +266,8 @@ app.get('/calendar/text/:calendarId', (req, res) => {
     locationURL,
     display_date: "Wednesday, 12th January 2016",
     date: '2016-01-12',
+    page_name: 'Select Time',
+    is_logged_in: true,
     available_times: [ {
       time: "09:00",
       displayTime: "9:00 AM"
@@ -280,6 +298,8 @@ app.get('/calendar/text/:date/:time', (req, res) => {
     locationURL,
     display_appointment_datetime: "1:20 PM Wednesday, 12th January 2016",
     selected_appointment: "2016-01-12TT15:00:00",
+    page_name: 'Confirm Selection',
+    is_logged_in: true,
     _csrf: {
       token: "csrf-token",
       parameterName: "_csrf"
@@ -289,13 +309,12 @@ app.get('/calendar/text/:date/:time', (req, res) => {
 
 let getNoJSHtmlPartials = function(){
   return {
-    html_base_premain_pretitle: '../partials/header/html_base_premain_pretitle',
-    html_base_premain_posttitle: '../partials/header/html_base_premain_posttitle',
-    html_base_postmain: '../partials/footer/html_base_postmain',
+    premain: '../partials/header/premain',
+    postmain: '../partials/footer/postmain',
     header: '../partials/header/header',
     beta: '../partials/header/beta',
     feedback: '../partials/footer/feedback',
-    footer_links: '../partials/footer/footer_links',
+    footer: '../partials/footer/footer',
     oldbrowser_warning: '../partials/header/oldbrowser_warning',
     cookies_warning: '../partials/footer/cookies_warning'
   }

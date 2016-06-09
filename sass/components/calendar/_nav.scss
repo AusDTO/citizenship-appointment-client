@@ -1,0 +1,33 @@
+// Calendar Navigation
+//––––––––––––––––––––––––––––––––––––––––––––––––––
+
+.calendar-nav {
+  position: relative;
+  text-align: center;
+  line-height: 40px;
+}
+
+.calendar-nav-month {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.calendar-nav-next,
+.calendar-nav-prev {
+  position: absolute;
+  top: 0;
+  padding: 0 20px;
+}
+
+.calendar-nav-prev {
+  left: 0;
+}
+
+.calendar-nav-next {
+  right: 0;
+}
+
+.calendar-nav-button {
+  vertical-align: middle;
+  height: 25px;
+}

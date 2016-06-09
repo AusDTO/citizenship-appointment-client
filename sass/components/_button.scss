@@ -1,0 +1,92 @@
+$default-button-height: 48px;
+
+// a,
+// .button {
+//
+//   &:focus {
+//     outline: 3px solid $outline-focus-color;
+//   }
+// }
+
+// .button:focus,
+// .button:focus:hover,
+// input.button:focus,
+// input:focus,
+// input:active,
+// a:focus {
+//   outline: medium solid $outline-focus-color;
+// }
+
+a,
+.button,
+input {
+  &:hover {
+    outline: thin solid $outline-hover-color;
+  }
+}
+
+a {
+  color: $button-color;
+}
+
+%base-button {
+  border: 0;
+  height: $default-button-height;
+  cursor: pointer;
+  background: $button-color;
+  color: $button-font-color;
+  font-size: $base-font-size;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+button {
+  @extend %base-button;
+}
+
+.button {
+  @extend %base-button;
+
+  padding: 10px 20px;
+
+  &:hover {
+    background-color: $button-hover-color;
+    color: $button-font-color;
+  }
+
+  @include media($mobile) {
+    width: 100%;
+  }
+}
+
+a.button {
+  padding: 13px 20px;
+}
+
+.inline-button {
+  display: inline-block;
+  margin-right: 10px;
+  margin-top: 10px;
+
+  &:last-child {
+    margin-right: 0;
+  }
+
+  @include media($mobile) {
+    width: 100%;
+  }
+}
+
+.button-with-icon {
+  @extend .button;
+  padding-right: 10px;
+
+  * {
+    vertical-align: middle;
+  }
+
+  .icon {
+    width: 1.5em;
+    height: 1.5em;
+  }
+}

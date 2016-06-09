@@ -1,215 +1,112 @@
-.Confirmation-check-icon {
-    height: 35px;
-    vertical-align: middle;
+.appointment-confirmation {
+  @include span-columns(12);
+  background-color: $light-grey;
+  margin-top: 20px;
+  margin-bottom: 30px;
+
+  .button {
+    vertical-align: bottom;
+  }
 }
 
-.smaller-icon {
-    height: 2rem;
-}
+.appointment-detail {
+  @include span-columns(6 of 12);
 
-.barcode-image {
-    margin-top: 20px;
-    margin-bottom: 10px;
-    max-width: 250px;
-}
+  @include media($mobile) {
+    @include span-columns(1);
+  }
 
-.Confirmation-details--appt-date, .Confirmation-details--appt-time {
-    display: inline-block;
-}
+  padding: 20px;
 
-.Confirmation-details--ticket {
-    width: 50%;
-    float: right;
-    text-align: center;
-}
-
-.Confirmation-details--barcode, .Confirmation-details--wallet {
-    background-color: white;
-    width: 100%;
-    border: 1px solid $some-grey;
-}
-
-.Confirmation-details--barcode {
-    padding: 10px 20px;
-}
-
-.Confirmation-details--wallet {
-    border-top: 0;
-    padding: 10px;
-}
-
-.Apple-wallet--link:hover {
-    outline: none;
-}
-
-.Apple-wallet--button {
-    height: 48px;
-    margin: 4.8px;
-}
-
-.Confirmation-message {
-    padding-top: 10px;
-    padding-bottom: 20px;
-}
-
-.Confirmation-details {
-    background-color: $grey-div-bgcolor;
-    padding: 20px;
-}
-
-.Confirmation-details--info {
-    padding: 10px;
-    padding-right: 20px;
-    width: 50%;
-}
-
-.Confirmation-details--info p {
-    padding: 0;
-    margin-bottom: 20px;
-}
-
-.Confirmation-details--appt {
-    font-size: 2.5rem;
-}
-
-.Confirmation-details--appt-label, .Confirmation-details--location-label {
+  .appointment-type {
     font-weight: bold;
+    padding-top: 10px;
+  }
+
+  .appointment-date,
+  .appointment-time {
+    font-size: 30px;
+  }
+
+  > div {
+    padding-bottom: 20px
+  }
 }
 
-.bullet-list li {
+.barcode-frame,
+.apple-wallet-frame {
+  padding: 10px;
+  text-align: center;
+  background-color: $white;
+  border: 1px solid $mid-grey;
+}
+
+.barcode-frame {
+  * {
     padding-bottom: 20px;
+  }
 }
 
-.Confirmation-details--barcode, .Confirmation-details--info {
-    display: inline-block;
+.apple-wallet-frame {
+  border-top: 0;
+  padding-top: 20px;
+
+  .add-to-wallet-link:hover {
+    outline: none;
+  }
+  .apple-wallet-button {
+    height: 48px;
+  }
 }
 
+.appointment-info {
+  clear: left;
+  border-bottom: 1px solid $mid-grey;
 
-.subtitle {
-  line-height: 1.25;
-  letter-spacing:0.05rem;
-  font-size: 2rem;
-  text-align:left;
-  font-weight: 300;
+  &:last-child {
+    border: none;
+  }
 }
 
-.small-bottom-margin {
-	margin-bottom: 0.5rem;
+.bullet-list {
+  li {
+    padding-bottom: 20px;
+  }
 }
 
-.top-large-padding {
-	padding-top: 2.5rem;
-}
-
-.barcode-text {
-	// font-style: italic;
-	// font-size: 1.2rem;
-	// line-height: 1.5rem;
-}
-
-.light-bottom-line {
-    border-bottom: 1px solid $some-grey;
-}
-
-.Confirmation-more-info {
-    padding: 20px;
-    padding-top: 0;
-}
-
-.strong-top-line {
-	border-top :2px solid $font-color;
-	padding-top: 2rem;
-	margin-top: 2rem;
-}
-
-.grey-div {
-	padding: 0.1rem 1.5rem 1.5rem 1.5rem;
-	background-color: $grey-div-bgcolor;
-	margin-top: 0rem;
-	margin-bottom: 2rem;
-}
-
-.min-left-margin {
-	margin-left: 1%;
-}
-
-.disclaimer {
-	font-style: italic;
-}
-
-.container.last{
-	margin-bottom: 3rem;
-}
-
-.last-appt-details {
-	margin-bottom: 2.5rem;
+.button#print_page {
+  @include media($mobile) {
+    display: none;
+  }
 }
 
 //BEGIN: Add to calendar dropdown
 
 .dropdown {
-   	display: inline;
-   	float: left;
+ 	display: inline;
 	position: relative;
 }
 
 .dropdown ul {
-    list-style: none;
-    min-width: 23.6rem;
-    background-color: white;
-    border: 1px solid $some-grey;
-    position: absolute;
+  list-style: none;
+  width: 100%;
+  background-color: $body-bg-color;
+  border: 1px solid $mid-grey;
+  position: absolute;
 	left: -9999px;
 	opacity: 0;
 	transition: 0.1s linear opacity;
-	z-index:100;
-	margin-top: -1rem;
-	padding-left: 0rem;
-	margin-left: 0rem;
+	z-index: 100;
+  margin: 0;
+  padding: 0;
+
 }
 
-.dropdown li > a {
-	float: left;
-    padding: 0.2em 0.8em;
-    text-decoration: none;
-    background: $body-bgcolor;
-    color: $font-color;
-}
-
-.dropdown li > a:hover,
-.dropdown li > a:focus,
-.dropdown li > a:active,
-.dropdown li:focus > a,
-.dropdown li:hover > a,
-.dropdown li:active > a,
-.dropdown button:focus > a,
-.dropdown button:hover > a,
-.dropdown button:active > a {
-	// background: $hover-li-color;
-}
-
-.dropdown > a:hover,
-.dropdown > a:focus,
-.dropdown:focus > a,
-.dropdown:hover > a,
-.dropdown:active > a{
-	// background: $hover-li-color;
-}
-
-.dropdown li > a:hover,
-.dropdown li:hover > a,
-.dropdown button:hover > a,
-.dropdown > a:hover,
-.dropdown:hover > a{
-	// outline: none;
-}
-
-.dropdown li > a:hover:focus,
-.dropdown li:hover:focus > a,
-.dropdown button:hover:focus > a,
-.dropdown > a:hover:focus,
-.dropdown:hover:focus > a{
-	// outline: medium solid $focus-outline;
+.dropdown ul a {
+  display: block;
+  padding: 3px 10px;
+  text-decoration: none;
+  color: $base-font-color;
 }
 
 .dropdown:hover ul,
@@ -223,69 +120,4 @@
 	opacity: 0.99;
 }
 
-
-.dropdown ul li {
-	float: none;
-	position: static;
-}
-
-.dropdown ul a {
-	float: none;
-	display: block;
-	text-shadow: none;
-	transition: 0.1s linear all;
-}
-
-.dropdown ul a:hover,
-.dropdown ul a:focus,
-.dropdown ul a:active {
-	text-shadow: none;
-}
-
-.dropdown li i{
-    margin-right: 5px;
- }
-
 //END: Add to calendar dropdown
-
-// .button#print-page {
-//     display: none;
-// }
-
-// BEGIN: mobile media query
-
-@media (max-width: 550px) {
-    .barcode {
-        font-size: 7rem;
-        text-align: center;
-    }
-
-    .min-left-margin {
-        margin-left: 0rem;
-    }
-
-    .dropdown {
-        width: 100%;
-    }
-
-    .dropdown ul {
-        width: 100%;
-    }
-
-    .Confirmation-details--info {
-        padding-right: 0;
-        padding-left: 0;
-    }
-
-    .button#print-page {
-        display: none;
-    }
-}
-
-@media (max-width: 775px) {
-    .Confirmation-details--ticket,.Confirmation-details--info {
-        width: 100%;
-    }
-}
-
-//END: mobile change

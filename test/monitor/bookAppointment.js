@@ -60,20 +60,20 @@ casper.waitForSelector('.logout-link', function() {
   this.capture(captureDirectory + 'calendar.png');
 });
 
-casper.waitForSelector('p.DateCell-content--day', function() {
+casper.waitForSelector('.date-label', function() {
   this.echo('Calendar - loaded');
   this.capture(captureDirectory + 'calendar-thismonth-loaded.png');
 });
 
-casper.waitForSelector('[class*="DateCell Calendar-date--unavailable  date-20"]', function() {
-  var cells = casper.getElementsAttribute('[class*="DateCell Calendar-date--unavailable  date-20"]', 'class');
+casper.waitForSelector('[class*="calendar-date date-unavailable date-20"]', function() {
+  var cells = casper.getElementsAttribute('[class*="calendar-date date-unavailable date-20"]', 'class');
   var currentDate = cells[0].match(/\d{4}-\d{2}-\d{2}/)[0];
   this.echo('currentDate ' + currentDate);
   var monthLink = addMonthToDateString(currentDate);
 
   this.echo('Calendar - navigating to next month ' + monthLink);
   this.click('a[href*="#month/' + monthLink + '"]');
-  var bookableDateSelector = '[class*="DateCell Calendar-date--bookable date-' + monthLink + '"]';
+  var bookableDateSelector = '[class*="calendar-date date-bookable date-' + monthLink + '"]';
 
   this.waitForSelector(bookableDateSelector, function(){
     this.echo('Calendar - displaying next month');
@@ -83,8 +83,8 @@ casper.waitForSelector('[class*="DateCell Calendar-date--unavailable  date-20"]'
     var dateLink = nextMonthCells[0].match(/\d{4}-\d{2}-\d{2}/);
     this.echo('Calendar - selecting ' + dateLink);
 
-    var availableTimesSelector = '.AvailableTimes.date-' + dateLink + ' a.AppointmentLink';
-    this.click('a[class="DateCell-content--datelink date-'+ dateLink + '"]');
+    var availableTimesSelector = '.appointment-section.date-' + dateLink + ' a.appointment-link';
+    this.click('a[class="date-link date-'+ dateLink + '"]');
     this.waitForSelector(availableTimesSelector, function(){
       this.echo('Calendar - available times opened ');
       this.capture(captureDirectory + 'calendar-times.png');

@@ -1,38 +1,12 @@
-* {
-    box-sizing: border-box;
-}
-
-*:before,
-*:after {
-    box-sizing: border-box;
-}
-
-html,
-body {
-    height: 100%;
-    position: relative;
-    color: $font-color;
-    background-color: $body-bgcolor;
-    // TODO: we should add this and change all the styles
-    // font-size: $base-font-size;
-}
-
-.MainContainer {
-    min-height: 100vh; /* will cover the 100% of viewport */
-    overflow: hidden;
-    display: block;
-    position: relative;
-}
-
-.logout-link {
-  margin-top: 1rem;
-  margin-left: 1rem;
-  float: right;
-  display: inline-block;
-}
-
 .scroll-disabled {
   overflow: hidden;
+}
+
+.inline-icon {
+  width: 1.2em;
+  height: 1.2em;
+  vertical-align: middle;
+  padding-right: 3px;
 }
 
 ul {
@@ -40,32 +14,33 @@ ul {
   padding-left: 1rem;
   margin-bottom: 0px;
   margin-left: 2rem;
+
+  li {
+  	margin-bottom: 0.2rem;
+  }
 }
 
-ul li {
-	margin-bottom: 0.2rem;
-}
+.error-div {
+  margin-bottom: em(20);
+  background-color: $pink;
+  border: 1px $red solid;
+  border-spacing: em(20) em(5);
+  display: table;
 
-.error-div{
-  background-color: $error-bgcolor;
-  border: 1px $error-color solid;
-  padding: 0.5rem;
-  margin-bottom: 2rem;
-  display: block;
-}
+  * {
+    display: table-cell;
+    vertical-align: middle;
+  }
 
-.error-icon {
-  float: left;
-  width: 2.5rem;
-  margin: 1rem;
-}
+  .error-icon {
+    width: em(40);
+    height: em(40);
+    padding: em(5) 0;
+  }
 
-.error-message {
-  display: table-cell;
-  height: 4.5rem;
-  padding-left: 0.5rem;
-  vertical-align: middle;
-  font-weight: bold;
+  .error-message {
+    height: em(40);
+  }
 }
 
 .visuallyhidden {
@@ -79,56 +54,36 @@ ul li {
   width: 1px;
 }
 
-.small-left-padding {
-    padding-left: 0.5rem;
+.hidden {
+  display: none;
 }
 
-.icon-label {
-    font-weight: bold;
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
+.hide {
+    overflow: hidden;
+    max-height: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    -moz-transition-duration: 0.1s;
+    -webkit-transition-duration: 0.1s;
+    -o-transition-duration: 0.1s;
+    transition-duration: 0.1s;
+    -moz-transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+    -webkit-transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+    -o-transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+    transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
 }
 
-.inline-block {
-    display: inline-block;
-    vertical-align: middle;
-}
-
-@media (max-width: 550px) {
-    .MainContainer {
-        padding-bottom: 41rem; /* height of your footer */
-    }
-
-    .container {
-        width: 100%;
-        padding: 0 1rem;
-    }
-
-    .main{
-        padding: 0.5rem;
-    }
-
-    .field-attribute, .field-value {
-        display: inline-block;
-    }
-
-    .field-value {
-        padding-left: 2.5rem;
-    }
-}
-
-@media (max-width: 450px) {
-    .MainContainer {
-        padding-bottom: 49rem; /* height of your footer */
-    }
-}
-
-@media (min-width: 550px){
-  .container {
-      padding: 0.5rem;
-  }
-
-  .MainContainer {
-        padding-bottom: 25rem;
-    }
+.show {
+    -moz-transition-duration: 1s;
+    -webkit-transition-duration: 1s;
+    -o-transition-duration: 1s;
+    transition-duration: 1s;
+    -moz-transition-timing-function: ease-in;
+    -webkit-transition-timing-function: ease-in;
+    -o-transition-timing-function: ease-in;
+    transition-timing-function: ease-in;
+    max-height: 1000px;
+    overflow: hidden;
 }

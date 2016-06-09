@@ -1,0 +1,32 @@
+// Calendar Header
+//––––––––––––––––––––––––––––––––––––––––––––––––––
+.calendar-header {
+  font-size: 0;
+  border-bottom: 1px solid $black;
+  margin-bottom: 3px;
+  text-align: center;
+
+  div {
+    margin: $calendar-cell-spacing;
+    width: calc-col-width(7, $calendar-cell-spacing);
+    font-size: $base-font-size;
+    line-height: $base-line-height;
+    vertical-align: top;
+  }
+}
+
+.calendar-header-label {
+  display: inline-block;
+
+  @include media($mobile) {
+    display: none;
+  }
+}
+
+.calendar-header-label-abbr {
+  display: none;
+
+  @include media($mobile) {
+    display: inline-block;
+  }
+}

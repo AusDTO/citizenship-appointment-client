@@ -1,0 +1,63 @@
+// Available Times
+//––––––––––––––––––––––––––––––––––––––––––––––––––
+
+.appointment-list {
+  display: table;
+  max-width: 715px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.appointment-list-item {
+  display: table-cell;
+  float: left;
+  line-height: 40px;
+  min-height: 40px;
+  min-width: 110px;
+  margin: 4px;
+  border: 1px solid $mid-grey;
+}
+
+// .appointment-list-item.is-active {
+//   border-color: $slate;
+//   background: $slate;
+// }
+
+.appointment-link {
+  font-size: 1.2em;
+  text-decoration: none;
+  color: $base-font-color;
+  font-weight: bold;
+  display: block;
+}
+
+.appointment-list-item.is-active .appointment-link {
+  color: white;
+  background: $slate;
+}
+
+.appointment-link:hover,
+.appointment-link:focus,
+.appointment-link:active {
+  color: $base-font-color;
+}
+
+.appointment-ampm {
+  font-size: 16px;
+  font-weight: normal;
+}
+
+// .times-pleasewait {
+//   // margin-top: 1rem;
+//   // margin-bottom: 1rem;
+// }
+
+.times-spinner {
+  display: inline-block;
+
+  img {
+    vertical-align: middle;
+    width: 25px;
+    height: 25px;
+  }
+}

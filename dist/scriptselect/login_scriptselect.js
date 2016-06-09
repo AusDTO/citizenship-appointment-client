@@ -6,6 +6,6 @@ if('querySelector' in document && 'localStorage' in window && 'addEventListener'
 } else{
 	fileref.setAttribute("src", "/static/oldJS/login_old.js");
 }
-	
+
 var head = document.getElementsByTagName('head')[0];
 head.appendChild(fileref);

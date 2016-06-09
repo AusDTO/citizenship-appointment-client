@@ -1,10 +1,15 @@
 <header>
-	<div  class="u-full-width header">
-	  <div class="container">
-		  <img src="/images/gov-au-coat-of-arms.svg" onerror="this.src='/images/gov-au-coat-of-arms.png';" alt="Coat of Arms logo" width="80" height="55"/>
-		  <span class="small-left-padding">Australian Government</span>
-	  </div>
+	{{> oldbrowser_warning}}
+	<div class="header">
+		<div class="container">
+			<span class="au-gov-logo">
+				<img class="au-gov-coat-of-arms" src="/images/gov-au-coat-of-arms-white.svg" onerror="this.src='/images/gov-au-coat-of-arms-white.png';" alt="Coat of Arms logo"/>
+				<span>Australian Government</span>
+			</span>
+			{{#is_logged_in}}
+			<a href="/logout" class="header-button logout-link">Log out</a>
+			{{/is_logged_in}}
+		</div>
 	</div>
-
 	{{> beta }}
 </header>

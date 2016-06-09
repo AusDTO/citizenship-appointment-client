@@ -1,97 +1,58 @@
-.Footer-section {
-    position: absolute;
-    bottom: 0;
-}
-
-.Feedback {
-    position: relative;
-    bottom: 0;
-    margin-bottom: 1rem;
-}
-
-.Feedback-survey {
-    position: absolute;
-    bottom: 0;
-}
-
-.Feedback-survey--callout {
-    display: inline-block;
-}
-
-.warning-cookies {
-  background-color: $cookies-background-color;
-  color: $font-color;
-  a {
-    color: $font-color;
-  }
-}
-
 .footer {
-  background-color: $govau-slate;
-  padding: 2rem 0;
-  color: $footer-font-color;
+  padding-top: em(10);
+  padding-bottom: em(10);
+  width: 100%;
+  min-height: em(50);
+  background-color: $slate;
+}
 
-  img {
-    height: 7rem;
-    width: 9.5rem;
-    vertical-align: middle;
+.footer-link-group {
+  @include span-columns(10);
+  font-size: 0.8rem;
+  padding-top: em(20);
+
+  @include media($tablet) {
+    @include span-columns(7);
   }
+}
 
-  a.footerlink {
-    color: $footer-font-color;
-    text-decoration: none;
-    font-size: 1.2rem;
-  }
-
-  a:hover,
-  a:focus,
-  a:active{
-    color: $footer-link-hover;
-    text-decoration: underline;
-  }
-
-  div.footerlink {
-    display: inline;
-    padding: 10px;
+.footer-link {
+  a {
+    color: $white;
     white-space: nowrap;
+    margin-right: em(20);
+
+    &:hover, &:focus, &:active {
+      text-decoration: underline;
+    }
+  }
+}
+
+.footer-image {
+  @include span-columns(2);
+  @include omega();
+  text-align: right;
+
+  @include media($tablet) {
+    @include span-columns(1);
+    @include omega();
+  }
+}
+
+@include media($mobile) {
+  .footer-link-group,
+  .footer-image {
+    @include span-columns(1);
+    padding-top: 0;
   }
 
-  div.footerlinks {
-    padding-left: 12rem;
-    position: absolute;
-    bottom: 0.5rem;
-    right: 0;
+  .footer-image {
+    text-align: left;
   }
 
-  .desktop {
-      display: inherit;
-    }
-
-  .mobile {
-    display: none;
-  }
-
-  @media (max-width: 550px) {
-     div.footerlink {
-      display: block;
-    }
-
-    div.footerlinks {
-        padding-left: 0;
-        position: static;
-    }
-
-    .desktop {
-      display: none;
-    }
-
-    .mobile {
-      display: inherit;
-      margin-top: 1rem;
-    }
-
-    .Feedback-survey--callout {
-      display: block;
-    }
+  .footer-link {
+    margin-top: em(20);
+    margin-bottom: em(20);
+    display: block;
   }
 }

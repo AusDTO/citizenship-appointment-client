@@ -1,64 +1,39 @@
-form {
-    margin-bottom: 0;
-}
-
 label {
-    cursor: pointer;
+  font-size: $base-font-size;
+  font-weight: bold;
+  cursor: pointer;
 }
 
 input {
-    &[type="email"],
-    &[type="number"],
-    &[type="search"],
-    &[type="text"],
-    &[type="tel"],
-    &[type="url"],
-    &[type="password"] {
-        border-radius: 0;
-        height: 4.8rem;
-        width: 25rem;
+  &[type="email"],
+  &[type="number"],
+  &[type="search"],
+  &[type="text"],
+  &[type="tel"],
+  &[type="url"],
+  &[type="password"] {
+    -webkit-appearance: none;
+    border: 1px solid $mid-grey;
+    border-radius: 0;
+    font-size: $base-font-size;
+    padding: 0 12px;
+    height: 48px;
+    width: 32ch;
+
+    @include media($mobile) {
+      width: 100%;
     }
-}
 
-input[type="email"]:focus, 
-input[type="number"]:focus, 
-input[type="search"]:focus, 
-input[type="text"]:focus, 
-input[type="tel"]:focus, 
-input[type="url"]:focus, 
-input[type="password"]:focus {
-    outline: medium solid $focus-outline;
-}
-
-::-webkit-input-placeholder { /* WebKit, Blink, Edge */
-    color:   $placeholder-color;
-}
-
-:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
-   color:    $placeholder-color;
-   opacity:  1;
-}
-::-moz-placeholder { /* Mozilla Firefox 19+ */
-   color:    $placeholder-color;
-   opacity:  1;
-}
-:-ms-input-placeholder { /* Internet Explorer 10-11 */
-   color:    $placeholder-color;
-}
-:placeholder-shown { /* Standard (https://drafts.csswg.org/selectors-4/#placeholder) */
-  color:    $placeholder-color;
-}
-
-@media (max-width: 550px) {
-    input {
-        &[type="email"],
-        &[type="number"],
-        &[type="search"],
-        &[type="text"],
-        &[type="tel"],
-        &[type="url"],
-        &[type="password"] {
-            width: 100%;
-        }
+    &:focus {
+      outline: 3px solid $outline-focus-color;
     }
+  }
+}
+
+input.invalid {
+  border: 1px solid $red;
+}
+
+.input-validation-error {
+  color: $red;
 }

@@ -1,17 +1,13 @@
-document.querySelector('.warning-oldbrowsers').style.display='block';
+document.getElementById('oldbrowser_banner').style.display='block';
 
-function toggleClientIdHelp(hash) {
-  var helpDiv = document.querySelector('.ClientIdHelp');
-
-  if(hash === '#help'){
-    helpDiv.className = "ClientIdHelp expanded";
-  } else {
-    helpDiv.className = "ClientIdHelp collapsed";
-  }
+function toggleClientIdHelp() {
+  toggleClass('.client-id-help-link', 'hidden');
 }
 
 if(window.location.hash) {
-  handleHashChange();
+  if(location.hash !== '#nohelp') {
+    handleHashChange();
+  }
 }
 
 window.onhashchange = handleHashChange;
@@ -20,7 +16,7 @@ function handleHashChange(){
   var hash = location.hash;
   if (hash === '#help' || hash === '#nohelp') {
     ga('send', 'event', 'Login', hash);
-    toggleClientIdHelp(hash);
+    toggleClientIdHelp();
   } else if (hash.lastIndexOf('#validation') > -1) {
     form_validation_marking();
   }
@@ -110,5 +106,29 @@ function form_validation_marking(){
   }
   if (errors.indexOf("clientIdPattern") >=0) {
     markFieldInvalidAndShowMessage("clientId", "clientId-pattern");
+  }
+}
+
+function toggleClass(selectorString, className) {
+  var elements = document.querySelectorAll(selectorString);
+  for (var elIndex=0; elIndex < elements.length; ++elIndex) {
+    var el = elements[elIndex];
+    if (el.classList) {
+      el.classList.toggle(className);
+    } else {
+      var classes = el.className.split(' ');
+      var existingIndex = -1;
+      for (var classIndex = classes.length; classIndex--;) {
+        if (classes[classIndex] === className) {
+          existingIndex = classIndex;
+        }
+      }
+      if (existingIndex >= 0) {
+        classes.splice(existingIndex, 1);
+      } else {
+        classes.push(className);
+      }
+      el.className = classes.join(' ');
+    }
   }
 }

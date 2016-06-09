@@ -1,1 +1,1 @@
-document.querySelector('.ClientIdHelp').className = 'ClientIdHelp collapsed';
+document.querySelector('.client-id-help').className = 'client-id-help collapsed';

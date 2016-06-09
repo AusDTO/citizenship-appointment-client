@@ -1,28 +1,22 @@
 {{#available_times_count}}
-<div class="DateCell Calendar-date--bookable {{^bookable}}Calendar-date--hide{{/bookable}}{{#bookable}}date-{{date}}{{/bookable}}">
+<div class="calendar-date{{#bookable}} date-bookable date-{{date}}{{/bookable}}">
     {{#bookable}}
-    <div class="DateCell-content {{#today}}today{{/today}}">
-
-    <a class="DateCell-content--datelink{{#today}} today{{/today}} date-{{date}}"
+    <a class="date-link date-{{date}}{{#today}} today{{/today}}"
     href="#date/{{ date }}" tabindex="{{dateTabIndex}}" aria-label="{{ ariaDay }}, {{available_times_count}} available timeslots">
-    	<p class="DateCell-content--day" aria-label="{{ ariaDay }}" role="presentation" >{{ day }}</p>
-		<p class="DateCell-content--availableTimesCount" role="presentation" aria-label="{{available_times_count}} available timeslots">{{available_times_count}} available</p>
+    	<div class="date-label" aria-label="{{ ariaDay }}" role="presentation" >{{ day }}</div>
+    	<div class="date-available-count" role="presentation" aria-label="{{available_times_count}} available timeslots">{{available_times_count}} available</div>
     </a>
-  </div>
-  {{/bookable}}
+    {{/bookable}}
 </div>
 {{/available_times_count}}
-
 {{^available_times_count}}
-<div class="DateCell Calendar-date--unavailable {{^bookable}}Calendar-date--hide{{/bookable}} {{#bookable}}date-{{date}}{{/bookable}}">
-  {{#bookable}}
-  <div class="DateCell-content {{#today}}today{{/today}}" aria-hidden="true">
-
-    <div class="DateCell-content--datelink {{#today}}today{{/today}} date-{{date}}" tabindex="-1" aria-label="{{ ariaDay }}, no timeslots available">
-      <p class="DateCell-content--day" aria-label="{{ ariaDay }}" role="presentation" >{{ day }}</p>
+<div class="calendar-date date-unavailable{{#bookable}} date-{{date}}{{/bookable}}" {{^bookable}}aria-hidden="true"{{/bookable}}>
+    {{#bookable}}
+    <div class="date-link date-{{date}}{{#today}} today{{/today}}" tabindex="-1" aria-label="{{ ariaDay }}, no timeslots available">
+        <div class="date-label" aria-label="{{ ariaDay }}" role="presentation">
+            {{ day }}
+        </div>
     </div>
-  </div>
-  {{/bookable}}
+    {{/bookable}}
 </div>
-
 {{/available_times_count}}

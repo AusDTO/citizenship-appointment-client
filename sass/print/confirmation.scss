@@ -1,54 +1,44 @@
 @media print {
+
 	body {
 		font: 12pt;
-	}
 
-	h1 {
-		font-size: 3rem;
-	}
-
-	.MainContainer {
-		padding-bottom: 0px;
-		position: fixed;
-	}
-
-	.container.Beta {
-		font-size: 10pt;
-		margin-bottom: 12pt;
-
-		.Beta-message:before {
-			background: black;
+		* {
+			margin: 0;
+			padding: 0;
 		}
 	}
 
-	.Footer-section {
-		display: none;
+	h1 {
+		font-size: 24pt;
 	}
 
-	.steps-info, .logout-link {
-		display: none;
+	.au-gov-logo {
+		.au-gov-coat-of-arms {
+			content: url('../images/gov-au-coat-of-arms.png');
+		}
+		span {
+			@include au-gov-text($black);
+		}
 	}
 
-	.button, #calendarOptions, .Confirmation-details--wallet {
+	.beta-badge {
+		color: $black;
+	}
+
+	footer,
+	.warning-oldbrowser,
+	.warning-cookies,
+	.feedback-survey,
+	.steps-info,
+	.logout-link,
+	.confirmation-message,
+	.button,
+	.apple-wallet-frame,
+	.dropdown,
+	.inline-icon,
+	.icon {
 		display: none !important;
-	}
-
-	.Confirmation-details {
-		padding-top: 0;
-		margin-top: 0;
-	}
-
-	.Confirmation-message {
-		padding-bottom: 0;
-		margin-bottom: 0;
-	}
-
-	.container.last{
-		margin-bottom:0rem;
-	}
-
-	.subtitle {
-		font-size: 1.5rem
 	}
 
 	a:link:after, a:visited:after {
@@ -66,15 +56,7 @@
 		color: black;
 	}
 
-	.last-appt-details {
-		margin-bottom: 0rem;
-	}
-
-	.nine.columns {
-	    width: 65.33333%;
-	}
-
-	.three.columns {
-	    width: 30.66667%;
-	}
+	.appointment-detail {
+    @include span-columns(12);
+  }
 }

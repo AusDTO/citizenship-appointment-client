@@ -1,68 +1,21 @@
 .header {
-  background-color: $background-grey;
-  padding: 1.25rem 0;
-
-  div {
-    height: 6.5rem;
-
-    img {
-      height: 100%;
-      width: 8rem;
-      vertical-align: middle;
-    }
-
-    a {
-      text-decoration: none;
-    }
-
-    span {
-      font-family: $au-gov-font-family;
-      font-weight: $au-gov-font-weight;
-      color: black;
-      font-size: 1.1em;
-      letter-spacing: -0.75px;
-    }
-  }
+  padding-top: em(10);
+  padding-bottom: em(10);
+  width: 100%;
+  background-color: $slate;
 }
 
-.warning-banner {
-  background-color: $govau-slate;
-  color: white;
-}
+.logout-link {
+  color: $white;
+  white-space: nowrap;
+  margin-top: em(15);
 
-.warning-oldbrowsers {
-  display: none;
-}
+  float: right;
 
-.warning-header {
-  font-weight: bold;
-}
-
-.Beta {
-    margin-top: 1rem;
-}
-
-.Beta-tag {
-    background: $beta-tag;
-    color: white;
-    padding: 0.3rem 0.5rem;
-    font-weight: bold;
-    margin-right: 0.5rem;
-}
-
-@media (max-width: 550px) {
-  .header {
-    padding: 1rem 0;
-
-    div {
-      height: 4rem;
-      img {
-        width: 6rem;
-      }
-
-      span {
-        font-size: 1em;
-      }
-    }
+  &:hover,
+  &:focus,
+  &:active {
+    text-decoration: underline;
+    color: $white;
   }
 }

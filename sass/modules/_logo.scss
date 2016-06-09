@@ -1,0 +1,21 @@
+@mixin au-gov-text($color) {
+  font-family: $au-gov-font-family;
+  font-weight: bold;
+  color: $color;
+  letter-spacing: em(-0.01);
+  padding-left: em(5);
+}
+
+.au-gov-coat-of-arms {
+  height: em(55);
+}
+
+.au-gov-logo {
+  * {
+    vertical-align: middle;
+  }
+
+  span {
+    @include au-gov-text($white);
+  }
+}

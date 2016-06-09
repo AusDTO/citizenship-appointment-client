@@ -1,121 +1,114 @@
-{{> html_base_premain_pretitle }}
-  <title>Australian Government - Citizenship Appointment Booking Confirmation</title>
-{{> html_base_premain_posttitle}}
+{{> premain }}
+<main>
+    <div class="container main-container">
+        <h1><img class="inline-icon" src="/images/check-circle.svg" onerror="this.src='/images/check-circle.png';" role="presentation"/>Your appointment is scheduled</h1>
+        <h2 class="steps-info">Step 3 of 3: Confirmation details</h2>
 
-<div class="container">
-    <a href="/logout" class="logout-link">Log out</a>
-    <h1>
-        <img class="padding-right-large Confirmation-check-icon" src="/images/check-circle.svg" onerror="this.src='/images/check-circle.png';" role="presentation" height="40px" />
-        Your appointment is scheduled
-    </h1>
-    <h2 class="steps-info">Step 3 of 3: Confirmation details</h2>
+        <div class="confirmation-message">
+            {{#hasEmail}}
+            <span class="">We have sent this confirmation to your email address.</span>
+            {{/hasEmail}}
+            <br/>
+            {{#hasMobile}}
+            <span class="">You will receive a free SMS reminder 24 hours prior to your appointment.</span>
+            {{/hasMobile}}
+        </div>
 
-    <div class="row Confirmation-message">
-        {{#hasEmail}}
-        <p class="small-bottom-margin">
-            We have sent this confirmation to your email address.
-        </p>
-        {{/hasEmail}}
-        <!-- <br/> -->
-        {{#hasMobile}}
-        <p class="small-bottom-margin">
-            You will receive a free SMS reminder 24 hours prior to your appointment.
-        </p>
-        {{/hasMobile}}
-    </div>
+        <div class="appointment-confirmation">
+            <div class="appointment-detail">
+                <div class="appointment-type">Citizenship interview and test appointment</div>
+                <div>
+                    <span class="appointment-date">{{ appointment_date }}, </span>
+                    <span class="appointment-time">{{ appointment_time }}</span>
+                </div>
 
-    <div class="row Confirmation-details">
-        <div class="Confirmation-details--info">
-            <p>
-                <span class="Confirmation-details--appt-label">
-                    Citizenship interview and test appointment
-                </span>
-            <p>
-                <span class="Confirmation-details--appt">
-                    <span class="Confirmation-details--appt-date">{{ appointment_date }}, </span>
-                    <span class="Confirmation-details--appt-time">{{ appointment_time }}</span>
-                </span>
-            </p>
-            <img class="Confirmation-details--location-icon" src="/images/map-marker.svg" width="15"
-            onerror="this.src='/images/map-marker.png';" class="icon" alt ="" role="presentation"/>
-            <span class="Confirmation-details--location-label">
-                Appointment location
-            </span>
-            <p>
-                <a href="https://www.google.com.au/maps?daddr={{locationURL}}" target="_blank" aria-label="{{ location }} Press to open google maps to see directions" class="print-not-expand" class="Confirmation-details--location">
-                    {{ location }} (map)
-                </a>
-            </p>
+                <img src="/images/map-marker.svg" onerror="this.src='/images/map-marker.png';" class="inline-icon" alt ="" role="presentation"/><span class="text-label">Appointment location</span>
+                <div>
+                    <a href="https://www.google.com.au/maps?daddr={{locationURL}}" target="_blank" aria-label="{{ location }} Press to open google maps to see directions" class="print-not-expand">{{ location }} (map)</a>
+                </div>
 
-            <div class="dropdown" id="addToCalendarDropdown">
-            <button type="button" class="button" id="addToCalendar" aria-haspopup="true">
-            <span class="small-left-padding">Add to my calendar</span><span class="small-left-padding"><img src="/images/caret-down-white.svg" width="25" onerror="this.src='/images/caret-down-white.png';" class="smaller-icon button-icon" alt =""></span>
-            </button>
-            <ul id="calendarOptions">
-            <li class="cal_option"><a class="cal_option" href="/calendar.ics" target="_blank" aria-label="Add to apple calendar"><img src="/images/apple.svg" width="15" onerror="this.src='/images/apple.png';" class="icon" alt =""/><span class="small-left-padding">Apple Calendar</span></a></li>
-            <li class="cal_option"><a class="cal_option" href="/googlecalendar" target="_blank" aria-label="Add to google calendar"><img src="/images/google.png" class="icon" alt =""/><span class="small-left-padding">Google</span></a></li>
-            <li class="cal_option"><a class="cal_option" href="/calendar.ics" target="_blank" aria-label="Add to outlook calendar"><img src="/images/windows.svg" width="15" onerror="this.src='/images/windows.png';" class="icon" alt =""/><span class="small-left-padding">Outlook</span></a></li>
-            <li class="cal_option"><a class="cal_option" href="/outlookonline" target="_blank" aria-label="Add to outlook online calendar"><img src="/images/windows.svg" width="15" onerror="this.src='/images/windows.png';" class="icon" alt =""/><span class="small-left-padding">Outlook Online</span></a></li>
-            <li class="cal_option"><a class="cal_option" href="/yahoocalendar" target="_blank" aria-label="Add to yahoo calendar"><img src="/images/yahoo.svg" width="15" onerror="this.src='/images/yahoo.png';" class="icon" alt =""/><span class="small-left-padding">Yahoo</span></a></li>
+                <div class="dropdown inline-button" id="addToCalendarDropdown">
+                    <button type="button" class="button-with-icon" id="addToCalendar" aria-haspopup="true">
+                        <span>Add to my calendar</span>
+                        <img src="/images/caret-down-white.svg" onerror="this.src='/images/caret-down-white.png';" class="icon" alt ="">
+                    </button>
+                    <ul class="add-to-calendar-list" id="calendarOptions">
+                        <li class="cal_option">
+                            <a class="cal_option" href="/calendar.ics" target="_blank" aria-label="Add to apple calendar">
+                                <img src="/images/apple.svg" onerror="this.src='/images/apple.png';" class="inline-icon" alt =""/>
+                                <span>Apple Calendar</span>
+                            </a>
+                        </li>
+                        <li class="cal_option">
+                            <a class="cal_option" href="/googlecalendar" target="_blank" aria-label="Add to google calendar">
+                                <img src="/images/google.svg" onerror="this.src='/images/google.png';" class="inline-icon" alt =""/>
+                                <span>Google</span>
+                            </a>
+                        </li>
+                        <li class="cal_option">
+                            <a class="cal_option" href="/calendar.ics" target="_blank" aria-label="Add to outlook calendar">
+                                <img src="/images/windows.svg" width="15" onerror="this.src='/images/windows.png';" class="inline-icon" alt =""/>
+                                <span>Outlook</span>
+                            </a>
+                        </li>
+                        <li class="cal_option">
+                            <a class="cal_option" href="/outlookonline" target="_blank" aria-label="Add to outlook online calendar">
+                                <img src="/images/windows.svg" onerror="this.src='/images/windows.png';" class="inline-icon" alt =""/>
+                                <span>Outlook Online</span>
+                            </a>
+                        </li>
+                        <li class="cal_option">
+                            <a class="cal_option" href="/yahoocalendar" target="_blank" aria-label="Add to yahoo calendar">
+                                <img src="/images/yahoo.svg" onerror="this.src='/images/yahoo.png';" class="inline-icon" alt =""/>
+                                <span>Yahoo</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <button type="button" class="button inline-button" id="print_page">
+                    Print page
+                </button>
+            </div>
+            <div class="appointment-detail">
+                <div class="barcode-frame">
+                    <div class="barcode-text">
+                        Scan this barcode at the reception kiosk on your arrival.
+                        Or use your client ID below.
+                    </div>
+                    <img src="/barcode/pdf417/{{clientId}}" alt="Barcode to scan on your arrival" />
+                    <div class="barcode-text">
+                        Client ID: {{clientId}}
+                    </div>
+                </div>
+                <div class="apple-wallet-frame">
+                    <a href="/wallet/pass?id={{clientId}}&otherid={{customerId}}" {{^supportsWallet}}target="_blank"{{/supportsWallet}} class="add-to-wallet-link{{#useWalletModal}} add-to-wallet-modal-link{{/useWalletModal}}">
+                        <img src="/images/add-to-apple-wallet-button.svg" onerror="this.src='/images/add-to-apple-wallet-button.png';" alt="Add to Apple Wallet" class="apple-wallet-button"/>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="appointment-info">
+            <h3>Prepare for your appointment</h3>
+            <ul class="bullet-list">
+                <li>Collect the originals of all the identity documents that you submitted with your application, for all applicants including children, and any other documents that you have been requested to provide.</li>
+                <li>If you lodged your application online, please bring your completed <a href="https://www.border.gov.au/Forms/Documents/1195.pdf" target="_blank">Form 1195 - Identity declaration (PDF)</a>, with an endorsed recent passport sized photo for all applicants including children.</li>
+                <li>If applicable, prepare for <a href="https://www.border.gov.au/Trav/Citi/Lear/Citizenship-test" target="_blank">citizenship test</a>.</li>
             </ul>
-            </div>
-            <button type="button" class="button" id="print-page">
-                Print page
-            </button>
-        </div>
-        <div class="Confirmation-details--ticket">
-            <div class="Confirmation-details--barcode">
-                <div class="barcode-text">
-                    Scan this barcode at the reception kiosk on your arrival.
-                    Or use your client ID below.
-                </div>
-                <img class="barcode-image" src="/barcode/pdf417/{{clientId}}" alt="Barcode to scan on your arrival" />
-                <div class="barcode-text">
-                    Client ID: {{clientId}}
-                </div>
-            </div>
-            <div class="Confirmation-details--wallet add-to-wallet-frame">
-              <a href="/wallet/pass?id={{clientId}}&otherid={{customerId}}" {{^supportsWallet}}target="_blank"{{/supportsWallet}} class="add-to-wallet-link{{#useWalletModal}} add-to-wallet-modal-link{{/useWalletModal}}">
-                <img src="/images/add-to-apple-wallet-button.svg" onerror="this.src='/images/add-to-apple-wallet-button.png';" alt="Add to Apple Wallet" height="42px"/>
-              </a>
-            </div>
         </div>
 
-    </div>
-
-    <div class="row Confirmation-more-info light-bottom-line">
-      <h3 class="">Prepare for your appointment</h3>
-      <ul class="bullet-list">
-        <li>Collect the originals of all the identity documents that you submitted with your application, for all applicants including children, and any other documents that you have been requested to provide.</li>
-        <li>If you lodged your application online, please bring your completed <a href="https://www.border.gov.au/Forms/Documents/1195.pdf" target="_blank">Form 1195 - Identity declaration (PDF)</a>, with an endorsed recent passport sized photo for all applicants including children.</li>
-        <li>If applicable, prepare for <a href="https://www.border.gov.au/Trav/Citi/Lear/Citizenship-test" target="_blank">citizenship test</a>.</li>
-      </ul>
-    </div>
-
-    <div class="row Confirmation-more-info">
-      <h3 class="">When you arrive</h3>
-      <ul class="bullet-list">
-        <li>Please arrive at least 5 mins prior to your appointment</li>
-        <li>Collect a ticket at the citizenship kiosk by entering your Client ID or scanning the barcode from your confirmation letter.</li>
-        <li>Wait until your number is called at the assigned counter.</li>
-      </ul>
-    </div>
-  </div>
-
-  <div id="add-to-wallet-modal" class="modalDialog-bg">
-    <div class="modalDialog" role="dialog" aria-label="Instructions for adding a pass to Apple Wallet.">
-      <div class="modalDialog-content">
-        <a href="#close-modal" type="button" title="Close" aria-label="Close this dialog" class="close" tabindex="2">
-          <img src="/images/times.svg" width="25" onerror="this.src='/images/times.png';" class="button-icon" alt="" role="presentation"/>
-        </a>
-        <div class="modalDialog-content--stuff add-to-wallet-modal-content">
-          {{> add_to_wallet_instructions }}
+        <div class="appointment-info">
+            <h3>When you arrive</h3>
+            <ul class="bullet-list">
+                <li>Please arrive at least 5 mins prior to your appointment</li>
+                <li>Collect a ticket at the citizenship kiosk by entering your Client ID or scanning the barcode from your confirmation letter.</li>
+                <li>Wait until your number is called at the assigned counter.</li>
+            </ul>
         </div>
-      </div>
     </div>
-  </div>
-
+</main>
+{{> apple_wallet_modal}}
 <script src='/analytics_auth.js'></script>
 <script src="/static/scriptselect/confirmation_scriptselect.js" charset="utf-8"></script>
-
-{{> html_base_postmain }}
+{{> postmain }}

@@ -1,0 +1,20 @@
+<footer>
+    {{> feedback }}
+    {{#is_login_page}}
+    {{> cookies_warning }}
+    {{/is_login_page}}
+    <div class="footer">
+        <div class="container">
+            <div class="footer-link-group">
+                <span class="footer-link"><a href="https://www.border.gov.au/Trav/Citi" target="_blank">Australian citizenship</a></span>
+                <span class="footer-link"><a href="https://www.border.gov.au/website/accessibility" target="_blank">Accessibility</a></span>
+                <span class="footer-link"><a href="https://www.border.gov.au/about/access-accountability/plans-policies-charters/policies/privacy" target="_blank">Privacy policy</a></span>
+                <span class="footer-link"><a href="https://www.border.gov.au/website/web-privacy-statement" target="_blank">Web privacy</a></span>
+                <span class="footer-link"><a href="https://www.border.gov.au/website/copyright-and-disclaimer" target="_blank">Copyright and disclaimer</a></span>
+            </div>
+            <div class="footer-image" role="presentation">
+                <img class="au-gov-coat-of-arms" src="/images/gov-au-coat-of-arms-white.svg" onerror="this.src='/images/gov-au-coat-of-arms-white.png';" role="presentation" alt="Coat of Arms logo"/>
+            </div>
+        </div>
+    </div>
+</footer>

@@ -1,0 +1,49 @@
+@mixin banner($color) {
+  width: 100%;
+  background-color: $color;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+
+  .banner-heading {
+    font-weight: bold;
+  }
+
+  @include media($mobile) {
+    .banner-text {
+      display: block;
+    }
+  }
+}
+
+.beta {
+  @include banner($light-grey);
+
+  .beta-badge {
+    background: $beta-badge-color;
+    color: $white;
+    font-weight: bold;
+    padding: 3px 5px;
+    margin-right: 5px;
+  }
+
+  .beta-tel-number {
+    white-space: nowrap;
+  }
+}
+
+.feedback-survey {
+  @include banner(transparent);
+}
+
+.warning-cookies {
+  @include banner($sky-blue);
+
+  a {
+    color: $base-font-color;
+  }
+}
+
+.warning-oldbrowsers {
+  @include banner($light-grey);
+  display: none;
+}

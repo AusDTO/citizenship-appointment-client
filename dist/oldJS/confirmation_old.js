@@ -27,7 +27,7 @@ for(var i=0; i< calendarItems.length; i++){
 
 }
 
-var printButton = document.getElementById("print-page");
+var printButton = document.getElementById("print_page");
 if (printButton.addEventListener) {
     printButton.addEventListener("click", function(){
 		window.print();
@@ -38,4 +38,4 @@ else {
 		window.print();
 	});
 }
-document.getElementById("print-page").style.display="inline";
+document.getElementById("print_page").style.display="inline";

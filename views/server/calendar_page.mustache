@@ -1,77 +1,64 @@
-{{> html_base_premain_pretitle }}
-<title>Australian Government - Citizenship Appointment Booking Calendar</title>
-{{> html_base_premain_posttitle}}
+{{> premain }}
+<main>
+    <div class="container main-container">
+        <h1>Available appointments</h1>
+        <h2 class="steps-info">Step 2 of 3: Select date, then time</h2>
 
-<div class="container calendar-page--main">
-    <a href="/logout" class="logout-link" tabindex="1">Log out</a>
-    <h1>Available appointments</h1>
-    <h2 class="steps-info">Step 2 of 3: Select date, then time</h2>
-
-    {{#error}}
-    <div class="error-div" role="alert">
-        <img class="error-icon" src="/images/warning.svg" width="15" alt="" onerror="this.src='/images/warning.png';">
-        <span class="error-message">
-            There was an error processing your request.
-            Your appointment was not booked.
-            Please try again.
-        </span>
-    </div>
-    {{/error}}
-    {{#unavailable}}
-    <div class="error-div" role="alert">
-        <img class="error-icon" src="/images/warning.svg" width="15" alt="" onerror="this.src='/images/warning.png';">
-        <span class="error-message">
-            Sorry, the slot is no longer available. Please select a different date and time.
-        </span>
-    </div>
-    {{/unavailable}}
-    {{#not_eligible}}
-    <div class="error-div" role="alert">
-        <img class="error-icon" src="/images/warning.svg" width="15" alt="" onerror="this.src='/images/warning.png';">
-        <span class="error-message">
-            Sorry, you are not eligible to book an appointment. If you think it is a mistake, please call 1300 729 080.
-        </span>
-    </div>
-    {{/not_eligible}}
-
-    <div class="Calendar-info">
-        <div class="Calendar-info--field">
-            <img src="/images/map-marker.svg" width="15" onerror="this.src='/images/map-marker.png';" class="icon" alt ="" role="presentation"/>
-            <span class="field-attribute icon-label">Appointment location:</span>
-            <span class="field-value"><a href="https://www.google.com.au/maps?daddr={{locationURL}}" target="_blank" aria-label="{{ location }} Press to open google maps to see directions" tabindex="1">{{ location }} (map)</a></span>
+        {{#error}}
+        <div class="error-div" role="alert">
+            <img class="error-icon" src="/images/warning.svg" width="15" alt="" onerror="this.src='/images/warning.png';">
+            <span class="error-message">
+                There was an error processing your request.
+                Your appointment was not booked.
+                Please try again.
+            </span>
         </div>
-        <div class="Calendar-info--field" role="presentation" aria-hidden="true" aria-label="Calendar legend: Plain blue background indicates selectable dates that have available timeslots. Grey striped background indicates non-selectable dates.">
-            <span class="Legend-box"></span>
-            <span class="Legend-label small-left-padding" aria-hidden="true">Available</span>
-            <span class="Legend-box Legend-box--unavailable"></span>
-            <span class="Legend-label small-left-padding" aria-hidden="true">Not available</span>
+        {{/error}}
+        {{#unavailable}}
+        <div class="error-div" role="alert">
+            <img class="error-icon" src="/images/warning.svg" width="15" alt="" onerror="this.src='/images/warning.png';">
+            <span class="error-message">
+                Sorry, the slot is no longer available. Please select a different date and time.
+            </span>
         </div>
-    </div>
-    <form action="/book_appointment" method="post">
-        <input name="{{ _csrf.parameterName }}" type="hidden" value="{{ _csrf.token }}"/>
-        <div class="Calendars" data-today="{{today_date}}">
-            <div class="Loading-message">
-                <div class="Loading-message-spinner">
-                    <div>
-                        <img src="/images/spinner.gif" alt="Loading spinner" />
+        {{/unavailable}}
+        {{#not_eligible}}
+        <div class="error-div" role="alert">
+            <img class="error-icon" src="/images/warning.svg" width="15" alt="" onerror="this.src='/images/warning.png';">
+            <span class="error-message">
+                Sorry, you are not eligible to book an appointment. If you think it is a mistake, please call 1300 729 080.
+            </span>
+        </div>
+        {{/not_eligible}}
+
+        <div class="appointment-location">
+            <img src="/images/map-marker.svg" onerror="this.src='/images/map-marker.png';" class="inline-icon" alt ="" role="presentation"/><span class="text-label">Appointment location: </span> <a href="https://www.google.com.au/maps?daddr={{locationURL}}" target="_blank" aria-label="{{ location }} Press to open google maps to see directions" tabindex="1">{{ location }} (map)</a>
+        </div>
+        <form action="/book_appointment" method="post">
+            <input name="{{ _csrf.parameterName }}" type="hidden" value="{{ _csrf.token }}"/>
+            <div class="calendar" id="calendar" data-today="{{today_date}}">
+                <div class="loading-message">
+                    <div class="loading-message-spinner">
+                        <div>
+                            <img src="/images/spinner.gif" alt="Loading spinner" />
+                        </div>
+                        Loading calendar
                     </div>
-                    Loading calendar
+                    <div>
+                        If it takes too long, <a href="/calendar/text">go to the text version of the calendar.</a>
+                    </div>
                 </div>
-                <div>
-                    If it takes too long, <a href="/calendar/text">go to the text version of the calendar.</a>
+                <div class="Old-Calendar-Needed-message">
+                    It seems you have JavaScript disabled or your version of the browser is not fully supported. <a href="/calendar/text">Go to the text version of the calendar.</a>
                 </div>
             </div>
-            <div class="Old-Calendar-Needed-message">
-                It seems you have JavaScript disabled or your version of the browser is not fully supported. <a href="/calendar/text">Go to the text version of the calendar.</a>
-            </div>
-        </div>
-        <script src="/static/scriptselect/calendar_textlink.js" charset="utf-8"></script>
-        <button type="submit" hidden>.</button>
-    </form>
-</div>
-
+            <script src="/static/scriptselect/calendar_textlink.js" charset="utf-8"></script>
+            <button type="submit" hidden>.</button>
+        </form>
+    </div>
+</main>
 {{> extend_session_modal }}
 {{> no_available_appointments_modal }}
 <script src='/analytics_auth.js'></script>
 <script src="/static/scriptselect/calendar_scriptselect.js" charset="utf-8"></script>
-{{> html_base_postmain }}
+{{> postmain }}

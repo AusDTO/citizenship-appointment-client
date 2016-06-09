@@ -1,42 +1,52 @@
+<div class="calendar-legend" role="presentation" aria-hidden="true" aria-label="Calendar legend: Plain blue background indicates selectable dates that have available timeslots. Grey striped background indicates non-selectable dates.">
+    <span class="legend-available"></span>
+    <span class="legend-label" aria-hidden="true">Available</span>
+    <span class="legend-unavailable"></span>
+    <span class="legend-label" aria-hidden="true">Not available</span>
+</div>
+
 {{#months}}
-    <div class="Calendar month-{{month}}" role="region" aria-label="Calendar with available dates and times. Please use Tab button to navigate it.">
-        <!-- Calendar title and navigation -->
-        <div class="Calendar-nav">
-            {{#prevMonth}}
-                <a href="#month/{{prevMonth}}" class="Calendar-nav--prev" aria-label="Go to {{prevMonthName}} {{prevMonthYear}} availability"  tabindex="20">
-                    <img src="/images/angle-left.svg" onerror="this.src='/images/angle-left-white.png';"  width="25" class="Calendar-nav--label" alt="Move to previous month"/>
-                </a>
-            {{/prevMonth}}
-            <h2 class="Calendar-nav--month"><strong><span aria-label="Currently displaying month: {{monthName}} {{year}}">{{monthName}}</span></strong></h2>
-            {{#nextMonth}}
-                <a href="#month/{{nextMonth}}" class="Calendar-nav--next" aria-label="Go to {{nextMonthName}} {{nextMonthYear}} availability" tabindex="10">
-                    <img src="/images/angle-right.svg" width="25" onerror="this.src='/images/angle-right-white.png';"  class="Calendar-nav--label" alt="Move to next month"/>
-                </a>
-            {{/nextMonth}}
-        </div>
+<div class="Calendar month-{{month}}" role="region" aria-label="Calendar with available dates and times. Please use Tab button to navigate it.">
 
-        <!-- Calendar table -->
-
-        <div class="Calendar-dates">
-            <div class="week-row Calendar-header" aria-hidden="true" role="presentation">
-              <!-- Desktop headers -->
-                <div class="Calendar-header--dayLabel" role="presentation">Mon</div>
-                <div class="Calendar-header--dayLabel" role="presentation">Tue</div>
-                <div class="Calendar-header--dayLabel" role="presentation">Wed</div>
-                <div class="Calendar-header--dayLabel" role="presentation">Thu</div>
-                <div class="Calendar-header--dayLabel" role="presentation">Fri</div>
-                <div class="Calendar-header--dayLabel" role="presentation">Sat</div>
-                <div class="Calendar-header--dayLabel" role="presentation">Sun</div>
-              <!-- Mobile headers  -->
-                <div class="Calendar-header--dayLabel-mobile" role="presentation">M</div>
-                <div class="Calendar-header--dayLabel-mobile" role="presentation">T</div>
-                <div class="Calendar-header--dayLabel-mobile" role="presentation">W</div>
-                <div class="Calendar-header--dayLabel-mobile" role="presentation">T</div>
-                <div class="Calendar-header--dayLabel-mobile" role="presentation">F</div>
-                <div class="Calendar-header--dayLabel-mobile" role="presentation">S</div>
-                <div class="Calendar-header--dayLabel-mobile" role="presentation">S</div>
-            </div>
-            {{> month_template}}
+    <!-- Calendar title and navigation -->
+    <div class="calendar-nav">
+        {{#prevMonth}}
+        <a href="#month/{{prevMonth}}" class="calendar-nav-prev" aria-label="Go to {{prevMonthName}} {{prevMonthYear}} availability"  tabindex="20">
+            <img src="/images/angle-left.svg" onerror="this.src='/images/angle-left-white.png';"  width="25" class="calendar-nav-button" alt="Move to previous month"/>
+        </a>
+        {{/prevMonth}}
+        <div class="calendar-nav-month">
+            <span aria-label="Currently displaying month: {{monthName}} {{year}}">{{monthName}}</span>
         </div>
+        {{#nextMonth}}
+        <a href="#month/{{nextMonth}}" class="calendar-nav-next" aria-label="Go to {{nextMonthName}} {{nextMonthYear}} availability" tabindex="10">
+            <img src="/images/angle-right.svg" width="25" onerror="this.src='/images/angle-right-white.png';"  class="calendar-nav-button" alt="Move to next month"/>
+        </a>
+        {{/nextMonth}}
     </div>
+
+    <!-- Calendar table -->
+
+    <div>
+        <div class="week-row calendar-header" aria-hidden="true" role="presentation">
+            <!-- Desktop headers -->
+            <div class="calendar-header-label" role="presentation">Mon</div>
+            <div class="calendar-header-label" role="presentation">Tue</div>
+            <div class="calendar-header-label" role="presentation">Wed</div>
+            <div class="calendar-header-label" role="presentation">Thu</div>
+            <div class="calendar-header-label" role="presentation">Fri</div>
+            <div class="calendar-header-label" role="presentation">Sat</div>
+            <div class="calendar-header-label" role="presentation">Sun</div>
+            <!-- Mobile headers  -->
+            <div class="calendar-header-label-abbr" role="presentation">M</div>
+            <div class="calendar-header-label-abbr" role="presentation">T</div>
+            <div class="calendar-header-label-abbr" role="presentation">W</div>
+            <div class="calendar-header-label-abbr" role="presentation">T</div>
+            <div class="calendar-header-label-abbr" role="presentation">F</div>
+            <div class="calendar-header-label-abbr" role="presentation">S</div>
+            <div class="calendar-header-label-abbr" role="presentation">S</div>
+        </div>
+        {{> month_template}}
+    </div>
+</div>
 {{/months}}

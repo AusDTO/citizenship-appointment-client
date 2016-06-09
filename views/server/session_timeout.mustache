@@ -1,14 +1,14 @@
-{{> html_base_premain_pretitle }}
-    <title>Citizenship Appointment Booking - Session Timeout</title>
-{{> html_base_premain_posttitle}}
+{{> premain }}
+<main>
+    <div class="container main-container">
+        <h1>You have been logged out</h1>
 
-<div class="container">
-  <h1>You have been logged out</h1>
-
-  <p>This happens when a page has been left open for over 30 minutes.<br/>
-  Your appointment has not been scheduled. All the details you have entered have been cleared to keep your information safe.</p>
-
-  <a href="/login" title="Go to the login page" class="button login-again">Log in again</a>
-</div>
+        <p>
+            This happens when a page has been left open for over 30 minutes.<br/>
+            Your appointment has not been scheduled. All the details you have entered have been cleared to keep your information safe.
+        </p>
+        <p><a href="/login" title="Go to the login page" class="button">Log in again</a><p>
+    </div>
+</main>
 <script src='/analytics_basic.js'></script>
-{{> html_base_postmain}}
+{{> postmain}}

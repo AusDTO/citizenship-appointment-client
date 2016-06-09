@@ -1,36 +1,27 @@
-@import "node_modules/skeleton-scss/scss/base/normalize";
-@import "node_modules/skeleton-scss/scss/base/variables";
-@import "node_modules/skeleton-scss/scss/base/functions";
-@import "node_modules/skeleton-scss/scss/base/base-styles";
-@import "node_modules/skeleton-scss/scss/base/utils";
-@import "node_modules/skeleton-scss/scss/base/typography";
+@import "node_modules/node-normalize-scss/normalize";
+@import "node_modules/bourbon/app/assets/stylesheets/bourbon";
+@import "grid-settings";
+@import "node_modules/bourbon-neat/app/assets/stylesheets/neat";
 
-@import "node_modules/skeleton-scss/scss/modules/grid";
-@import "node_modules/skeleton-scss/scss/modules/buttons";
-@import "node_modules/skeleton-scss/scss/modules/forms";
-@import "node_modules/skeleton-scss/scss/modules/lists";
-@import "node_modules/skeleton-scss/scss/modules/code";
-@import "node_modules/skeleton-scss/scss/modules/tables";
-@import "node_modules/skeleton-scss/scss/modules/spacing";
-@import "node_modules/skeleton-scss/scss/modules/media-queries";
+@import "colors";
+@import "typography";
+@import "elements";
 
-@import "base/variables";
-@import "base/typography";
+@import "components/banner";
+@import "components/button";
+@import "components/calendar";
+@import "components/modal";
 
 @import "modules/forms";
-@import "modules/buttons";
-@import "modules/links";
-@import "modules/modals";
+@import "modules/logo";
 
+@import "layout/footer";
 @import "layout/header";
 @import "layout/main";
-@import "layout/footer";
 
-@import "pages/login";
-@import "pages/confirmation";
 @import "pages/calendar";
-@import "pages/session_timeout";
-@import "pages/error";
+@import "pages/confirmation";
 @import "pages/cookies";
+@import "pages/login";
 
 @import "print/confirmation";
