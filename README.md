@@ -34,6 +34,11 @@ To run the application with file watching and automatic restarts enabled:
 
     npm run dev
 
+### Generate javascript distribution files:
+
+    npm run webpack
+
+    
 ### Testing
 
 #### Unit tests
