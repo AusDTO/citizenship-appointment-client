@@ -45,8 +45,6 @@ All the commands you can run can be found in the go script located in the root f
 
 ###Codebase
 
-?
-
 The application uses VanillaJS and mustache templates. It is the frontend part of a bigger system, but we have created a simple NodeJS server to be able to run this application without pulling the backend. All the endpoints can be found in *server.js* file.
 
 Views are split into server and client part - server views are used by the controllers of the backend to serve the main pages of the application, the client views are used by the frontend code only to allow JavaScript for simpler and clearer modifications of the displayed content.
