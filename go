@@ -3,7 +3,9 @@
 set -ef -o pipefail
 
 kill_all_the_whales() {
-    docker rm -f $(docker ps -aq)
+    if [ ! -z "$(docker ps -aq)" ]; then
+        docker rm -f $(docker ps -aq)
+    fi
 }
 
 start() {
