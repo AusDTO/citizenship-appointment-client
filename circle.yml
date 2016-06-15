@@ -10,6 +10,7 @@ test:
     - docker-compose --version
   override:
     - ./go test
+    - ./go cross_browser_test
 
 deployment:
   beta-dev-heroku:
@@ -17,11 +18,3 @@ deployment:
     commands:
       - git push git@heroku.com:citizenship-appointment-beta.git $CIRCLE_SHA1:master
       - MONITOR_BASE_URL='https://citizenship-appointment-beta.herokuapp.com' MONITOR_CLIENT_ID='01234567890' MONITOR_FAMILY_NAME='Familyname' npm run monitor
-      - BROWSER=chrome SAUCE_ON_DEMAND=true npm run cross-browser-test
-      - BROWSER=firefox SAUCE_ON_DEMAND=true npm run cross-browser-test
-      - BROWSER='internet explorer' BROWSER_VERSION=11 SAUCE_ON_DEMAND=true npm run cross-browser-test
-      - BROWSER='internet explorer' BROWSER_VERSION=9 SAUCE_ON_DEMAND=true npm run cross-browser-test
-      - BROWSER=safari PLATFORM='OS X 10.11' BROWSER_VERSION=9 SAUCE_ON_DEMAND=true npm run cross-browser-test
-      - BROWSER='iphone' PLATFORM='OS X 10.10' BROWSER_VERSION='9.2' DEVICE_NAME='iPhone 6' DEVICE_ORIENTATION='portrait' SAUCE_ON_DEMAND=true npm run cross-browser-test
-      - BROWSER='internet explorer' BROWSER_VERSION=8 SAUCE_ON_DEMAND=true npm run old-browser-test
-      - BROWSER='firefox' BROWSER_VERSION=44 SAUCE_ON_DEMAND=true npm run nojs-browser-test
