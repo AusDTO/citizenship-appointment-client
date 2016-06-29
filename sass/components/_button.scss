@@ -1,21 +1,21 @@
 $default-button-height: 48px;
 
-// a,
-// .button {
-//
-//   &:focus {
-//     outline: 3px solid $outline-focus-color;
-//   }
-// }
+a,
+.button {
 
-// .button:focus,
-// .button:focus:hover,
-// input.button:focus,
-// input:focus,
-// input:active,
-// a:focus {
-//   outline: medium solid $outline-focus-color;
-// }
+  &:focus {
+    outline: 3px solid $outline-focus-color;
+  }
+}
+
+.button:focus,
+.button:focus:hover,
+input.button:focus,
+input:focus,
+input:active,
+a:focus {
+  outline: medium solid $outline-focus-color;
+}
 
 a,
 .button,
@@ -55,7 +55,9 @@ button {
   }
 
   @include media($mobile) {
-    width: 100%;
+    width: 90%;
+    margin-right: 5%;
+    margin-left: 5%;
   }
 }
 
@@ -79,14 +81,12 @@ a.button {
 
 .button-with-icon {
   @extend .button;
-  padding-right: 10px;
-
   * {
     vertical-align: middle;
   }
 
   .icon {
-    width: 1.5em;
-    height: 1.5em;
+    width: 1.3em;
+    height: 1.3em;
   }
 }

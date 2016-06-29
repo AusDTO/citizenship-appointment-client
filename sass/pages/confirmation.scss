@@ -9,15 +9,41 @@
   }
 }
 
-.appointment-detail {
+.info-card {
   @include span-columns(6 of 12);
 
   @include media($mobile) {
     @include span-columns(1);
   }
+}
 
-  padding: 20px;
+.info-card.appointment-detail {
+  padding: 30px;
+  padding-right: 0;
 
+  @include media($mobile) {
+    padding: 20px;
+  }
+}
+
+.info-card.appointment-ticket {
+  padding: 30px;
+  padding-left: 0;
+
+  @include media($mobile) {
+    padding: 20px;
+  }
+}
+
+@include media($mobile) {
+  .info-card {
+    @include span-columns(1);
+    padding: 20px;
+  }
+}
+
+
+.appointment-detail {
   .appointment-type {
     font-weight: bold;
     padding-top: 10px;
@@ -25,7 +51,8 @@
 
   .appointment-date,
   .appointment-time {
-    font-size: 30px;
+    font-size: 24px;
+    white-space: nowrap;
   }
 
   > div {
@@ -38,12 +65,13 @@
   padding: 10px;
   text-align: center;
   background-color: $white;
-  border: 1px solid $mid-grey;
+  border: 1px solid $lighter-grey;
 }
 
 .barcode-frame {
-  * {
-    padding-bottom: 20px;
+  .barcode-image {
+    margin-top: 20px;
+    margin-bottom: 10px;
   }
 }
 
@@ -75,7 +103,7 @@
 }
 
 .button#print_page {
-  @include media($mobile) {
+  @include media($tablet) {
     display: none;
   }
 }
@@ -99,6 +127,12 @@
 	z-index: 100;
   margin: 0;
   padding: 0;
+
+  @include media($mobile) {
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+  }
 
 }
 

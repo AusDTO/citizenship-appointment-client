@@ -1,30 +1,33 @@
 {{> premain }}
 <main>
     <div class="container main-container">
-        <h1><img class="inline-icon" src="/images/check-circle.svg" onerror="this.src='/images/check-circle.png';" role="presentation"/>Your appointment is scheduled</h1>
+        <h1><img class="inline-icon" src="/images/check-circle.svg" onerror="this.src='/images/check-circle.png';" role="presentation"/>Your appointment is booked</h1>
         <h2 class="steps-info">Step 3 of 3: Confirmation details</h2>
 
         <div class="confirmation-message">
             {{#hasEmail}}
             <span class="">We have sent this confirmation to your email address.</span>
             {{/hasEmail}}
-            <br/>
             {{#hasMobile}}
             <span class="">You will receive a free SMS reminder 24 hours prior to your appointment.</span>
             {{/hasMobile}}
         </div>
 
         <div class="appointment-confirmation">
-            <div class="appointment-detail">
-                <div class="appointment-type">Citizenship interview and test appointment</div>
+            <div class="info-card appointment-detail">
+                <div class="inline-icon-with-text">
+                    <img src="/images/calendar.svg" onerror="this.src='/images/calendar.png';" class="icon" alt ="" role="presentation"/>
+                    <span class="text-label">Citizenship interview and test appointment</span>
+                </div>
                 <div>
                     <span class="appointment-date">{{ appointment_date }}, </span>
                     <span class="appointment-time">{{ appointment_time }}</span>
                 </div>
 
-                <img src="/images/map-marker.svg" onerror="this.src='/images/map-marker.png';" class="inline-icon" alt ="" role="presentation"/><span class="text-label">Appointment location</span>
-                <div>
-                    <a href="https://www.google.com.au/maps?daddr={{locationURL}}" target="_blank" aria-label="{{ location }} Press to open google maps to see directions" class="print-not-expand">{{ location }} (map)</a>
+                <div class="inline-icon-with-text">
+                    <img src="/images/map-marker.svg" onerror="this.src='/images/map-marker.png';" class="icon" alt ="" role="presentation"/>
+                    <span class="text-label">Appointment location</span>
+                    <div><a href="https://www.google.com.au/maps?daddr={{locationURL}}" target="_blank" aria-label="{{ location }} Press to open google maps to see directions" tabindex="1">{{ location }} (map)</a></div>
                 </div>
 
                 <div class="dropdown inline-button" id="addToCalendarDropdown">
@@ -35,32 +38,42 @@
                     <ul class="add-to-calendar-list" id="calendarOptions">
                         <li class="cal_option">
                             <a class="cal_option" href="/calendar.ics" target="_blank" aria-label="Add to apple calendar">
-                                <img src="/images/apple.svg" onerror="this.src='/images/apple.png';" class="inline-icon" alt =""/>
-                                <span>Apple Calendar</span>
+                                <div class="inline-icon-with-text">
+                                    <img src="/images/apple.svg" onerror="this.src='/images/apple.png';" class="icon" alt =""/>
+                                    <span>Apple Calendar</span>
+                                </div>
                             </a>
                         </li>
                         <li class="cal_option">
                             <a class="cal_option" href="/googlecalendar" target="_blank" aria-label="Add to google calendar">
-                                <img src="/images/google.svg" onerror="this.src='/images/google.png';" class="inline-icon" alt =""/>
-                                <span>Google</span>
+                                <div class="inline-icon-with-text">
+                                    <img src="/images/google.svg" onerror="this.src='/images/google.png';" class="icon" alt =""/>
+                                    <span>Google</span>
+                                </div>
                             </a>
                         </li>
                         <li class="cal_option">
                             <a class="cal_option" href="/calendar.ics" target="_blank" aria-label="Add to outlook calendar">
-                                <img src="/images/windows.svg" width="15" onerror="this.src='/images/windows.png';" class="inline-icon" alt =""/>
-                                <span>Outlook</span>
+                                <div class="inline-icon-with-text">
+                                    <img src="/images/windows.svg" width="15" onerror="this.src='/images/windows.png';" class="icon" alt =""/>
+                                    <span>Outlook</span>
+                                </div>
                             </a>
                         </li>
                         <li class="cal_option">
                             <a class="cal_option" href="/outlookonline" target="_blank" aria-label="Add to outlook online calendar">
-                                <img src="/images/windows.svg" onerror="this.src='/images/windows.png';" class="inline-icon" alt =""/>
-                                <span>Outlook Online</span>
+                                <div class="inline-icon-with-text">
+                                    <img src="/images/windows.svg" onerror="this.src='/images/windows.png';" class="icon" alt =""/>
+                                    <span>Outlook Online</span>
+                                </div>
                             </a>
                         </li>
                         <li class="cal_option">
                             <a class="cal_option" href="/yahoocalendar" target="_blank" aria-label="Add to yahoo calendar">
-                                <img src="/images/yahoo.svg" onerror="this.src='/images/yahoo.png';" class="inline-icon" alt =""/>
-                                <span>Yahoo</span>
+                                <div class="inline-icon-with-text">
+                                    <img src="/images/yahoo.svg" onerror="this.src='/images/yahoo.png';" class="icon" alt =""/>
+                                    <span>Yahoo</span>
+                                </div>
                             </a>
                         </li>
                     </ul>
@@ -70,13 +83,13 @@
                     Print page
                 </button>
             </div>
-            <div class="appointment-detail">
+            <div class="info-card appointment-ticket">
                 <div class="barcode-frame">
                     <div class="barcode-text">
                         Scan this barcode at the reception kiosk on your arrival.
                         Or use your client ID below.
                     </div>
-                    <img src="/barcode/pdf417/{{clientId}}" alt="Barcode to scan on your arrival" />
+                    <img class="barcode-image" src="/barcode/pdf417/{{clientId}}" alt="Barcode to scan on your arrival" />
                     <div class="barcode-text">
                         Client ID: {{clientId}}
                     </div>

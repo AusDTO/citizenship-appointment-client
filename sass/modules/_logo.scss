@@ -6,11 +6,11 @@
   padding-left: em(5);
 }
 
-.au-gov-coat-of-arms {
-  height: em(55);
-}
-
 .au-gov-logo {
+  @include media($mobile) {
+    font-size: 14px;
+  }
+
   * {
     vertical-align: middle;
   }

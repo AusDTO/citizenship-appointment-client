@@ -2,6 +2,22 @@
   overflow: hidden;
 }
 
+.inline-icon-with-text {
+  * {
+    vertical-align: middle;
+  }
+
+  .icon {
+    width: 1.2em;
+    height: 1.2em;
+    padding-right: 3px;
+  }
+}
+
+.text-label {
+  font-weight: bold;
+}
+
 .inline-icon {
   width: 1.2em;
   height: 1.2em;
@@ -13,7 +29,6 @@ ul {
 	list-style: disc outside;
   padding-left: 1rem;
   margin-bottom: 0px;
-  margin-left: 2rem;
 
   li {
   	margin-bottom: 0.2rem;

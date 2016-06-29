@@ -46,6 +46,28 @@
                 <div><span class="validation-error inactive" id="clientId-pattern" aria-live="polite" role="alert">Client ID should contain 11 digits only</span></div>
             </div>
 
+            <![if !IE]>
+            <div class="client-id-help">
+                <div class="client-id-help-link">
+                    <span class="inline-icon-with-text">
+                        <a href="#help" name="nohelp" class="client-id-help-show--link">Show how to find your client ID <img class="icon" src="/images/angle-down.svg" alt="" onerror="this.src='/images/angle-down.png';"/></a>
+                    </span>
+                </div>
+                <div class="client-id-help-link hidden">
+                    <span class="inline-icon-with-text">
+                        <a href="#nohelp" name="help" class="client-id-help-hide--link">Hide how to find your client ID <img class="icon" src="/images/angle-down.svg" alt="" onerror="this.src='/images/angle-down.png';"/></a>
+                    </span>
+                    <div class="client-id-help-text">
+                        <p>
+                            The client ID is an eleven digit number that was assigned to you when you lodged your citizenship application.
+                        </p>
+                        <p>
+                            Your client ID would have been included in any correspondence you would have received from the department regarding your citizenship application.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <![endif]>
             <!--[if lte IE 8]>
             <div class="client-id-help">
                 <div class="client-id-help-text">
@@ -58,24 +80,6 @@
                 </div>
             </div>
             <![endif]-->
-            <![if !IE]>
-            <div class="client-id-help">
-                <div class="client-id-help-link">
-                    <a href="#help" name="nohelp" class="client-id-help-show--link">Show how to find your client ID</a>
-                </div>
-                <div class="client-id-help-link hidden">
-                    <a href="#nohelp" name="help" class="client-id-help-hide--link">Hide how to find your client ID</a>
-                    <div class="client-id-help-text">
-                        <p>
-                            The client ID is an eleven digit number that was assigned to you when you lodged your citizenship application.
-                        </p>
-                        <p>
-                            Your client ID would have been included in any correspondence you would have received from the department regarding your citizenship application.
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <![endif]>
 
 
             <div class="inline-form-group">

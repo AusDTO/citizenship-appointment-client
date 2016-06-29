@@ -1,22 +1,19 @@
 .footer {
-  padding-top: em(10);
-  padding-bottom: em(10);
   width: 100%;
-  min-height: em(50);
+  min-height: 90px;
   background-color: $slate;
 }
 
 .footer-link-group {
-  @include span-columns(10);
-  font-size: 0.8rem;
-  padding-top: em(20);
-
-  @include media($tablet) {
-    @include span-columns(7);
-  }
+  min-height: 90px;
+  vertical-align: middle;
+  font-size: 14px;
+  min-height: em(70);
 }
 
 .footer-link {
+  vertical-align: middle;
+
   a {
     color: $white;
     white-space: nowrap;
@@ -28,26 +25,10 @@
   }
 }
 
-.footer-image {
-  @include span-columns(2);
-  @include omega();
-  text-align: right;
-
-  @include media($tablet) {
-    @include span-columns(1);
-    @include omega();
-  }
-}
-
 @include media($mobile) {
-  .footer-link-group,
-  .footer-image {
+  .footer-link-group {
     @include span-columns(1);
     padding-top: 0;
-  }
-
-  .footer-image {
-    text-align: left;
   }
 
   .footer-link {

@@ -1,8 +1,8 @@
 @mixin banner($color) {
   width: 100%;
   background-color: $color;
-  padding-top: 0.5em;
-  padding-bottom: 0.5em;
+  padding-top: 0.7em;
+  padding-bottom: 0.7em;
 
   .banner-heading {
     font-weight: bold;

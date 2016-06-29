@@ -38,17 +38,13 @@ main {
 }
 
 .main-container {
-  margin-bottom: 30px;
+  margin-bottom: 50px;
 }
 
 .container {
   @include outer-container(75%);
 
-  @include media($tablet) {
-    @include outer-container(95%);
-  }
-
-  @include media($mobile) {
+  @include media($desktop) {
     @include outer-container(95%);
   }
 }

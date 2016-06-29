@@ -3,9 +3,17 @@
 
 .appointment-list {
   display: table;
-  max-width: 715px;
+  max-width: 756px;
   margin-right: auto;
   margin-left: auto;
+
+  @include media($tablet) {
+    max-width: 630px;
+  }
+
+  @include media($mobile) {
+    max-width: 294px;
+  }
 }
 
 .appointment-list-item {
@@ -14,14 +22,14 @@
   line-height: 40px;
   min-height: 40px;
   min-width: 110px;
-  margin: 4px;
+  margin: 6px 8px;
   border: 1px solid $mid-grey;
-}
 
-// .appointment-list-item.is-active {
-//   border-color: $slate;
-//   background: $slate;
-// }
+  @include media($mobile) {
+    min-width: 86px;
+    margin: 6px 6px;
+  }
+}
 
 .appointment-link {
   font-size: 1.2em;

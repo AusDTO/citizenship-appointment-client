@@ -2,21 +2,14 @@
 //––––––––––––––––––––––––––––––––––––––––––––––––––
 
 .confirm-appointment-button {
-  margin-top: 20px;
   margin-bottom: 20px;
 }
 
 .selected-appointment-detail {
+  padding: 20px 5px;
   font-size: 24px;
+  
   span {
-    display: inline-block;
-  }
-}
-
-@media (max-width: 550px) {
-  .selected-appointment-detail {
-    span {
-      display: block;
-    }
+    white-space: nowrap;
   }
 }
