@@ -5,13 +5,13 @@
 }
 
 .footer-link-group {
+  display: table;
   min-height: 90px;
-  vertical-align: middle;
   font-size: 14px;
-  min-height: em(70);
 }
 
 .footer-link {
+  display: table-cell;
   vertical-align: middle;
 
   a {
