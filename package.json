@@ -60,6 +60,7 @@
   "dependencies": {
     "babel-polyfill": "^6.3.14",
     "body-parser": "^1.14.2",
+    "bourbon": "^4.2.7",
     "bwip-js": "^0.15.1",
     "consolidate": "^0.13.1",
     "express": "^4.13.3",
