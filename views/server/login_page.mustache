@@ -24,6 +24,16 @@
         </div>
         {{/system_error }}
 
+        {{#maintenance}}
+        <div class="error-div" role="alert">
+            <img class="error-icon" src="/images/warning.svg" alt="" onerror="this.src='/images/warning.png';">
+            <span class="error-message">
+                This service is temporarily unavailable due to a scheduled maintenance period on
+                Friday, 5th August 2016, between 5:00 AM and 9:00 AM Sydney/Australian time.
+            </span>
+        </div>
+        {{/maintenance }}
+
         {{#expired}}
         <div class="error-div" role="alert">
             <img class="error-icon" src="/images/warning.svg" alt="" onerror="this.src='/images/warning.png';">
