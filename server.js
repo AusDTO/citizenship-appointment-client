@@ -92,6 +92,11 @@ app.get('/login', (req, res) => {
 });
 
 app.get('/calendar', (req, res) => {
+
+  const time = moment().add(1, 'days');
+  const appointment_date = time.format('dddd D MMMM YYYY');
+  const appointment_time = time.format('h:mm A');
+
   res.render('calendar_page', {
     partials: extendObject(
       {
@@ -103,6 +108,8 @@ app.get('/calendar', (req, res) => {
     error: req.query.error,
     unavailable: req.query.unavailable,
     not_eligible: req.query.not_eligible,
+    appointment_date,
+    appointment_time,
     location,
     locationURL,
     today_date: moment().format('YYYY-MM-DDTHH:mm:ss'),
