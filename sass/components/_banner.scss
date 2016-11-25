@@ -32,7 +32,15 @@
 }
 
 .feedback-survey {
-  @include banner(transparent);
+  position: absolute;
+  float: right;
+  width: 100%;
+}
+
+.feedback-survey span {
+  display: inline-block;
+  width: 100%;
+  text-align: right;
 }
 
 .warning-cookies {
