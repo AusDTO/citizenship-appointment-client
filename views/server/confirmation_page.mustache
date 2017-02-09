@@ -94,11 +94,6 @@
                         Client ID: {{clientId}}
                     </div>
                 </div>
-                <div class="apple-wallet-frame">
-                    <a href="/wallet/pass?id={{clientId}}&otherid={{customerId}}" {{^supportsWallet}}target="_blank"{{/supportsWallet}} class="add-to-wallet-link{{#useWalletModal}} add-to-wallet-modal-link{{/useWalletModal}}">
-                        <img src="/images/add-to-apple-wallet-button.svg" onerror="this.src='/images/add-to-apple-wallet-button.png';" alt="Add to Apple Wallet" class="apple-wallet-button"/>
-                    </a>
-                </div>
             </div>
         </div>
 
@@ -115,14 +110,13 @@
         <div class="appointment-info">
             <h3>When you arrive</h3>
             <ul class="bullet-list">
-                <li>Please arrive between 5 and 20 minutes before your appointment</li>
+                <li>Please arrive between 5 and 20 minutes before your appointment.</li>
                 <li>Collect a ticket at the kiosk, by entering your Client ID which is located at the top of the letter / email or scan the barcode from your email.</li>
                 <li>Wait until your number is called at the assigned counter.</li>
             </ul>
         </div>
     </div>
 </main>
-{{> apple_wallet_modal}}
 <script src='/analytics_auth.js'></script>
 <script src="/static/scriptselect/confirmation_scriptselect.js" charset="utf-8"></script>
 {{> postmain }}
