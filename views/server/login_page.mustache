@@ -51,7 +51,7 @@
                 <div><label for="clientId">
                     Client ID
                 </label></div>
-                <input autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" id="clientId" maxlength="11" type="text" name="username" {{#clientId}}value="{{clientId}}"{{/clientId}} aria-required="true" required pattern="[0-9]{11}" placeholder="Enter your 11 digit client ID"/>
+                <input tabindex="1" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" id="clientId" maxlength="11" type="text" name="username" {{#clientId}}value="{{clientId}}"{{/clientId}} aria-required="true" required pattern="[0-9]{11}" placeholder="Enter your 11 digit client ID"/>
                 <div><span class="validation-error inactive" id="clientId-required" aria-live="polite" role="alert">Client ID is required</span></div>
                 <div><span class="validation-error inactive" id="clientId-pattern" aria-live="polite" role="alert">Client ID should contain 11 digits only</span></div>
             </div>
@@ -96,13 +96,13 @@
                 <div><label for="familyName">
                     Family name
                 </label></div>
-                <input id="familyName" autocomplete="off" autocorrect="off" spellcheck="false" type="text" name="familyName" aria-required="true" required maxlength="200"/>
+                <input tabindex="2" id="familyName" autocomplete="off" autocorrect="off" spellcheck="false" type="text" name="familyName" aria-required="true" required maxlength="200"/>
                 <div><span class="validation-error inactive" id="familyName-required" aria-live="polite" role="alert">Family name is required</span></div>
             </div>
 
             <div class="inline-form-group">
                 <div><span role="presentation">&nbsp;</span></div>
-                <button type="submit" class="button-with-icon" id="submitLogin" aria-label="Press to log in to the booking system">
+                <button tabindex="3" type="submit" class="button-with-icon" id="submitLogin" aria-label="Press to log in to the booking system">
                     <span>Log in</span><img src="/images/angle-right-white.svg" onerror="this.src='/images/angle-right-white.png';" class="icon" alt =""/>
                 </button>
             </div>
