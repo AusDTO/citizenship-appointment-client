@@ -49,7 +49,7 @@ test('should successfully login and book appointment', (assert) => {
       .waitForVisible('#submitCalendar', 30000)
       .click('#submitCalendar')
       .timeouts('page load',30000)
-      .waitForVisible('#print_page', 30000)
+      .waitForVisible(`[class*="button inline-button"]`, 30000)
       .getTitle()
       .then((title) => {
         assert.equal(title, 'Australian Government - Citizenship Appointment Booking - Appointment Confirmation');
